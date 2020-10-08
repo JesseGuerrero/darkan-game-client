@@ -33,9 +33,16 @@ public class Class442 {
         aRandomAccessFile5359.seek(0L);
     }
 
-    static void method7403(int i_0, int i_1, int i_2, boolean bool_3) {
-        if (MovingAnimation.isInterfaceLoaded(i_0, null)) {
-            InteractableObject.method16099(Interface.INTERFACES[i_0].components, -1, i_1, i_2, bool_3);
+    static void method7403(int interfaceID, int windowWidth, int windowHeight, boolean bool_3) {
+        if(interfaceID == 906 || interfaceID == 744) {
+            if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+                InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3, interfaceID);
+            }
+            return;
+        }
+
+        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+            InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3);
         }
 
     }

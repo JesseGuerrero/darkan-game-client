@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.jagex.clans.settings.ChangeClanSetting;
 
 import java.util.Calendar;

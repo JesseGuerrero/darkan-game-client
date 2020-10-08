@@ -103,9 +103,9 @@ public class Class150 {
         }
     }
 
-    public static void method2582(int i_0, int[] ints_1) {
-        if (i_0 != -1 && MovingAnimation.isInterfaceLoaded(i_0, ints_1)) {
-            IComponentDefinitions[] arr_3 = Interface.INTERFACES[i_0].components;
+    public static void method2582(int interfaceID, int[] ints_1) {
+        if (interfaceID != -1 && MovingAnimation.isInterfaceLoaded(interfaceID, ints_1)) {
+            IComponentDefinitions[] arr_3 = Interface.INTERFACES[interfaceID].components;
             Connection.runIComponentScripts(arr_3);
         }
     }

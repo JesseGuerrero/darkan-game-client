@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.Loader;
 import com.jagex.clans.settings.ChangeClanSetting;
 import jaclib.ping.Ping;
@@ -1731,25 +1732,26 @@ public class client extends Engine {
 
 		for (int i_3 = 0; i_3 < arr_2.length; i_3++) {
 			Class358 class358_4 = arr_2[i_3];
-			String string_7 = SubInterface.suppliedApplet.getParameter(class358_4.aString4159);
-			if (string_7 != null) {
+			String clientInfo = SubInterface.suppliedApplet.getParameter(class358_4.aString4159);
+//			System.out.println(clientInfo);
+			if (clientInfo != null) {
 				switch (Integer.parseInt(class358_4.aString4159)) {
 				case 1:
-					if (string_7 != null) {
-						aByteArray7152 = Class378.method6436(CutsceneEntity.method1353(string_7));
+					if (clientInfo != null) {
+						aByteArray7152 = Class378.method6436(CutsceneEntity.method1353(clientInfo));
 						if (aByteArray7152.length < 16) {
 							aByteArray7152 = null;
 						}
 					}
 					break;
 				case 2:
-					aBool7158 = "true".equalsIgnoreCase(string_7);
+					aBool7158 = "true".equalsIgnoreCase(clientInfo);
 					break;
 				case 3:
-					aString7165 = string_7;
+					aString7165 = clientInfo;
 					break;
 				case 4:
-					aString7156 = string_7;
+					aString7156 = clientInfo;
 					if (aString7156.length() > 100) {
 						aString7156 = null;
 					}
@@ -1759,53 +1761,53 @@ public class client extends Engine {
 						ConnectionInfo.LOBBY_CONNECTION_INFO = new ConnectionInfo();
 					}
 
-					ConnectionInfo.LOBBY_CONNECTION_INFO.host = string_7;
+					ConnectionInfo.LOBBY_CONNECTION_INFO.host = clientInfo;
 					break;
 				case 6:
-					Static.COUNTRY = Integer.parseInt(string_7);
+					Static.COUNTRY = Integer.parseInt(clientInfo);
 					break;
 				case 7:
-					str_1 = string_7;
+					str_1 = clientInfo;
 					break;
 				case 8:
-					CURRENT_GAME = Static.method6376(Integer.parseInt(string_7));
+					CURRENT_GAME = Static.method6376(Integer.parseInt(clientInfo));
 					break;
 				case 9:
-					aBool7310 = "true".equalsIgnoreCase(string_7);
+					aBool7310 = "true".equalsIgnoreCase(clientInfo);
 					break;
 				case 10:
-					aBool7147 = "true".equalsIgnoreCase(string_7);
+					aBool7147 = "true".equalsIgnoreCase(clientInfo);
 					break;
 				case 11:
-					aBool7161 = "true".equalsIgnoreCase(string_7);
+					aBool7161 = "true".equalsIgnoreCase(clientInfo);
 				case 12:
 				case 21:
 					break;
 				case 13:
-					Class464.aString5555 = string_7;
+					Class464.aString5555 = clientInfo;
 					break;
 				case 14:
 					if (ConnectionInfo.LOBBY_CONNECTION_INFO == null) {
 						ConnectionInfo.LOBBY_CONNECTION_INFO = new ConnectionInfo();
 					}
 
-					ConnectionInfo.LOBBY_CONNECTION_INFO.worldId = Integer.parseInt(string_7);
+					ConnectionInfo.LOBBY_CONNECTION_INFO.worldId = Integer.parseInt(clientInfo);
 					break;
 				case 15:
-					Class176.BUILD_ENVIRONMENT = Class182.method3040(Integer.parseInt(string_7));
+					Class176.BUILD_ENVIRONMENT = Class182.method3040(Integer.parseInt(clientInfo));
 					if (Class176.BUILD_ENVIRONMENT != ModeWhere.WIP && Class176.BUILD_ENVIRONMENT != ModeWhere.RC && Class176.BUILD_ENVIRONMENT != ModeWhere.BUILD_LIVE && Class176.BUILD_ENVIRONMENT != ModeWhere.LIVE) {
 						Class176.BUILD_ENVIRONMENT = ModeWhere.LIVE;
 					}
 					break;
 				case 16:
 					ConnectionInfo.JS5_CONNECTION_INFO = new ConnectionInfo();
-					ConnectionInfo.JS5_CONNECTION_INFO.worldId = Integer.parseInt(string_7);
+					ConnectionInfo.JS5_CONNECTION_INFO.worldId = Integer.parseInt(clientInfo);
 					break;
 				case 17:
-					aString7164 = string_7;
+					aString7164 = clientInfo;
 					break;
 				case 18:
-					if ("true".equalsIgnoreCase(string_7)) {
+					if ("true".equalsIgnoreCase(clientInfo)) {
 						IS_MEMBER = true;
 					}
 					break;
@@ -1814,16 +1816,16 @@ public class client extends Engine {
 					Class151.method2594("", new RuntimeException());
 					break;
 				case 20:
-					aString7157 = string_7;
+					aString7157 = clientInfo;
 					break;
 				case 22:
-					aBool7160 = "true".equalsIgnoreCase(string_7);
+					aBool7160 = "true".equalsIgnoreCase(clientInfo);
 					break;
 				case 23:
-					AFFILIATE = Integer.parseInt(string_7);
+					AFFILIATE = Integer.parseInt(clientInfo);
 					break;
 				case 24:
-					HDWaterTile.SERVER_ENVIRONMENT = (ServerEnvironment) Class386.identify(ServerEnvironment.values(), Integer.parseInt(string_7));
+					HDWaterTile.SERVER_ENVIRONMENT = (ServerEnvironment) Class386.identify(ServerEnvironment.values(), Integer.parseInt(clientInfo));
 					if (HDWaterTile.SERVER_ENVIRONMENT == ServerEnvironment.LOCAL) {
 						HDWaterTile.SERVER_ENVIRONMENT = ServerEnvironment.WTWIP;
 					} else if (!ServerEnvironment.method8308(HDWaterTile.SERVER_ENVIRONMENT) && HDWaterTile.SERVER_ENVIRONMENT != ServerEnvironment.LIVE) {
@@ -1831,37 +1833,37 @@ public class client extends Engine {
 					}
 					break;
 				case 25:
-					aBool7159 = "true".equalsIgnoreCase(string_7);
+					aBool7159 = "true".equalsIgnoreCase(clientInfo);
 					break;
 				case 26:
-					aLong7153 = Long.parseLong(string_7);
+					aLong7153 = Long.parseLong(clientInfo);
 					break;
 				case 27:
-					anInt7163 = Integer.parseInt(string_7);
+					anInt7163 = Integer.parseInt(clientInfo);
 					break;
 				case 28:
-					aBool7189 = "true".equals(string_7);
+					aBool7189 = "true".equals(clientInfo);
 					break;
 				case 29:
-					aBool7151 = "true".equals(string_7);
+					aBool7151 = "true".equals(clientInfo);
 					break;
 				case 30:
-					BASDefinitions.anInt2831 = Integer.parseInt(string_7);
+					BASDefinitions.anInt2831 = Integer.parseInt(clientInfo);
 					break;
 				case 31:
-					Class223.CURRENT_LANGUAGE = Language.method8278(Integer.parseInt(string_7));
+					Class223.CURRENT_LANGUAGE = Language.method8278(Integer.parseInt(clientInfo));
 					break;
 				case 32:
-					RenderFlagMap.aString3643 = string_7;
+					RenderFlagMap.aString3643 = clientInfo;
 					break;
 				case 33:
-					aString7281 = string_7;
+					aString7281 = clientInfo;
 					break;
 				case 34:
-					Class445.aString5384 = string_7;
+					Class445.aString5384 = clientInfo;
 					break;
 				case 35:
-					anInt7447 = Integer.parseInt(string_7);
+					anInt7447 = Integer.parseInt(clientInfo);
 					if (anInt7447 < 0 || anInt7447 >= aColorArray7186.length) {
 						anInt7447 = 0;
 					}
@@ -2006,7 +2008,7 @@ public class client extends Engine {
 				Login.method5018();
 			} else if (GameState.inLobby(GAME_STATE) && !GameState.method7742(GAME_STATE)) {
 				method12044();
-				Login.method5018();
+				Login.method5018();//LoginYO
 			} else if (GAME_STATE == 12) {
 				Login.method5018();
 			} else if (GameState.loggedIn(GAME_STATE) && !GameState.method7742(GAME_STATE)) {

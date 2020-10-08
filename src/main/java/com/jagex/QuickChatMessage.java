@@ -238,7 +238,7 @@ public class QuickChatMessage {
             client.OPEN_INTERFACES = new IterableNodeMap(8);
             MeshModifier.method7041();
             client.BASE_WINDOW_ID = QuickchatFiller.ENTITY_DEFAULTS.lobbyWindow;
-            Class516.method8867(false);
+            Class516.method8867(false);//call to banner
             Static.method6378();
             Class150.method2582(client.BASE_WINDOW_ID, null);
         }

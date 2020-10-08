@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public class Class274 {
 
     protected static Class470 aClass470_3336;

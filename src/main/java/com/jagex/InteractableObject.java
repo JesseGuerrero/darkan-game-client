@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObject {
 
     public Class123 aClass123_10509;
@@ -14,27 +16,81 @@ public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObje
         method13008(1);
     }
 
-    public static void method16099(IComponentDefinitions[] arr_0, int i_1, int i_2, int i_3, boolean bool_4) {
-        for (int i_6 = 0; i_6 < arr_0.length; i_6++) {
-            IComponentDefinitions icomponentdefinitions_7 = arr_0[i_6];
-            if (icomponentdefinitions_7 != null && icomponentdefinitions_7.parent == i_1) {
-                Class484.initSizes(icomponentdefinitions_7, i_2, i_3, bool_4);
-                Class246.method4204(icomponentdefinitions_7, i_2, i_3);
-                if (icomponentdefinitions_7.scrollX > icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width) {
-                    icomponentdefinitions_7.scrollX = icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width;
+    public static void method16099(IComponentDefinitions[] InterComponent, int i_1, int width, int height, boolean bool_4) {
+
+
+        for (int i_6 = 0; i_6 < InterComponent.length; i_6++) {
+            /*if(InterComponent[i_6].idHash != 59375617)*/ {//a unique id for banner above all windows interface
+                IComponentDefinitions icomponentdefinitions_7 = InterComponent[i_6];
+
+
+
+
+                if (icomponentdefinitions_7 != null && icomponentdefinitions_7.parent == i_1) {
+                    Class484.initSizes(icomponentdefinitions_7, width, height, bool_4);
+                    Class246.method4204(icomponentdefinitions_7, width, height);
+                    if (icomponentdefinitions_7.scrollX > icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width) {
+                        icomponentdefinitions_7.scrollX = icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width;
+                    }
+                    if (icomponentdefinitions_7.scrollX < 0) {
+                        icomponentdefinitions_7.scrollX = 0;
+                    }
+                    if (icomponentdefinitions_7.scrollY > icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height) {
+                        icomponentdefinitions_7.scrollY = icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height;
+                    }
+                    if (icomponentdefinitions_7.scrollY < 0) {
+                        icomponentdefinitions_7.scrollY = 0;
+                    }
+                    if (icomponentdefinitions_7.type == ComponentType.CONTAINER) {
+                        Class480.method8044(InterComponent, icomponentdefinitions_7, bool_4);
+                        if (icomponentdefinitions_7.basePositionX == 0 && icomponentdefinitions_7.basePositionY == 0 && icomponentdefinitions_7.baseHeight == 50) {
+                            System.out.println(icomponentdefinitions_7.spriteId);
+                        }
+                    }
                 }
-                if (icomponentdefinitions_7.scrollX < 0) {
-                    icomponentdefinitions_7.scrollX = 0;
-                }
-                if (icomponentdefinitions_7.scrollY > icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height) {
-                    icomponentdefinitions_7.scrollY = icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height;
-                }
-                if (icomponentdefinitions_7.scrollY < 0) {
-                    icomponentdefinitions_7.scrollY = 0;
-                }
-                if (icomponentdefinitions_7.type == ComponentType.CONTAINER) {
-                    Class480.method8044(arr_0, icomponentdefinitions_7, bool_4);
-                }
+            }
+        }
+    }
+
+
+    /*
+    * Custom overload to test lobby. The goal is to discover how to stop the top banner from appearing
+    * We have tried using variables inside component 1 below but they all appear to be default and empty
+    * I recommend looking for when it is initialized
+    * */
+    public static void method16099(IComponentDefinitions[] InterComponent, int i_1, int width, int height, boolean bool_4, int interID) {
+
+
+        for (int i_6 = 0; i_6 < InterComponent.length; i_6++) {
+            if(i_6 == 2 && interID == 906) {
+                //continue;
+                System.out.println("===Time===");
+            }
+
+            IComponentDefinitions icomponentdefinitions_7 = InterComponent[i_6];
+
+
+                if (icomponentdefinitions_7 != null && icomponentdefinitions_7.parent == i_1) {
+                    Class484.initSizes(icomponentdefinitions_7, width, height, bool_4);
+                    Class246.method4204(icomponentdefinitions_7, width, height);
+
+//                    if (icomponentdefinitions_7.scrollX > icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width) {
+//                        icomponentdefinitions_7.scrollX = icomponentdefinitions_7.scrollWidth - icomponentdefinitions_7.width;
+//                    }
+//                    if (icomponentdefinitions_7.scrollX < 0) {
+//                        icomponentdefinitions_7.scrollX = 0;
+//                    }
+//                    if (icomponentdefinitions_7.scrollY > icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height) {
+//                        icomponentdefinitions_7.scrollY = icomponentdefinitions_7.scrollHeight - icomponentdefinitions_7.height;
+//                    }
+//                    if (icomponentdefinitions_7.scrollY < 0) {
+//                        icomponentdefinitions_7.scrollY = 0;
+//                    }
+                    if (icomponentdefinitions_7.type == ComponentType.CONTAINER) {
+                        Class480.method8044(InterComponent, icomponentdefinitions_7, bool_4);
+                    }
+
+
             }
         }
     }

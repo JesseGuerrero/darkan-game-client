@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Calendar;
 
+import com.Getlineonce;
 import com.Loader;
 
 public class ConnectionInfo {
@@ -13,7 +14,7 @@ public class ConnectionInfo {
     public int worldId;
     public int anInt5437 = 1;
     public int anInt5434 = -190419398;
-    boolean alternate = true;
+    boolean alternate = false;
     boolean proxied;
     
 	static PingRequest CURRENT_WORLD_PING_REQUEST;

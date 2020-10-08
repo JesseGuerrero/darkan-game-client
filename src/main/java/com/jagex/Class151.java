@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.io.DataInputStream;
 import java.net.URL;
 

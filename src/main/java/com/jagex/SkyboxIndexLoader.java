@@ -44,9 +44,19 @@ public class SkyboxIndexLoader {
                         IComponentDefinitions component = interface_21.components[i] = new IComponentDefinitions();
                         component.idHash = i + (interfaceId << 16);
                         component.readValues(new ByteBuf(bytes_8));
+                        System.out.println("Interface Component Index: " + i);
+                        if(component.spriteId >= 10152 && component.spriteId <= 10173) {
+                            System.out.println("Sprites loading...");
+
+
+                            component.hidden = true;//component is just hidden but not totally removed. Try finding if there is one in the background and try removing components.
+                            //you can also try changing the rest of the interfaces
+
+                        }
                     }
                 }
             }
+
             return interface_21;
         }
     }

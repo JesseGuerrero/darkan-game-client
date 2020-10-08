@@ -296,6 +296,13 @@ public class IComponentDefinitions {
         }
         if (type == ComponentType.SPRITE) {
             spriteId = rsbytebuffer_1.readInt();
+
+//            System.out.println(spriteId);
+
+//            if(spriteId >= 10152 && spriteId <= 10173) { //Remove text images of ids
+//                hidden=true;
+//            }
+
             angle2d = rsbytebuffer_1.readUnsignedShort();
             int flag2 = rsbytebuffer_1.readUnsignedByte();
             tiling = (flag2 & 0x1) != 0;

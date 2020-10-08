@@ -1,7 +1,6 @@
 package com;
 
 import com.jagex.client;
-
 import javax.swing.*;
 import java.applet.Applet;
 import java.applet.AppletStub;
@@ -10,6 +9,8 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
+
+
 
 public class Loader extends Applet implements AppletStub {
     private static final long serialVersionUID = 1L;
@@ -27,8 +28,8 @@ public class Loader extends Applet implements AppletStub {
     public static final boolean USING_ISAAC = false;
     public static final boolean LOBBY_ENABLED = true;
     public static final boolean DISABLE_XTEA_CRASH = true;
-    public static boolean LOCAL = true;
-    public static String IP_ADDRESS = LOCAL ? "127.0.0.1" : "70.35.204.165";
+    public static boolean LOCAL = false;
+    public static String IP_ADDRESS = LOCAL ? "127.0.0.1" : "axios.trentonkress.com";
     public static Properties clientParams = new Properties();
 
     public static Loader INSTANCE;
@@ -42,7 +43,7 @@ public class Loader extends Applet implements AppletStub {
     public static void main(String[] arg0) {
         if(arg0.length > 0) {
             LOCAL = Boolean.parseBoolean(arg0[0]);
-            IP_ADDRESS = LOCAL ? "127.0.0.1" : "70.35.204.165";
+            IP_ADDRESS = LOCAL ? "axios.trentonkress.com" : "axios.trentonkress.com";
             loadParams();
         }
         new Loader().doFrame();
@@ -117,12 +118,30 @@ public class Loader extends Applet implements AppletStub {
         clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    private JPanel createPanel() {
+        JPanel customPanel = new JPanel(new GridLayout(1, 1));
+        customPanel.setPreferredSize(new Dimension(25, 200));
+        customPanel.setBackground(Color.BLACK);
+
+
+
+        JButton jb = new JButton("GE");
+        customPanel.add(jb);
+
+        return customPanel;
+    }
+
     private void openFrame() {
         clientFrame = new JFrame("Darkan Client");
+
         clientFrame.setLayout(new BorderLayout());
         JPanel client_panel = new JPanel();
         client_panel.setLayout(new BorderLayout());
         client_panel.add(this);
+
+        //Adds the custom panel
+//        client_panel.add(createPanel(), BorderLayout.EAST);
+
         client_panel.setPreferredSize(new Dimension(765, 553));
         clientFrame.getContentPane().add(client_panel, "Center");
         clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +150,6 @@ public class Loader extends Applet implements AppletStub {
     }
 
     private void startClient() {
-
         client clnt = new client();
         clnt.supplyApplet(this);
         clnt.init();
