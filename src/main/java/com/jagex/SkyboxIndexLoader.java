@@ -49,7 +49,7 @@ public class SkyboxIndexLoader {
                             System.out.println("Sprites loading...");
 
 
-                            component.hidden = true;//component is just hidden but not totally removed. Try finding if there is one in the background and try removing components.
+//                            component.hidden = true;//component is just hidden but not totally removed. Try finding if there is one in the background and try removing components.
                             //you can also try changing the rest of the interfaces
 
                         }

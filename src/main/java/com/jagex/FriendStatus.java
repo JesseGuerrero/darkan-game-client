@@ -242,7 +242,7 @@ public class FriendStatus {
                                 class469_15 = new Class469(Class20.aClass477_182);
                                 for (CacheableNode_Sub15 class282_sub50_sub15_17 = (CacheableNode_Sub15) class469_15.method7790(); class282_sub50_sub15_17 != null; class282_sub50_sub15_17 = (CacheableNode_Sub15) class469_15.next()) {
                                     if (i_5 == i_6) {
-                                        CutsceneAction_Sub4.method13789((CacheableNode_Sub7) class282_sub50_sub15_17.aClass477_9770.aCacheableNode_5629.aCacheableNode_8119, i_3, i_4);
+                                        CutsceneAction_Sub4.method13789((CacheableNode_Sub7) class282_sub50_sub15_17.aClass477_9770.aCacheableNode_5629.aCacheableNode_8119, i_3, i_4, 1026140504);
                                         Class316.method5594();
                                         break;
                                     }

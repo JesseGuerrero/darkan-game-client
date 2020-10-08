@@ -1,10 +1,13 @@
 package com;
 
 import com.jagex.client;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.applet.Applet;
 import java.applet.AppletStub;
 import java.awt.*;
+import java.io.InputStream;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -118,18 +121,34 @@ public class Loader extends Applet implements AppletStub {
         clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private JPanel createPanel() {
-        JPanel customPanel = new JPanel(new GridLayout(1, 1));
-        customPanel.setPreferredSize(new Dimension(25, 200));
-        customPanel.setBackground(Color.BLACK);
-
-
-
-        JButton jb = new JButton("GE");
-        customPanel.add(jb);
-
-        return customPanel;
-    }
+//    private JPanel createPanel() {
+//        JPanel customPanel = new JPanel(new GridLayout(20, 1));
+//        customPanel.setPreferredSize(new Dimension(33, 500));
+//        customPanel.setBackground(Color.BLACK);
+//
+//        InputStream is = Loader.class.getClass().getResourceAsStream("/ge_logo.png");
+//
+//        try {
+//            Image image = ImageIO.read(is);
+//            ImageIcon gif = new ImageIcon(image);
+//            JButton jb = new JButton();
+//            jb.setIcon(gif);
+//            jb.setBackground(Color.BLACK);
+//
+//            customPanel.add(jb);
+////            jb.setHorizontalAlignment(SwingConstants.LEFT);
+//            is.close();
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//
+//        customPanel.setVisible(true);
+//
+//
+//        return customPanel;
+//    }
 
     private void openFrame() {
         clientFrame = new JFrame("Darkan Client");
