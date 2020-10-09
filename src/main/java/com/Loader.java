@@ -171,7 +171,7 @@ public class Loader extends Applet implements AppletStub {
 
     private void openFrame() { //TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
         clientFrame = new JFrame("Darkan");
-        clientFrame.setIconImage(getImage("995.gif"));
+        clientFrame.setIconImage(getImage("darkanicon.png"));
 
         clientFrame.setLayout(new BorderLayout());
         JPanel client_panel = new JPanel();
