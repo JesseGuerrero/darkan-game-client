@@ -11,17 +11,47 @@
     <build>
         <plugins>
 <!--            <plugin>-->
-<!--                <artifactId>maven-assembly-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <archive>-->
-<!--                        <manifest>-->
-<!--                            <mainClass>com.Loader</mainClass>-->
-<!--                        </manifest>-->
-<!--                    </archive>-->
-<!--                    <descriptorRefs>-->
-<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--                    </descriptorRefs>-->
-<!--                </configuration>-->
+<!--&lt;!&ndash;                Build Windows .exe&ndash;&gt;-->
+<!--                <groupId>com.akathist.maven.plugins.launch4j</groupId>-->
+<!--                <artifactId>launch4j-maven-plugin</artifactId>-->
+<!--                <version>1.5.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>l4j-clui</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>launch4j</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <headerType>gui</headerType>-->
+<!--                            <jar>${project.build.directory}/${artifactId}-${version}.jar</jar>-->
+<!--                            <dontWrapJar>false</dontWrapJar>-->
+<!--                            <outfile>${project.build.directory}/Darkan.exe</outfile>-->
+<!--                            <downloadUrl>http://java.com/download</downloadUrl>-->
+<!--                            <classPath>-->
+<!--                                <mainClass>com.Loader</mainClass>-->
+<!--                                <preCp>anything</preCp>-->
+<!--                            </classPath>-->
+<!--                            <icon>darkanicon.png</icon>-->
+<!--                            <jre>-->
+<!--                                <minVersion>1.8.0</minVersion>-->
+<!--                                <jdkPreference>preferJre</jdkPreference>-->
+<!--                            </jre>-->
+<!--                            <versionInfo>-->
+<!--                                <fileVersion>1.0.0.0</fileVersion>-->
+<!--                                <txtFileVersion>${project.version}</txtFileVersion>-->
+<!--                                <fileDescription>${project.name}</fileDescription>-->
+<!--                                <copyright>No Copyright</copyright>-->
+<!--                                <productVersion>1.0.0.0</productVersion>-->
+<!--                                <txtProductVersion>1.0.0.0</txtProductVersion>-->
+<!--                                <productName>${project.name}</productName>-->
+<!--                                <companyName>Darkan.org</companyName>-->
+<!--                                <internalName>Darkan</internalName>-->
+<!--                                <originalFilename>Darkan.exe</originalFilename>-->
+<!--                            </versionInfo>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
 <!--            </plugin>-->
 
             <plugin>
@@ -39,15 +69,15 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <executable>java</executable>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.5.1</version>-->
+<!--                <configuration>-->
+<!--                    <executable>java</executable>-->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
