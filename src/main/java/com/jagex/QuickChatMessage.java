@@ -220,8 +220,8 @@ public class QuickChatMessage {
         }
     }
 
-    static void method6161(boolean bool_0) {
-        if (bool_0) {
+    static void method6161(boolean inLobby) {
+        if (!inLobby) {
             if (client.BASE_WINDOW_ID != -1) {
                 Class337.unloadInterface(client.BASE_WINDOW_ID);
             }

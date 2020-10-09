@@ -34,15 +34,8 @@ public class Class442 {
     }
 
     static void method7403(int interfaceID, int windowWidth, int windowHeight, boolean bool_3) {
-        if(interfaceID == 906 || interfaceID == 744) {
-            if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
-                InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3, interfaceID);
-            }
-            return;
-        }
-
         if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
-            InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3);
+            InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3, interfaceID);
         }
 
     }

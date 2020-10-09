@@ -150,7 +150,7 @@ public class Loader extends Applet implements AppletStub {
 //        return customPanel;
 //    }
 
-    private void openFrame() {
+    private void openFrame() { //TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
         clientFrame = new JFrame("Darkan Client");
 
         clientFrame.setLayout(new BorderLayout());

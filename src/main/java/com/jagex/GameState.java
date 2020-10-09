@@ -31,7 +31,7 @@ public class GameState {
 	        }
 	
 	        if (state == 0) {
-	            QuickChatMessage.method6161(client.BASE_WINDOW_ID != QuickchatFiller.ENTITY_DEFAULTS.lobbyWindow);
+	            QuickChatMessage.method6161(client.BASE_WINDOW_ID == QuickchatFiller.ENTITY_DEFAULTS.lobbyWindow);
 	        }
 	
 	        if (state != 14 && state != 12) {

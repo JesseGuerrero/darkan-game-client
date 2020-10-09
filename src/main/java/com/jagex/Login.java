@@ -1,7 +1,6 @@
 package com.jagex;
 
-import com.Getlineonce;
-import com.Loader;
+
 import com.jagex.clans.settings.ChangeClanSetting;
 
 import java.io.IOException;
