@@ -121,6 +121,25 @@ public class Loader extends Applet implements AppletStub {
         clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    private Image getImage(String imgName) {
+        /*
+        imgName parameter is given "/" before hand and the images must be put into the resource folder in source.
+         */
+        Image img;
+
+        InputStream is = Loader.class.getClass().getResourceAsStream("/" + imgName);
+
+        try {
+            img = ImageIO.read(is);
+            is.close();
+        } catch(Exception e) {
+             e.printStackTrace();
+             return null;
+         }
+
+         return img;
+    }
+
 //    private JPanel createPanel() {
 //        JPanel customPanel = new JPanel(new GridLayout(20, 1));
 //        customPanel.setPreferredSize(new Dimension(33, 500));
@@ -151,7 +170,8 @@ public class Loader extends Applet implements AppletStub {
 //    }
 
     private void openFrame() { //TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
-        clientFrame = new JFrame("Darkan Client");
+        clientFrame = new JFrame("Darkan");
+        clientFrame.setIconImage(getImage("darkanicon.png"));
 
         clientFrame.setLayout(new BorderLayout());
         JPanel client_panel = new JPanel();
