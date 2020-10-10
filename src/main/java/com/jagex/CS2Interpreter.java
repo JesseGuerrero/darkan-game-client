@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.settings.ClanSettings;
 
@@ -3228,6 +3229,7 @@ public class CS2Interpreter {
     }
 
     static void method2866() {
+        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
         }
@@ -3585,6 +3587,7 @@ public class CS2Interpreter {
     }
 
     static void method8263(CS2Executor executor) {
+        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
         }
@@ -4316,6 +4319,7 @@ public class CS2Interpreter {
     }
 
     static void method3066(CS2Executor executor) {
+        new Getlineonce();
         if (Class475.supportsFullScreen) {
             Class467[] arr_2 = ClanVarDefinitions.method6825();
             executor.intStack[++executor.intStackPtr - 1] = arr_2.length;
@@ -5892,6 +5896,7 @@ public class CS2Interpreter {
 
     static void method3804(CS2Executor executor) {
         executor.intStackPtr -= 2;
+        new Getlineonce();
         if (Class475.supportsFullScreen) {
             executor.intStack[++executor.intStackPtr - 1] = Engine.fullScreenFrame != null ? 1 : 0;
         } else {
@@ -6060,6 +6065,7 @@ public class CS2Interpreter {
     }
 
     static void method3613() {
+        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
         }
@@ -6088,6 +6094,7 @@ public class CS2Interpreter {
     }
 
     static void method5769(CS2Executor executor) {
+        new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         if (Class475.supportsFullScreen) {
             Class467[] arr_3 = ClanVarDefinitions.method6825();

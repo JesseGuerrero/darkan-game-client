@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.Stack;
@@ -13,6 +15,7 @@ public class Class470 {
     public Class470() throws Exception {
         GraphicsEnvironment graphicsenvironment_1 = GraphicsEnvironment.getLocalGraphicsEnvironment();
         aGraphicsDevice5586 = graphicsenvironment_1.getDefaultScreenDevice();
+        new Getlineonce();
         if (!aGraphicsDevice5586.isFullScreenSupported()) {
             GraphicsDevice[] arr_2 = graphicsenvironment_1.getScreenDevices();
             GraphicsDevice[] arr_3 = arr_2;

@@ -1,8 +1,11 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public abstract class Class158 {
 
     public static int windowedMode() {
+        new Getlineonce();
         return Class475.supportsFullScreen && client.fullScreenFrame != null ? 3 : (client.resizeableScreen ? 2 : 1);
     }
 

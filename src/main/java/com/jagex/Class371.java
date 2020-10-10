@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.awt.*;
 
 public class Class371 {
@@ -112,6 +114,7 @@ public class Class371 {
     }
 
     public static Container getActiveContainer() {
+        new Getlineonce();
         return Engine.fullScreenFrame != null ? Engine.fullScreenFrame : (Engine.engineFrame != null ? Engine.engineFrame : SubInterface.suppliedApplet);
     }
 }

@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.jagex.clans.settings.ChangeClanSetting;
 
 import java.awt.*;
@@ -13,11 +14,13 @@ public class Class507 {
     }
 
     static void method8725(int i_0, int i_1, int i_2, int i_3, boolean bool_4) {
+        new Getlineonce();
         if (Class475.supportsFullScreen && client.fullScreenFrame != null && (i_1 != 3 || i_2 != Class363.anInt4203 || i_3 != client.anInt3249)) {
             Class329.method5903(Class274.aClass470_3336, client.fullScreenFrame);
             client.fullScreenFrame = null;
         }
         if (Class475.supportsFullScreen && i_1 == 3 && client.fullScreenFrame == null) {
+            new Getlineonce();
             client.fullScreenFrame = ModeWhere.method7852(Class274.aClass470_3336, i_2, i_3, 0);
             if (client.fullScreenFrame != null) {
                 Class363.anInt4203 = i_2;
@@ -26,6 +29,7 @@ public class Class507 {
             }
         }
         if (i_1 == 3 && (!Class475.supportsFullScreen || client.fullScreenFrame == null)) {
+            new Getlineonce();
             method8725(i_0, Class393.preferences.screenSize.method12687(), -1, -1, true);
         } else {
             Container container_6 = Class371.getActiveContainer();

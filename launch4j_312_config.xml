@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\jesse\Documents\Darkan.jar</jar>
-  <outfile>C:\Users\jesse\Documents\Darkan.exe</outfile>
+  <jar>C:\Users\jesse\OneDrive - Texas A&amp;M University-San Antonio\Learning\Programming\Java\Projects\runescape\darkan-game-client\target\Darkan.jar</jar>
+  <outfile>C:\Users\jesse\OneDrive - Texas A&amp;M University-San Antonio\Learning\Programming\Java\Projects\runescape\darkan-game-client\target\Darkan.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\jesse\Desktop\darkanicon.ico</icon>
+  <icon>C:\Users\jesse\OneDrive - Texas A&amp;M University-San Antonio\Learning\Programming\Java\Projects\runescape\darkan-game-client\src\main\resources\darkanicon.ico</icon>
   <jre>
     <path>C:\Program Files\Java\jre1.8.0_261</path>
     <bundledJre64Bit>false</bundledJre64Bit>

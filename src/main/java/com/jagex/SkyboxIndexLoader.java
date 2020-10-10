@@ -3,6 +3,7 @@ package com.jagex;
 import com.Loader;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Date;
 
 public class SkyboxIndexLoader {
@@ -72,18 +73,19 @@ public class SkyboxIndexLoader {
                         //Lobby/Fixed Window interface Hashes. Lobby and fixed share the same hashes
                         if(component.idHash == 59375616 || component.idHash == 35913932 || component.idHash == 59768835 || component.idHash == 38600709) {
                             component.basePositionY = 0;
+
+                            //if you enter the lobby you must resize
                             Loader.client_panel.setPreferredSize(new Dimension(765, 503));
-                            if(becameLogin) {
-                                Loader.client_panel.setPreferredSize(new Dimension(765, 553));
-                            }
+
                             Dimension frameSize = Loader.clientFrame.getSize();
 
-                            //592 is default frame height
+                            //592 is default frame height, if we are at default and we are at first login and we are in lobby
                             if(Loader.firstLobby == true && frameSize.height == 592) {
                                 Loader.firstLobby = false;
                                 Loader.clientFrame.setSize(frameSize.width, 503);
                                 Loader.clientFrame.pack();
                             }
+
                         }
 
                         //Banner at top hashes
@@ -91,7 +93,13 @@ public class SkyboxIndexLoader {
                             component.baseHeight = 0;
                         }
 
+                        //Always make sure lobby is tight, 50 is what is left over
+                        if(interfaceId == 906 && component.baseHeight == 50) {
+                                component.baseHeight = 0;
+                        }
+
                     }
+
                 }
             }
 
