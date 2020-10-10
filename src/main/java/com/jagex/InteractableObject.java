@@ -1,5 +1,7 @@
 package com.jagex;
 
+import java.util.Arrays;
+
 public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObject {
 
     public Class123 aClass123_10509;
@@ -46,7 +48,9 @@ public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObje
     * from more specific ones
     * */
     public static void method16099(IComponentDefinitions[] interfaceComps, int i_1, int width, int height, boolean bool_4, int interID) {
+//        System.out.println(interID);
         for (int i = 0; i < interfaceComps.length; i++) {
+//            if(interID == 744) { continue; }
             IComponentDefinitions icomponentdefinitions_7 = interfaceComps[i];
                 if (icomponentdefinitions_7 != null && icomponentdefinitions_7.parent == i_1) {
                     Class484.initSizes(icomponentdefinitions_7, width, height, bool_4);

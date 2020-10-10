@@ -1,5 +1,8 @@
 package com.jagex;
 
+import com.Loader;
+
+import java.awt.*;
 import java.util.Date;
 
 public class SkyboxIndexLoader {
@@ -38,6 +41,7 @@ public class SkyboxIndexLoader {
                 interfaceObj.aBool999 = bool_3;
             }
 
+            boolean becameLogin = false;
             for (int i = 0; i < componentSize; i++) {
                 if (interfaceObj.components[i] == null) {
                     byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, ints_1);
@@ -46,16 +50,40 @@ public class SkyboxIndexLoader {
                         component.idHash = i + (interfaceId << 16);
                         component.readValues(new ByteBuf(bytes_8));
 
-                        //Game Window Interface
-                        if(component.idHash == 48889904) {
-                            component.basePositionY = 0;
-                            component.baseHeight = 0;
+
+                        //Game Window inteface, fixed
+                        if(component.idHash == 48889904 && interfaceId == 548) {
+                            component.hidden = true;
                         }
 
-                        //Lobby interface Hashes
-                        if(component.idHash == 59375616 || component.idHash == 35913932 || component.idHash == 59768835 || component.idHash == 38600709) {
+                        //Game Window Interface, not fixed
+                        if(component.idHash == 48889904 && interfaceId !=548) {
                             component.basePositionY = 0;
                             component.baseHeight = 0;
+                            component.hidden = false;
+                        }
+
+                        //if we are in the login screen
+                        if(interfaceId == 744) {
+                            becameLogin = true;
+                            Loader.client_panel.setPreferredSize(new Dimension(765, 553));
+                        }
+
+                        //Lobby/Fixed Window interface Hashes. Lobby and fixed share the same hashes
+                        if(component.idHash == 59375616 || component.idHash == 35913932 || component.idHash == 59768835 || component.idHash == 38600709) {
+                            component.basePositionY = 0;
+                            Loader.client_panel.setPreferredSize(new Dimension(765, 503));
+                            if(becameLogin) {
+                                Loader.client_panel.setPreferredSize(new Dimension(765, 553));
+                            }
+                            Dimension frameSize = Loader.clientFrame.getSize();
+
+                            //592 is default frame height
+                            if(Loader.firstLobby == true && frameSize.height == 592) {
+                                Loader.firstLobby = false;
+                                Loader.clientFrame.setSize(frameSize.width, 503);
+                                Loader.clientFrame.pack();
+                            }
                         }
 
                         //Banner at top hashes

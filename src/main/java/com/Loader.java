@@ -14,6 +14,11 @@ import java.net.URL;
 import java.util.Properties;
 
 
+/*
+TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
+TODO: Fullscreen
+ */
+
 
 public class Loader extends Applet implements AppletStub {
     private static final long serialVersionUID = 1L;
@@ -41,7 +46,10 @@ public class Loader extends Applet implements AppletStub {
         loadParams();
     }
 
-    public JFrame clientFrame;
+    //custom additions
+    public static JFrame clientFrame;
+    public static JPanel client_panel;
+    public static boolean firstLobby = true;
 
     public static void main(String[] arg0) {
         if(arg0.length > 0) {
@@ -169,12 +177,12 @@ public class Loader extends Applet implements AppletStub {
 //        return customPanel;
 //    }
 
-    private void openFrame() { //TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
+    private void openFrame() {
         clientFrame = new JFrame("Darkan");
         clientFrame.setIconImage(getImage("darkanicon.png"));
 
         clientFrame.setLayout(new BorderLayout());
-        JPanel client_panel = new JPanel();
+        client_panel = new JPanel();
         client_panel.setLayout(new BorderLayout());
         client_panel.add(this);
 
