@@ -169,10 +169,10 @@ public class ClanVarDefinitions {
             label70:
             for (int i_5 = 0; i_5 < arr_1.length; i_5++) {
                 Class467 class467_10 = arr_1[i_5];
-                if ((class467_10.anInt5573 <= 0 || class467_10.anInt5573 >= 24) && class467_10.anInt5571 >= 800 && class467_10.anInt5574 >= 600 && (i_4 != 2 || class467_10.anInt5571 <= 800 && class467_10.anInt5574 <= 600) && (i_4 != 1 || class467_10.anInt5571 <= 1024 && class467_10.anInt5574 <= 768)) {
+                if ((class467_10.anInt5573 <= 0 || class467_10.anInt5573 >= 24) && class467_10.resWidth >= 800 && class467_10.resHeight >= 600 && (i_4 != 2 || class467_10.resWidth <= 800 && class467_10.resHeight <= 600) && (i_4 != 1 || class467_10.resWidth <= 1024 && class467_10.resHeight <= 768)) {
                     for (int i_11 = 0; i_11 < i_3; i_11++) {
                         Class467 class467_8 = arr_2[i_11];
-                        if (class467_10.anInt5571 == class467_8.anInt5571 && class467_10.anInt5574 == class467_8.anInt5574) {
+                        if (class467_10.resWidth == class467_8.resWidth && class467_10.resHeight == class467_8.resHeight) {
                             if (class467_10.anInt5573 > class467_8.anInt5573) {
                                 arr_2[i_11] = class467_10;
                             }
@@ -191,7 +191,7 @@ public class ClanVarDefinitions {
 
             for (int i_6 = 0; i_6 < Class149_Sub3.aClass467Array9380.length; i_6++) {
                 Class467 class467_7 = Class149_Sub3.aClass467Array9380[i_6];
-                ints_9[i_6] = class467_7.anInt5574 * class467_7.anInt5571;
+                ints_9[i_6] = class467_7.resHeight * class467_7.resWidth;
             }
 
             NewsItemFetcher.method796(ints_9, Class149_Sub3.aClass467Array9380);

@@ -13,13 +13,13 @@ public class Class507 {
         throw new Error();
     }
 
-    static void method8725(int i_0, int i_1, int i_2, int i_3, boolean bool_4) {
+    static void method8725(int i_0, int screenType, int i_2, int i_3, boolean bool_4) {
         new Getlineonce();
-        if (Class475.supportsFullScreen && client.fullScreenFrame != null && (i_1 != 3 || i_2 != Class363.anInt4203 || i_3 != client.anInt3249)) {
+        if (Class475.supportsFullScreen && client.fullScreenFrame != null && (screenType != 3 || i_2 != Class363.anInt4203 || i_3 != client.anInt3249)) {
             Class329.method5903(Class274.aClass470_3336, client.fullScreenFrame);
             client.fullScreenFrame = null;
         }
-        if (Class475.supportsFullScreen && i_1 == 3 && client.fullScreenFrame == null) {
+        if (Class475.supportsFullScreen && screenType == 3 && client.fullScreenFrame == null) {
             new Getlineonce();
             client.fullScreenFrame = ModeWhere.method7852(Class274.aClass470_3336, i_2, i_3, 0);
             if (client.fullScreenFrame != null) {
@@ -28,9 +28,9 @@ public class Class507 {
                 Class190.savePreferences();
             }
         }
-        if (i_1 == 3 && (!Class475.supportsFullScreen || client.fullScreenFrame == null)) {
+        if (screenType == 3 && (!Class475.supportsFullScreen || client.fullScreenFrame == null)) {
             new Getlineonce();
-            method8725(i_0, Class393.preferences.screenSize.method12687(), -1, -1, true);
+            method8725(i_0, Class393.preferences.screenSize.getScreenType(), -1, -1, true);
         } else {
             Container container_6 = Class371.getActiveContainer();
             Insets insets_7;
@@ -53,7 +53,7 @@ public class Class507 {
             if (Class107.anInt1082 <= 0) {
                 Class107.anInt1082 = 1;
             }
-            if (i_1 != 1) {
+            if (screenType != 1) {
                 Class46.method935();
             } else {
                 ChangeClanSetting.BASE_WINDOW_WIDTH = client.GAME_WIDTH;
@@ -76,7 +76,7 @@ public class Class507 {
             } else {
                 Class350_Sub2.method12571();
             }
-            client.resizeableScreen = i_1 >= 2;
+            client.resizeableScreen = screenType >= 2;
             GameTipsLoader.method6795();
             if (client.BASE_WINDOW_ID != -1) {
                 Class516.method8867(true);
@@ -84,8 +84,8 @@ public class Class507 {
             if (client.GAME_CONNECTION_CONTEXT.getConnection() != null && GameState.loggedIn(client.GAME_STATE)) {
                 Class388.method6692();
             }
-            for (int i_8 = 0; i_8 < 107; i_8++) {
-                client.aBoolArray7443[i_8] = true;
+            for (int i = 0; i < 107; i++) {
+                client.aBoolArray7443[i] = true;
             }
             client.aBool3274 = true;
         }

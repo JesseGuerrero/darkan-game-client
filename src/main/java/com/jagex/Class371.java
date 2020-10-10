@@ -114,7 +114,7 @@ public class Class371 {
     }
 
     public static Container getActiveContainer() {
-        new Getlineonce();
+        //logic is fine
         return Engine.fullScreenFrame != null ? Engine.fullScreenFrame : (Engine.engineFrame != null ? Engine.engineFrame : SubInterface.suppliedApplet);
     }
 }

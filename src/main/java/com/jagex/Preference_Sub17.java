@@ -47,12 +47,12 @@ public class Preference_Sub17 extends Preference {
     }
 
     public int method12762() {
-        return anInt5578;
+        return screenType;
     }
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
     public int method7784(int i_1) {
@@ -78,16 +78,16 @@ public class Preference_Sub17 extends Preference {
     }
 
     void method7780(int i_1) {
-        anInt5578 = -754033619 * i_1 * -859024475;
+        screenType = -754033619 * i_1 * -859024475;
     }
 
     public void method12767() {
         if (manager.getGame() != Game.darkan) {
-            anInt5578 = 1;
+            screenType = 1;
         }
 
-        if (anInt5578 != 0 && anInt5578 != 1) {
-            anInt5578 = getDefaultValue();
+        if (screenType != 0 && screenType != 1) {
+            screenType = getDefaultValue();
         }
 
     }

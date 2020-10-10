@@ -11,8 +11,8 @@ public class CPUMaxMemoryPreference extends Preference {
     }
 
     public void method12648() {
-        if (anInt5578 < 0 && anInt5578 > 4) {
-            anInt5578 = getDefaultValue();
+        if (screenType < 0 && screenType > 4) {
+            screenType = getDefaultValue();
         }
 
     }
@@ -23,7 +23,7 @@ public class CPUMaxMemoryPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        anInt5578 = -754033619 * i_1 * -859024475;
+        screenType = -754033619 * i_1 * -859024475;
     }
 
     @Override
@@ -44,12 +44,12 @@ public class CPUMaxMemoryPreference extends Preference {
     }
 
     public int getValue() {
-        return anInt5578;
+        return screenType;
     }
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
 }

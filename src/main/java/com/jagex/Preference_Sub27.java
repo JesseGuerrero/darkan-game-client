@@ -15,12 +15,12 @@ public class Preference_Sub27 extends Preference {
     }
 
     public void method12950() {
-        if (manager.toolkitDefault.method13050() == 2 && anInt5578 == 2) {
-            anInt5578 = 1;
+        if (manager.toolkitDefault.method13050() == 2 && screenType == 2) {
+            screenType = 1;
         }
 
-        if (anInt5578 < 0 || anInt5578 > 2) {
-            anInt5578 = getDefaultValue();
+        if (screenType < 0 || screenType > 2) {
+            screenType = getDefaultValue();
         }
 
     }
@@ -36,15 +36,15 @@ public class Preference_Sub27 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
     public int method12952() {
-        return anInt5578;
+        return screenType;
     }
 
     void method7780(int i_1) {
-        anInt5578 = i_1 * -754033619 * -859024475;
+        screenType = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {

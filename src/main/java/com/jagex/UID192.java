@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.io.EOFException;
 import java.io.IOException;
 
@@ -26,19 +28,19 @@ public class UID192 {
         aLong5353 = 0L;
     }
 
-    public static void method7373(int i_0, int i_1, int i_2, boolean bool_3) {
+    public static void method7373(int screenType, int i_1, int i_2, boolean bool_3) {
         boolean bool_31 = bool_3;
         client.aLong7307 = 0L;
         int i_5 = Class158.windowedMode();
-        if (i_0 == 3 || i_5 == 3) {
+        if (screenType == 3 || i_5 == 3) {
             bool_31 = true;
         }
 
         if (!Renderers.CURRENT_RENDERER.method8664()) {
             bool_31 = true;
         }
-
-        Class507.method8725(i_5, i_0, i_1, i_2, bool_31);
+        new Getlineonce();
+        Class507.method8725(i_5, screenType, i_1, i_2, bool_31);
     }
 
     public long method7345() {

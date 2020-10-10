@@ -1,6 +1,5 @@
 package com.jagex;
 
-import com.Getlineonce;
 import com.Loader;
 import com.jagex.clans.settings.ChangeClanSetting;
 import jaclib.ping.Ping;
@@ -2081,7 +2080,7 @@ public class client extends Engine {
 			}
 
 			if (Class475.supportsFullScreen && fullScreenFrame != null && !IFSubObjectPosition.appletHasFocus && Class176.method2980(GAME_STATE)) {
-				UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+				UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
 			}
 
 			boolean bool_9 = false;

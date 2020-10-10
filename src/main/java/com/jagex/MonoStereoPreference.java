@@ -46,19 +46,19 @@ public class MonoStereoPreference extends Preference {
     }
 
     public int method12691() {
-        return anInt5578;
+        return screenType;
     }
 
     public void method12692() {
-        if (anInt5578 != 1 && anInt5578 != 0) {
-            anInt5578 = getDefaultValue();
+        if (screenType != 1 && screenType != 0) {
+            screenType = getDefaultValue();
         }
 
     }
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
     int method7787() {
@@ -70,7 +70,7 @@ public class MonoStereoPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        anInt5578 = -754033619 * i_1 * -859024475;
+        screenType = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {

@@ -12,8 +12,8 @@ public class Class386 {
         for (int i_4 = 0; i_4 < arr_3.length; i_4++) {
             Class467 class467_5 = new Class467();
             arr_3[i_4] = class467_5;
-            class467_5.anInt5571 = ints_2[i_4 << 2];
-            class467_5.anInt5574 = ints_2[(i_4 << 2) + 1];
+            class467_5.resWidth = ints_2[i_4 << 2];
+            class467_5.resHeight = ints_2[(i_4 << 2) + 1];
             class467_5.anInt5573 = ints_2[(i_4 << 2) + 2];
             class467_5.anInt5572 = ints_2[(i_4 << 2) + 3];
         }

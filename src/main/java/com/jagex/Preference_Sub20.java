@@ -6,12 +6,12 @@ public class Preference_Sub20 extends Preference {
 
     public Preference_Sub20(int i_1, GamePreferences class282_sub54_2) {
         super(i_1, class282_sub54_2);
-        Class15.method540(anInt5578);
+        Class15.method540(screenType);
     }
 
     public Preference_Sub20(GamePreferences class282_sub54_1) {
         super(class282_sub54_1);
-        Class15.method540(anInt5578);
+        Class15.method540(screenType);
     }
 
     static short[][] method12805(float[][] floats_0, short[][] shorts_1) {
@@ -98,10 +98,10 @@ public class Preference_Sub20 extends Preference {
 
     public void method12793() {
         if (manager.getProcessorSpecs().getMaxMemory() < 245) {
-            anInt5578 = 0;
+            screenType = 0;
         }
-        if (anInt5578 < 0 || anInt5578 > 2) {
-            anInt5578 = getDefaultValue();
+        if (screenType < 0 || screenType > 2) {
+            screenType = getDefaultValue();
         }
     }
 
@@ -111,7 +111,7 @@ public class Preference_Sub20 extends Preference {
     }
 
     public int method12794() {
-        return anInt5578;
+        return screenType;
     }
 
     @Override
@@ -121,13 +121,13 @@ public class Preference_Sub20 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
-        Class15.method540(anInt5578);
+        screenType = i_1;
+        Class15.method540(screenType);
     }
 
     void method7780(int i_1) {
-        anInt5578 = -754033619 * i_1 * -859024475;
-        Class15.method540(anInt5578 * -754033619 * -859024475);
+        screenType = -754033619 * i_1 * -859024475;
+        Class15.method540(screenType * -754033619 * -859024475);
     }
 
     int method7786() {

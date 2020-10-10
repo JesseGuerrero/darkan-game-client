@@ -1,6 +1,5 @@
 package com.jagex;
 
-import com.Loader;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.settings.ChangeClanSetting;
 import com.jagex.clans.settings.ClanSettings;
@@ -501,7 +500,7 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.OPEN_URL) {
             if (Class475.supportsFullScreen && client.fullScreenFrame != null) {
-                UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+                UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
             }
             byte[] bytes = new byte[context.currentPacketSize - 1];
             boolean bool_66 = buffer.readUnsignedByte() == 1;
@@ -2271,7 +2270,7 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.aClass375_4437) {
             if (Class475.supportsFullScreen && client.fullScreenFrame != null) {
-                UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+                UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
             }
             byte[] bytes_64 = new byte[context.currentPacketSize];
             buffer.readBytes(bytes_64, context.currentPacketSize);

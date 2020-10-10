@@ -13,14 +13,14 @@ public class ScreenSizePreference extends Preference {
     }
 
     public void method12684() {
-        if (anInt5578 < 1 || anInt5578 > 3) {
-            anInt5578 = getDefaultValue();
+        if (screenType < 1 || screenType > 3) {
+            screenType = getDefaultValue();
         }
     }
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
     int method7784() {
@@ -28,7 +28,7 @@ public class ScreenSizePreference extends Preference {
     }
 
     void method7780(int i_1) {
-        anInt5578 = -754033619 * i_1 * -859024475;
+        screenType = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {
@@ -39,8 +39,8 @@ public class ScreenSizePreference extends Preference {
         return manager.getProcessorSpecs().isARM() ? 3 : 2;
     }
 
-    public int method12687() {
-        return anInt5578;
+    public int getScreenType() {
+        return screenType;
     }
 
     @Override

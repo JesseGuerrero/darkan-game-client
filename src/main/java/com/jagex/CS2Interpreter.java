@@ -2092,8 +2092,8 @@ public class CS2Interpreter {
             case instr6818:
                 method15403();
                 break;
-            case instr6639:
-                method3804(exec);
+            case FULLSCREEN:
+                startFullScreen(exec);
                 break;
             case instr6488:
                 method3613();
@@ -3231,7 +3231,7 @@ public class CS2Interpreter {
     static void method2866() {
         new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
-            UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+            UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
         if (NamedFileReference.method867() == Class279.aClass279_3368) {
             ClanSetting.saveVarcsToFile();
@@ -3589,7 +3589,7 @@ public class CS2Interpreter {
     static void method8263(CS2Executor executor) {
         new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
-            UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+            UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
         String string_2 = (String) executor.stringStack[--executor.stringStackPtr];
         boolean bool_3 = executor.intStack[--executor.intStackPtr] == 1;
@@ -4441,7 +4441,7 @@ public class CS2Interpreter {
     }
 
     static void method3358(CS2Executor executor) {
-        executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.screenSize.method12687();
+        executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.screenSize.getScreenType();
     }
 
     static void method3361(CS2Executor executor) {
@@ -4630,9 +4630,12 @@ public class CS2Interpreter {
     }
 
     static void method12933(CS2Executor executor) {
-        int i_2 = executor.intStack[--executor.intStackPtr];
-        if (i_2 >= 1 && i_2 <= 2) {
-            UID192.method7373(i_2, -1, -1, false);
+        int screenType = executor.intStack[--executor.intStackPtr];
+
+        new Getlineonce();
+
+        if (screenType >= 1 && screenType <= 2) {
+            UID192.method7373(3, -1, -1, false);
         }
     }
 
@@ -5894,7 +5897,7 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = i_4;
     }
 
-    static void method3804(CS2Executor executor) {
+    static void startFullScreen(CS2Executor executor) {
         executor.intStackPtr -= 2;
         new Getlineonce();
         if (Class475.supportsFullScreen) {
@@ -6067,7 +6070,7 @@ public class CS2Interpreter {
     static void method3613() {
         new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
-            UID192.method7373(Class393.preferences.screenSize.method12687(), -1, -1, false);
+            UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
     }
 
@@ -6098,8 +6101,8 @@ public class CS2Interpreter {
         int i_2 = executor.intStack[--executor.intStackPtr];
         if (Class475.supportsFullScreen) {
             Class467[] arr_3 = ClanVarDefinitions.method6825();
-            executor.intStack[++executor.intStackPtr - 1] = arr_3[i_2].anInt5571;
-            executor.intStack[++executor.intStackPtr - 1] = arr_3[i_2].anInt5574;
+            executor.intStack[++executor.intStackPtr - 1] = arr_3[i_2].resWidth;
+            executor.intStack[++executor.intStackPtr - 1] = arr_3[i_2].resHeight;
         } else {
             executor.intStack[++executor.intStackPtr - 1] = 0;
             executor.intStack[++executor.intStackPtr - 1] = 0;
@@ -9838,7 +9841,7 @@ public class CS2Interpreter {
             Class467[] arr_5 = ClanVarDefinitions.method6825();
             for (int i_6 = 0; i_6 < arr_5.length; i_6++) {
                 Class467 class467_7 = arr_5[i_6];
-                if (i_2 == class467_7.anInt5571 && i_3 == class467_7.anInt5574) {
+                if (i_2 == class467_7.resWidth && i_3 == class467_7.resHeight) {
                     i_4 = i_6;
                     break;
                 }

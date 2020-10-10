@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.awt.*;
 
 public enum ModeWhere {
@@ -20,30 +22,33 @@ public enum ModeWhere {
 
     public static Frame method7852(Class470 class470_0, int i_1, int i_2, int i_3) {
         int i_31 = i_3;
+        new Getlineonce();
         if (i_31 == 0) {
-            Class467[] arr_6 = Class386.method6671(class470_0);
-            if (arr_6 == null) {
+            new Getlineonce();
+            Class467[] resolutionProfiles = Class386.method6671(class470_0);
+            new Getlineonce();
+            if (resolutionProfiles == null) {
                 return null;
             }
 
             boolean bool_7 = false;
 
-            for (int i_8 = 0; i_8 < arr_6.length; i_8++) {
-                if (arr_6[i_8].anInt5571 == i_1 && i_2 == arr_6[i_8].anInt5574 && (!bool_7 || arr_6[i_8].anInt5573 > 0)) {
-                    i_31 = arr_6[i_8].anInt5573;
+            for (int i = 0; i < resolutionProfiles.length; i++) {
+                if (resolutionProfiles[i].resWidth == i_1 && i_2 == resolutionProfiles[i].resHeight && (!bool_7 || resolutionProfiles[i].anInt5573 > 0)) {
+                    i_31 = resolutionProfiles[i].anInt5573;
                     bool_7 = true;
                 }
             }
-
+            new Getlineonce();
             if (!bool_7) {
                 return null;
             }
         }
 
-        Frame frame_9 = new Frame("Jagex Full Screen");
-        frame_9.setResizable(false);
-        class470_0.method7808(frame_9, i_1, i_2, i_31, 0);
-        return frame_9;
+        Frame fullscreenFrame = new Frame("Jagex Full Screen");
+        fullscreenFrame.setResizable(false);
+        class470_0.method7808(fullscreenFrame, i_1, i_2, i_31, 0);
+        return fullscreenFrame;
     }
 
     static byte method7853(int i_0, int i_1) {

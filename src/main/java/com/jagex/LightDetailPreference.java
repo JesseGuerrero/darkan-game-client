@@ -33,12 +33,12 @@ public class LightDetailPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        anInt5578 = i_1;
+        screenType = i_1;
     }
 
     public void method12785() {
-        if (anInt5578 != 1 && anInt5578 != 0) {
-            anInt5578 = getDefaultValue();
+        if (screenType != 1 && screenType != 0) {
+            screenType = getDefaultValue();
         }
 
     }
@@ -58,11 +58,11 @@ public class LightDetailPreference extends Preference {
     }
 
     public int method12786() {
-        return anInt5578;
+        return screenType;
     }
 
     void method7780(int i_1) {
-        anInt5578 = i_1 * -754033619 * -859024475;
+        screenType = i_1 * -754033619 * -859024475;
     }
 
     int method7784() {

@@ -696,7 +696,7 @@ public enum CS2Instruction {
     instr6671(775),
     instr6637(514),
     instr6818(210),
-    instr6639(785),
+    FULLSCREEN(785),
     instr6488(175),
     instr6704(141),
     instr6404(596),
