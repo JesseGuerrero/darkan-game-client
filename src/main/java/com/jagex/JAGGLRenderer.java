@@ -436,8 +436,8 @@ public class JAGGLRenderer extends HardwareRenderer {
     }
 
     @Override
-    Class158_Sub2 method8417(Canvas canvas_1, int i_2, int i_3) {
-        return new Class158_Sub2_Sub2_Sub1(this, canvas_1);
+    Class158_Sub2 method8417(Canvas gameCanvas, int width, int height) {
+        return new Class158_Sub2_Sub2_Sub1(this, gameCanvas);
     }
 
     @Override
@@ -2871,7 +2871,7 @@ public class JAGGLRenderer extends HardwareRenderer {
 
 	public static AbstractRenderer create(Canvas canvas_0, ImageLoader interface22_1, Index index_2, int i_3) {
 	    try {
-	        boolean bool_5 = HardwareRenderer.method13893();
+	        boolean bool_5 = HardwareRenderer.getJacLib();
 	        if (!bool_5) {
 	            throw new RuntimeException("");
 	        } else if (!LibraryLoader.getLoader().loadLibrary("jaggl")) {

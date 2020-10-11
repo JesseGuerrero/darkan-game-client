@@ -279,8 +279,8 @@ public class ja extends AbstractRenderer implements Interface40 {
     }
 
     @Override
-    Class158_Sub2 method8417(Canvas canvas_1, int i_2, int i_3) {
-        return new za(this, canvas_1, i_2, i_3);
+    Class158_Sub2 method8417(Canvas gameCanvas, int width, int height) {
+        return new za(this, gameCanvas, width, height);
     }
 
     native void PA(za var1);

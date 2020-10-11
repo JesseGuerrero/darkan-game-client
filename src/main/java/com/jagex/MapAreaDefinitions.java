@@ -2,7 +2,7 @@ package com.jagex;
 
 public class MapAreaDefinitions {
 
-    public int anInt2753;
+    public int areaID;
     public int anInt2719 = -1;
     public int anInt2757 = -1;
     public String areaName;

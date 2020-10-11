@@ -5060,8 +5060,8 @@ public class OpenGLRenderer extends AbstractRenderer {
     }
 
     @Override
-    Class158_Sub2 method8417(Canvas canvas_1, int i_2, int i_3) {
-        return new Class158_Sub2_Sub1(this, canvas_1);
+    Class158_Sub2 method8417(Canvas gameCanvas, int width, int height) {
+        return new Class158_Sub2_Sub1(this, gameCanvas);
     }
 
     @Override

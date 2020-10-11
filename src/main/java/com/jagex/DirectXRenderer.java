@@ -79,15 +79,15 @@ public class DirectXRenderer extends HardwareRenderer {
     }
     
 
-	public static AbstractRenderer create(Canvas canvas_0, ImageLoader interface22_1, Index index_2, int i_3) {
+	public static AbstractRenderer create(Canvas gameCanvas, ImageLoader interface22_1, Index index_2, int i_3) {
 	    try {
-	        boolean bool_5 = HardwareRenderer.method13893();
-	        if (!bool_5) {
+	        boolean isJacLibLoaded = HardwareRenderer.getJacLib();
+	        if (!isJacLibLoaded) {
 	            throw new RuntimeException("");
 	        } else if (!LibraryLoader.getLoader().loadLibrary("jagdx")) {
 	            throw new RuntimeException("");
 	        } else {
-	            AbstractRenderer graphicalrenderer_4 = method15638(canvas_0, interface22_1, index_2, Integer.valueOf(i_3));
+	            AbstractRenderer graphicalrenderer_4 = method15638(gameCanvas, interface22_1, index_2, Integer.valueOf(i_3));
 	            return graphicalrenderer_4;
 	        }
 	    } catch (Throwable throwable_7) {
@@ -384,7 +384,6 @@ public class DirectXRenderer extends HardwareRenderer {
                     method13897();
                     return true;
                 }
-
                 System.exit(0);
             }
         }
@@ -492,8 +491,8 @@ public class DirectXRenderer extends HardwareRenderer {
     }
 
     @Override
-    Class158_Sub2 method8417(Canvas canvas_1, int i_2, int i_3) {
-        return new Class158_Sub2_Sub2_Sub2(this, canvas_1, i_2, i_3, false);
+    Class158_Sub2 method8417(Canvas gameCanvas, int width, int height) {
+        return new Class158_Sub2_Sub2_Sub2(this, gameCanvas, width, height, false);
     }
 
     @Override

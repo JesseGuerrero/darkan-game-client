@@ -18,17 +18,17 @@ public class Item extends Node {
         hasPlayerAppearance = bool_6;
     }
 
-    static void method12574(AbstractRenderer graphicalrenderer_0, IComponentDefinitions icomponentdefinitions_1, int i_2, int i_3) {
-        Class119 class119_5 = icomponentdefinitions_1.method2046(graphicalrenderer_0);
+    static void method12574(AbstractRenderer currentRenderer, IComponentDefinitions component, int drawX, int drawY) {
+        Class119 class119_5 = component.method2046(currentRenderer);
         if (class119_5 != null) {
             Class455 class455_6 = class119_5.aClass455_1456;
-            graphicalrenderer_0.r(i_2, i_3, i_2 + icomponentdefinitions_1.width, i_3 + icomponentdefinitions_1.height);
-            if (class119_5.anInt1458 != icomponentdefinitions_1.width || class119_5.anInt1454 != icomponentdefinitions_1.height) {
+            currentRenderer.r(drawX, drawY, drawX + component.width, drawY + component.height);
+            if (class119_5.anInt1458 != component.width || class119_5.anInt1454 != component.height) {
                 throw new IllegalStateException("");
             }
 
             if (Class187.anInt2363 != 2 && Class187.anInt2363 != 5 && CursorDefintions.aNativeSprite_5004 != null) {
-                CoordGrid coordgrid_7 = IndexLoaders.MAP_REGION_DECODER.getBase();
+                CoordGrid coordinates = IndexLoaders.MAP_REGION_DECODER.getBase();
                 int i_8;
                 int i_9;
                 int i_10;
@@ -48,7 +48,7 @@ public class Item extends Node {
 
                 int i_12 = i_8 / 128 + 48;
                 int i_13 = 48 + IndexLoaders.MAP_REGION_DECODER.getSizeY() * 4 - i_9 / 128;
-                CursorDefintions.aNativeSprite_5004.method2762(i_2 + icomponentdefinitions_1.width / 2.0F, i_3 + icomponentdefinitions_1.height / 2.0F, i_12, i_13, i_11, i_10 << 2, class455_6, i_2, i_3);
+                CursorDefintions.aNativeSprite_5004.method2762(drawX + component.width / 2.0F, drawY + component.height / 2.0F, i_12, i_13, i_11, i_10 << 2, class455_6, drawX, drawY);
                 StaticElements class283_14 = IndexLoaders.MAP_REGION_DECODER.method4528();
 
                 int i_16;
@@ -58,11 +58,11 @@ public class Item extends Node {
                 int i_20;
                 for (IntNode class282_sub38_15 = (IntNode) Class187.aClass482_2350.head(); class282_sub38_15 != null; class282_sub38_15 = (IntNode) Class187.aClass482_2350.next()) {
                     i_16 = class282_sub38_15.value;
-                    i_17 = (class283_14.regionHashes[i_16] >> 14 & 0x3fff) - coordgrid_7.x;
-                    i_18 = (class283_14.regionHashes[i_16] & 0x3fff) - coordgrid_7.y;
+                    i_17 = (class283_14.regionHashes[i_16] >> 14 & 0x3fff) - coordinates.x;
+                    i_18 = (class283_14.regionHashes[i_16] & 0x3fff) - coordinates.y;
                     i_19 = i_17 * 4 + 2 - i_8 / 128;
                     i_20 = i_18 * 4 + 2 - i_9 / 128;
-                    Class158.method2731(graphicalrenderer_0, class455_6, icomponentdefinitions_1, i_2, i_3, i_19, i_20, class283_14.areaIds[i_16]);
+                    Class158.method2731(currentRenderer, class455_6, component, drawX, drawY, i_19, i_20, class283_14.areaIds[i_16]);
                 }
 
                 int i_21;
@@ -77,36 +77,36 @@ public class Item extends Node {
                         }
                     }
 
-                    Class158.method2731(graphicalrenderer_0, class455_6, icomponentdefinitions_1, i_2, i_3, i_16, i_17, objectdefinitions_23.mapIcon);
+                    Class158.method2731(currentRenderer, class455_6, component, drawX, drawY, i_16, i_17, objectdefinitions_23.mapIcon);
                 }
 
                 for (Node_Sub29 class282_sub29_24 = (Node_Sub29) client.aClass465_7414.method7750(); class282_sub29_24 != null; class282_sub29_24 = (Node_Sub29) client.aClass465_7414.method7751()) {
                     i_16 = (int) (class282_sub29_24.pointer >> 28 & 0x3L);
                     if (i_16 == Class187.anInt2351) {
-                        i_17 = (int) (class282_sub29_24.pointer & 0x3fffL) - coordgrid_7.x;
-                        i_18 = (int) (class282_sub29_24.pointer >> 14 & 0x3fffL) - coordgrid_7.y;
+                        i_17 = (int) (class282_sub29_24.pointer & 0x3fffL) - coordinates.x;
+                        i_18 = (int) (class282_sub29_24.pointer >> 14 & 0x3fffL) - coordinates.y;
                         i_19 = i_17 * 4 + 2 - i_8 / 128;
                         i_20 = i_18 * 4 + 2 - i_9 / 128;
-                        Class190.method3149(icomponentdefinitions_1, class455_6, i_2, i_3, i_19, i_20, Class250.aNativeSpriteArray3092[0]);
+                        Class190.method3149(component, class455_6, drawX, drawY, i_19, i_20, Class250.aNativeSpriteArray3092[0]);
                     }
                 }
 
-                Class469.method7805(graphicalrenderer_0, i_8, i_9, icomponentdefinitions_1, class455_6, i_2, i_3);
-                Class82.method1457(i_8, i_9, icomponentdefinitions_1, class455_6, i_2, i_3);
-                Class190.method3151(i_8, i_9, icomponentdefinitions_1, class119_5, i_2, i_3);
+                Class469.method7805(currentRenderer, i_8, i_9, component, class455_6, drawX, drawY);
+                Class82.method1457(i_8, i_9, component, class455_6, drawX, drawY);
+                Class190.method3151(i_8, i_9, component, class119_5, drawX, drawY);
                 if (NativeLibraryLoader.anInt3240 != 4) {
                     if (Class187.anInt2361 != 0) {
                         i_21 = Class187.anInt2361 * 4 + 2 - i_8 / 128 + (VertexNormal.MY_PLAYER.getSize() - 1) * 2;
                         i_16 = 2 + Class187.anInt2359 * 4 - i_9 / 128 + (VertexNormal.MY_PLAYER.getSize() - 1) * 2;
-                        Class190.method3149(icomponentdefinitions_1, class455_6, i_2, i_3, i_21, i_16, Class16.aNativeSpriteArray145[Class187.aBool2360 ? 1 : 0]);
+                        Class190.method3149(component, class455_6, drawX, drawY, i_21, i_16, Class16.aNativeSpriteArray145[Class187.aBool2360 ? 1 : 0]);
                     }
 
                     if (!VertexNormal.MY_PLAYER.hidden) {
-                        graphicalrenderer_0.method8425(i_2 + icomponentdefinitions_1.width / 2 - 1, i_3 + icomponentdefinitions_1.height / 2 - 1, 3, 3, -1);
+                        currentRenderer.method8425(drawX + component.width / 2 - 1, drawY + component.height / 2 - 1, 3, 3, -1);
                     }
                 }
             } else {
-                graphicalrenderer_0.DA(class455_6, i_2, i_3);
+                currentRenderer.DA(class455_6, drawX, drawY);
             }
         }
 

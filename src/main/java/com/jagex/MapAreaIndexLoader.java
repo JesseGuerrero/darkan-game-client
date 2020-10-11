@@ -67,11 +67,11 @@ public class MapAreaIndexLoader {
         }
     }
 
-    public MapAreaDefinitions getWorldMapDefs(int i_1) {
+    public MapAreaDefinitions getWorldMapDefs(int areaID) {
         LRUCache softcache_4 = aClass229_2707;
         MapAreaDefinitions worldmapareadefs_3;
         synchronized (aClass229_2707) {
-            worldmapareadefs_3 = (MapAreaDefinitions) aClass229_2707.get(i_1);
+            worldmapareadefs_3 = (MapAreaDefinitions) aClass229_2707.get(areaID);
         }
 
         if (worldmapareadefs_3 != null) {
@@ -80,11 +80,11 @@ public class MapAreaIndexLoader {
             Index index_5 = aClass317_2705;
             byte[] bytes_10;
             synchronized (aClass317_2705) {
-                bytes_10 = aClass317_2705.getFile(SharedConfigsType.MAP_AREAS.id, i_1);
+                bytes_10 = aClass317_2705.getFile(SharedConfigsType.MAP_AREAS.id, areaID);
             }
 
             worldmapareadefs_3 = new MapAreaDefinitions();
-            worldmapareadefs_3.anInt2753 = i_1;
+            worldmapareadefs_3.areaID = areaID;
             worldmapareadefs_3.aClass218_2716 = this;
             if (bytes_10 != null) {
                 worldmapareadefs_3.method3716(new ByteBuf(bytes_10));
@@ -93,7 +93,7 @@ public class MapAreaIndexLoader {
             worldmapareadefs_3.method3718();
             LRUCache softcache_9 = aClass229_2707;
             synchronized (aClass229_2707) {
-                aClass229_2707.put(worldmapareadefs_3, i_1);
+                aClass229_2707.put(worldmapareadefs_3, areaID);
                 return worldmapareadefs_3;
             }
         }

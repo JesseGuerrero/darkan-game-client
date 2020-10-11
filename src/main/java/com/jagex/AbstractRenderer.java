@@ -32,29 +32,30 @@ public abstract class AbstractRenderer {
         }
     }
     
-	public static AbstractRenderer createRenderer(int i_0, Canvas canvas_1, ImageLoader interface22_2, Index index_3, int i_4) {
-	    int i_6 = 0;
-	    int i_7 = 0;
-	    if (canvas_1 != null) {
-	        Dimension dimension_8 = canvas_1.getSize();
-	        i_6 = dimension_8.width;
-	        i_7 = dimension_8.height;
+	public static AbstractRenderer createRenderer(int renderType, Canvas gameCanvas, ImageLoader interface22_2, Index index_3, int i_4) {
+        System.out.println("Creating renderer");
+	    int width = 0;
+	    int height = 0;
+	    if (gameCanvas != null) {
+	        Dimension canvasDimension = gameCanvas.getSize();
+	        width = canvasDimension.width;
+	        height = canvasDimension.height;
 	    }
-	    return createRenderer(i_0, canvas_1, interface22_2, index_3, i_4, i_6, i_7);
+	    return createRenderer(renderType, gameCanvas, interface22_2, index_3, i_4, width, height);
 	}
 	
 
-	static synchronized AbstractRenderer createRenderer(int type, Canvas canvas_1, ImageLoader interface22_2, Index index_3, int i_4, int i_5, int i_6) {
-	    if (type == 0) {
-	        return JavaRenderer.create(canvas_1, interface22_2, i_5, i_6); //safe mode renderer
-	    } else if (type == 2) {
-	        return ja.create(canvas_1, interface22_2, i_5, i_6); //jagex sw3d software renderer
-	    } else if (type == 1) {
-	        return OpenGLRenderer.create(canvas_1, interface22_2, i_4); //hardware accellerated opengl renderer
-	    } else if (type == 5) {
-	        return JAGGLRenderer.create(canvas_1, interface22_2, index_3, i_4); //jagex gl library renderer
-	    } else if (type == 3) {
-	        return DirectXRenderer.create(canvas_1, interface22_2, index_3, i_4); //directx renderer
+	static synchronized AbstractRenderer createRenderer(int renderType, Canvas gameCanvas, ImageLoader interface22_2, Index index_3, int i_4, int width, int height) {
+	    if (renderType == 0) {
+	        return JavaRenderer.create(gameCanvas, interface22_2, width, height); //safe mode renderer
+	    } else if (renderType == 2) {
+	        return ja.create(gameCanvas, interface22_2, width, height); //jagex sw3d software renderer
+	    } else if (renderType == 1) {
+	        return OpenGLRenderer.create(gameCanvas, interface22_2, i_4); //hardware accellerated opengl renderer
+	    } else if (renderType == 5) {
+	        return JAGGLRenderer.create(gameCanvas, interface22_2, index_3, i_4); //jagex gl library renderer
+	    } else if (renderType == 3) {
+	        return DirectXRenderer.create(gameCanvas, interface22_2, index_3, i_4); //directx renderer
 	    } else {
 	        throw new IllegalArgumentException("");
 	    }
@@ -208,7 +209,7 @@ public abstract class AbstractRenderer {
         }
     }
 
-    abstract Class158_Sub2 method8417(Canvas var1, int var2, int var3);
+    abstract Class158_Sub2 method8417(Canvas gameCanvas, int width, int height);
 
     public abstract Class158_Sub1 method8418();
 
@@ -484,10 +485,10 @@ public abstract class AbstractRenderer {
 
     public abstract void fp(int var1, int var2, int var3, int var4, int var5, int var6);
 
-    public void method8524(Canvas canvas_1, int i_2, int i_3) {
-        if (!mapCanvasToTBD.containsKey(canvas_1)) {
-            Class459.method7679(canvas_1);
-            method8411(canvas_1, method8417(canvas_1, i_2, i_3));
+    public void method8524(Canvas gameCanvas, int width, int height) {
+        if (!mapCanvasToTBD.containsKey(gameCanvas)) {
+            Class459.method7679(gameCanvas);
+            method8411(gameCanvas, method8417(gameCanvas, width, height));
         }
     }
 

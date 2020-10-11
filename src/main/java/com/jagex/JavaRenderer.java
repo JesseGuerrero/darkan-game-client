@@ -82,12 +82,12 @@ public class JavaRenderer extends AbstractRenderer {
         }
     }
 
-    JavaRenderer(Canvas canvas_1, ImageLoader interface22_2, int i_3, int i_4) {
+    JavaRenderer(Canvas gameCanvas, ImageLoader interface22_2, int width, int height) {
         this(interface22_2);
 
         try {
-            method8524(canvas_1, i_3, i_4);
-            method8412(canvas_1);
+            method8524(gameCanvas, width, height);
+            method8412(gameCanvas);
         } catch (Throwable throwable_6) {
             throwable_6.printStackTrace();
             method8396();
@@ -298,8 +298,8 @@ public class JavaRenderer extends AbstractRenderer {
     }
 
     @Override
-    Class158_Sub2 method8417(Canvas canvas_1, int i_2, int i_3) {
-        return Class52_Sub1.method14493(this, canvas_1, i_2, i_3);
+    Class158_Sub2 method8417(Canvas gameCanvas, int width, int height) {
+        return Class52_Sub1.method14493(this, gameCanvas, width, height);
     }
 
     @Override
@@ -7878,8 +7878,8 @@ public class JavaRenderer extends AbstractRenderer {
         return null;
     }
 
-	public static AbstractRenderer create(Canvas canvas_0, ImageLoader interface22_1, int i_2, int i_3) {
-	    return new JavaRenderer(canvas_0, interface22_1, i_2, i_3);
+	public static AbstractRenderer create(Canvas gameCanvas, ImageLoader interface22_1, int width, int height) {
+	    return new JavaRenderer(gameCanvas, interface22_1, width, height);
 	}
 
 }

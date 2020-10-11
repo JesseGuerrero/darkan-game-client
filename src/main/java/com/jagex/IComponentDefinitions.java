@@ -843,7 +843,7 @@ public class IComponentDefinitions {
         opCursors[i_1] = i_2;
     }
 
-    public Class119 method2046(AbstractRenderer graphicalrenderer_1) {
+    public Class119 method2046(AbstractRenderer currentRenderer) {
         long long_3 = (long) idHash << 32 | slotId & 0xffffffffL;
         Class119 class119_5 = (Class119) aClass229_1303.get(long_3);
         if (class119_5 != null) {
@@ -882,7 +882,7 @@ public class IComponentDefinitions {
                 ints_9[i_11 + class91_6.minY] = i_12 + class91_6.minX;
                 ints_10[i_11 + class91_6.minY] = i_13 - i_12;
             }
-            Class455 class455_15 = graphicalrenderer_1.method8624(i_7, i_8, ints_9, ints_10);
+            Class455 class455_15 = currentRenderer.method8624(i_7, i_8, ints_9, ints_10);
             if (class455_15 == null) {
                 return null;
             } else {
@@ -932,35 +932,35 @@ public class IComponentDefinitions {
         }
     }
     
-    public static void render(IComponentDefinitions[] arr_0, int i_1, int i_2, int i_3, int i_4, int i_5, int i_6, int i_7, int i_8, boolean bool_9) {
-	    Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
-	    for (int i_11 = 0; i_11 < arr_0.length; i_11++) {
-	        IComponentDefinitions inter = arr_0[i_11];
-	        if (inter != null && (inter.parent == i_1 || i_1 == -1412584499 && inter == client.aClass118_7257)) {
+    public static void render(IComponentDefinitions[] interComponents, int i_1, int i_2, int i_3, int width, int height, int i_6, int i_7, int i_8, boolean bool_9) {
+	    Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
+	    for (int i = 0; i < interComponents.length; i++) {
+	        IComponentDefinitions component = interComponents[i];
+	        if (component != null && (component.parent == i_1 || i_1 == -1412584499 && component == client.aClass118_7257)) {
 	            int i_13;
 	            if (i_8 == -1) {
-	                client.aRectangleArray7411[client.anInt7407].setBounds(inter.x + i_6, i_7 + inter.y, inter.width, inter.height);
+	                client.aRectangleArray7411[client.anInt7407].setBounds(component.x + i_6, i_7 + component.y, component.width, component.height);
 	                i_13 = ++client.anInt7407 - 1;
 	            } else {
 	                i_13 = i_8;
 	            }
-	            inter.anInt1449 = i_13;
-	            inter.anInt1450 = client.CYCLES_20MS;
-	            if (!client.method11651(inter)) {
-	                if (inter.contentType != 0) {
-	                    Class28.method776(inter);
+	            component.anInt1449 = i_13;
+	            component.anInt1450 = client.CYCLES_20MS;
+	            if (!client.method11651(component)) {
+	                if (component.contentType != 0) {
+	                    Class28.method776(component);
 	                }
-	                int drawX = inter.x + i_6;
-	                int drawY = i_7 + inter.y;
-	                int i_16 = inter.transparency;
-	                if (client.aBool7168 && (client.getIComponentSettings(inter).settingsHash != 0 || inter.type == ComponentType.CONTAINER) && i_16 > 127) {
+	                int drawX = component.x + i_6;
+	                int drawY = i_7 + component.y;
+	                int i_16 = component.transparency;
+	                if (client.aBool7168 && (client.getIComponentSettings(component).settingsHash != 0 || component.type == ComponentType.CONTAINER) && i_16 > 127) {
 	                    i_16 = 127;
 	                }
 	                int i_17;
 	                int i_18;
-	                if (inter == client.aClass118_7257) {
-	                    if (i_1 != -1412584499 && (inter.anInt1382 == anInt1265 || inter.anInt1382 == anInt1283 || client.getIComponentSettings(inter).bit23Enabled())) {
-	                        Comparable_Sub1.aClass118Array3772 = arr_0;
+	                if (component == client.aClass118_7257) {
+	                    if (i_1 != -1412584499 && (component.anInt1382 == anInt1265 || component.anInt1382 == anInt1283 || client.getIComponentSettings(component).bit23Enabled())) {
+	                        Comparable_Sub1.aClass118Array3772 = interComponents;
 	                        GameTipsLoader.anInt4822 = i_6;
 	                        Isaac.anInt5157 = i_7;
 	                        continue;
@@ -973,22 +973,22 @@ public class IComponentDefinitions {
 	                        if (i_17 < client.anInt7432) {
 	                            i_17 = client.anInt7432;
 	                        }
-	                        if (i_17 + inter.width > client.anInt7432 + client.anInt7367) {
-	                            i_17 = client.anInt7432 + client.anInt7367 - inter.width;
+	                        if (i_17 + component.width > client.anInt7432 + client.anInt7367) {
+	                            i_17 = client.anInt7432 + client.anInt7367 - component.width;
 	                        }
 	                        if (i_18 < client.anInt7265) {
 	                            i_18 = client.anInt7265;
 	                        }
-	                        if (i_18 + inter.height > client.anInt7265 + client.anInt7476) {
-	                            i_18 = client.anInt7476 + client.anInt7265 - inter.height;
+	                        if (i_18 + component.height > client.anInt7265 + client.anInt7476) {
+	                            i_18 = client.anInt7476 + client.anInt7265 - component.height;
 	                        }
-	                        if (client.getIComponentSettings(inter).bit23Enabled()) {
-	                            Class292.method5201(i_17, i_18, inter.width, inter.height);
+	                        if (client.getIComponentSettings(component).bit23Enabled()) {
+	                            Class292.method5201(i_17, i_18, component.width, component.height);
 	                        }
 	                        drawX = i_17;
 	                        drawY = i_18;
 	                    }
-	                    if (inter.anInt1382 == anInt1283) {
+	                    if (component.anInt1382 == anInt1283) {
 	                        i_16 = 128;
 	                    }
 	                }
@@ -996,71 +996,71 @@ public class IComponentDefinitions {
 	                int i_20;
 	                int i_21;
 	                int i_22;
-	                if (inter.type == ComponentType.TYPE_2) {
+	                if (component.type == ComponentType.TYPE_2) {
 	                    i_17 = i_2;
 	                    i_18 = i_3;
-	                    i_19 = i_4;
-	                    i_20 = i_5;
+	                    i_19 = width;
+	                    i_20 = height;
 	                } else {
-	                    i_21 = drawX + inter.width;
-	                    i_22 = drawY + inter.height;
-	                    if (inter.type == ComponentType.LINE) {
+	                    i_21 = drawX + component.width;
+	                    i_22 = drawY + component.height;
+	                    if (component.type == ComponentType.LINE) {
 	                        ++i_21;
 	                        ++i_22;
 	                    }
 	                    i_17 = Math.max(drawX, i_2);
 	                    i_18 = Math.max(drawY, i_3);
-	                    i_19 = Math.min(i_21, i_4);
-	                    i_20 = Math.min(i_22, i_5);
+	                    i_19 = Math.min(i_21, width);
+	                    i_20 = Math.min(i_22, height);
 	                }
 	                if (i_17 < i_19 && i_18 < i_20) {
-	                    if (inter.contentType != 0) {
-	                        if (inter.contentType == CONTENT_TYPE_1337 || inter.contentType == CONTENT_TYPE_1403) {
-	                            HitbarDefinitions.method3231(drawX, drawY, inter.width, inter.height, inter.contentType == CONTENT_TYPE_1403);
+	                    if (component.contentType != 0) {
+	                        if (component.contentType == CONTENT_TYPE_1337 || component.contentType == CONTENT_TYPE_1403) {
+	                            HitbarDefinitions.method3231(drawX, drawY, component.width, component.height, component.contentType == CONTENT_TYPE_1403);
 	                            TCPPacket.method12366(i_13, i_17, i_18, i_19, i_20, drawX, drawY);
 	                            Renderers.CURRENT_RENDERER.method8421();
-	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                            client.aBoolArray7443[i_13] = true;
 	                            continue;
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1338 && client.anInt7341 == 1) {
-	                            if (inter.method2046(Renderers.CURRENT_RENDERER) != null) {
+	                        if (component.contentType == CONTENT_TYPE_1338 && client.anInt7341 == 1) {
+	                            if (component.method2046(Renderers.CURRENT_RENDERER) != null) {
 	                                MaterialPropTexture.method15391();
-	                                Item.method12574(Renderers.CURRENT_RENDERER, inter, drawX, drawY);
-	                                Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                                Item.method12574(Renderers.CURRENT_RENDERER, component, drawX, drawY);
+	                                Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                            }
 	                            continue;
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1408) {
-	                            Shadow.method15506(Renderers.CURRENT_RENDERER, drawX, drawY, inter);
+	                        if (component.contentType == CONTENT_TYPE_1408) {
+	                            Shadow.method15506(Renderers.CURRENT_RENDERER, drawX, drawY, component);
 	                            continue;
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1409) {
-	                            Class366.method6301(Renderers.CURRENT_RENDERER, drawX, drawY, inter, inter.color % 64);
+	                        if (component.contentType == CONTENT_TYPE_1409) {
+	                            Class366.method6301(Renderers.CURRENT_RENDERER, drawX, drawY, component, component.color % 64);
 	                            continue;
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1339) {
-	                            if (inter.method2046(Renderers.CURRENT_RENDERER) != null) {
-	                                VorbisFileReference.method13448(inter, drawX, drawY);
-	                                Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                        if (component.contentType == CONTENT_TYPE_1339) {
+	                            if (component.method2046(Renderers.CURRENT_RENDERER) != null) {
+	                                VorbisFileReference.method13448(component, drawX, drawY);
+	                                Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                            }
 	                            continue;
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1400) {
-	                            Node_Sub46.method13407(Renderers.CURRENT_RENDERER, IndexLoaders.IMAGE_LOADER, drawX, drawY, inter.width, inter.height);
+	                        if (component.contentType == CONTENT_TYPE_1400) {
+	                            Node_Sub46.method13407(Renderers.CURRENT_RENDERER, IndexLoaders.IMAGE_LOADER, drawX, drawY, component.width, component.height);
 	                            client.aBoolArray7443[i_13] = true;
-	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                            continue;
 	                        }
-	                        if (inter.contentType == MINIMAP) {
-	                            LoadingStage.renderMiniMiniMap(Renderers.CURRENT_RENDERER, drawX, drawY, inter.width, inter.height);
+	                        if (component.contentType == MINIMAP) {
+	                            LoadingStage.renderMiniMiniMap(Renderers.CURRENT_RENDERER, drawX, drawY, component.width, component.height);
 	                            client.aBoolArray7443[i_13] = true;
-	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                            Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                            continue;
 	                        }
-	                        if (inter.contentType == DEBUG_INFORMATION) {
+	                        if (component.contentType == DEBUG_INFORMATION) {
 	                            if (client.DRAW_DEBUG || client.aBool7177) {
-	                                NPCDirection.drawDebugInformation(drawX, drawY, inter);
+	                                NPCDirection.drawDebugInformation(drawX, drawY, component);
 	                                client.aBoolArray7443[i_13] = true;
 	                            }
 	                            continue;
@@ -1069,19 +1069,19 @@ public class IComponentDefinitions {
 	                    int i_23;
 	                    int i_24;
 	                    int i_25;
-	                    if (inter.type == ComponentType.CONTAINER) {
-	                        if (inter.contentType == CONTENT_TYPE_1407 && Renderers.CURRENT_RENDERER.method8471()) {
+	                    if (component.type == ComponentType.CONTAINER) {
+	                        if (component.contentType == CONTENT_TYPE_1407 && Renderers.CURRENT_RENDERER.method8471()) {
 	                            Renderers.CURRENT_RENDERER.method8525(ChangeClanSetting.BASE_WINDOW_WIDTH, client.BASE_WINDOW_HEIGHT * -969250379);
 	                        }
-	                        render(arr_0, inter.idHash, i_17, i_18, i_19, i_20, drawX - inter.scrollX, drawY - inter.scrollY, i_13, bool_9);
-	                        if (inter.itemSlots != null) {
-	                            render(inter.itemSlots, inter.idHash, i_17, i_18, i_19, i_20, drawX - inter.scrollX, drawY - inter.scrollY, i_13, bool_9);
+	                        render(interComponents, component.idHash, i_17, i_18, i_19, i_20, drawX - component.scrollX, drawY - component.scrollY, i_13, bool_9);
+	                        if (component.itemSlots != null) {
+	                            render(component.itemSlots, component.idHash, i_17, i_18, i_19, i_20, drawX - component.scrollX, drawY - component.scrollY, i_13, bool_9);
 	                        }
-	                        SubInterface class282_sub44_33 = (SubInterface) client.OPEN_INTERFACES.get(inter.idHash);
+	                        SubInterface class282_sub44_33 = (SubInterface) client.OPEN_INTERFACES.get(component.idHash);
 	                        if (class282_sub44_33 != null) {
 	                            RenderAnimIndexLoader.method3629(class282_sub44_33.interfaceId, i_17, i_18, i_19, i_20, drawX, drawY, i_13);
 	                        }
-	                        if (inter.contentType == CONTENT_TYPE_1407) {
+	                        if (component.contentType == CONTENT_TYPE_1407) {
 	                            if (Renderers.CURRENT_RENDERER.method8471()) {
 	                                Renderers.CURRENT_RENDERER.method8474();
 	                            }
@@ -1102,261 +1102,261 @@ public class IComponentDefinitions {
 	                                }
 	                            }
 	                        }
-	                        Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                        Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                    }
 	                    if (client.aBoolArray7410[i_13] || client.anInt7412 > 1) {
-	                        if (inter.type == ComponentType.FIGURE) {
+	                        if (component.type == ComponentType.FIGURE) {
 	                            if (i_16 == 0) {
-	                                if (inter.filled) {
-	                                    Renderers.CURRENT_RENDERER.B(drawX, drawY, inter.width, inter.height, inter.color, 0);
+	                                if (component.filled) {
+	                                    Renderers.CURRENT_RENDERER.B(drawX, drawY, component.width, component.height, component.color, 0);
 	                                } else {
-	                                    Renderers.CURRENT_RENDERER.method8430(drawX, drawY, inter.width, inter.height, inter.color, 0);
+	                                    Renderers.CURRENT_RENDERER.method8430(drawX, drawY, component.width, component.height, component.color, 0);
 	                                }
-	                            } else if (inter.filled) {
-	                                Renderers.CURRENT_RENDERER.B(drawX, drawY, inter.width, inter.height, 255 - (i_16 & 0xff) << 24 | inter.color & 0xffffff, 1);
+	                            } else if (component.filled) {
+	                                Renderers.CURRENT_RENDERER.B(drawX, drawY, component.width, component.height, 255 - (i_16 & 0xff) << 24 | component.color & 0xffffff, 1);
 	                            } else {
-	                                Renderers.CURRENT_RENDERER.method8430(drawX, drawY, inter.width, inter.height, 255 - (i_16 & 0xff) << 24 | inter.color & 0xffffff, 1);
+	                                Renderers.CURRENT_RENDERER.method8430(drawX, drawY, component.width, component.height, 255 - (i_16 & 0xff) << 24 | component.color & 0xffffff, 1);
 	                            }
 	                        } else {
 	                            ItemDefinitions itemdefinitions_36;
-	                            if (inter.type == ComponentType.TEXT) {
-	                                FontRenderer fontrenderer_43 = inter.method1988(Class487.aClass378_5752, client.anInterface35_7206);
+	                            if (component.type == ComponentType.TEXT) {
+	                                FontRenderer fontrenderer_43 = component.method1988(Class487.aClass378_5752, client.anInterface35_7206);
 	                                if (fontrenderer_43 == null) {
 	                                    if (aBool1399) {
-	                                        redrawComponent(inter);
+	                                        redrawComponent(component);
 	                                    }
 	                                } else {
-	                                    i_22 = inter.color;
-	                                    String string_35 = inter.text;
-	                                    if (inter.containerItemId != -1) {
-	                                        itemdefinitions_36 = IndexLoaders.ITEM_LOADER.getItemDefinitions(inter.containerItemId);
+	                                    i_22 = component.color;
+	                                    String string_35 = component.text;
+	                                    if (component.containerItemId != -1) {
+	                                        itemdefinitions_36 = IndexLoaders.ITEM_LOADER.getItemDefinitions(component.containerItemId);
 	                                        string_35 = itemdefinitions_36.name;
 	                                        if (string_35 == null) {
 	                                            string_35 = "null";
 	                                        }
-	                                        if ((itemdefinitions_36.stackable == 1 || inter.anInt1427 != 1) && inter.anInt1427 != -1) {
-	                                            string_35 = Utils.rgbToColHexShortcut(16748608) + string_35 + "</col>" + " x" + Class488.method8210(inter.anInt1427);
+	                                        if ((itemdefinitions_36.stackable == 1 || component.anInt1427 != 1) && component.anInt1427 != -1) {
+	                                            string_35 = Utils.rgbToColHexShortcut(16748608) + string_35 + "</col>" + " x" + Class488.method8210(component.anInt1427);
 	                                        }
 	                                    }
-	                                    if (inter.anInt1435 != -1) {
-	                                        string_35 = Class148.method2550(inter.anInt1435);
+	                                    if (component.anInt1435 != -1) {
+	                                        string_35 = Class148.method2550(component.anInt1435);
 	                                        if (string_35 == null) {
 	                                            string_35 = "";
 	                                        }
 	                                    }
-	                                    if (inter == client.aClass118_7352) {
+	                                    if (component == client.aClass118_7352) {
 	                                        string_35 = LocalizedText.PLEASE_WAIT.translate(Class223.CURRENT_LANGUAGE);
-	                                        i_22 = inter.color;
+	                                        i_22 = component.color;
 	                                    }
 	                                    if (client.aBool7358) {
-	                                        Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + inter.width, drawY + inter.height);
+	                                        Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + component.width, drawY + component.height);
 	                                    }
-	                                    if (inter.textAntiMacro) {
-	                                        fontrenderer_43.method367(string_35, drawX, drawY, inter.width, inter.height, 255 - (i_16 & 0xff) << 24 | i_22, inter.shadow ? 255 - (i_16 & 0xff) << 24 : -1, inter.textHorizontalAli, inter.textVerticalAli, client.aRandom7260, Class455_Sub3.anInt9079, client.anIntArray7438, Class182.aNativeSpriteArray2261, null);
+	                                    if (component.textAntiMacro) {
+	                                        fontrenderer_43.method367(string_35, drawX, drawY, component.width, component.height, 255 - (i_16 & 0xff) << 24 | i_22, component.shadow ? 255 - (i_16 & 0xff) << 24 : -1, component.textHorizontalAli, component.textVerticalAli, client.aRandom7260, Class455_Sub3.anInt9079, client.anIntArray7438, Class182.aNativeSpriteArray2261, null);
 	                                    } else {
-	                                        fontrenderer_43.method373(string_35, drawX, drawY, inter.width, inter.height, 255 - (i_16 & 0xff) << 24 | i_22, inter.shadow ? 255 - (i_16 & 0xff) << 24 : -1, inter.textHorizontalAli, inter.textVerticalAli, inter.anInt1358, inter.maxTextLines, Class182.aNativeSpriteArray2261, null, null, 0, 0);
+	                                        fontrenderer_43.method373(string_35, drawX, drawY, component.width, component.height, 255 - (i_16 & 0xff) << 24 | i_22, component.shadow ? 255 - (i_16 & 0xff) << 24 : -1, component.textHorizontalAli, component.textVerticalAli, component.anInt1358, component.maxTextLines, Class182.aNativeSpriteArray2261, null, null, 0, 0);
 	                                    }
 	                                    if (client.aBool7358) {
-	                                        Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                                        Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                                    }
 	                                }
 	                            } else {
 	                                int i_27;
 	                                int i_39;
-	                                if (inter.type == ComponentType.SPRITE) {
-	                                    if (inter.anInt1404 >= 0) {
-	                                        inter.method2027(IndexLoaders.SKYBOX_LOADER, IndexLoaders.SUN_LOADER).method4214(Renderers.CURRENT_RENDERER, drawX, drawY, inter.width, inter.height, inter.anInt1430 << 3, inter.anInt1431 << 3);
+	                                if (component.type == ComponentType.SPRITE) {
+	                                    if (component.anInt1404 >= 0) {
+	                                        component.method2027(IndexLoaders.SKYBOX_LOADER, IndexLoaders.SUN_LOADER).method4214(Renderers.CURRENT_RENDERER, drawX, drawY, component.width, component.height, component.anInt1430 << 3, component.anInt1431 << 3);
 	                                    } else {
 	                                        NativeSprite nativesprite_41;
-	                                        if (inter.containerItemId != -1) {
-	                                            PlayerModel playerappearance_34 = inter.wearCol ? VertexNormal.MY_PLAYER.model : null;
-	                                            nativesprite_41 = IndexLoaders.ITEM_LOADER.softwareRender(Renderers.CURRENT_RENDERER, inter.containerItemId, inter.anInt1427, inter.borderThickness, -16777216 | inter.spriteShadow, inter.renderStack, playerappearance_34);
-	                                        } else if (inter.anInt1435 != -1) {
-	                                            nativesprite_41 = SpotAnimIndexLoader.method8858(Renderers.CURRENT_RENDERER, inter.anInt1435);
+	                                        if (component.containerItemId != -1) {
+	                                            PlayerModel playerappearance_34 = component.wearCol ? VertexNormal.MY_PLAYER.model : null;
+	                                            nativesprite_41 = IndexLoaders.ITEM_LOADER.softwareRender(Renderers.CURRENT_RENDERER, component.containerItemId, component.anInt1427, component.borderThickness, -16777216 | component.spriteShadow, component.renderStack, playerappearance_34);
+	                                        } else if (component.anInt1435 != -1) {
+	                                            nativesprite_41 = SpotAnimIndexLoader.method8858(Renderers.CURRENT_RENDERER, component.anInt1435);
 	                                        } else {
-	                                            nativesprite_41 = inter.method2048(Renderers.CURRENT_RENDERER);
+	                                            nativesprite_41 = component.method2048(Renderers.CURRENT_RENDERER);
 	                                        }
 	                                        if (nativesprite_41 != null) {
 	                                            i_22 = nativesprite_41.scaleWidth();
 	                                            i_23 = nativesprite_41.method2748();
-	                                            i_24 = 255 - (i_16 & 0xff) << 24 | (inter.color != 0 ? inter.color & 0xffffff : 16777215);
-	                                            if (!inter.tiling) {
-	                                                if (inter.color == 0 && i_16 == 0) {
-	                                                    if (inter.angle2d != 0) {
-	                                                        nativesprite_41.method2758(inter.width / 2.0F + drawX, drawY + inter.height / 2.0F, inter.width * 4096 / i_22, inter.angle2d);
-	                                                    } else if (i_22 == inter.width && i_23 == inter.height) {
+	                                            i_24 = 255 - (i_16 & 0xff) << 24 | (component.color != 0 ? component.color & 0xffffff : 16777215);
+	                                            if (!component.tiling) {
+	                                                if (component.color == 0 && i_16 == 0) {
+	                                                    if (component.angle2d != 0) {
+	                                                        nativesprite_41.method2758(component.width / 2.0F + drawX, drawY + component.height / 2.0F, component.width * 4096 / i_22, component.angle2d);
+	                                                    } else if (i_22 == component.width && i_23 == component.height) {
 	                                                        nativesprite_41.method2752(drawX, drawY);
 	                                                    } else {
-	                                                        nativesprite_41.method2789(drawX, drawY, inter.width, inter.height);
+	                                                        nativesprite_41.method2789(drawX, drawY, component.width, component.height);
 	                                                    }
-	                                                } else if (inter.angle2d != 0) {
-	                                                    nativesprite_41.method2790(inter.width / 2.0F + drawX, inter.height / 2.0F + drawY, inter.width * 4096 / i_22, inter.angle2d, i_24);
-	                                                } else if (i_22 == inter.width && i_23 == inter.height) {
+	                                                } else if (component.angle2d != 0) {
+	                                                    nativesprite_41.method2790(component.width / 2.0F + drawX, component.height / 2.0F + drawY, component.width * 4096 / i_22, component.angle2d, i_24);
+	                                                } else if (i_22 == component.width && i_23 == component.height) {
 	                                                    nativesprite_41.method2742(drawX, drawY, 0, i_24, 1);
 	                                                } else {
-	                                                    nativesprite_41.method2754(drawX, drawY, inter.width, inter.height, 0, i_24, 1);
+	                                                    nativesprite_41.method2754(drawX, drawY, component.width, component.height, 0, i_24, 1);
 	                                                }
 	                                            } else {
-	                                                Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + inter.width, drawY + inter.height);
-	                                                if (inter.angle2d != 0) {
-	                                                    i_25 = (i_22 - 1 + inter.width) / i_22;
-	                                                    i_39 = (i_23 - 1 + inter.height) / i_23;
+	                                                Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + component.width, drawY + component.height);
+	                                                if (component.angle2d != 0) {
+	                                                    i_25 = (i_22 - 1 + component.width) / i_22;
+	                                                    i_39 = (i_23 - 1 + component.height) / i_23;
 	                                                    for (i_27 = 0; i_27 < i_25; i_27++) {
 	                                                        for (int i_28 = 0; i_28 < i_39; i_28++) {
-	                                                            if (inter.color != 0) {
-	                                                                nativesprite_41.method2790((drawX + i_27 * i_22) + i_22 / 2.0F, i_23 / 2.0F + (drawY + i_23 * i_28), 4096, inter.angle2d, i_24);
+	                                                            if (component.color != 0) {
+	                                                                nativesprite_41.method2790((drawX + i_27 * i_22) + i_22 / 2.0F, i_23 / 2.0F + (drawY + i_23 * i_28), 4096, component.angle2d, i_24);
 	                                                            } else {
-	                                                                nativesprite_41.method2758((drawX + i_22 * i_27) + i_22 / 2.0F, (drawY + i_23 * i_28) + i_23 / 2.0F, 4096, inter.angle2d);
+	                                                                nativesprite_41.method2758((drawX + i_22 * i_27) + i_22 / 2.0F, (drawY + i_23 * i_28) + i_23 / 2.0F, 4096, component.angle2d);
 	                                                            }
 	                                                        }
 	                                                    }
-	                                                } else if (inter.color == 0 && i_16 == 0) {
-	                                                    nativesprite_41.method2756(drawX, drawY, inter.width, inter.height);
+	                                                } else if (component.color == 0 && i_16 == 0) {
+	                                                    nativesprite_41.method2756(drawX, drawY, component.width, component.height);
 	                                                } else {
-	                                                    nativesprite_41.method2772(drawX, drawY, inter.width, inter.height, 0, i_24, 1);
+	                                                    nativesprite_41.method2772(drawX, drawY, component.width, component.height, 0, i_24, 1);
 	                                                }
-	                                                Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                                                Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                                            }
 	                                        } else if (aBool1399) {
-	                                            redrawComponent(inter);
+	                                            redrawComponent(component);
 	                                        }
 	                                    }
-	                                } else if (inter.type == ComponentType.MODEL) {
+	                                } else if (component.type == ComponentType.MODEL) {
 	                                	//TODO figure out what is broken with this block of logic
 	                                    IndexLoaders.MAP_REGION_DECODER.method4435().method4052();
 	                                    MeshRasterizer meshRasterizer = null;
 	                                    i_22 = 2048;
-	                                    if (inter.modelTintScalar != 0) {
+	                                    if (component.modelTintScalar != 0) {
 	                                        i_22 |= 0x80000;
 	                                    }
 	                                    i_23 = 0;
-	                                    if (inter.containerItemId != -1) {
-	                                        itemdefinitions_36 = IndexLoaders.ITEM_LOADER.getItemDefinitions(inter.containerItemId);
+	                                    if (component.containerItemId != -1) {
+	                                        itemdefinitions_36 = IndexLoaders.ITEM_LOADER.getItemDefinitions(component.containerItemId);
 	                                        if (itemdefinitions_36 != null) {
-	                                            itemdefinitions_36 = itemdefinitions_36.method7090(inter.anInt1427);
-	                                            meshRasterizer = itemdefinitions_36.method7084(Renderers.CURRENT_RENDERER, i_22, 1, inter.wearCol ? VertexNormal.MY_PLAYER.model : null, inter.anim, 0, 0, 0, 0);
+	                                            itemdefinitions_36 = itemdefinitions_36.method7090(component.anInt1427);
+	                                            meshRasterizer = itemdefinitions_36.method7084(Renderers.CURRENT_RENDERER, i_22, 1, component.wearCol ? VertexNormal.MY_PLAYER.model : null, component.anim, 0, 0, 0, 0);
 	                                            if (meshRasterizer != null) {
 	                                                i_23 = -meshRasterizer.YA() >> 1;
 	                                            } else {
-	                                                redrawComponent(inter);
+	                                                redrawComponent(component);
 	                                            }
 	                                        }
 	                                    } else {
-	                                        if (inter.modelType == ModelType.PLAYER_HEAD) {
-	                                            i_24 = inter.modelId;
+	                                        if (component.modelType == ModelType.PLAYER_HEAD) {
+	                                            i_24 = component.modelId;
 	                                            if (i_24 >= 0 && i_24 < 2048) {
 	                                                PlayerEntity player_37 = client.players[i_24];
-	                                                if (player_37 != null && (i_24 == client.myPlayerIndex || Class272.stringToInt(player_37.displayName) == inter.anInt1339)) {
-	                                                    meshRasterizer = inter.method2002(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, inter.anim, player_37.model);
+	                                                if (player_37 != null && (i_24 == client.myPlayerIndex || Class272.stringToInt(player_37.displayName) == component.anInt1339)) {
+	                                                    meshRasterizer = component.method2002(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, component.anim, player_37.model);
 	                                                    if (meshRasterizer == null && aBool1399) {
-	                                                        redrawComponent(inter);
+	                                                        redrawComponent(component);
 	                                                    }
 	                                                }
 	                                            }
-	                                        } else if (inter.modelType == ModelType.PLAYER_MODEL) {
-	                                        	i_24 = inter.modelId;
+	                                        } else if (component.modelType == ModelType.PLAYER_MODEL) {
+	                                        	i_24 = component.modelId;
 	                                            if (i_24 >= 0 && i_24 < 2048) {
 	                                            	PlayerEntity player_37 = client.players[i_24];
-	                                                if (player_37 != null && (i_24 == client.myPlayerIndex || Class272.stringToInt(player_37.displayName) == inter.anInt1339)) {
-	                                                    meshRasterizer = player_37.model.getBodyModel(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, inter.anim, null, null, null, 0, LinkedNodeList.EQUIPMENT_DEFAULTS);
+	                                                if (player_37 != null && (i_24 == client.myPlayerIndex || Class272.stringToInt(player_37.displayName) == component.anInt1339)) {
+	                                                    meshRasterizer = player_37.model.getBodyModel(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, component.anim, null, null, null, 0, LinkedNodeList.EQUIPMENT_DEFAULTS);
 	                                                }
 	                                            }
-	                                        } else if (inter.modelType == ModelType.ITEM_CONTAINER_MALE || inter.modelType == ModelType.ITEM_CONTAINER_FEMALE) {
-	                                            ItemContainer container = ItemContainer.getContainer(inter.modelId, false);
+	                                        } else if (component.modelType == ModelType.ITEM_CONTAINER_MALE || component.modelType == ModelType.ITEM_CONTAINER_FEMALE) {
+	                                            ItemContainer container = ItemContainer.getContainer(component.modelId, false);
 	                                            if (container != null) {
-	                                                meshRasterizer = container.method12429(Renderers.CURRENT_RENDERER, i_22, inter.anim, inter.anInt1339, inter.modelType == ModelType.ITEM_CONTAINER_FEMALE, inter.wearCol ? VertexNormal.MY_PLAYER.model : null);
+	                                                meshRasterizer = container.method12429(Renderers.CURRENT_RENDERER, i_22, component.anim, component.anInt1339, component.modelType == ModelType.ITEM_CONTAINER_FEMALE, component.wearCol ? VertexNormal.MY_PLAYER.model : null);
 	                                            }
 	                                        } else {
-	                                            meshRasterizer = inter.method2002(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, inter.anim != null && inter.anim.hasDefs() ? inter.anim : null, VertexNormal.MY_PLAYER.model);
+	                                            meshRasterizer = component.method2002(Renderers.CURRENT_RENDERER, i_22, IndexLoaders.RENDER_ANIM_LOADER, IndexLoaders.IDENTIKIT_LOADER, IndexLoaders.NPC_INDEX_LOADER, IndexLoaders.ITEM_LOADER, Class158_Sub1.PLAYER_VAR_PROVIDER, component.anim != null && component.anim.hasDefs() ? component.anim : null, VertexNormal.MY_PLAYER.model);
 	                                            if (meshRasterizer == null && aBool1399) {
-	                                                redrawComponent(inter);
+	                                                redrawComponent(component);
 	                                            }
 	                                        }
 	                                    }
 	                                    if (meshRasterizer != null) {
-	                                        if (inter.modelTintScalar != 0) {
-	                                            meshRasterizer.PA(inter.modelTintRed, inter.modelTintGreen, inter.modelTintBlue, inter.modelTintScalar);
+	                                        if (component.modelTintScalar != 0) {
+	                                            meshRasterizer.PA(component.modelTintRed, component.modelTintGreen, component.modelTintBlue, component.modelTintScalar);
 	                                        }
-	                                        if (inter.aspectWidth > 0) {
-	                                            i_24 = (inter.width << 9) / inter.aspectWidth;
+	                                        if (component.aspectWidth > 0) {
+	                                            i_24 = (component.width << 9) / component.aspectWidth;
 	                                        } else {
 	                                            i_24 = 512;
 	                                        }
-	                                        if (inter.aspectHeight > 0) {
-	                                            i_25 = (inter.height << 9) / inter.aspectHeight;
+	                                        if (component.aspectHeight > 0) {
+	                                            i_25 = (component.height << 9) / component.aspectHeight;
 	                                        } else {
 	                                            i_25 = 512;
 	                                        }
-	                                        i_39 = inter.width / 2 + drawX;
-	                                        i_27 = inter.height / 2 + drawY;
-	                                        if (!inter.hasOrigin) {
-	                                            i_39 += i_24 * inter.originX >> 9;
-	                                            i_27 += i_25 * inter.originY >> 9;
+	                                        i_39 = component.width / 2 + drawX;
+	                                        i_27 = component.height / 2 + drawY;
+	                                        if (!component.hasOrigin) {
+	                                            i_39 += i_24 * component.originX >> 9;
+	                                            i_27 += i_25 * component.originY >> 9;
 	                                        }
 	                                        client.aClass294_7457.method5212();
 	                                        Renderers.CURRENT_RENDERER.method8457(client.aClass294_7457);
 	                                        Matrix44 matrix44_38 = Renderers.CURRENT_RENDERER.method8449();
 	                                        int i_29 = IndexLoaders.MAP_REGION_DECODER.method4544();
 	                                        int i_30 = IndexLoaders.MAP_REGION_DECODER.method4522();
-	                                        i_30 += inter.spriteScale;
-	                                        if (inter.usesOrthogonal) {
-	                                            if (inter.hasOrigin) {
-	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), inter.spriteScale);
+	                                        i_30 += component.spriteScale;
+	                                        if (component.usesOrthogonal) {
+	                                            if (component.hasOrigin) {
+	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), component.spriteScale);
 	                                            } else {
-	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), (inter.spriteScale << 2));
+	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), (component.spriteScale << 2));
 	                                            }
 	                                        } else {
 	                                            matrix44_38.method6531(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT));
 	                                        }
 	                                        Renderers.CURRENT_RENDERER.method8424(matrix44_38);
 	                                        Renderers.CURRENT_RENDERER.ba(2, 0);
-	                                        if (inter.aBool1345) {
+	                                        if (component.aBool1345) {
 	                                            Renderers.CURRENT_RENDERER.RA(false);
 	                                        }
-	                                        if (inter.hasOrigin) {
-	                                            client.aClass294_7169.method5217(1.0F, 0.0F, 0.0F, Trig.degToRad(inter.spritePitch));
-	                                            client.aClass294_7169.rotation(0.0F, 1.0F, 0.0F, Trig.degToRad(inter.spriteRoll));
-	                                            client.aClass294_7169.rotation(0.0F, 0.0F, 1.0F, Trig.degToRad(inter.spriteYaw));
-	                                            client.aClass294_7169.method5219(inter.originX, inter.originY, inter.originZ);
+	                                        if (component.hasOrigin) {
+	                                            client.aClass294_7169.method5217(1.0F, 0.0F, 0.0F, Trig.degToRad(component.spritePitch));
+	                                            client.aClass294_7169.rotation(0.0F, 1.0F, 0.0F, Trig.degToRad(component.spriteRoll));
+	                                            client.aClass294_7169.rotation(0.0F, 0.0F, 1.0F, Trig.degToRad(component.spriteYaw));
+	                                            client.aClass294_7169.method5219(component.originX, component.originY, component.originZ);
 	                                        } else {
-	                                            int i_31 = Trig.SINE[inter.spritePitch << 3] * (inter.spriteScale << 2) >> 14;
-	                                            int i_32 = Trig.COSINE[inter.spritePitch << 3] * (inter.spriteScale << 2) >> 14;
-	                                            client.aClass294_7169.method5217(0.0F, 0.0F, 1.0F, Trig.degToRad(-inter.spriteYaw << 3));
-	                                            client.aClass294_7169.rotation(0.0F, 1.0F, 0.0F, Trig.degToRad(inter.spriteRoll << 3));
-	                                            client.aClass294_7169.method5219((inter.offsetX << 2), (i_31 + i_23 + (inter.offsetY << 2)), (i_32 + (inter.offsetY << 2)));
-	                                            client.aClass294_7169.rotation(1.0F, 0.0F, 0.0F, Trig.degToRad(inter.spritePitch << 3));
+	                                            int i_31 = Trig.SINE[component.spritePitch << 3] * (component.spriteScale << 2) >> 14;
+	                                            int i_32 = Trig.COSINE[component.spritePitch << 3] * (component.spriteScale << 2) >> 14;
+	                                            client.aClass294_7169.method5217(0.0F, 0.0F, 1.0F, Trig.degToRad(-component.spriteYaw << 3));
+	                                            client.aClass294_7169.rotation(0.0F, 1.0F, 0.0F, Trig.degToRad(component.spriteRoll << 3));
+	                                            client.aClass294_7169.method5219((component.offsetX << 2), (i_31 + i_23 + (component.offsetY << 2)), (i_32 + (component.offsetY << 2)));
+	                                            client.aClass294_7169.rotation(1.0F, 0.0F, 0.0F, Trig.degToRad(component.spritePitch << 3));
 	                                        }
-	                                        inter.method1991(Renderers.CURRENT_RENDERER, meshRasterizer, client.aClass294_7169, client.CYCLES_20MS);
+	                                        component.method1991(Renderers.CURRENT_RENDERER, meshRasterizer, client.aClass294_7169, client.CYCLES_20MS);
 	                                        if (client.aBool7358) {
-	                                            Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + inter.width, drawY + inter.height);
+	                                            Renderers.CURRENT_RENDERER.o(drawX, drawY, drawX + component.width, drawY + component.height);
 	                                        }
 	                                        meshRasterizer.method11282(client.aClass294_7169, null, 1);
-	                                        if (!inter.usesOrthogonal && inter.particleSystem != null) {
-	                                            Renderers.CURRENT_RENDERER.method8456(inter.particleSystem.method11533());
+	                                        if (!component.usesOrthogonal && component.particleSystem != null) {
+	                                            Renderers.CURRENT_RENDERER.method8456(component.particleSystem.method11533());
 	                                        }
 	                                        if (client.aBool7358) {
-	                                            Renderers.CURRENT_RENDERER.r(i_2, i_3, i_4, i_5);
+	                                            Renderers.CURRENT_RENDERER.r(i_2, i_3, width, height);
 	                                        }
-	                                        if (inter.aBool1345) {
+	                                        if (component.aBool1345) {
 	                                            Renderers.CURRENT_RENDERER.RA(true);
 	                                        }
 	                                    }
-	                                } else if (inter.type == ComponentType.LINE) {
-	                                    if (inter.lineDirection) {
+	                                } else if (component.type == ComponentType.LINE) {
+	                                    if (component.lineDirection) {
 	                                        i_21 = drawX;
-	                                        i_22 = drawY + inter.height;
-	                                        i_23 = drawX + inter.width;
+	                                        i_22 = drawY + component.height;
+	                                        i_23 = drawX + component.width;
 	                                        i_24 = drawY;
 	                                    } else {
 	                                        i_21 = drawX;
 	                                        i_22 = drawY;
-	                                        i_23 = drawX + inter.width;
-	                                        i_24 = drawY + inter.height;
+	                                        i_23 = drawX + component.width;
+	                                        i_24 = drawY + component.height;
 	                                    }
-	                                    if (inter.lineWidth == 1) {
-	                                        Renderers.CURRENT_RENDERER.method8433(i_21, i_22, i_23, i_24, inter.color, 0);
+	                                    if (component.lineWidth == 1) {
+	                                        Renderers.CURRENT_RENDERER.method8433(i_21, i_22, i_23, i_24, component.color, 0);
 	                                    } else {
-	                                        Renderers.CURRENT_RENDERER.method8496(i_21, i_22, i_23, i_24, inter.color, inter.lineWidth, 0);
+	                                        Renderers.CURRENT_RENDERER.method8496(i_21, i_22, i_23, i_24, component.color, component.lineWidth, 0);
 	                                    }
 	                                }
 	                            }

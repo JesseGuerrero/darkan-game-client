@@ -298,7 +298,7 @@ public abstract class HardwareRenderer extends AbstractRenderer {
         method8439(method8438(131072));
     }
 
-    public static boolean method13893() {
+    public static boolean getJacLib() {
         return LibraryLoader.getLoader().loadLibrary("jaclib");
     }
 

@@ -1,7 +1,6 @@
 package com.jagex;
 
 import com.Getlineonce;
-import com.Loader;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.settings.ClanSettings;
 
@@ -2112,7 +2111,7 @@ public class CS2Interpreter {
                 method8199(exec);
                 break;
             case instr6645:
-                chooseGfx(exec);
+                chooseScreenType(exec);
                 break;
             case instr6406:
                 method3358(exec);
@@ -2412,7 +2411,7 @@ public class CS2Interpreter {
                 method1803(exec);
                 break;
             case instr6745:
-                method6678(exec);
+                switchRender(exec);
                 break;
             case instr6922:
                 method6729(exec);
@@ -3423,7 +3422,7 @@ public class CS2Interpreter {
         Class42.playSoundSong(executor.intStack[--executor.intStackPtr], 255, 50);
     }
 
-    static void method3556(CS2Executor executor) {
+    static void method3556(CS2Executor executor) {new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         WorldMapDef class282_sub50_sub6_3 = Class125.method2173();
         if (class282_sub50_sub6_3 != null) {
@@ -3724,7 +3723,7 @@ public class CS2Interpreter {
         Class190.savePreferences();
     }
 
-    static void method7643(CS2Executor executor) {
+    static void method7643(CS2Executor executor) { new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         IComponentDefinitions defs = IComponentDefinitions.getDefs(i_2);
         int i_4 = -1;
@@ -3759,7 +3758,7 @@ public class CS2Interpreter {
         setCompText(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void method13494(CS2Executor executor) {
+    static void method13494(CS2Executor executor) {new Getlineonce();
         String string_2 = (String) executor.stringStack[--executor.stringStackPtr];
         if (RenderFlagMap.aString3643 != null && RenderFlagMap.aString3643.equalsIgnoreCase(string_2)) {
             executor.intStack[++executor.intStackPtr - 1] = 1;
@@ -4627,11 +4626,13 @@ public class CS2Interpreter {
         method789(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void chooseGfx(CS2Executor executor) {//TODO: fic fullscreen lobby
+    static void chooseScreenType(CS2Executor executor) {//TODO: fic fullscreen lobby
         int screenType = Class158.windowedMode();
         int chosenScreenType = executor.intStack[--executor.intStackPtr];
 
         System.out.println(chosenScreenType + " " + chosenScreenType);
+
+        System.out.println("gfx ran");
 
         System.out.println(chosenScreenType);
         if (chosenScreenType >= 1 && chosenScreenType <= 2 && !Class158.justBecameFullscreen) {
@@ -5589,7 +5590,7 @@ public class CS2Interpreter {
         method8390(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void method6072(CS2Executor executor) {
+    static void method6072(CS2Executor executor) {new Getlineonce();
         executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.bloom.method12707() && Renderers.CURRENT_RENDERER.method8403() ? 1 : 0;
     }
 
@@ -5932,7 +5933,7 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = ((PlayerEntity) executor.currentEntity).aClass155_10561.method2626(i_2);
     }
 
-    static void method8343(CS2Executor executor) {
+    static void method8343(CS2Executor executor) {new Getlineonce();
         executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.antiAliasingDefault.method12646() && Renderers.CURRENT_RENDERER.method8405() ? 1 : 0;
     }
 
@@ -5960,6 +5961,7 @@ public class CS2Interpreter {
 
     static void chooseFullscreen(CS2Executor executor) {//in gfx menu
         executor.intStackPtr -= 2;
+        System.out.println("It ran");
         if (Class475.supportsFullScreen) {
             executor.intStack[++executor.intStackPtr - 1] = Engine.fullScreenFrame != null ? 1 : 0;
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -6501,7 +6503,7 @@ public class CS2Interpreter {
         }
     }
 
-    static void method3768(CS2Executor executor) {
+    static void method3768(CS2Executor executor) {new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         FontRenderer_Sub2.method14263(i_2 >> 14 & 0x3fff, i_2 & 0x3fff);
     }
@@ -7087,7 +7089,7 @@ public class CS2Interpreter {
         client.aBool7175 = false;
     }
 
-    static void method4413(CS2Executor executor) {
+    static void method4413(CS2Executor executor) { new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         if (!Renderers.CURRENT_RENDERER.method8403()) {
             executor.intStack[++executor.intStackPtr - 1] = 3;
@@ -7129,7 +7131,7 @@ public class CS2Interpreter {
         }
     }
 
-    static void method7676(CS2Executor executor) {
+    static void method7676(CS2Executor executor) {new Getlineonce();
         CS2Interface underlaydefinition_2 = executor.aBool7022 ? executor.hookedInterface2 : executor.hookedInterface1;
         IComponentDefinitions icomponentdefinitions_3 = underlaydefinition_2.defs;
         int i_4 = -1;
@@ -7840,7 +7842,7 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = enumdefinitions_3.getSize();
     }
 
-    static void method12596(CS2Executor executor) {
+    static void method12596(CS2Executor executor) {new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.maxScreenSize.checkValid(i_2);
     }
@@ -8030,7 +8032,7 @@ public class CS2Interpreter {
         executor.intStack[executor.intStackPtr - 1] = IndexLoaders.QUEST_LOADER.getQuest(executor.intStack[executor.intStackPtr - 1]).type;
     }
 
-    static void method7218(CS2Executor executor) {
+    static void method7218(CS2Executor executor) {new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         if (!Renderers.CURRENT_RENDERER.method8405()) {
             executor.intStack[++executor.intStackPtr - 1] = 3;
@@ -8319,7 +8321,7 @@ public class CS2Interpreter {
         Class466.method7777();
     }
 
-    static void method2108(CS2Executor executor) {
+    static void method2108(CS2Executor executor) {new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.toolKit.checkValid(i_2);
     }
@@ -9526,12 +9528,15 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = executor.clanChannel.players[i_2].rank;
     }
 
-    static void method6678(CS2Executor executor) {
-        int i_2 = executor.intStack[--executor.intStackPtr];
-        if (i_2 < 0 || i_2 > 5) {
-            i_2 = 2;
+    static void switchRender(CS2Executor executor) {
+        int renderOption = executor.intStack[--executor.intStackPtr];
+        if (renderOption < 0 || renderOption > 5) {
+            renderOption = 2;
         }
-        ParticleProducer.method11500(i_2, false);
+
+        System.out.println("render:" + renderOption);
+
+        ParticleProducer.method11500(0/*renderOption*/, false);
     }
 
     static void getFriendsChatCount(CS2Executor executor) {
@@ -10180,6 +10185,7 @@ public class CS2Interpreter {
     }
 
     static void method15408(CS2Executor executor) {
+        new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         BASDefinitions bas = IndexLoaders.RENDER_ANIM_LOADER.getBASDefs(i_2);
         if (bas.randomStandAnimations != null && bas.randomStandAnimations.length > 0) {
@@ -10255,7 +10261,7 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = Class393.preferences.toolkitDefault.method13050();
     }
 
-    static void method13467(CS2Executor executor) {
+    static void method13467(CS2Executor executor) {new Getlineonce();
         executor.intStack[++executor.intStackPtr - 1] = RenderFlagMap.anInt3644;
     }
 
@@ -11290,7 +11296,7 @@ public class CS2Interpreter {
         icomponentdefinitions_0.usesScripts = true;
     }
 
-    static void setItemIFComp(IComponentDefinitions ifComp, Interface interface_1, boolean wearCol, int renderStack, CS2Executor cs2executor_4) {
+    static void setItemIFComp(IComponentDefinitions ifComp, Interface interface_1, boolean wearCol, int renderStack, CS2Executor cs2executor_4) {new Getlineonce();
         cs2executor_4.intStackPtr -= 2;
         int itemId = cs2executor_4.intStack[cs2executor_4.intStackPtr];
         int i_7 = cs2executor_4.intStack[cs2executor_4.intStackPtr + 1];
@@ -11323,7 +11329,7 @@ public class CS2Interpreter {
         }
     }
 
-    static void setCompText(IComponentDefinitions icomponentdefinitions_0, Interface interface_1, CS2Executor cs2executor_2) {
+    static void setCompText(IComponentDefinitions icomponentdefinitions_0, Interface interface_1, CS2Executor cs2executor_2) {new Getlineonce();
         String string_4 = (String) cs2executor_2.stringStack[--cs2executor_2.stringStackPtr];
         if (!string_4.equals(icomponentdefinitions_0.text)) {
             icomponentdefinitions_0.text = string_4;
@@ -11898,7 +11904,7 @@ public class CS2Interpreter {
         icomponentdefinitions_0.anInt1378 = cs2executor_2.intStack[--cs2executor_2.intStackPtr];
     }
 
-    static void method7667(IComponentDefinitions icomponentdefinitions_0, Interface interface_1, CS2Executor cs2executor_2) {
+    static void method7667(IComponentDefinitions icomponentdefinitions_0, Interface interface_1, CS2Executor cs2executor_2) {new Getlineonce();
         cs2executor_2.intStackPtr -= 3;
         int i_4 = cs2executor_2.intStack[cs2executor_2.intStackPtr];
         short s_5 = (short) cs2executor_2.intStack[cs2executor_2.intStackPtr + 1];

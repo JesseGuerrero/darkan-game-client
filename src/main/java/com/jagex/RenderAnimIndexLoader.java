@@ -18,7 +18,7 @@ public class RenderAnimIndexLoader {
         aClass526_2672 = defaults6loader_4;
     }
 
-    static void method3629(int i_0, int i_1, int i_2, int i_3, int i_4, int i_5, int i_6, int i_7) {
+    static void method3629(int i_0, int i_1, int i_2, int width, int height, int i_5, int i_6, int i_7) {
         if (!MovingAnimation.isInterfaceLoaded(i_0, null)) {
             if (i_7 != -1) {
                 client.aBoolArray7443[i_7] = true;
@@ -28,7 +28,7 @@ public class RenderAnimIndexLoader {
                 }
             }
         } else {
-            IComponentDefinitions.render(Interface.INTERFACES[i_0].method1616(), -1, i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_7 < 0);
+            IComponentDefinitions.render(Interface.INTERFACES[i_0].method1616(), -1, i_1, i_2, width, height, i_5, i_6, i_7, i_7 < 0);
         }
     }
 
