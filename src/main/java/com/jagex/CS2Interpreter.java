@@ -2092,8 +2092,8 @@ public class CS2Interpreter {
             case instr6818:
                 method15403();
                 break;
-            case FULLSCREEN:
-                startFullScreen(exec);
+            case instr6639:
+                chooseFullscreen(exec);
                 break;
             case instr6488:
                 method3613();
@@ -2111,7 +2111,7 @@ public class CS2Interpreter {
                 method8199(exec);
                 break;
             case instr6645:
-                method12933(exec);
+                chooseGfx(exec);
                 break;
             case instr6406:
                 method3358(exec);
@@ -3229,7 +3229,6 @@ public class CS2Interpreter {
     }
 
     static void method2866() {
-        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
@@ -3587,7 +3586,6 @@ public class CS2Interpreter {
     }
 
     static void method8263(CS2Executor executor) {
-        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
@@ -4319,7 +4317,6 @@ public class CS2Interpreter {
     }
 
     static void method3066(CS2Executor executor) {
-        new Getlineonce();
         if (Class475.supportsFullScreen) {
             Class467[] arr_2 = ClanVarDefinitions.method6825();
             executor.intStack[++executor.intStackPtr - 1] = arr_2.length;
@@ -4629,13 +4626,12 @@ public class CS2Interpreter {
         method789(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void method12933(CS2Executor executor) {
-        int screenType = executor.intStack[--executor.intStackPtr];
-
-        new Getlineonce();
-
-        if (screenType >= 1 && screenType <= 2) {
-            UID192.method7373(3, -1, -1, false);
+    static void chooseGfx(CS2Executor executor) {//TODO: affects fullscreen option, find a way to get resolution from options in gfx interf
+        int i_2 = executor.intStack[--executor.intStackPtr];
+        if (i_2 >= 1 && i_2 <= 2 && !Class158.justBecameFullscreen) {
+            UID192.method7373(i_2, -1, -1, false);
+        } else {
+            Class158.justBecameFullscreen = false;
         }
     }
 
@@ -5897,11 +5893,15 @@ public class CS2Interpreter {
         executor.intStack[++executor.intStackPtr - 1] = i_4;
     }
 
-    static void startFullScreen(CS2Executor executor) {
+    static void chooseFullscreen(CS2Executor executor) {//in gfx menu
         executor.intStackPtr -= 2;
-        new Getlineonce();
         if (Class475.supportsFullScreen) {
             executor.intStack[++executor.intStackPtr - 1] = Engine.fullScreenFrame != null ? 1 : 0;
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            int width = gd.getDisplayMode().getWidth();
+            int height = gd.getDisplayMode().getHeight();
+            Class158.justBecameFullscreen = true;
+            UID192.method7373(3, width, height, false);
         } else {
             executor.intStack[++executor.intStackPtr - 1] = 0;
         }
@@ -6068,7 +6068,6 @@ public class CS2Interpreter {
     }
 
     static void method3613() {
-        new Getlineonce();
         if (Class475.supportsFullScreen && Engine.fullScreenFrame != null) {
             UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);
         }
@@ -6097,7 +6096,6 @@ public class CS2Interpreter {
     }
 
     static void method5769(CS2Executor executor) {
-        new Getlineonce();
         int i_2 = executor.intStack[--executor.intStackPtr];
         if (Class475.supportsFullScreen) {
             Class467[] arr_3 = ClanVarDefinitions.method6825();

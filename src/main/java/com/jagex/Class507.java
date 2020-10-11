@@ -13,30 +13,27 @@ public class Class507 {
         throw new Error();
     }
 
-    static void method8725(int i_0, int screenType, int i_2, int i_3, boolean bool_4) {
-        new Getlineonce();
-        if (Class475.supportsFullScreen && client.fullScreenFrame != null && (screenType != 3 || i_2 != Class363.anInt4203 || i_3 != client.anInt3249)) {
+    static void method8725(int i_0, int screenType, int width, int height, boolean isFullScreen) {
+        if (Class475.supportsFullScreen && client.fullScreenFrame != null && (screenType != 3 || width != Class363.anInt4203 || height != client.anInt3249)) {
             Class329.method5903(Class274.aClass470_3336, client.fullScreenFrame);
             client.fullScreenFrame = null;
         }
         if (Class475.supportsFullScreen && screenType == 3 && client.fullScreenFrame == null) {
-            new Getlineonce();
-            client.fullScreenFrame = ModeWhere.method7852(Class274.aClass470_3336, i_2, i_3, 0);
+            client.fullScreenFrame = ModeWhere.method7852(Class274.aClass470_3336, width, height, 0);
             if (client.fullScreenFrame != null) {
-                Class363.anInt4203 = i_2;
-                client.anInt3249 = i_3;
+                Class363.anInt4203 = width;
+                client.anInt3249 = height;
                 Class190.savePreferences();
             }
         }
         if (screenType == 3 && (!Class475.supportsFullScreen || client.fullScreenFrame == null)) {
-            new Getlineonce();
             method8725(i_0, Class393.preferences.screenSize.getScreenType(), -1, -1, true);
         } else {
             Container container_6 = Class371.getActiveContainer();
             Insets insets_7;
             if (client.fullScreenFrame != null) {
-                SunIndexLoader.anInt434 = i_2;
-                Class107.anInt1082 = i_3;
+                SunIndexLoader.anInt434 = width;
+                Class107.anInt1082 = height;
             } else if (client.engineFrame != null) {
                 insets_7 = client.engineFrame.getInsets();
                 int i_10001 = insets_7.left + insets_7.right;
@@ -64,7 +61,7 @@ public class Class507 {
             if (HDWaterTile.SERVER_ENVIRONMENT != ServerEnvironment.LIVE && ChangeClanSetting.BASE_WINDOW_WIDTH < 1024) {
                 int i_10000 = client.BASE_WINDOW_HEIGHT;
             }
-            if (!bool_4) {
+            if (!isFullScreen) {
                 Class351.gameCanvas.setSize(ChangeClanSetting.BASE_WINDOW_WIDTH, client.BASE_WINDOW_HEIGHT * -969250379);
                 Renderers.CURRENT_RENDERER.method8414(Class351.gameCanvas, ChangeClanSetting.BASE_WINDOW_WIDTH, client.BASE_WINDOW_HEIGHT * -969250379);
                 if (container_6 == client.engineFrame) {

@@ -13,6 +13,8 @@ public abstract class Class158 {
         }
     }
 
+    public static boolean justBecameFullscreen = false;
+
     static void method2731(AbstractRenderer graphicalrenderer_0, Class455 class455_1, IComponentDefinitions icomponentdefinitions_2, int i_3, int i_4, int i_5, int i_6, int i_7) {
         MapAreaDefinitions worldmapareadefs_9 = IndexLoaders.WORLD_MAP_LOADER.getWorldMapDefs(i_7);
         if (worldmapareadefs_9 != null && worldmapareadefs_9.aBool2729 && worldmapareadefs_9.shouldDraw(Class158_Sub1.PLAYER_VAR_PROVIDER)) {

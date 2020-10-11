@@ -28,19 +28,20 @@ public class UID192 {
         aLong5353 = 0L;
     }
 
-    public static void method7373(int screenType, int i_1, int i_2, boolean bool_3) {
-        boolean bool_31 = bool_3;
+    public static void method7373(int screenType, int width, int height, boolean bool_3) {
+        boolean isFullscreen = bool_3;
         client.aLong7307 = 0L;
-        int i_5 = Class158.windowedMode();
-        if (screenType == 3 || i_5 == 3) {
-            bool_31 = true;
-        }
-
-        if (!Renderers.CURRENT_RENDERER.method8664()) {
-            bool_31 = true;
+        int currentWinType = Class158.windowedMode();
+        if (screenType == 3 || currentWinType == 3) {
+            isFullscreen = true;
         }
         new Getlineonce();
-        Class507.method8725(i_5, screenType, i_1, i_2, bool_31);
+
+        if (!Renderers.CURRENT_RENDERER.method8664()) {
+            isFullscreen = true;
+        }
+
+        Class507.method8725(currentWinType, screenType, width, height, isFullscreen);
     }
 
     public long method7345() {

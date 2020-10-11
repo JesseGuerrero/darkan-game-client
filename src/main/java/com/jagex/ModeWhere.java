@@ -20,34 +20,32 @@ public enum ModeWhere {
         id = i_2;
     }
 
-    public static Frame method7852(Class470 class470_0, int i_1, int i_2, int i_3) {
+    public static Frame method7852(Class470 class470_0, int width, int height, int i_3) {
         int i_31 = i_3;
-        new Getlineonce();
+        width = 1920;
+        height = 1080;
         if (i_31 == 0) {
-            new Getlineonce();
             Class467[] resolutionProfiles = Class386.method6671(class470_0);
-            new Getlineonce();
             if (resolutionProfiles == null) {
                 return null;
             }
 
-            boolean bool_7 = false;
+            boolean matchesRes = false;
 
             for (int i = 0; i < resolutionProfiles.length; i++) {
-                if (resolutionProfiles[i].resWidth == i_1 && i_2 == resolutionProfiles[i].resHeight && (!bool_7 || resolutionProfiles[i].anInt5573 > 0)) {
+                if (resolutionProfiles[i].resWidth == width && height == resolutionProfiles[i].resHeight && (!matchesRes || resolutionProfiles[i].anInt5573 > 0)) {
                     i_31 = resolutionProfiles[i].anInt5573;
-                    bool_7 = true;
+                    matchesRes = true;
                 }
             }
-            new Getlineonce();
-            if (!bool_7) {
-                return null;
+            if (!matchesRes) {
+                return null;//dont make a frame
             }
         }
 
-        Frame fullscreenFrame = new Frame("Jagex Full Screen");
+        Frame fullscreenFrame = new Frame("Darkan Full Screen");
         fullscreenFrame.setResizable(false);
-        class470_0.method7808(fullscreenFrame, i_1, i_2, i_31, 0);
+        class470_0.method7808(fullscreenFrame, width, height, i_31, 0);
         return fullscreenFrame;
     }
 

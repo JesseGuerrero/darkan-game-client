@@ -84,15 +84,15 @@ public class CS2Executor {
         }
     }
 
-    static void executeScript(CS2Script cs2script_0, int stackLimit, CS2Executor cs2executor_2) {
-        cs2executor_2.intStackPtr = 0;
-        cs2executor_2.stringStackPtr = 0;
-        cs2executor_2.instrPtr = -1;
-        cs2executor_2.current = cs2script_0;
-        cs2executor_2.operations = cs2executor_2.current.operations;
-        cs2executor_2.intOpValues = cs2executor_2.current.intOpValues;
-        CS2Instruction cs2opinfo_4 = null;
-        cs2executor_2.returnValuesPtr = 0;
+    static void executeScript(CS2Script cs2script_0, int stackLimit, CS2Executor executor) {
+        executor.intStackPtr = 0;
+        executor.stringStackPtr = 0;
+        executor.instrPtr = -1;
+        executor.current = cs2script_0;
+        executor.operations = executor.current.operations;
+        executor.intOpValues = executor.current.intOpValues;
+        CS2Instruction operation = null;
+        executor.returnValuesPtr = 0;
         try {
             try {
                 anInt5904 = 0;
@@ -101,24 +101,24 @@ public class CS2Executor {
                     if (anInt5904 > stackLimit) {
                         throw new RuntimeException("");
                     }
-                    cs2opinfo_4 = cs2executor_2.operations[++cs2executor_2.instrPtr];
-                    if (aBool5898 && (aString5897 == null || cs2executor_2.current.scriptName != null && cs2executor_2.current.scriptName.indexOf(aString5897) != -1)) {
-                        System.out.println(cs2executor_2.current.scriptName + ": " + cs2opinfo_4);
+                    operation = executor.operations[++executor.instrPtr];
+                    if (aBool5898 && (aString5897 == null || executor.current.scriptName != null && executor.current.scriptName.indexOf(aString5897) != -1)) {
+                        System.out.println(executor.current.scriptName + ": " + operation);
                     }
-                    cs2executor_2.aBool7022 = cs2executor_2.intOpValues[cs2executor_2.instrPtr] == 1;
-                    if (cs2opinfo_4 == CS2Instruction.RETURN && cs2executor_2.returnValuesPtr == 0) {
+                    executor.aBool7022 = executor.intOpValues[executor.instrPtr] == 1;
+                    if (operation == CS2Instruction.RETURN && executor.returnValuesPtr == 0) {
                         decrementCS2ExecIdx();
                         break;
                     }
-                    CS2Interpreter.executeOperation(cs2opinfo_4, cs2executor_2);
+                    CS2Interpreter.executeOperation(operation, executor);
                 }
             } catch (Exception exception_8) {
                 StringBuilder stringbuilder_6 = new StringBuilder(30);
-                stringbuilder_6.append(cs2executor_2.current.pointer).append(" ");
-                for (int i_7 = cs2executor_2.returnValuesPtr - 1; i_7 >= 0; --i_7) {
-                    stringbuilder_6.append(cs2executor_2.returnValues[i_7].aCacheableNode_Sub5_5869.pointer).append(" ");
+                stringbuilder_6.append(executor.current.pointer).append(" ");
+                for (int i = executor.returnValuesPtr - 1; i >= 0; --i) {
+                    stringbuilder_6.append(executor.returnValues[i].aCacheableNode_Sub5_5869.pointer).append(" ");
                 }
-                stringbuilder_6.append(Integer.valueOf(cs2opinfo_4.opcode));
+                stringbuilder_6.append(Integer.valueOf(operation.opcode));
                 Class151.method2594(stringbuilder_6.toString(), exception_8);
                 decrementCS2ExecIdx();
             }
