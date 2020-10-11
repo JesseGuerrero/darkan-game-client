@@ -397,9 +397,9 @@ public class IndexLoaders {
 
             Class190.savePreferences();
             if (client.aBool7465) {
-                ParticleProducer.method11500(0, false);
+                ParticleProducer.switchRender(0, false);
             } else {
-                ParticleProducer.method11500(Class393.preferences.toolKit.getValue(), false);
+                ParticleProducer.switchRender(Class393.preferences.toolKit.getValue(), false);
             }
 
             UID192.method7373(Class393.preferences.screenSize.getScreenType(), -1, -1, false);

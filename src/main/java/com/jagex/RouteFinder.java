@@ -519,7 +519,7 @@ public class RouteFinder {
                     return;
                 }
                 if ("tk0".equalsIgnoreCase(string_0)) {
-                    ParticleProducer.method11500(0, false);
+                    ParticleProducer.switchRender(0, false);
                     if (Class393.preferences.currentToolkit.getValue() == 0) {
                         Class209.printConsoleMessage("Success");
                         Class393.preferences.setValue(Class393.preferences.toolKit, 0);
@@ -531,7 +531,7 @@ public class RouteFinder {
                     return;
                 }
                 if ("tk1".equalsIgnoreCase(string_0)) {
-                    ParticleProducer.method11500(1, false);
+                    ParticleProducer.switchRender(1, false);
                     if (Class393.preferences.currentToolkit.getValue() == 1) {
                         Class209.printConsoleMessage("Success");
                         Class393.preferences.setValue(Class393.preferences.toolKit, 1);
@@ -543,7 +543,7 @@ public class RouteFinder {
                     return;
                 }
                 if ("tk2".equalsIgnoreCase(string_0)) {
-                    ParticleProducer.method11500(2, false);
+                    ParticleProducer.switchRender(2, false);
                     if (Class393.preferences.currentToolkit.getValue() == 2) {
                         Class209.printConsoleMessage("Success");
                         Class393.preferences.setValue(Class393.preferences.toolKit, 2);
@@ -555,7 +555,7 @@ public class RouteFinder {
                     return;
                 }
                 if ("tk3".equalsIgnoreCase(string_0)) {
-                    ParticleProducer.method11500(3, false);
+                    ParticleProducer.switchRender(3, false);
                     if (Class393.preferences.currentToolkit.getValue() == 3) {
                         Class209.printConsoleMessage("Success");
                         Class393.preferences.setValue(Class393.preferences.toolKit, 3);
@@ -567,7 +567,7 @@ public class RouteFinder {
                     return;
                 }
                 if ("tk5".equalsIgnoreCase(string_0)) {
-                    ParticleProducer.method11500(5, false);
+                    ParticleProducer.switchRender(5, false);
                     if (Class393.preferences.currentToolkit.getValue() == 5) {
                         Class209.printConsoleMessage("Success");
                         Class393.preferences.setValue(Class393.preferences.toolKit, 5);

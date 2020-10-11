@@ -24,7 +24,7 @@ public class Class350_Sub2 extends Class350 {
             Renderers.CURRENT_RENDERER.method8524(Class351.gameCanvas, dimension_1.width, dimension_1.height);
             Renderers.CURRENT_RENDERER.method8412(Class351.gameCanvas);
         } else {
-            ParticleProducer.method11500(Class393.preferences.currentToolkit.getValue(), false);
+            ParticleProducer.switchRender(Class393.preferences.currentToolkit.getValue(), false);
         }
         Static.method6378();
     }

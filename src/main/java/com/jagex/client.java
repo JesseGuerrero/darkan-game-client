@@ -1896,7 +1896,7 @@ public class client extends Engine {
 			} catch (Throwable throwable_4) {
 				Class151.method2594(throwable_4.getMessage() + " " + method4669(), throwable_4);
 				aBool7171 = true;
-				ParticleProducer.method11500(0, false);
+				ParticleProducer.switchRender(0, false);
 			}
 		} else {
 			pulse();
@@ -2141,7 +2141,7 @@ public class client extends Engine {
 					Renderers.CURRENT_RENDERER.method8393();
 				} catch (Exception_Sub3 exception_sub3_12) {
 					Class151.method2594(exception_sub3_12.getMessage() + " " + method4669(), exception_sub3_12);
-					ParticleProducer.method11500(0, false);
+					ParticleProducer.switchRender(0, false);
 				}
 			}
 
@@ -2449,7 +2449,7 @@ public class client extends Engine {
 			} catch (Throwable throwable_4) {
 				Class151.method2594(throwable_4.getMessage() + " " + method4669(), throwable_4);
 				aBool7171 = true;
-				ParticleProducer.method11500(0, false);
+				ParticleProducer.switchRender(0, false);
 			}
 		} else {
 			method11620();
@@ -2529,7 +2529,7 @@ public class client extends Engine {
 			} catch (Throwable throwable_3) {
 				Class151.method2594(throwable_3.getMessage() + " " + method4669(), throwable_3);
 				aBool7171 = true;
-				ParticleProducer.method11500(0, false);
+				ParticleProducer.switchRender(0, false);
 			}
 		} else {
 			method11620();
