@@ -18,10 +18,10 @@ public abstract class AbstractRenderer {
     AbstractRenderer(ImageLoader interface22_1) {
         textureCache = interface22_1;
         int i_2 = -1;
-        for (int i_3 = 0; i_3 < 8; i_3++) {
-            if (!aBoolArray5839[i_3]) {
-                aBoolArray5839[i_3] = true;
-                i_2 = i_3;
+        for (int i = 0; i < 8; i++) {
+            if (!aBoolArray5839[i]) {
+                aBoolArray5839[i] = true;
+                i_2 = i;
                 break;
             }
         }
