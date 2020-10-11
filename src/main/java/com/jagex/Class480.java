@@ -63,32 +63,31 @@ public class Class480 {
         WorldMapDef.method14788(string_1, false, client.aBool7158);
     }
 
-    static void method8044(IComponentDefinitions[] arr_0, IComponentDefinitions icomponentdefinitions_1, boolean bool_2) {
-        int i_4 = icomponentdefinitions_1.scrollWidth != 0 ? icomponentdefinitions_1.scrollWidth : icomponentdefinitions_1.width;
-        int i_5 = icomponentdefinitions_1.scrollHeight != 0 ? icomponentdefinitions_1.scrollHeight : icomponentdefinitions_1.height;
-        InteractableObject.method16099(arr_0, icomponentdefinitions_1.idHash, i_4, i_5, bool_2);
-        if (icomponentdefinitions_1.itemSlots != null) {
-            InteractableObject.method16099(icomponentdefinitions_1.itemSlots, icomponentdefinitions_1.idHash, i_4, i_5, bool_2);
+    static void method8044(IComponentDefinitions[] interComponenents, IComponentDefinitions component, boolean bool_2) {
+        int width = component.scrollWidth != 0 ? component.scrollWidth : component.width;
+        int height = component.scrollHeight != 0 ? component.scrollHeight : component.height;
+        InteractableObject.method16099(interComponenents, component.idHash, width, height, bool_2);
+        if (component.itemSlots != null) {
+            InteractableObject.method16099(component.itemSlots, component.idHash, width, height, bool_2);
         }
-        SubInterface class282_sub44_6 = (SubInterface) client.OPEN_INTERFACES.get(icomponentdefinitions_1.idHash);
+        SubInterface class282_sub44_6 = (SubInterface) client.OPEN_INTERFACES.get(component.idHash);
         if (class282_sub44_6 != null) {
-            Class442.method7403(class282_sub44_6.interfaceId, i_4, i_5, bool_2);
+            Class442.method7403(class282_sub44_6.interfaceId, width, height, bool_2);
         }
-        if (icomponentdefinitions_1 == client.GAME_SCREEN_INTERFACE) {
-            int i_7 = Class197.NUM_PLAYER_INDICES;
-            int[] ints_8 = Class197.PLAYER_INDICES;
-            int i_9;
-            for (i_9 = 0; i_9 < i_7; i_9++) {
-                PlayerEntity player_12 = client.players[ints_8[i_9]];
-                if (player_12 != null) {
-                    player_12.method15795(i_4, i_5, bool_2);
+        if (component == client.GAME_SCREEN_INTERFACE) {
+            int playerCount = Class197.NUM_PLAYER_INDICES;
+            int[] playerIndex = Class197.PLAYER_INDICES;
+            for (int i = 0; i < playerCount; i++) {
+                PlayerEntity player = client.players[playerIndex[i]];
+                if (player != null) {
+                    player.method15795(width, height, bool_2);
                 }
             }
-            for (i_9 = 0; i_9 < client.NPC_UPDATE_INDEX; i_9++) {
-                int i_10 = client.NPC_UPDATE_INDICES[i_9];
+            for (int i = 0; i < client.NPC_UPDATE_INDEX; i++) {
+                int i_10 = client.NPC_UPDATE_INDICES[i];
                 ObjectNode class282_sub47_11 = (ObjectNode) client.NPC_MAP.get(i_10);
                 if (class282_sub47_11 != null) {
-                    ((PathingEntity) class282_sub47_11.anObject8068).method15795(i_4, i_5, bool_2);
+                    ((PathingEntity) class282_sub47_11.anObject8068).method15795(width, height, bool_2);
                 }
             }
         }

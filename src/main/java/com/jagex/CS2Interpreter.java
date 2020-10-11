@@ -1,6 +1,7 @@
 package com.jagex;
 
 import com.Getlineonce;
+import com.Loader;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.settings.ClanSettings;
 
@@ -4628,8 +4629,12 @@ public class CS2Interpreter {
 
     static void chooseGfx(CS2Executor executor) {//TODO: affects fullscreen option, find a way to get resolution from options in gfx interf
         int i_2 = executor.intStack[--executor.intStackPtr];
+        System.out.println(i_2);
         if (i_2 >= 1 && i_2 <= 2 && !Class158.justBecameFullscreen) {
             UID192.method7373(i_2, -1, -1, false);
+            if(i_2 == 1) {
+                Loader.client_panel.setPreferredSize(new Dimension(765, 503));
+            }
         } else {
             Class158.justBecameFullscreen = false;
         }

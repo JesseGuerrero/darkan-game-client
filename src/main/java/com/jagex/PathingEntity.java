@@ -140,9 +140,9 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
 
     public abstract int getCS2Index();
 
-    public void method15795(int i_1, int i_2, boolean bool_3) {
+    public void method15795(int width, int height, boolean bool_3) {
         if (initInterface()) {
-            InteractableObject.method16099(inter.components, -1, i_1, i_2, bool_3);
+            InteractableObject.method16099(inter.components, -1, width, height, bool_3);
         }
 
     }

@@ -6,22 +6,22 @@ public class Class484 {
         throw new Error();
     }
 
-    static void initSizes(IComponentDefinitions iCompDef, int i_1, int i_2, boolean bool_3) {
+    static void initSizes(IComponentDefinitions iCompDef, int width, int height, boolean bool_3) {
         int i_5 = iCompDef.width;
         int i_6 = iCompDef.height;
         if (iCompDef.aspectWidthType == 0) {
             iCompDef.width = iCompDef.baseWidth;
         } else if (iCompDef.aspectWidthType == 1) {
-            iCompDef.width = i_1 - iCompDef.baseWidth;
+            iCompDef.width = width - iCompDef.baseWidth;
         } else if (iCompDef.aspectWidthType == 2) {
-            iCompDef.width = iCompDef.baseWidth * i_1 >> 14;
+            iCompDef.width = iCompDef.baseWidth * width >> 14;
         }
         if (iCompDef.aspectHeightType == 0) {
             iCompDef.height = iCompDef.baseHeight;
         } else if (iCompDef.aspectHeightType == 1) {
-            iCompDef.height = i_2 - iCompDef.baseHeight;
+            iCompDef.height = height - iCompDef.baseHeight;
         } else if (iCompDef.aspectHeightType == 2) {
-            iCompDef.height = i_2 * iCompDef.baseHeight >> 14;
+            iCompDef.height = height * iCompDef.baseHeight >> 14;
         }
         if (iCompDef.aspectWidthType == 4) {
             iCompDef.width = iCompDef.aspectX * iCompDef.height / iCompDef.aspectY;

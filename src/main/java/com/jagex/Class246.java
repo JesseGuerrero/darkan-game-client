@@ -20,43 +20,43 @@ public class Class246 {
         return null;
     }
 
-    static void method4204(IComponentDefinitions icomponentdefinitions_0, int i_1, int i_2) {
-        if (icomponentdefinitions_0.aspectXType == 0) {
-            icomponentdefinitions_0.x = icomponentdefinitions_0.basePositionX;
-        } else if (icomponentdefinitions_0.aspectXType == 1) {
-            icomponentdefinitions_0.x = icomponentdefinitions_0.basePositionX + (i_1 - icomponentdefinitions_0.width) / 2;
-        } else if (icomponentdefinitions_0.aspectXType == 2) {
-            icomponentdefinitions_0.x = i_1 - icomponentdefinitions_0.width - icomponentdefinitions_0.basePositionX;
-        } else if (icomponentdefinitions_0.aspectXType == 3) {
-            icomponentdefinitions_0.x = icomponentdefinitions_0.basePositionX * i_1 >> 14;
-        } else if (icomponentdefinitions_0.aspectXType == 4) {
-            icomponentdefinitions_0.x = (i_1 - icomponentdefinitions_0.width) / 2 + (icomponentdefinitions_0.basePositionX * i_1 >> 14);
+    static void method4204(IComponentDefinitions component, int width, int height) {
+        if (component.aspectXType == 0) {
+            component.x = component.basePositionX;
+        } else if (component.aspectXType == 1) {
+            component.x = component.basePositionX + (width - component.width) / 2;
+        } else if (component.aspectXType == 2) {
+            component.x = width - component.width - component.basePositionX;
+        } else if (component.aspectXType == 3) {
+            component.x = component.basePositionX * width >> 14;
+        } else if (component.aspectXType == 4) {
+            component.x = (width - component.width) / 2 + (component.basePositionX * width >> 14);
         } else {
-            icomponentdefinitions_0.x = i_1 - icomponentdefinitions_0.width - (icomponentdefinitions_0.basePositionX * i_1 >> 14);
+            component.x = width - component.width - (component.basePositionX * width >> 14);
         }
-        if (icomponentdefinitions_0.aspectYType == 0) {
-            icomponentdefinitions_0.y = icomponentdefinitions_0.basePositionY;
-        } else if (icomponentdefinitions_0.aspectYType == 1) {
-            icomponentdefinitions_0.y = (i_2 - icomponentdefinitions_0.height) / 2 + icomponentdefinitions_0.basePositionY;
-        } else if (icomponentdefinitions_0.aspectYType == 2) {
-            icomponentdefinitions_0.y = i_2 - icomponentdefinitions_0.height - icomponentdefinitions_0.basePositionY;
-        } else if (icomponentdefinitions_0.aspectYType == 3) {
-            icomponentdefinitions_0.y = i_2 * icomponentdefinitions_0.basePositionY >> 14;
-        } else if (icomponentdefinitions_0.aspectYType == 4) {
-            icomponentdefinitions_0.y = (i_2 - icomponentdefinitions_0.height) / 2 + (i_2 * icomponentdefinitions_0.basePositionY >> 14);
+        if (component.aspectYType == 0) {
+            component.y = component.basePositionY;
+        } else if (component.aspectYType == 1) {
+            component.y = (height - component.height) / 2 + component.basePositionY;
+        } else if (component.aspectYType == 2) {
+            component.y = height - component.height - component.basePositionY;
+        } else if (component.aspectYType == 3) {
+            component.y = height * component.basePositionY >> 14;
+        } else if (component.aspectYType == 4) {
+            component.y = (height - component.height) / 2 + (height * component.basePositionY >> 14);
         } else {
-            icomponentdefinitions_0.y = i_2 - icomponentdefinitions_0.height - (i_2 * icomponentdefinitions_0.basePositionY >> 14);
+            component.y = height - component.height - (height * component.basePositionY >> 14);
         }
-        if (client.aBool7168 && (client.getIComponentSettings(icomponentdefinitions_0).settingsHash != 0 || icomponentdefinitions_0.type == ComponentType.CONTAINER)) {
-            if (icomponentdefinitions_0.x < 0) {
-                icomponentdefinitions_0.x = 0;
-            } else if (icomponentdefinitions_0.x + icomponentdefinitions_0.width > i_1) {
-                icomponentdefinitions_0.x = i_1 - icomponentdefinitions_0.width;
+        if (client.aBool7168 && (client.getIComponentSettings(component).settingsHash != 0 || component.type == ComponentType.CONTAINER)) {
+            if (component.x < 0) {
+                component.x = 0;
+            } else if (component.x + component.width > width) {
+                component.x = width - component.width;
             }
-            if (icomponentdefinitions_0.y < 0) {
-                icomponentdefinitions_0.y = 0;
-            } else if (icomponentdefinitions_0.height + icomponentdefinitions_0.y > i_2) {
-                icomponentdefinitions_0.y = i_2 - icomponentdefinitions_0.height;
+            if (component.y < 0) {
+                component.y = 0;
+            } else if (component.height + component.y > height) {
+                component.y = height - component.height;
             }
         }
     }

@@ -52,9 +52,26 @@ public class SkyboxIndexLoader {
                         component.readValues(new ByteBuf(bytes_8));
 
 
+
+
+                        if(interfaceId == 746) {//48889856
+//                            component.baseHeight = 0;
+//                            if(component.type != ComponentType.SPRITE) {
+//                                System.out.println(component.idHash);
+//                            }
+//                            System.out.println("746 is out");
+                        }
+                        if(interfaceId == 548) {
+//                            System.out.println("548 is out");
+                        }
+
+
+
                         //Game Window inteface, fixed
-                        if(component.idHash == 48889904 && interfaceId == 548) {
+                        if((component.idHash == 48889904 && interfaceId == 548)) {
+                            component.baseHeight=0;
                             component.hidden = true;
+
                         }
 
                         //Game Window Interface, not fixed
