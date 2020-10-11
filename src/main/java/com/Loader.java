@@ -15,8 +15,10 @@ import java.util.Properties;
 
 
 /*
-TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
 TODO: Fullscreen
+TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
+TODO: Scroll without CTRL, filter by interface
+TODO: Fix Sandwhich lady interface, equipment interface, skills tab
  */
 
 
@@ -179,7 +181,7 @@ public class Loader extends Applet implements AppletStub {
 
     private void openFrame() {
         clientFrame = new JFrame("Darkan");
-        clientFrame.setIconImage(getImage("darkanicon.png"));
+//        clientFrame.setIconImage(getImage("darkanicon.png"));
 
         clientFrame.setLayout(new BorderLayout());
         client_panel = new JPanel();

@@ -4627,31 +4627,76 @@ public class CS2Interpreter {
         method789(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void chooseGfx(CS2Executor executor) {//TODO: affects fullscreen option, find a way to get resolution from options in gfx interf
-        int screenType = executor.intStack[--executor.intStackPtr];
-        System.out.println(screenType);
-        if (screenType >= 1 && screenType <= 2 && !Class158.justBecameFullscreen) {
-            UID192.method7373(screenType, -1, -1, false);
+    static void chooseGfx(CS2Executor executor) {//TODO: fic fullscreen lobby
+        int screenType = Class158.windowedMode();
+        int chosenScreenType = executor.intStack[--executor.intStackPtr];
 
-            //hide resizable if its fixed
-            if(screenType == 1) {
+        System.out.println(chosenScreenType + " " + chosenScreenType);
+
+        System.out.println(chosenScreenType);
+        if (chosenScreenType >= 1 && chosenScreenType <= 2 && !Class158.justBecameFullscreen) {
+            UID192.method7373(chosenScreenType, -1, -1, false);
+
+
+            if(chosenScreenType == 1) {
+                //hide resizable if its fixed
                 IComponentDefinitions[] componentArr = Interface.INTERFACES[746].components;
                 for(int i = 0; i < componentArr.length; i++) {
-                    System.out.println(componentArr[i].baseHeight);
+
+                    //turn off specfically the resizable screen
+                    if(componentArr[i].idHash == 48889904) {
+                        componentArr[i].hidden = true;
+                    }
+                }
+
+                //show fixed if its moving to fixed
+                componentArr = Interface.INTERFACES[548].components;
+                for(int i = 0; i < componentArr.length; i++) {
+                    if(componentArr[i].idHash == 35913794) {
+                        componentArr[i].hidden = false;
+                    }
+                }
+
+            }
+
+            //show resizable when resizable/fullscreen
+            if(chosenScreenType == 2) {
+                IComponentDefinitions[] componentArr = Interface.INTERFACES[746].components;
+                for(int i = 0; i < componentArr.length; i++) {
+//                    System.out.println(componentArr[i].baseHeight);
+
+                    //show resizable specifically
+                    if(componentArr[i].idHash == 48889904) {
+                        componentArr[i].hidden = false;
+                    }
+                }
+            }
+
+            //
+
+        } else {
+            Class158.justBecameFullscreen = false;
+
+            //hide fixed if fullscreen
+            IComponentDefinitions[] componentArr = Interface.INTERFACES[548].components;
+            for (int i = 0; i < componentArr.length; i++) {
+//                    System.out.println(componentArr[i].baseHeight);
+
+                //hide fixed specifically with hash
+                if(componentArr[i].idHash == 35913794) {
                     componentArr[i].hidden = true;
                 }
             }
 
-            //show resizable when resizable
-            if(screenType == 2) {
-                IComponentDefinitions[] componentArr = Interface.INTERFACES[746].components;
-                for(int i = 0; i < componentArr.length; i++) {
-                    System.out.println(componentArr[i].baseHeight);
+            //show resizable screen inside fullscreen
+            componentArr = Interface.INTERFACES[746].components;
+            for (int i = 0; i < componentArr.length; i++) {
+//                    System.out.println(componentArr[i].baseHeight);
+                if(componentArr[i].idHash == 48889904) {
                     componentArr[i].hidden = false;
                 }
             }
-        } else {
-            Class158.justBecameFullscreen = false;
+
         }
     }
 
