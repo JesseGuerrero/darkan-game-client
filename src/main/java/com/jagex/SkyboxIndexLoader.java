@@ -52,18 +52,12 @@ public class SkyboxIndexLoader {
                         component.readValues(new ByteBuf(bytes_8));
 
 
-
-
-                        if(interfaceId == 746) {//48889856
-//                            component.baseHeight = 0;
-//                            if(component.type != ComponentType.SPRITE) {
-//                                System.out.println(component.idHash);
-//                            }
-//                            System.out.println("746 is out");
-                        }
-                        if(interfaceId == 548) {
-//                            System.out.println("548 is out");
-                        }
+                        /*
+                        * 746 Resizable interface
+                        * 744 Login interface
+                        * 548 Fixed interface
+                        * 906 Lobby interface
+                        * */
 
 
 

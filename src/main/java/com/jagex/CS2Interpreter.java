@@ -4628,12 +4628,27 @@ public class CS2Interpreter {
     }
 
     static void chooseGfx(CS2Executor executor) {//TODO: affects fullscreen option, find a way to get resolution from options in gfx interf
-        int i_2 = executor.intStack[--executor.intStackPtr];
-        System.out.println(i_2);
-        if (i_2 >= 1 && i_2 <= 2 && !Class158.justBecameFullscreen) {
-            UID192.method7373(i_2, -1, -1, false);
-            if(i_2 == 1) {
-                Loader.client_panel.setPreferredSize(new Dimension(765, 503));
+        int screenType = executor.intStack[--executor.intStackPtr];
+        System.out.println(screenType);
+        if (screenType >= 1 && screenType <= 2 && !Class158.justBecameFullscreen) {
+            UID192.method7373(screenType, -1, -1, false);
+
+            //hide resizable if its fixed
+            if(screenType == 1) {
+                IComponentDefinitions[] componentArr = Interface.INTERFACES[746].components;
+                for(int i = 0; i < componentArr.length; i++) {
+                    System.out.println(componentArr[i].baseHeight);
+                    componentArr[i].hidden = true;
+                }
+            }
+
+            //show resizable when resizable
+            if(screenType == 2) {
+                IComponentDefinitions[] componentArr = Interface.INTERFACES[746].components;
+                for(int i = 0; i < componentArr.length; i++) {
+                    System.out.println(componentArr[i].baseHeight);
+                    componentArr[i].hidden = false;
+                }
             }
         } else {
             Class158.justBecameFullscreen = false;
