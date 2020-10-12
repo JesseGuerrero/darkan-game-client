@@ -68,10 +68,10 @@ public class Class62 implements Interface3 {
         Class111.method1866(index_0);
     }
 
-    public static boolean setGameHost(int i_0, String string_1) {
+    public static boolean setGameHost(int port, String host) {
         ConnectionInfo.GAME_CONNECTION_INFO = new ConnectionInfo();
-        ConnectionInfo.GAME_CONNECTION_INFO.worldId = i_0;
-        ConnectionInfo.GAME_CONNECTION_INFO.host = string_1;
+        ConnectionInfo.GAME_CONNECTION_INFO.worldId = port;
+        ConnectionInfo.GAME_CONNECTION_INFO.host = host;
         if (HDWaterTile.SERVER_ENVIRONMENT != ServerEnvironment.LIVE) {
             ConnectionInfo.GAME_CONNECTION_INFO.anInt5434 = ConnectionInfo.GAME_CONNECTION_INFO.worldId;
             ConnectionInfo.GAME_CONNECTION_INFO.anInt5437 = ConnectionInfo.GAME_CONNECTION_INFO.worldId;

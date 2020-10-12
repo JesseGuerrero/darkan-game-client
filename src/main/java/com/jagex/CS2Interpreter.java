@@ -4344,10 +4344,10 @@ public class CS2Interpreter {
     }
 
     static void method5010(CS2Executor executor) {
-        int i_2 = executor.properties[--executor.index];
-        String string_3 = (String) executor.stringStack[--executor.stringStackPtr];
+        int port = executor.properties[--executor.index];
+        String host = (String) executor.stringStack[--executor.stringStackPtr];
         if (client.GAME_STATE == 0 && !JS5CacheFile.method3360()) {
-            executor.properties[++executor.index - 1] = Class62.setGameHost(i_2, string_3) ? 1 : 0;
+            executor.properties[++executor.index - 1] = Class62.setGameHost(port, host) ? 1 : 0;
         } else {
             executor.properties[++executor.index - 1] = 0;
         }
