@@ -34,7 +34,7 @@ public class Class442 {
     }
 
     static void method7403(int interfaceID, int windowWidth, int windowHeight, boolean bool_3) {
-        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+        if (MovingAnimation.interfaceLoad(interfaceID, null)) {
             InteractableObject.method16099(Interface.INTERFACES[interfaceID].components, -1, windowWidth, windowHeight, bool_3, interfaceID);
         }
 

@@ -29,7 +29,7 @@ public class MovingAnimation extends Animation {
         return arr_4;
     }
 
-    public static boolean isInterfaceLoaded(int interfaceId, int[] xteas) {
+    public static boolean interfaceLoad(int interfaceId, int[] xteas) {
         if (MapAreaIndexLoader.INTERFACES_LOADED[interfaceId]) {
             return true;
         } else {

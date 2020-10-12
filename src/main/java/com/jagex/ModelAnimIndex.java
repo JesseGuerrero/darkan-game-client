@@ -182,12 +182,13 @@ public class ModelAnimIndex {
         } else if (randomStandAnimations == null) {
             return -1;
         } else {
-            int i_2 = (int) (Math.random() * totalChance);
-            int i_3;
-            for (i_3 = 0; i_2 >= randomStandAnimationChances[i_3]; i_3++) {
-                i_2 -= randomStandAnimationChances[i_3];
+            int chanceLeft = (int) (Math.random() * totalChance);
+
+            int index;
+            for (index = 0; chanceLeft >= randomStandAnimationChances[index]; index++) {
+                chanceLeft -= randomStandAnimationChances[index];
             }
-            return randomStandAnimations[i_3];
+            return randomStandAnimations[index];
         }
     }
 

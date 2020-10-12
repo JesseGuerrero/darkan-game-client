@@ -5,7 +5,7 @@ public class CS2Interface {
     IComponentDefinitions defs;
 
     static void method8777(int interfaceID) {
-        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+        if (MovingAnimation.interfaceLoad(interfaceID, null)) {
             Class464.method7743(Interface.INTERFACES[interfaceID].components, -1);
         }
 

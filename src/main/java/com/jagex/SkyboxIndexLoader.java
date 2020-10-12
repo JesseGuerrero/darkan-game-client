@@ -20,8 +20,8 @@ public class SkyboxIndexLoader {
         Class407.aCalendar4846.setTime(new Date(long_0));
     }
 
-    public static Interface getInterface(int interfaceId, int[] ints_1, Interface interface_2, boolean unreactive) {
-        Interface interfaceObj = interface_2;
+    public static Interface getInterface(int interfaceId, int[] xteas, Interface currentInter, boolean unreactive) {
+        Interface interfaceObj = currentInter;
         if (!Class388.INTERFACE_INDEX.loadArchive(interfaceId)) {
             return null;
         } else {
@@ -44,7 +44,7 @@ public class SkyboxIndexLoader {
             boolean becameLogin = false;
             for (int i = 0; i < componentSize; i++) {
                 if (interfaceObj.components[i] == null) {
-                    byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, ints_1);
+                    byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, xteas);
                     if (bytes_8 != null) {
                         IComponentDefinitions component = interfaceObj.components[i] = new IComponentDefinitions();
                         component.idHash = i + (interfaceId << 16);
@@ -58,8 +58,24 @@ public class SkyboxIndexLoader {
                         * 906 Lobby interface
                         * */
 
+                        if(interfaceId == 499 && component.type == ComponentType.CONTAINER) {
+                            System.out.println(i + " : " + component.slotChildren);
+                            if(i == 6) {
+//                                component.hidden = true;
+                            }
+                        }
+
+                        if(interfaceId == 667) {
+                            if(component.type == ComponentType.FIGURE) {
 
 
+//                                System.out.println(i);
+//                                component.transparency = 1;
+                            }
+
+                        }
+
+//                        System.out.println(interfaceId);
                         //Game Window inteface, fixed
                         if((component.idHash == 48889904 && interfaceId == 548)) {
                             component.baseHeight=0;
@@ -112,7 +128,10 @@ public class SkyboxIndexLoader {
 
                 }
             }
+            if(interfaceId == 499) {
+                interfaceObj = interfaceObj;
 
+            }
             return interfaceObj;
         }
     }

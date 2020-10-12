@@ -223,7 +223,7 @@ public class IComponentDefinitions {
     public static IComponentDefinitions getDefs(int hash) {
         int interfaceId = hash >> 16;
         if (Interface.INTERFACES[interfaceId] == null || Interface.INTERFACES[interfaceId].getComponent(hash) == null) {
-            boolean isLoaded = MovingAnimation.isInterfaceLoaded(interfaceId, null);
+            boolean isLoaded = MovingAnimation.interfaceLoad(interfaceId, null);
             if (!isLoaded) {
                 return null;
             }

@@ -11,7 +11,7 @@ public class LightIntensityIndexLoader {
     }
 
     static void method7313(SubInterface ifSub, int baseWindowId, int leftBound, int lowerBound, int rightBound, int upperBound, int x, int y, int mouseX, int mouseY) {
-        if (MovingAnimation.isInterfaceLoaded(baseWindowId, null)) {
+        if (MovingAnimation.interfaceLoad(baseWindowId, null)) {
             if (ifSub != null && !ifSub.load()) {
                 Class351.closeChildren(ifSub, true, false);
             } else {

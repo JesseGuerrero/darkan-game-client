@@ -104,7 +104,7 @@ public class Class150 {
     }
 
     public static void method2582(int interfaceID, int[] xteas) {
-        if (interfaceID != -1 && MovingAnimation.isInterfaceLoaded(interfaceID, xteas)) {
+        if (interfaceID != -1 && MovingAnimation.interfaceLoad(interfaceID, xteas)) {
             IComponentDefinitions[] interfaceComps = Interface.INTERFACES[interfaceID].components;
             Connection.runIComponentScripts(interfaceComps);
         }

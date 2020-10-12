@@ -33,7 +33,6 @@ public abstract class AbstractRenderer {
     }
     
 	public static AbstractRenderer createRenderer(int renderType, Canvas gameCanvas, ImageLoader interface22_2, Index index_3, int i_4) {
-        System.out.println("Creating renderer");
 	    int width = 0;
 	    int height = 0;
 	    if (gameCanvas != null) {

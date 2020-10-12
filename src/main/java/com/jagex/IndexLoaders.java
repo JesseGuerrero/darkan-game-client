@@ -349,7 +349,7 @@ public class IndexLoaders {
         }
 
         if (LOADING_STAGE == LoadingStage.aClass387_4713) {
-            if (!MovingAnimation.isInterfaceLoaded(QuickchatFiller.ENTITY_DEFAULTS.loginWindow, null)) {
+            if (!MovingAnimation.interfaceLoad(QuickchatFiller.ENTITY_DEFAULTS.loginWindow, null)) {
                 return 0;
             }
 

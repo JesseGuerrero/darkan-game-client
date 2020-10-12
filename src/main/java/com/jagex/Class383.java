@@ -100,7 +100,7 @@ public class Class383 implements Interface41 {
     }
 
     static void method6514(int interfaceID, int i_1) {
-        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+        if (MovingAnimation.interfaceLoad(interfaceID, null)) {
             Class151.method2591(Interface.INTERFACES[interfaceID].components, i_1);
         }
     }

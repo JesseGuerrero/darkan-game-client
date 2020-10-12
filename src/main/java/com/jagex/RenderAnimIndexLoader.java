@@ -19,7 +19,7 @@ public class RenderAnimIndexLoader {
     }
 
     static void method3629(int interfaceID, int i_1, int i_2, int width, int height, int i_5, int i_6, int i_7) {
-        if (!MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+        if (!MovingAnimation.interfaceLoad(interfaceID, null)) {
             if (i_7 != -1) {
                 client.aBoolArray7443[i_7] = true;
             } else {
