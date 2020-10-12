@@ -120,7 +120,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
     }
 
     public void turn(int i_1, boolean bool_2) {
-        BASDefinitions renderanimdefs_4 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_4 = getRenderAnimDefs();
         if (bool_2 || renderanimdefs_4.anInt2820 != 0 || anInt10340 != 0) {
             turnDirection = i_1 & 0x3fff;
             aClass19_10359.method577(turnDirection);
@@ -148,7 +148,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
     }
 
     public int method15796() {
-        BASDefinitions renderanimdefs_2 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_2 = getRenderAnimDefs();
         int i_3 = aClass19_10359.turnDirection;
         boolean bool_4;
         if (renderanimdefs_2.anInt2820 != 0) {
@@ -234,7 +234,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
             }
         }
 
-        BASDefinitions renderanimdefs_4 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_4 = getRenderAnimDefs();
         int i_5 = 256;
         if (renderanimdefs_4.anIntArray2818 != null && renderanimdefs_4.anIntArray2818[i_1] > 0) {
             i_5 = renderanimdefs_4.anIntArray2818[i_1];
@@ -549,7 +549,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
 
     @Override
     public int method12997() {
-        BASDefinitions renderanimdefs_2 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_2 = getRenderAnimDefs();
         int i_3;
         if (renderanimdefs_2.anInt2798 != -1) {
             i_3 = renderanimdefs_2.anInt2798;
@@ -702,7 +702,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
         anInt10315 = i_1;
     }
 
-    void method15837(AbstractRenderer graphicalrenderer_1, BASDefinitions renderanimdefs_2, int i_3, int i_4, int i_5, int i_6) {
+    void method15837(AbstractRenderer graphicalrenderer_1, ModelAnimIndex renderanimdefs_2, int i_3, int i_4, int i_5, int i_6) {
         for (int i_8 = 0; i_8 < spotAnims.length; i_8++) {
             byte b_9 = 0;
             if (i_8 == 0) {
@@ -804,9 +804,9 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
 
     public abstract Class163 method15852();
 
-    public BASDefinitions getRenderAnimDefs() {
+    public ModelAnimIndex getRenderAnimDefs() {
         int i_2 = getRenderAnimation();
-        return i_2 == -1 ? RenderAnimIndexLoader.aClass227_2669 : IndexLoaders.RENDER_ANIM_LOADER.getBASDefs(i_2);
+        return i_2 == -1 ? RenderAnimIndexLoader.aClass227_2669 : IndexLoaders.RENDER_ANIM_LOADER.getAnimIndex(i_2);
     }
 
     public void method15857(int i_1) {
@@ -822,7 +822,7 @@ public abstract class PathingEntity extends GraphNode_Sub1_Sub1 {
     }
 
     public void method15863(int i_1) {
-        BASDefinitions renderanimdefs_3 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_3 = getRenderAnimDefs();
         if (renderanimdefs_3.anInt2820 != 0 || anInt10340 != 0) {
             aClass19_10359.method579();
             int i_4 = i_1 - aClass19_10359.turnDirection & 0x3fff;

@@ -35,7 +35,6 @@ public class UID192 {
         if (screenType == 3 || currentWinType == 3) {
             isFullscreen = true;
         }
-        new Getlineonce();
 
         if (!Renderers.CURRENT_RENDERER.method8664()) {
             isFullscreen = true;

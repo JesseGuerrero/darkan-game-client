@@ -6,7 +6,7 @@ public class Getlineonce {
     static int[] linesRun = new int[0];
     static String[] filesRun = new String[0];
 
-    public Getlineonce() {
+    public Getlineonce(boolean repeat) {
         boolean lineRan = false;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 
@@ -15,7 +15,9 @@ public class Getlineonce {
         String fileName = stackTrace[2].getFileName();
         for(int i = 0; i < linesRun.length; i++) {
             if(line == linesRun[i] && fileName.equalsIgnoreCase(filesRun[i])) {
-                lineRan = true; //Dont print
+                if(!repeat) {
+                    lineRan = true; //Dont print
+                }
             }
         }
 

@@ -42,9 +42,9 @@ public class ItemContainer extends Node {
     MeshRasterizer method12429(AbstractRenderer graphicalrenderer_1, int i_2, Animation animation_3, int i_4, boolean female, PlayerModel playerappearance_6) {
         MeshRasterizer meshrasterizer_8 = null;
         int i_9 = i_2;
-        BASDefinitions renderanimdefs_10 = null;
+        ModelAnimIndex renderanimdefs_10 = null;
         if (i_4 != -1) {
-            renderanimdefs_10 = IndexLoaders.RENDER_ANIM_LOADER.getBASDefs(i_4);
+            renderanimdefs_10 = IndexLoaders.RENDER_ANIM_LOADER.getAnimIndex(i_4);
         }
 
         int[] ints_11 = itemIds;

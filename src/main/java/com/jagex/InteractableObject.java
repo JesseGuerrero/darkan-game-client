@@ -47,23 +47,21 @@ public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObje
     * You can find the interface by printing them higher in the method stack then hiding components here
     * from more specific ones
     * */
-    public static void method16099(IComponentDefinitions[] interfaceComps, int i_1, int width, int height, boolean bool_4, int interID) {
+    public static void method16099(IComponentDefinitions[] interfaceComps, int emptyValue, int width, int height, boolean bool_4, int interID) {
 //        System.out.println(interID);
 
         if(!Arrays.asList(744,882,978,978,978,978,978,976,744,976,882,978,744,742,976,882,978,744,976,882,978,596,906,906,907,908,910,909,912,589,911,978,978,978,907,908,910,909,589,912,911,978,906,907,908,910,909,589,912,911,978,752,751,745,754,747,748,749,182,137,1215,1213,884,1056,320,190,679,387,271,192,550,1109,1110,261,590,187,34,750).contains(interID)){
-            System.out.println(interID);
+//            System.out.println(interID);
         }
 
-
-
+//        bool_4 = true;
         for (int i = 0; i < interfaceComps.length; i++) {
 //            if(interID == 744) { continue; }
 
-            if(Class158.windowedMode() == 1 && interID == 746) {
-
+            if(interID == 667 || interID == 744) {
             }
             IComponentDefinitions component = interfaceComps[i];
-                if (component != null && component.parent == i_1) {
+                if (component != null && component.parent == emptyValue) {
                     Class484.initSizes(component, width, height, bool_4);
                     Class246.method4204(component, width, height);
                     if (component.scrollX > component.scrollWidth - component.width) {

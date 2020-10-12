@@ -1062,7 +1062,7 @@ public class client extends Engine {
 							}
 						}
 
-						if (!Class20.aBool161 && bool_48 && !interface_0.aBool999) {
+						if (!Class20.aBool161 && bool_48 && !interface_0.isUnreactive) {
 							Class455.iComponentOnIComponent(iCompDef);
 						}
 
@@ -1847,7 +1847,7 @@ public class client extends Engine {
 					aBool7151 = "true".equals(clientInfo);
 					break;
 				case 30:
-					BASDefinitions.anInt2831 = Integer.parseInt(clientInfo);
+					ModelAnimIndex.anInt2831 = Integer.parseInt(clientInfo);
 					break;
 				case 31:
 					Class223.CURRENT_LANGUAGE = Language.method8278(Integer.parseInt(clientInfo));

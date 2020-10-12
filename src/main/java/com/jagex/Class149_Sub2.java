@@ -41,7 +41,7 @@ public class Class149_Sub2 extends Class149 {
 
     static int method14610(PlayerEntity player_0) {
         int i_2 = player_0.rotate90RightAnimation;
-        BASDefinitions renderanimdefs_3 = player_0.getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_3 = player_0.getRenderAnimDefs();
         int i_4 = player_0.aAnimation_Sub3_10337.method7597();
         if (i_4 != -1 && !player_0.aAnimation_Sub3_10337.aBool7891) {
             if (i_4 != renderanimdefs_3.runningAnimation && i_4 != renderanimdefs_3.runDir3 && i_4 != renderanimdefs_3.runDir1 && i_4 != renderanimdefs_3.runDir2) {

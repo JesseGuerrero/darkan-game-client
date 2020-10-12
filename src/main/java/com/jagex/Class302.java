@@ -21,7 +21,7 @@ public class Class302 {
     }
 
     static void handleMovementAnimations(PathingEntity animable, int moveType, int i_2, int i_3) {
-        BASDefinitions renderAnim = animable.getRenderAnimDefs();
+        ModelAnimIndex renderAnim = animable.getRenderAnimDefs();
         MovingAnimation animation = animable.aAnimation_Sub3_10337;
         int turnDirection = animable.turnDirection - animable.aClass19_10359.turnDirection & 0x3fff;
         if (moveType == MoveSpeed.STATIONARY.id) {

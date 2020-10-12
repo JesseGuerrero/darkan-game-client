@@ -223,8 +223,8 @@ public class IComponentDefinitions {
     public static IComponentDefinitions getDefs(int hash) {
         int interfaceId = hash >> 16;
         if (Interface.INTERFACES[interfaceId] == null || Interface.INTERFACES[interfaceId].getComponent(hash) == null) {
-            boolean bool_3 = MovingAnimation.isInterfaceLoaded(interfaceId, null);
-            if (!bool_3) {
+            boolean isLoaded = MovingAnimation.isInterfaceLoaded(interfaceId, null);
+            if (!isLoaded) {
                 return null;
             }
         }
@@ -235,7 +235,7 @@ public class IComponentDefinitions {
         if (icomponentdefinitions_1.parent != -1) {
             return interface_0.getComponent(icomponentdefinitions_1.parent);
         } else {
-            if (!interface_0.aBool999) {
+            if (!interface_0.isUnreactive) {
                 int i_3 = icomponentdefinitions_1.idHash >>> 16;
                 HashTableIterator class451_4 = new HashTableIterator(client.OPEN_INTERFACES);
 

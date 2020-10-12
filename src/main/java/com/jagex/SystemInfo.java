@@ -248,7 +248,7 @@ public class SystemInfo extends Node {
     }
 
     static void method13466(PathingEntity animable_0, boolean bool_1) {
-        BASDefinitions renderanimdefs_3 = animable_0.getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_3 = animable_0.getRenderAnimDefs();
         if (animable_0.anInt10355 == 0) {
             animable_0.anInt10366 = 0;
             IdentikitDefinition.anInt430 = MoveSpeed.STATIONARY.id;

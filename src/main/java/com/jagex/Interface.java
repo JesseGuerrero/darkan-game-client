@@ -3,12 +3,12 @@ package com.jagex;
 public class Interface {
     public static Interface[] INTERFACES;
     public IComponentDefinitions[] components;
-    public boolean aBool999;
+    public boolean isUnreactive;
     IComponentDefinitions[] iComponentDefinitions;
 
-    Interface(boolean bool_1, IComponentDefinitions[] arr_2) {
-        components = arr_2;
-        aBool999 = bool_1;
+    Interface(boolean unreactive, IComponentDefinitions[] interComponents) {
+        components = interComponents;
+        isUnreactive = unreactive;
     }
 
     static void method7554(Interface inter, IComponentDefinitions defs) {

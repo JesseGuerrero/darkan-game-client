@@ -19,7 +19,7 @@ public class PlaySoundJingleCutsceneAction extends CutsceneAction {
         }
 
         byte b_6;
-        BASDefinitions renderanimdefs_7;
+        ModelAnimIndex renderanimdefs_7;
         int i_8;
         int i_9;
         Vector3 vector3_12;

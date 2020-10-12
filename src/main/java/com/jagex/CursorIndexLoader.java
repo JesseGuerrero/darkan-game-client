@@ -67,7 +67,7 @@ public class CursorIndexLoader {
                 }
             }
             if (entity != null) {
-                BASDefinitions renderanimdefs_19 = ((PathingEntity) entity).getRenderAnimDefs();
+                ModelAnimIndex renderanimdefs_19 = ((PathingEntity) entity).getRenderAnimDefs();
                 if (renderanimdefs_19.anIntArrayArray2802 != null && renderanimdefs_19.anIntArrayArray2802[basOffIdx] != null) {
                     startHeight -= renderanimdefs_19.anIntArrayArray2802[basOffIdx][1];
                 }

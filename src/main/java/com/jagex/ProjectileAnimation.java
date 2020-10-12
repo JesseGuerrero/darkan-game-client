@@ -81,7 +81,7 @@ public class ProjectileAnimation extends GraphNode_Sub1_Sub1 {
                 Vector3 vector3_3 = ((PathingEntity) obj_2).method11166().coords;
                 method11172(vector3_3.x, (Class504.getTerrainHeightAtPos((int) vector3_3.x, (int) vector3_3.z, plane) - startHeight), vector3_3.z);
                 if (anInt10391 >= 0) {
-                    BASDefinitions renderanimdefs_15 = ((PathingEntity) obj_2).getRenderAnimDefs();
+                    ModelAnimIndex renderanimdefs_15 = ((PathingEntity) obj_2).getRenderAnimDefs();
                     int i_5 = 0;
                     int i_6 = 0;
                     if (renderanimdefs_15.anIntArrayArray2802 != null && renderanimdefs_15.anIntArrayArray2802[anInt10391] != null) {

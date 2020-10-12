@@ -3,7 +3,6 @@ package com.jagex;
 import com.Loader;
 
 import java.awt.*;
-import java.util.Arrays;
 import java.util.Date;
 
 public class SkyboxIndexLoader {
@@ -21,25 +20,25 @@ public class SkyboxIndexLoader {
         Class407.aCalendar4846.setTime(new Date(long_0));
     }
 
-    public static Interface getInterface(int interfaceId, int[] ints_1, Interface interface_2, boolean bool_3) {
+    public static Interface getInterface(int interfaceId, int[] ints_1, Interface interface_2, boolean unreactive) {
         Interface interfaceObj = interface_2;
         if (!Class388.INTERFACE_INDEX.loadArchive(interfaceId)) {
             return null;
         } else {
             int componentSize = Class388.INTERFACE_INDEX.filesCount(interfaceId);
-            IComponentDefinitions[] arr_6;
+            IComponentDefinitions[] interComponents;
             if (componentSize == 0) {
-                arr_6 = new IComponentDefinitions[0];
+                interComponents = new IComponentDefinitions[0];
             } else if (interfaceObj == null) {
-                arr_6 = new IComponentDefinitions[componentSize];
+                interComponents = new IComponentDefinitions[componentSize];
             } else {
-                arr_6 = interfaceObj.components;
+                interComponents = interfaceObj.components;
             }
             if (interfaceObj == null) {
-                interfaceObj = new Interface(bool_3, arr_6);
+                interfaceObj = new Interface(unreactive, interComponents);
             } else {
-                interfaceObj.components = arr_6;
-                interfaceObj.aBool999 = bool_3;
+                interfaceObj.components = interComponents;
+                interfaceObj.isUnreactive = unreactive;
             }
 
             boolean becameLogin = false;

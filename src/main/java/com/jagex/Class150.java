@@ -103,10 +103,10 @@ public class Class150 {
         }
     }
 
-    public static void method2582(int interfaceID, int[] ints_1) {
-        if (interfaceID != -1 && MovingAnimation.isInterfaceLoaded(interfaceID, ints_1)) {
-            IComponentDefinitions[] arr_3 = Interface.INTERFACES[interfaceID].components;
-            Connection.runIComponentScripts(arr_3);
+    public static void method2582(int interfaceID, int[] xteas) {
+        if (interfaceID != -1 && MovingAnimation.isInterfaceLoaded(interfaceID, xteas)) {
+            IComponentDefinitions[] interfaceComps = Interface.INTERFACES[interfaceID].components;
+            Connection.runIComponentScripts(interfaceComps);
         }
     }
 

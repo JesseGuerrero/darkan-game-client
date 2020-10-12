@@ -21,7 +21,7 @@ public class RankSetting extends ClanSetting {
         }
 
         int i_3 = npcdefinitions_2.rotate90RightAnimation;
-        BASDefinitions renderanimdefs_4 = npc_0.getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_4 = npc_0.getRenderAnimDefs();
         int i_5 = npc_0.aAnimation_Sub3_10337.method7597();
         if (i_5 != -1 && !npc_0.aAnimation_Sub3_10337.aBool7891) {
             if (i_5 != renderanimdefs_4.runningAnimation && i_5 != renderanimdefs_4.runDir3 && i_5 != renderanimdefs_4.runDir1 && i_5 != renderanimdefs_4.runDir2) {

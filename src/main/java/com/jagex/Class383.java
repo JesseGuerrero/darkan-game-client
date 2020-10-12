@@ -99,9 +99,9 @@ public class Class383 implements Interface41 {
         }
     }
 
-    static void method6514(int i_0, int i_1) {
-        if (MovingAnimation.isInterfaceLoaded(i_0, null)) {
-            Class151.method2591(Interface.INTERFACES[i_0].components, i_1);
+    static void method6514(int interfaceID, int i_1) {
+        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+            Class151.method2591(Interface.INTERFACES[interfaceID].components, i_1);
         }
     }
 

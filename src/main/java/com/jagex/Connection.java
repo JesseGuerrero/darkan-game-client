@@ -4,14 +4,14 @@ import java.io.IOException;
 
 public abstract class Connection {
 
-    public static void runIComponentScripts(IComponentDefinitions[] arr_0) {
-        for (int i_2 = 0; i_2 < arr_0.length; i_2++) {
-            IComponentDefinitions icomponentdefinitions_3 = arr_0[i_2];
-            if (icomponentdefinitions_3.onLoadScript != null) {
-                HookRequest hookrequest_4 = new HookRequest();
-                hookrequest_4.source = icomponentdefinitions_3;
-                hookrequest_4.params = icomponentdefinitions_3.onLoadScript;
-                CS2Executor.executeHookInner(hookrequest_4, 2000000);
+    public static void runIComponentScripts(IComponentDefinitions[] interComps) {
+        for (int i = 0; i < interComps.length; i++) {
+            IComponentDefinitions component = interComps[i];
+            if (component.onLoadScript != null) {
+                HookRequest hook = new HookRequest();
+                hook.source = component;
+                hook.params = component.onLoadScript;
+                CS2Executor.executeHookInner(hook, 2000000);
             }
         }
     }

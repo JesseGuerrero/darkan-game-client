@@ -162,11 +162,11 @@ public class NPCDefinitions {
             synchronized (npcLoader.aClass229_4836) {
                 meshrasterizer_19 = (MeshRasterizer) npcLoader.aClass229_4836.get(long_33);
             }
-            BASDefinitions renderanimdefs_45 = null;
+            ModelAnimIndex renderanimdefs_45 = null;
             if (!bool_12 && i_11 != -1) {
-                renderanimdefs_45 = renderanimindexloader_3.getBASDefs(i_11);
+                renderanimdefs_45 = renderanimindexloader_3.getAnimIndex(i_11);
             } else if (renderEmote != -1) {
-                renderanimdefs_45 = renderanimindexloader_3.getBASDefs(renderEmote);
+                renderanimdefs_45 = renderanimindexloader_3.getAnimIndex(renderEmote);
             }
             int i_25;
             if (meshrasterizer_19 == null || (meshrasterizer_19.m() & i_32) != i_32) {

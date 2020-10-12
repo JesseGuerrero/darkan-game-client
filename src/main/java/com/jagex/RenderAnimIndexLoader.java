@@ -4,7 +4,7 @@ import java.util.Queue;
 
 public class RenderAnimIndexLoader {
 
-    public static BASDefinitions aClass227_2669 = new BASDefinitions();
+    public static ModelAnimIndex aClass227_2669 = new ModelAnimIndex();
 
     LRUCache renderAnimCache = new LRUCache(64);
 
@@ -18,8 +18,8 @@ public class RenderAnimIndexLoader {
         aClass526_2672 = defaults6loader_4;
     }
 
-    static void method3629(int i_0, int i_1, int i_2, int width, int height, int i_5, int i_6, int i_7) {
-        if (!MovingAnimation.isInterfaceLoaded(i_0, null)) {
+    static void method3629(int interfaceID, int i_1, int i_2, int width, int height, int i_5, int i_6, int i_7) {
+        if (!MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
             if (i_7 != -1) {
                 client.aBoolArray7443[i_7] = true;
             } else {
@@ -28,7 +28,7 @@ public class RenderAnimIndexLoader {
                 }
             }
         } else {
-            IComponentDefinitions.render(Interface.INTERFACES[i_0].method1616(), -1, i_1, i_2, width, height, i_5, i_6, i_7, i_7 < 0);
+            IComponentDefinitions.render(Interface.INTERFACES[interfaceID].method1616(), -1, i_1, i_2, width, height, i_5, i_6, i_7, i_7 < 0);
         }
     }
 
@@ -45,8 +45,8 @@ public class RenderAnimIndexLoader {
         }
     }
 
-    public static void method3631(int i_0) {
-        PulseEvent class282_sub50_sub12_2 = PulseEvent.createPulseEvent(3, i_0);
+    public static void method3631(int componentHash) {
+        PulseEvent class282_sub50_sub12_2 = PulseEvent.createPulseEvent(3, componentHash);
         class282_sub50_sub12_2.method14965();
     }
 
@@ -57,31 +57,46 @@ public class RenderAnimIndexLoader {
         }
     }
 
-    public BASDefinitions getBASDefs(int i_1) {
+    public ModelAnimIndex getAnimIndex(int animIndexID) {
+
         LRUCache softcache_4 = renderAnimCache;
-        BASDefinitions renderanimdefs_3;
+        ModelAnimIndex remoteAnimIndex;
+
+//        System.out.println(i_1);
+
+        //Get index of animations
         synchronized (renderAnimCache) {
-            renderanimdefs_3 = (BASDefinitions) renderAnimCache.get(i_1);
+            remoteAnimIndex = (ModelAnimIndex) renderAnimCache.get(animIndexID);
         }
-        if (renderanimdefs_3 != null) {
-            renderanimdefs_3.renderAnimId = i_1;
-            return renderanimdefs_3;
+
+        if(animIndexID == 4) {
+//            System.out.println("");
+        }
+
+
+        if (remoteAnimIndex != null) {
+            remoteAnimIndex.renderAnimId = animIndexID;
+            return remoteAnimIndex;
         } else {
             Index index_5 = aClass317_2671;
             byte[] bytes_10;
             synchronized (aClass317_2671) {
-                bytes_10 = aClass317_2671.getFile(SharedConfigsType.RENDER_ANIMS.id, i_1);
+                bytes_10 = aClass317_2671.getFile(SharedConfigsType.RENDER_ANIMS.id, animIndexID);
             }
-            renderanimdefs_3 = new BASDefinitions();
-            renderanimdefs_3.renderAnimId = i_1;
-            renderanimdefs_3.aClass211_2788 = this;
+            remoteAnimIndex = new ModelAnimIndex();
+            remoteAnimIndex.renderAnimId = animIndexID;
+            remoteAnimIndex.aClass211_2788 = this;
             if (bytes_10 != null) {
-                renderanimdefs_3.method3821(new ByteBuf(bytes_10));
+                remoteAnimIndex.method3821(new ByteBuf(bytes_10));
             }
             LRUCache softcache_9 = renderAnimCache;
             synchronized (renderAnimCache) {
-                renderAnimCache.put(renderanimdefs_3, i_1);
-                return renderanimdefs_3;
+                renderAnimCache.put(remoteAnimIndex, animIndexID);
+
+//                if(animIndexID == 4) {
+//                    remoteAnimIndex.standAnimation = 820;
+//                }
+                return remoteAnimIndex;
             }
         }
     }

@@ -33,8 +33,8 @@ public class CS2Executor {
     int[] globalArrayLengths = new int[5];
     int[][] globalArrays = new int[5][5000];
 
-    int[] executiveProperties = new int[1000];
-    int executiveIndex;
+    int[] properties = new int[1000];
+    int index;
     long[] longStack = new long[1000];
     int longStackPtr;
     Object[] stringStack = new Object[1000];
@@ -85,7 +85,7 @@ public class CS2Executor {
     }
 
     static void executeScript(CS2Script cs2script_0, int stackLimit, CS2Executor executor) {
-        executor.executiveIndex = 0;
+        executor.index = 0;
         executor.stringStackPtr = 0;
         executor.instrPtr = -1;
         executor.current = cs2script_0;

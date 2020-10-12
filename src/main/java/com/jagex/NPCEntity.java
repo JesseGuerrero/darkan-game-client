@@ -55,7 +55,7 @@ public class NPCEntity extends PathingEntity {
 
     boolean method16158(AbstractRenderer graphicalrenderer_1, int i_2) {
         int i_4 = i_2;
-        BASDefinitions renderanimdefs_5 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_5 = getRenderAnimDefs();
         Animation animation_6 = currentAnimation.hasDefs() && !currentAnimation.hasSpeed() ? currentAnimation : null;
         MovingAnimation class456_sub3_7 = aAnimation_Sub3_10337.hasDefs() && (!aAnimation_Sub3_10337.aBool7891 || animation_6 == null) ? aAnimation_Sub3_10337 : null;
         int i_8 = renderanimdefs_5.anInt2786;
@@ -400,7 +400,7 @@ public class NPCEntity extends PathingEntity {
 
             matrix44var_4.method5209(matrix44var_2);
             matrix44var_4.method5219(0.0F, (-20 - anInt10325 * -374848179 * -2023195771), 0.0F);
-            BASDefinitions renderanimdefs_13 = getRenderAnimDefs();
+            ModelAnimIndex renderanimdefs_13 = getRenderAnimDefs();
             NPCDefinitions npcdefinitions_8 = definitions.transformTo != null ? definitions.getMultiNPC(Class158_Sub1.PLAYER_VAR_PROVIDER) : definitions;
             aBool10312 = false;
             Class285 class285_9 = null;
@@ -489,7 +489,7 @@ public class NPCEntity extends PathingEntity {
 
             matrix44var_5.method5209(matrix44var_3);
             matrix44var_5.method5219(0.0F, (-20 - anInt10325), 0.0F);
-            BASDefinitions renderanimdefs_14 = getRenderAnimDefs();
+            ModelAnimIndex renderanimdefs_14 = getRenderAnimDefs();
             NPCDefinitions npcdefinitions_9 = definitions.transformTo != null ? definitions.getMultiNPC(Class158_Sub1.PLAYER_VAR_PROVIDER) : definitions;
             aBool10312 = false;
             Class285 class285_10 = null;
@@ -573,7 +573,7 @@ public class NPCEntity extends PathingEntity {
 
             matrix44var_4.method5209(matrix44var_2);
             matrix44var_4.method5219(0.0F, (-20 - anInt10325 * -374848179 * -2023195771), 0.0F);
-            BASDefinitions renderanimdefs_13 = getRenderAnimDefs();
+            ModelAnimIndex renderanimdefs_13 = getRenderAnimDefs();
             NPCDefinitions npcdefinitions_8 = definitions.transformTo != null ? definitions.getMultiNPC(Class158_Sub1.PLAYER_VAR_PROVIDER) : definitions;
             aBool10312 = false;
             Class285 class285_9 = null;
@@ -883,7 +883,7 @@ public class NPCEntity extends PathingEntity {
 
             matrix44var_4.method5209(matrix44var_2);
             matrix44var_4.method5219(0.0F, (-20 - anInt10325 * -374848179 * -2023195771), 0.0F);
-            BASDefinitions renderanimdefs_13 = getRenderAnimDefs();
+            ModelAnimIndex renderanimdefs_13 = getRenderAnimDefs();
             NPCDefinitions npcdefinitions_8 = definitions.transformTo != null ? definitions.getMultiNPC(Class158_Sub1.PLAYER_VAR_PROVIDER) : definitions;
             aBool10312 = false;
             Class285 class285_9 = null;

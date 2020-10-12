@@ -216,9 +216,9 @@ public class PlayerModel {
             synchronized (aClass229_2920) {
                 meshrasterizer_39 = (MeshRasterizer) aClass229_2920.get(long_18);
             }
-            BASDefinitions renderanimdefs_51 = null;
+            ModelAnimIndex renderanimdefs_51 = null;
             if (anInt2925 != -1) {
-                renderanimdefs_51 = renderanimindexloader_3.getBASDefs(anInt2925);
+                renderanimdefs_51 = renderanimindexloader_3.getAnimIndex(anInt2925);
             }
             int i_30;
             int i_31;

@@ -4,9 +4,9 @@ public class CS2Interface {
     Interface inter;
     IComponentDefinitions defs;
 
-    static void method8777(int i_0) {
-        if (MovingAnimation.isInterfaceLoaded(i_0, null)) {
-            Class464.method7743(Interface.INTERFACES[i_0].components, -1);
+    static void method8777(int interfaceID) {
+        if (MovingAnimation.isInterfaceLoaded(interfaceID, null)) {
+            Class464.method7743(Interface.INTERFACES[interfaceID].components, -1);
         }
 
     }

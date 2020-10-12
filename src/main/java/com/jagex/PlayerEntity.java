@@ -1,7 +1,5 @@
 package com.jagex;
 
-import com.Loader;
-
 import java.util.Arrays;
 
 public class PlayerEntity extends PathingEntity {
@@ -66,7 +64,7 @@ public class PlayerEntity extends PathingEntity {
             Class285 class285_17 = null;
             aBool10312 = false;
             if (Class393.preferences.characterShadows.method12966() == 1) {
-                BASDefinitions renderanimdefs_8 = getRenderAnimDefs();
+                ModelAnimIndex renderanimdefs_8 = getRenderAnimDefs();
                 if (renderanimdefs_8.aBool2787 && (-977770149 * model.mimickingNpcId * 232890067 == -1 || IndexLoaders.NPC_INDEX_LOADER.getNPCType(model.mimickingNpcId * 232890067 * -977770149).aBool4912)) {
                     Animation animation_9 = currentAnimation.hasDefs() && currentAnimation.hasSpeed() ? currentAnimation : null;
                     MovingAnimation class456_sub3_10 = aAnimation_Sub3_10337.hasDefs() && (!aAnimation_Sub3_10337.aBool7891 || animation_9 == null) ? aAnimation_Sub3_10337 : null;
@@ -347,7 +345,7 @@ public class PlayerEntity extends PathingEntity {
 
     boolean method16133(AbstractRenderer graphicalrenderer_1, int i_2) {
         int i_4 = i_2;
-        BASDefinitions renderanimdefs_5 = getRenderAnimDefs();
+        ModelAnimIndex renderanimdefs_5 = getRenderAnimDefs();
         Animation animation_6 = currentAnimation.hasDefs() && !currentAnimation.hasSpeed() ? currentAnimation : null;
         MovingAnimation class456_sub3_7 = !aAnimation_Sub3_10337.hasDefs() || aBool10573 || aAnimation_Sub3_10337.aBool7891 && animation_6 != null ? null : aAnimation_Sub3_10337;
         int i_8 = renderanimdefs_5.anInt2786;
@@ -447,7 +445,7 @@ public class PlayerEntity extends PathingEntity {
             Class285 class285_17 = null;
             aBool10312 = false;
             if (Class393.preferences.characterShadows.method12966() == 1) {
-                BASDefinitions renderanimdefs_8 = getRenderAnimDefs();
+                ModelAnimIndex renderanimdefs_8 = getRenderAnimDefs();
                 if (renderanimdefs_8.aBool2787 && (-977770149 * model.mimickingNpcId * 232890067 == -1 || IndexLoaders.NPC_INDEX_LOADER.getNPCType(model.mimickingNpcId * 232890067 * -977770149).aBool4912)) {
                     Animation animation_9 = currentAnimation.hasDefs() && currentAnimation.hasSpeed() ? currentAnimation : null;
                     MovingAnimation class456_sub3_10 = aAnimation_Sub3_10337.hasDefs() && (!aAnimation_Sub3_10337.aBool7891 || animation_9 == null) ? aAnimation_Sub3_10337 : null;
@@ -563,7 +561,7 @@ public class PlayerEntity extends PathingEntity {
             Class285 class285_17 = null;
             aBool10312 = false;
             if (Class393.preferences.characterShadows.method12966() == 1) {
-                BASDefinitions renderanimdefs_8 = getRenderAnimDefs();
+                ModelAnimIndex renderanimdefs_8 = getRenderAnimDefs();
                 if (renderanimdefs_8.aBool2787 && (-977770149 * model.mimickingNpcId * 232890067 == -1 || IndexLoaders.NPC_INDEX_LOADER.getNPCType(model.mimickingNpcId * 232890067 * -977770149).aBool4912)) {
                     Animation animation_9 = currentAnimation.hasDefs() && currentAnimation.hasSpeed() ? currentAnimation : null;
                     MovingAnimation class456_sub3_10 = aAnimation_Sub3_10337.hasDefs() && (!aAnimation_Sub3_10337.aBool7891 || animation_9 == null) ? aAnimation_Sub3_10337 : null;
@@ -990,7 +988,7 @@ public class PlayerEntity extends PathingEntity {
         }
 
         if (aAnimation_Sub3_10337.hasDefs() && aAnimation_Sub3_10337.aBool7891) {
-            BASDefinitions renderanimdefs_23 = getRenderAnimDefs();
+            ModelAnimIndex renderanimdefs_23 = getRenderAnimDefs();
             if (!renderanimdefs_23.method3810(aAnimation_Sub3_10337.method7597())) {
                 aAnimation_Sub3_10337.update(-1);
                 aAnimation_Sub3_10337.aBool7891 = false;
@@ -1064,7 +1062,7 @@ public class PlayerEntity extends PathingEntity {
             Class285 class285_18 = null;
             aBool10312 = false;
             if (Class393.preferences.characterShadows.method12966() == 1) {
-                BASDefinitions renderanimdefs_9 = getRenderAnimDefs();
+                ModelAnimIndex renderanimdefs_9 = getRenderAnimDefs();
                 if (renderanimdefs_9.aBool2787 && (model.mimickingNpcId == -1 || IndexLoaders.NPC_INDEX_LOADER.getNPCType(model.mimickingNpcId).aBool4912)) {
                     Animation animation_10 = currentAnimation.hasDefs() && currentAnimation.hasSpeed() ? currentAnimation : null;
                     MovingAnimation class456_sub3_11 = aAnimation_Sub3_10337.hasDefs() && (!aAnimation_Sub3_10337.aBool7891 || animation_10 == null) ? aAnimation_Sub3_10337 : null;

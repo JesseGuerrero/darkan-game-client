@@ -2,7 +2,7 @@ package com.jagex;
 
 import java.util.Iterator;
 
-public class BASDefinitions {
+public class ModelAnimIndex {
 
     static int anInt2831;
     public int renderAnimId;

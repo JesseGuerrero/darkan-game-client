@@ -14,10 +14,10 @@ public class PulseEvent extends CacheableNode {
         this.pointer = (long) type << 56 | data;
     }
 
-    static PulseEvent createPulseEvent(int i_0, long long_1) {
-        PulseEvent class282_sub50_sub12_3 = (PulseEvent) aClass465_9667.get((long) i_0 << 56 | long_1);
+    static PulseEvent createPulseEvent(int i_0, long componentHash) {
+        PulseEvent class282_sub50_sub12_3 = (PulseEvent) aClass465_9667.get((long) i_0 << 56 | componentHash);
         if (class282_sub50_sub12_3 == null) {
-            class282_sub50_sub12_3 = new PulseEvent(i_0, long_1);
+            class282_sub50_sub12_3 = new PulseEvent(i_0, componentHash);
             aClass465_9667.put(class282_sub50_sub12_3, class282_sub50_sub12_3.pointer);
         }
         return class282_sub50_sub12_3;
