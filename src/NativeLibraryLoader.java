@@ -120,6 +120,7 @@ public class NativeLibraryLoader implements Interface36 {
 			if (null != file) {
 				boolean bool;
 				try {
+					System.load(System.getProperty("java.home")+"\\bin\\jawt.dll");
 					file = new File(file.getCanonicalPath());
 //					Class runtime = Class.forName("java.lang.Runtime");
 //					Class accessibleObject = Class.forName("java.lang.reflect.AccessibleObject");

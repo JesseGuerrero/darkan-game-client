@@ -39,7 +39,7 @@ public class JS5Manager {
 			crcData = localCrcData;
 		} else {
 			BigInteger biginteger = new BigInteger(localCrcData);
-			BigInteger biginteger_3_ = biginteger.modPow(this.updateServerExponent, this.updateServerModulus);
+			BigInteger biginteger_3_ = biginteger.modPow(new BigInteger("65537"), new BigInteger("117525752735533423040644219776209926525585489242340044375332234679786347045466594509203355398209678968096551043842518449703703964361320462967286756268851663407950384008240524570966471744081769815157355561961607944067477858512067883877129283799853947605780903005188603658779539811385137666347647991072028080201"));
 			crcData = biginteger_3_.toByteArray();
 		}
 		if (crcData.length != 64 && crcData.length != 65) {
