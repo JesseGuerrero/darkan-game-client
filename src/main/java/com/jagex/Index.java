@@ -106,25 +106,28 @@ public class Index {
         }
     }
 
-    synchronized boolean archiveExists(int i_1) {
+    synchronized boolean archiveExists(int scriptId) {
         if (!referenceTableLoaded()) {
             return false;
-        } else if (i_1 >= 0 && i_1 < referenceTable.fileCounts.length && referenceTable.fileCounts[i_1] != 0) {
+        } else if (scriptId >= 0 && scriptId < referenceTable.fileCounts.length && referenceTable.fileCounts[scriptId] != 0) {
             return true;
         } else if (aBool3692) {
-            throw new IllegalArgumentException(Integer.toString(i_1));
+            throw new IllegalArgumentException(Integer.toString(scriptId));
         } else {
             return false;
         }
     }
 
-    synchronized boolean fileExists(int i_1, int i_2) {
+    synchronized boolean fileExists(int scriptId, int i_2) {
+        if(scriptId == 787) {
+            scriptId = scriptId;
+        }
         if (!referenceTableLoaded()) {
             return false;
-        } else if (i_1 >= 0 && i_2 >= 0 && i_1 < referenceTable.fileCounts.length && i_2 < referenceTable.fileCounts[i_1]) {
+        } else if (scriptId >= 0 && i_2 >= 0 && scriptId < referenceTable.fileCounts.length && i_2 < referenceTable.fileCounts[scriptId]) {
             return true;
         } else if (aBool3692) {
-            throw new IllegalArgumentException(i_1 + " " + i_2);
+            throw new IllegalArgumentException(scriptId + " " + i_2);
         } else {
             return false;
         }
@@ -354,25 +357,28 @@ public class Index {
         return true;
     }
 
-    synchronized boolean method5638(int i_1, int i_2, int[] ints_3) {
-        if (!archiveExists(i_1)) {
+    synchronized boolean method5638(int scriptId, int i_2, int[] ints_3) {
+        if(scriptId == 787) {
+            scriptId = scriptId;
+        }
+        if (!archiveExists(scriptId)) {
             return false;
-        } else if (archives[i_1] == null) {
+        } else if (archives[scriptId] == null) {
             return false;
         } else {
-            int i_5 = referenceTable.validFileIdSizes[i_1];
-            int[] ints_6 = referenceTable.validFileIds[i_1];
-            if (archiveFiles[i_1] == null) {
-                archiveFiles[i_1] = new Object[referenceTable.fileCounts[i_1]];
+            int fileCount = referenceTable.validFileIdSizes[scriptId];
+            int[] ints_6 = referenceTable.validFileIds[scriptId];
+            if (archiveFiles[scriptId] == null) {
+                archiveFiles[scriptId] = new Object[referenceTable.fileCounts[scriptId]];
             }
-            Object[] arr_7 = archiveFiles[i_1];
+            Object[] arr_7 = archiveFiles[scriptId];
             boolean bool_8 = true;
-            for (int i_9 = 0; i_9 < i_5; i_9++) {
+            for (int i = 0; i < fileCount; i++) {
                 int i_10;
                 if (ints_6 == null) {
-                    i_10 = i_9;
+                    i_10 = i;
                 } else {
-                    i_10 = ints_6[i_9];
+                    i_10 = ints_6[i];
                 }
                 if (arr_7[i_10] == null) {
                     bool_8 = false;
@@ -380,20 +386,20 @@ public class Index {
                 }
             }
             if (!bool_8) {
-                byte[] bytes_22;
+                byte[] scriptArchive;
                 if (ints_3 == null || ints_3[0] == 0 && ints_3[1] == 0 && ints_3[2] == 0 && ints_3[3] == 0) {
-                    bytes_22 = QuickChatMessage.method6154(archives[i_1], false);
+                    scriptArchive = QuickChatMessage.castScriptArchive(archives[scriptId], false);
                 } else {
-                    bytes_22 = QuickChatMessage.method6154(archives[i_1], true);
-                    JagexNode rsbytebuffer_23 = new JagexNode(bytes_22);
+                    scriptArchive = QuickChatMessage.castScriptArchive(archives[scriptId], true);
+                    JagexNode rsbytebuffer_23 = new JagexNode(scriptArchive);
                     rsbytebuffer_23.method13249(ints_3, rsbytebuffer_23.buffer.length);
                 }
-                byte[] bytes_27 = Node_Sub17_Sub6.method15438(bytes_22);
+                byte[] scriptInfo = Node_Sub17_Sub6.method15438(scriptArchive);//TODO: How is a script Archive Unpacked?
                 if (aBool3685) {
-                    archives[i_1] = null;
+                    archives[scriptId] = null;
                 }
                 int i_11;
-                if (i_5 > 1) {
+                if (fileCount > 1) {
                     int i_12;
                     JagexNode rsbytebuffer_13;
                     int i_15;
@@ -402,22 +408,22 @@ public class Index {
                     int i_18;
                     int i_19;
                     if (loadType != 2) {
-                        i_11 = bytes_27.length;
+                        i_11 = scriptInfo.length;
                         --i_11;
-                        i_12 = bytes_27[i_11] & 0xff;
-                        i_11 -= i_12 * i_5 * 4;
-                        rsbytebuffer_13 = new JagexNode(bytes_27);
-                        int[] ints_14 = new int[i_5];
+                        i_12 = scriptInfo[i_11] & 0xff;
+                        i_11 -= i_12 * fileCount * 4;
+                        rsbytebuffer_13 = new JagexNode(scriptInfo);
+                        int[] ints_14 = new int[fileCount];
                         rsbytebuffer_13.index = i_11;
                         for (i_15 = 0; i_15 < i_12; i_15++) {
                             i_16 = 0;
-                            for (i_17 = 0; i_17 < i_5; i_17++) {
+                            for (i_17 = 0; i_17 < fileCount; i_17++) {
                                 i_16 += rsbytebuffer_13.readInt();
                                 ints_14[i_17] += i_16;
                             }
                         }
-                        byte[][] bytes_24 = new byte[i_5][];
-                        for (i_16 = 0; i_16 < i_5; i_16++) {
+                        byte[][] bytes_24 = new byte[fileCount][];
+                        for (i_16 = 0; i_16 < fileCount; i_16++) {
                             bytes_24[i_16] = new byte[ints_14[i_16]];
                             ints_14[i_16] = 0;
                         }
@@ -425,14 +431,14 @@ public class Index {
                         i_16 = 0;
                         for (i_17 = 0; i_17 < i_12; i_17++) {
                             i_18 = 0;
-                            for (i_19 = 0; i_19 < i_5; i_19++) {
+                            for (i_19 = 0; i_19 < fileCount; i_19++) {
                                 i_18 += rsbytebuffer_13.readInt();
-                                System.arraycopy(bytes_27, i_16, bytes_24[i_19], ints_14[i_19], i_18);
+                                System.arraycopy(scriptInfo, i_16, bytes_24[i_19], ints_14[i_19], i_18);
                                 ints_14[i_19] += i_18;
                                 i_16 += i_18;
                             }
                         }
-                        for (i_17 = 0; i_17 < i_5; i_17++) {
+                        for (i_17 = 0; i_17 < fileCount; i_17++) {
                             if (ints_6 == null) {
                                 i_18 = i_17;
                             } else {
@@ -445,17 +451,17 @@ public class Index {
                             }
                         }
                     } else {
-                        i_11 = bytes_27.length;
+                        i_11 = scriptInfo.length;
                         --i_11;
-                        i_12 = bytes_27[i_11] & 0xff;
-                        i_11 -= i_12 * i_5 * 4;
-                        rsbytebuffer_13 = new JagexNode(bytes_27);
+                        i_12 = scriptInfo[i_11] & 0xff;
+                        i_11 -= i_12 * fileCount * 4;
+                        rsbytebuffer_13 = new JagexNode(scriptInfo);
                         int i_25 = 0;
                         i_15 = 0;
                         rsbytebuffer_13.index = i_11;
                         for (i_16 = 0; i_16 < i_12; i_16++) {
                             i_17 = 0;
-                            for (i_18 = 0; i_18 < i_5; i_18++) {
+                            for (i_18 = 0; i_18 < fileCount; i_18++) {
                                 i_17 += rsbytebuffer_13.readInt();
                                 if (ints_6 == null) {
                                     i_19 = i_18;
@@ -477,7 +483,7 @@ public class Index {
                         i_17 = 0;
                         for (i_18 = 0; i_18 < i_12; i_18++) {
                             i_19 = 0;
-                            for (int i_20 = 0; i_20 < i_5; i_20++) {
+                            for (int i_20 = 0; i_20 < fileCount; i_20++) {
                                 i_19 += rsbytebuffer_13.readInt();
                                 int i_21;
                                 if (ints_6 == null) {
@@ -486,7 +492,7 @@ public class Index {
                                     i_21 = ints_6[i_20];
                                 }
                                 if (i_21 == i_2) {
-                                    System.arraycopy(bytes_27, i_17, bytes_26, i_25, i_19);
+                                    System.arraycopy(scriptInfo, i_17, bytes_26, i_25, i_19);
                                     i_25 += i_19;
                                 }
                                 i_17 += i_19;
@@ -501,9 +507,9 @@ public class Index {
                         i_11 = ints_6[0];
                     }
                     if (loadType == 0) {
-                        arr_7[i_11] = JS5Manager.method5493(bytes_27);
+                        arr_7[i_11] = JS5Manager.method5493(scriptInfo);
                     } else {
-                        arr_7[i_11] = bytes_27;
+                        arr_7[i_11] = scriptInfo;
                     }
                 }
             }
@@ -515,7 +521,7 @@ public class Index {
         if (!fileExists(scriptId, i_2)) {
             return null;
         } else {
-            byte[] bytes_4 = null;
+            byte[] scriptInfo = null;
             if (archiveFiles[scriptId] == null || archiveFiles[scriptId][i_2] == null) {
                 boolean bool_5 = method5638(scriptId, i_2, ints_3);
                 if (!bool_5) {
@@ -530,12 +536,12 @@ public class Index {
                 throw new RuntimeException("");
             } else {
                 if (archiveFiles[scriptId][i_2] != null) {
-                    bytes_4 = QuickChatMessage.method6154(archiveFiles[scriptId][i_2], false);
-                    if (bytes_4 == null) {
+                    scriptInfo = QuickChatMessage.castScriptArchive(archiveFiles[scriptId][i_2], false);
+                    if (scriptInfo == null) {
                         throw new RuntimeException("");
                     }
                 }
-                if (bytes_4 != null) {
+                if (scriptInfo != null) {
                     if (loadType == 1) {
                         archiveFiles[scriptId][i_2] = null;
                         if (referenceTable.fileCounts[scriptId] == 1) {
@@ -545,7 +551,7 @@ public class Index {
                         archiveFiles[scriptId] = null;
                     }
                 }
-                return bytes_4;
+                return scriptInfo;
             }
         }
     }

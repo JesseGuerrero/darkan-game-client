@@ -10,14 +10,14 @@ public class QuickChatMessage {
     public QuickchatMessageDefinitions qcMessageDefs;
     public int qcMessageId;
 
-    public static byte[] method6154(Object object_0, boolean bool_1) {
-        if (object_0 == null) {
+    public static byte[] castScriptArchive(Object scriptArchive, boolean bool_1) {
+        if (scriptArchive == null) {
             return null;
-        } else if (object_0 instanceof byte[]) {
-            byte[] bytes_5 = (byte[]) object_0;
+        } else if (scriptArchive instanceof byte[]) {
+            byte[] bytes_5 = (byte[]) scriptArchive;
             return bool_1 ? Arrays.copyOf(bytes_5, bytes_5.length) : bytes_5;
-        } else if (object_0 instanceof ByteBuffer) {
-            ByteBuffer bytebuffer_3 = (ByteBuffer) object_0;
+        } else if (scriptArchive instanceof ByteBuffer) {
+            ByteBuffer bytebuffer_3 = (ByteBuffer) scriptArchive;
             byte[] bytes_4 = new byte[bytebuffer_3.capacity()];
             bytebuffer_3.position(0);
             bytebuffer_3.get(bytes_4);
