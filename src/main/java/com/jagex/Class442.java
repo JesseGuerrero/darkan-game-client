@@ -63,13 +63,11 @@ public class Class442 {
         return aRandomAccessFile5359.length();
     }
 
-    public int method7389(byte[] bytes_1, int i_2, int i_3) throws IOException {
-        int i_5 = aRandomAccessFile5359.read(bytes_1, i_2, i_3);
-        if (i_5 > 0) {
-            aLong5360 += i_5;
-        }
-
-        return i_5;
+    public int method7389(byte[] is, int i, int i_3_) throws IOException {
+        int i_5_ = ((Class442) this).aRandomAccessFile5359.read(is, i, i_3_);
+        if (i_5_ > 0)
+            ((Class442) this).aLong5360 += 2728668244666850209L * (long) i_5_;
+        return i_5_;
     }
 
     @Override

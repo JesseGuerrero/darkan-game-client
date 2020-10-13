@@ -16,31 +16,31 @@ public class Node_Sub17_Sub6 extends Node_Sub17 {
         this$0 = class348_1;
     }
 
-    static byte[] method15438(byte[] data) {
+    static byte[] method15438(byte[] scriptArchive) {
         try {
-            JagexNode buffer = new JagexNode(data);
-            int i_3 = buffer.readUnsignedByte();
-            int i_4 = buffer.readInt();
+            JagexNode scriptArchiveNode = new JagexNode(scriptArchive);
+            int i_3 = scriptArchiveNode.readUnsignedByte();
+            int i_4 = scriptArchiveNode.readInt();
             if (i_4 >= 0 && (Index.anInt3689 == 0 || i_4 <= Index.anInt3689)) {
                 if (i_3 == 0) {
                     byte[] bytes_5 = new byte[i_4];
-                    buffer.readBytes(bytes_5, 0, i_4);
+                    scriptArchiveNode.readBytes(bytes_5, 0, i_4);
                     return bytes_5;
                 } else {
-                    int i_8 = buffer.readInt();
-                    if (i_8 < 0 || Index.anInt3689 != 0 && i_8 > Index.anInt3689) {
+                    int packedScriptInfoLength = scriptArchiveNode.readInt();
+                    if (packedScriptInfoLength < 0 || Index.anInt3689 != 0 && packedScriptInfoLength > Index.anInt3689) {
                         throw new RuntimeException();
                     } else {
-                        byte[] bytes_6 = new byte[i_8];
+                        byte[] packedScript = new byte[packedScriptInfoLength];
                         if (i_3 == 1) {
-                            Class471.method7828(bytes_6, i_8, data);
+                            Class471.method7828(packedScript, packedScriptInfoLength, scriptArchive);
                         } else {
                             Class395 class395_7 = Index.aClass395_3684;
                             synchronized (Index.aClass395_3684) {
-                                Index.aClass395_3684.method6767(buffer, bytes_6);
+                                Index.aClass395_3684.fillScript(scriptArchiveNode, packedScript);
                             }
                         }
-                        return bytes_6;
+                        return packedScript;
                     }
                 }
             } else {

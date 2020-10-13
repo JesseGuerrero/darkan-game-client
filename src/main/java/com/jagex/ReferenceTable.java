@@ -20,7 +20,7 @@ public class ReferenceTable {
 
     int[][] validFileIds;
 
-    int[] fileCounts;
+    int[] archivePacked;
 
     int[] nameHashes;
 
@@ -105,7 +105,7 @@ public class ReferenceTable {
             versions = new int[archiveCount];
             validFileIdSizes = new int[archiveCount];
             validFileIds = new int[archiveCount][];
-            fileCounts = new int[archiveCount];
+            archivePacked = new int[archiveCount];
             if (named) {
                 nameHashes = new int[archiveCount];
                 for (i_9 = 0; i_9 < archiveCount; i_9++) {
@@ -150,7 +150,7 @@ public class ReferenceTable {
                             i_12 = i_14;
                         }
                     }
-                    fileCounts[i_10] = i_12 + 1;
+                    archivePacked[i_10] = i_12 + 1;
                     if (i_11 == i_12 + 1) {
                         validFileIds[i_10] = null;
                     }
@@ -171,7 +171,7 @@ public class ReferenceTable {
                             i_12 = i_14;
                         }
                     }
-                    fileCounts[i_10] = i_12 + 1;
+                    archivePacked[i_10] = i_12 + 1;
                     if (i_11 == i_12 + 1) {
                         validFileIds[i_10] = null;
                     }
@@ -183,8 +183,8 @@ public class ReferenceTable {
                 for (i_9 = 0; i_9 < numValidArchives; i_9++) {
                     i_10 = validArchiveIds[i_9];
                     i_11 = validFileIdSizes[i_10];
-                    fileNameHashes[i_10] = new int[fileCounts[i_10]];
-                    for (i_12 = 0; i_12 < fileCounts[i_10]; i_12++) {
+                    fileNameHashes[i_10] = new int[archivePacked[i_10]];
+                    for (i_12 = 0; i_12 < archivePacked[i_10]; i_12++) {
                         fileNameHashes[i_10][i_12] = -1;
                     }
                     for (i_12 = 0; i_12 < i_11; i_12++) {

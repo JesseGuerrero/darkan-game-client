@@ -60,14 +60,14 @@ public class UID192 {
         }
     }
 
-    public void method7350(byte[] bytes_1, int i_2, int i_3) throws IOException {
+    public void method7350(byte[] is, int i, int i_3) throws IOException {
         try {
-            if (i_3 + i_2 > bytes_1.length) {
-                throw new ArrayIndexOutOfBoundsException(i_3 + i_2 - bytes_1.length);
+            if (i_3 + i > is.length) {
+                throw new ArrayIndexOutOfBoundsException(i_3 + i - is.length);
             }
 
             if (aLong5345 != -1L && aLong5353 >= aLong5345 && aLong5353 + i_3 <= (anInt5356 * 675653231) + aLong5345) {
-                System.arraycopy(aByteArray5348, (int) (aLong5353 - aLong5345), bytes_1, i_2, i_3);
+                System.arraycopy(aByteArray5348, (int) (aLong5353 - aLong5345), is, i, i_3);
                 aLong5353 += i_3;
                 return;
             }
@@ -81,9 +81,9 @@ public class UID192 {
                     i_9 = i_3;
                 }
 
-                System.arraycopy(aByteArray5350, (int) (aLong5353 - aLong5347), bytes_1, i_2, i_9);
+                System.arraycopy(aByteArray5350, (int) (aLong5353 - aLong5347), is, i, i_9);
                 aLong5353 += i_9;
-                i_2 += i_9;
+                i += i_9;
                 i_3 -= i_9;
             }
 
@@ -91,34 +91,34 @@ public class UID192 {
                 aClass442_5346.method7390(aLong5353);
 
                 for (aLong5351 = aLong5353; i_3 > 0; i_3 -= i_9) {
-                    i_9 = aClass442_5346.method7389(bytes_1, i_2, i_3);
+                    i_9 = aClass442_5346.method7389(is, i, i_3);
                     if (i_9 == -1) {
                         break;
                     }
 
                     aLong5351 += i_9;
                     aLong5353 += i_9;
-                    i_2 += i_9;
+                    i += i_9;
                 }
             } else if (i_3 > 0) {
                 method7363();
                 i_9 = Math.min(i_3, anInt5349);
 
-                System.arraycopy(aByteArray5350, 0, bytes_1, i_2, i_9);
-                i_2 += i_9;
+                System.arraycopy(aByteArray5350, 0, is, i, i_9);
+                i += i_9;
                 i_3 -= i_9;
                 aLong5353 += i_9;
             }
 
             if (aLong5345 != -1L) {
                 if (aLong5345 > aLong5353 && i_3 > 0) {
-                    i_9 = i_2 + (int) (aLong5345 - aLong5353);
-                    if (i_9 > i_3 + i_2) {
-                        i_9 = i_3 + i_2;
+                    i_9 = i + (int) (aLong5345 - aLong5353);
+                    if (i_9 > i_3 + i) {
+                        i_9 = i_3 + i;
                     }
 
-                    while (i_2 < i_9) {
-                        bytes_1[i_2++] = 0;
+                    while (i < i_9) {
+                        is[i++] = 0;
                         --i_3;
                         ++aLong5353;
                     }
@@ -140,7 +140,7 @@ public class UID192 {
 
                 if (long_14 > -1L && long_11 > long_14) {
                     int i_13 = (int) (long_11 - long_14);
-                    System.arraycopy(aByteArray5348, (int) (long_14 - aLong5345), bytes_1, (int) (long_14 - long_5) + i_2, i_13);
+                    System.arraycopy(aByteArray5348, (int) (long_14 - aLong5345), is, (int) (long_14 - long_5) + i, i_13);
                     if (long_11 > aLong5353) {
                         i_3 = (int) (i_3 - (long_11 - aLong5353));
                         aLong5353 = long_11;

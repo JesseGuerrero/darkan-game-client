@@ -51,7 +51,7 @@ public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObje
 //        System.out.println(interID);
 
         if(!Arrays.asList(744,882,978,978,978,978,978,976,744,976,882,978,744,742,976,882,978,744,976,882,978,596,906,906,907,908,910,909,912,589,911,978,978,978,907,908,910,909,589,912,911,978,906,907,908,910,909,589,912,911,978,752,751,745,754,747,748,749,182,137,1215,1213,884,1056,320,190,679,387,271,192,550,1109,1110,261,590,187,34,750).contains(interID)){
-            System.out.println(interID);
+//            System.out.println(interID);
         }
 
 //        bool_4 = true;

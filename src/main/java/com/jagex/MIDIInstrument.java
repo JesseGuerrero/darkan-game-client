@@ -265,13 +265,13 @@ public class MIDIInstrument extends Node {
             aBool7609 = true;
         }
 
-        int i_3 = rsbytebuffer_2.readInt();
-        if (i_3 < 0) {
+        int length = rsbytebuffer_2.readInt();
+        if (length < 0) {
             throw new IOException();
         } else {
-            aByteArrayArray7606 = new byte[i_3][];
+            aByteArrayArray7606 = new byte[length][];
 
-            for (int i_4 = 0; i_4 < i_3; i_4++) {
+            for (int i = 0; i < length; i++) {
                 int i_5 = 0;
 
                 int i_6;
@@ -282,7 +282,7 @@ public class MIDIInstrument extends Node {
 
                 byte[] bytes_7 = new byte[i_5];
                 rsbytebuffer_2.readBytes(bytes_7, 0, i_5);
-                aByteArrayArray7606[i_4] = bytes_7;
+                aByteArrayArray7606[i] = bytes_7;
             }
 
         }

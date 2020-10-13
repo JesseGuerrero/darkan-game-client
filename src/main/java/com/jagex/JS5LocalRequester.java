@@ -96,7 +96,11 @@ public class JS5LocalRequester implements Runnable {
         }
     }
 
-    CacheableNode_Sub11_Sub2 method5578(int i_1, JS5CacheFile js5cachefile_2) {
+    CacheableNode_Sub11_Sub2 method5578(int id, JS5CacheFile js5cachefile_2) {
+        if(id == 4256) {
+            id = id;
+        }
+
         CacheableNode_Sub11_Sub2 class282_sub50_sub11_sub2_4 = new CacheableNode_Sub11_Sub2();
         class282_sub50_sub11_sub2_4.anInt10467 = 1;
         Queue class477_5 = aClass477_3664;
@@ -105,7 +109,7 @@ public class JS5LocalRequester implements Runnable {
 
             while (class282_sub50_sub11_sub2_6 != null) {
 
-                if (i_1 == class282_sub50_sub11_sub2_6.key && js5cachefile_2 == class282_sub50_sub11_sub2_6.aClass203_10464 && class282_sub50_sub11_sub2_6.anInt10467 == 2) {
+                if (id == class282_sub50_sub11_sub2_6.key && js5cachefile_2 == class282_sub50_sub11_sub2_6.aClass203_10464 && class282_sub50_sub11_sub2_6.anInt10467 == 2) {
                     class282_sub50_sub11_sub2_4.aByteArray10469 = class282_sub50_sub11_sub2_6.aByteArray10469;
                     class282_sub50_sub11_sub2_4.waiting = false;
                     return class282_sub50_sub11_sub2_4;
@@ -115,7 +119,11 @@ public class JS5LocalRequester implements Runnable {
             }
         }
 
-        class282_sub50_sub11_sub2_4.aByteArray10469 = js5cachefile_2.method3350(i_1);
+        if(id == 4256) {
+            int i = 0;
+        }
+
+        class282_sub50_sub11_sub2_4.aByteArray10469 = js5cachefile_2.method3350(id);//TODO: Find out how this spot requests a small script
         class282_sub50_sub11_sub2_4.waiting = false;
         class282_sub50_sub11_sub2_4.highPriority = true;
         return class282_sub50_sub11_sub2_4;

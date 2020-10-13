@@ -5,7 +5,7 @@ import java.util.zip.Inflater;
 public class Class395 {
 
     public static int b12FullIndex;
-    Inflater anInflater4787;
+    Inflater deFlater;
 
     public static void method6772(int i_0, int i_1, int i_2, int i_3, int i_4) {
         if (i_0 >= Class532_Sub1.anInt7071 && i_1 <= Class532_Sub1.anInt7069 && i_2 >= Class532_Sub1.anInt7070 && i_3 <= Class532_Sub1.anInt7068) {
@@ -22,25 +22,25 @@ public class Class395 {
         int i_4 = rsbytebuffer_3.method13085();
         byte[] bytes_5 = new byte[i_4];
         rsbytebuffer_3.index = 0;
-        method6767(rsbytebuffer_3, bytes_5);
+        fillScript(rsbytebuffer_3, bytes_5);
         return bytes_5;
     }
 
-    public void method6767(JagexNode rsbytebuffer_1, byte[] bytes_2) {
-        if (rsbytebuffer_1.buffer[rsbytebuffer_1.index] == 31 && rsbytebuffer_1.buffer[rsbytebuffer_1.index + 1] == -117) {
-            if (anInflater4787 == null) {
-                anInflater4787 = new Inflater(true);
+    public void fillScript(JagexNode scriptArchiveNode, byte[] packedScript) {
+        if (scriptArchiveNode.buffer[scriptArchiveNode.index] == 31 && scriptArchiveNode.buffer[scriptArchiveNode.index + 1] == -117) {
+            if (deFlater == null) {
+                deFlater = new Inflater(true);
             }
 
             try {
-                anInflater4787.setInput(rsbytebuffer_1.buffer, rsbytebuffer_1.index + 10, rsbytebuffer_1.buffer.length - (rsbytebuffer_1.index + 8 + 10));
-                anInflater4787.inflate(bytes_2);
+                deFlater.setInput(scriptArchiveNode.buffer, scriptArchiveNode.index + 10, scriptArchiveNode.buffer.length - (scriptArchiveNode.index + 8 + 10));
+                deFlater.inflate(packedScript);
             } catch (Exception exception_5) {
-                anInflater4787.reset();
+                deFlater.reset();
                 throw new RuntimeException("");
             }
 
-            anInflater4787.reset();
+            deFlater.reset();
         } else {
             throw new RuntimeException("");
         }

@@ -142,13 +142,16 @@ public class JS5GrabWorker extends JS5FileWorker {
     }
 
     @Override
-    byte[] method5804(int i_1) {
-        JS5CacheRequest js5cacherequest_3 = method12546(i_1, 0);
-        if (js5cacherequest_3 == null) {
+    byte[] method5804(int id) {
+        if(id == 4265) {
+            id=id;
+        }
+        JS5CacheRequest cacheItem = method12546(id, 0);
+        if (cacheItem == null) {
             return null;
         } else {
-            byte[] bytes_4 = js5cacherequest_3.getData();
-            js5cacherequest_3.unlink();
+            byte[] bytes_4 = cacheItem.getData();
+            cacheItem.unlink();
             return bytes_4;
         }
     }
@@ -210,27 +213,30 @@ public class JS5GrabWorker extends JS5FileWorker {
         }
     }
 
-    JS5CacheRequest method12546(int i_1, int i_2) {
-        Object obj_4 = aClass465_7796.get(i_1);
+    JS5CacheRequest method12546(int id, int i_2) {
+        if(id == 787) {
+            id = id;
+        }
+        Object obj_4 = aClass465_7796.get(id);
         if (obj_4 != null && i_2 == 0 && !((JS5CacheRequest) obj_4).highPriority && ((JS5CacheRequest) obj_4).waiting) {
             ((JS5CacheRequest) obj_4).unlink();
             obj_4 = null;
         }
         if (obj_4 == null) {
             if (i_2 == 0) {
-                if (dataFile != null && aByteArray7792[i_1] != -1) {
-                    obj_4 = localRequester.method5578(i_1, dataFile);
+                if (dataFile != null && aByteArray7792[id] != -1) {
+                    obj_4 = localRequester.method5578(id, dataFile);//request made here
                 } else {
                     if (standardRequester.priorityUnavailable()) {
                         return null;
                     }
-                    obj_4 = standardRequester.request(indexId, i_1, (byte) 2, true);
+                    obj_4 = standardRequester.request(indexId, id, (byte) 2, true);
                 }
             } else if (i_2 == 1) {
                 if (dataFile == null) {
                     throw new RuntimeException();
                 }
-                obj_4 = localRequester.method5567(i_1, dataFile);
+                obj_4 = localRequester.method5567(id, dataFile);
             } else {
                 if (i_2 != 2) {
                     throw new RuntimeException();
@@ -238,15 +244,15 @@ public class JS5GrabWorker extends JS5FileWorker {
                 if (dataFile == null) {
                     throw new RuntimeException();
                 }
-                if (aByteArray7792[i_1] != -1) {
+                if (aByteArray7792[id] != -1) {
                     throw new RuntimeException();
                 }
                 if (standardRequester.extraUnavailable()) {
                     return null;
                 }
-                obj_4 = standardRequester.request(indexId, i_1, (byte) 2, false);
+                obj_4 = standardRequester.request(indexId, id, (byte) 2, false);
             }
-            aClass465_7796.put((Node) obj_4, i_1);
+            aClass465_7796.put((Node) obj_4, id);
         }
         if (((JS5CacheRequest) obj_4).waiting) {
             return null;
@@ -259,11 +265,11 @@ public class JS5GrabWorker extends JS5FileWorker {
                         aCRC32_7804.reset();
                         aCRC32_7804.update(bytes_5, 0, bytes_5.length - 2);
                         int i_7 = (int) aCRC32_7804.getValue();
-                        if (i_7 != table.crcs[i_1]) {
+                        if (i_7 != table.crcs[id]) {
                             throw new RuntimeException();
                         } else {
-                            if (table.whirlpool != null && table.whirlpool[i_1] != null) {
-                                bytes_8 = table.whirlpool[i_1];
+                            if (table.whirlpool != null && table.whirlpool[id] != null) {
+                                bytes_8 = table.whirlpool[id];
                                 byte[] bytes_9 = Class361.getWhirlpool(bytes_5, 0, bytes_5.length - 2);
                                 for (int i_10 = 0; i_10 < 64; i_10++) {
                                     if (bytes_9[i_10] != bytes_8[i_10]) {
@@ -272,13 +278,13 @@ public class JS5GrabWorker extends JS5FileWorker {
                                 }
                             }
                             int i_11 = (bytes_5[bytes_5.length - 1] & 0xff) + ((bytes_5[bytes_5.length - 2] & 0xff) << 8);
-                            if (i_11 != (table.versions[i_1] & 0xffff)) {
+                            if (i_11 != (table.versions[id] & 0xffff)) {
                                 throw new RuntimeException();
                             } else {
-                                if (aByteArray7792[i_1] != 1) {
-                                    byte b_10000 = aByteArray7792[i_1];
+                                if (aByteArray7792[id] != 1) {
+                                    byte b_10000 = aByteArray7792[id];
                                     ++anInt7793;
-                                    aByteArray7792[i_1] = 1;
+                                    aByteArray7792[id] = 1;
                                 }
                                 if (!((JS5CacheRequest) obj_4).highPriority) {
                                     ((JS5CacheRequest) obj_4).unlink();
@@ -290,11 +296,11 @@ public class JS5GrabWorker extends JS5FileWorker {
                         throw new RuntimeException();
                     }
                 } catch (Exception exception_15) {
-                    aByteArray7792[i_1] = -1;
+                    aByteArray7792[id] = -1;
                     ((JS5CacheRequest) obj_4).unlink();
                     if (((JS5CacheRequest) obj_4).highPriority && !standardRequester.priorityUnavailable()) {
-                        PaddedJS5Request class282_sub50_sub11_sub1_16 = standardRequester.request(indexId, i_1, (byte) 2, true);
-                        aClass465_7796.put(class282_sub50_sub11_sub1_16, i_1);
+                        PaddedJS5Request class282_sub50_sub11_sub1_16 = standardRequester.request(indexId, id, (byte) 2, true);
+                        aClass465_7796.put(class282_sub50_sub11_sub1_16, id);
                     }
                     return null;
                 }
@@ -302,11 +308,11 @@ public class JS5GrabWorker extends JS5FileWorker {
                 aCRC32_7804.reset();
                 aCRC32_7804.update(bytes_5, 0, bytes_5.length - 2);
                 int i_13 = (int) aCRC32_7804.getValue();
-                if (i_13 != table.crcs[i_1]) {
+                if (i_13 != table.crcs[id]) {
                     throw new RuntimeException();
                 } else {
-                    if (table.whirlpool != null && table.whirlpool[i_1] != null) {
-                        byte[] bytes_12 = table.whirlpool[i_1];
+                    if (table.whirlpool != null && table.whirlpool[id] != null) {
+                        byte[] bytes_12 = table.whirlpool[id];
                         bytes_8 = Class361.getWhirlpool(bytes_5, 0, bytes_5.length - 2);
                         for (int i_14 = 0; i_14 < 64; i_14++) {
                             if (bytes_8[i_14] != bytes_12[i_14]) {
@@ -316,13 +322,13 @@ public class JS5GrabWorker extends JS5FileWorker {
                     }
                     standardRequester.anInt3657 = 0;
                     standardRequester.anInt3650 = 0;
-                    bytes_5[bytes_5.length - 2] = (byte) (table.versions[i_1] >>> 8);
-                    bytes_5[bytes_5.length - 1] = (byte) table.versions[i_1];
+                    bytes_5[bytes_5.length - 2] = (byte) (table.versions[id] >>> 8);
+                    bytes_5[bytes_5.length - 1] = (byte) table.versions[id];
                     if (dataFile != null) {
-                        localRequester.method5564(i_1, bytes_5, dataFile);
-                        if (aByteArray7792[i_1] != 1) {
+                        localRequester.method5564(id, bytes_5, dataFile);
+                        if (aByteArray7792[id] != 1) {
                             ++anInt7793;
-                            aByteArray7792[i_1] = 1;
+                            aByteArray7792[id] = 1;
                         }
                     }
                     if (!((JS5CacheRequest) obj_4).highPriority) {
