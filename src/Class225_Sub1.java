@@ -37,7 +37,7 @@ public class Class225_Sub1 extends RouteStrategy {
 			byte[] is = new byte[(int) class442.method7388(-273347477)];
 			int i_11_;
 			for (int i_12_ = 0; i_12_ < is.length; i_12_ += i_11_) {
-				i_11_ = class442.method7389(is, i_12_, is.length - i_12_, (byte) -21);
+				i_11_ = class442.method7389(is, i_12_, is.length - i_12_);
 				if (-1 == i_11_)
 					throw new IOException();
 			}

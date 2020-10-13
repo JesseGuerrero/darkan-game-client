@@ -18,7 +18,7 @@ public abstract class Class152 {
 			byte[] is = new byte[(int) class442.method7388(-273347477)];
 			int i_0_;
 			for (int i_1_ = 0; i_1_ < is.length; i_1_ += i_0_) {
-				i_0_ = class442.method7389(is, i_1_, is.length - i_1_, (byte) -99);
+				i_0_ = class442.method7389(is, i_1_, is.length - i_1_);
 				if (-1 == i_0_)
 					throw new IOException();
 			}

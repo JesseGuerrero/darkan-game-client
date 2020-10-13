@@ -52,7 +52,7 @@ public final class Class442 {
 		return ((Class442) this).aRandomAccessFile5359.length();
 	}
 
-	public final int method7389(byte[] is, int i, int i_3_, byte i_4_) throws IOException {
+	public final int method7389(byte[] is, int i, int i_3_) throws IOException {
 		int i_5_ = ((Class442) this).aRandomAccessFile5359.read(is, i, i_3_);
 		if (i_5_ > 0)
 			((Class442) this).aLong5360 += 2728668244666850209L * (long) i_5_;

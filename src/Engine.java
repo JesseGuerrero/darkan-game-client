@@ -189,7 +189,7 @@ public abstract class Engine implements Interface24, Runnable, FocusListener, Wi
 				int i_21_;
 				RsByteBuffer class282_sub35;
 				for (class282_sub35 = (new RsByteBuffer((int) class442.method7388(-273347477))); (class282_sub35.index * -1990677291 < class282_sub35.buffer.length); class282_sub35.index += i_21_ * -1115476867) {
-					i_21_ = class442.method7389(class282_sub35.buffer, (class282_sub35.index * -1990677291), ((class282_sub35.buffer).length - (-1990677291 * class282_sub35.index)), (byte) -53);
+					i_21_ = class442.method7389(class282_sub35.buffer, (class282_sub35.index * -1990677291), ((class282_sub35.buffer).length - (-1990677291 * class282_sub35.index)));
 					if (-1 == i_21_)
 						throw new IOException();
 				}

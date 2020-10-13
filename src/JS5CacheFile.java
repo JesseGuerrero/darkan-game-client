@@ -40,7 +40,7 @@ public final class JS5CacheFile {
 						return bool_7_;
 					}
 					((JS5CacheFile) this).aClass440_2574.method7347((long) (6 * i));
-					((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6, 1524075486);
+					((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6);
 					i_6_ = ((aByteArray2576[5] & 0xff) + (((aByteArray2576[3] & 0xff) << 16) + ((aByteArray2576[4] & 0xff) << 8)));
 					if (i_6_ <= 0 || (long) i_6_ > ((JS5CacheFile) this).aClass440_2573.method7345((byte) -125) / 520L) {
 						boolean bool_8_ = false;
@@ -70,7 +70,7 @@ public final class JS5CacheFile {
 						int i_14_;
 						if (i > 65535) {
 							try {
-								((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, 10, 1458391850);
+								((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, 10);
 							} catch (EOFException eofexception) {
 								break;
 							}
@@ -80,7 +80,7 @@ public final class JS5CacheFile {
 							i_14_ = aByteArray2576[9] & 0xff;
 						} else {
 							try {
-								((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, 8, -118308080);
+								((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, 8);
 							} catch (EOFException eofexception) {
 								break;
 							}
@@ -164,7 +164,7 @@ public final class JS5CacheFile {
 					return is_21_;
 				}
 				((JS5CacheFile) this).aClass440_2574.method7347((long) (6 * i));
-				((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6, 1783473570);
+				((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6);
 				int i_22_ = (((aByteArray2576[0] & 0xff) << 16) + ((aByteArray2576[1] & 0xff) << 8) + (aByteArray2576[2] & 0xff));
 				int i_23_ = ((aByteArray2576[5] & 0xff) + (((aByteArray2576[4] & 0xff) << 8) + ((aByteArray2576[3] & 0xff) << 16)));
 				if (i_22_ < 0 || i_22_ > ((JS5CacheFile) this).anInt2572 * 33824747) {
@@ -194,7 +194,7 @@ public final class JS5CacheFile {
 						if (i_30_ > 510)
 							i_30_ = 510;
 						i_31_ = 10;
-						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_31_ + i_30_, -536752183);
+						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_31_ + i_30_);
 						i_32_ = ((aByteArray2576[3] & 0xff) + (((aByteArray2576[0] & 0xff) << 24) + ((aByteArray2576[1] & 0xff) << 16) + ((aByteArray2576[2] & 0xff) << 8)));
 						i_33_ = (((aByteArray2576[4] & 0xff) << 8) + (aByteArray2576[5] & 0xff));
 						i_34_ = (((aByteArray2576[6] & 0xff) << 16) + ((aByteArray2576[7] & 0xff) << 8) + (aByteArray2576[8] & 0xff));
@@ -203,7 +203,7 @@ public final class JS5CacheFile {
 						if (i_30_ > 512)
 							i_30_ = 512;
 						i_31_ = 8;
-						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_31_ + i_30_, 2090709032);
+						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_31_ + i_30_);
 						i_32_ = ((aByteArray2576[1] & 0xff) + ((aByteArray2576[0] & 0xff) << 8));
 						i_33_ = ((aByteArray2576[3] & 0xff) + ((aByteArray2576[2] & 0xff) << 8));
 						i_34_ = (((aByteArray2576[5] & 0xff) << 8) + ((aByteArray2576[4] & 0xff) << 16) + (aByteArray2576[6] & 0xff));
@@ -257,7 +257,7 @@ public final class JS5CacheFile {
 					return is_43_;
 				}
 				((JS5CacheFile) this).aClass440_2574.method7347((long) (6 * i));
-				((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6, 1476084306);
+				((JS5CacheFile) this).aClass440_2574.method7350(aByteArray2576, 0, 6);
 				int i_44_ = (((aByteArray2576[0] & 0xff) << 16) + ((aByteArray2576[1] & 0xff) << 8) + (aByteArray2576[2] & 0xff));
 				int i_45_ = ((aByteArray2576[5] & 0xff) + (((aByteArray2576[4] & 0xff) << 8) + ((aByteArray2576[3] & 0xff) << 16)));
 				if (i_44_ < 0 || i_44_ > ((JS5CacheFile) this).anInt2572 * 33824747) {
@@ -287,7 +287,7 @@ public final class JS5CacheFile {
 						if (i_52_ > 510)
 							i_52_ = 510;
 						i_53_ = 10;
-						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_53_ + i_52_, 1848151659);
+						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_53_ + i_52_);
 						i_54_ = ((aByteArray2576[3] & 0xff) + (((aByteArray2576[0] & 0xff) << 24) + ((aByteArray2576[1] & 0xff) << 16) + ((aByteArray2576[2] & 0xff) << 8)));
 						i_55_ = (((aByteArray2576[4] & 0xff) << 8) + (aByteArray2576[5] & 0xff));
 						i_56_ = (((aByteArray2576[6] & 0xff) << 16) + ((aByteArray2576[7] & 0xff) << 8) + (aByteArray2576[8] & 0xff));
@@ -296,7 +296,7 @@ public final class JS5CacheFile {
 						if (i_52_ > 512)
 							i_52_ = 512;
 						i_53_ = 8;
-						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_53_ + i_52_, -596517172);
+						((JS5CacheFile) this).aClass440_2573.method7350(aByteArray2576, 0, i_53_ + i_52_);
 						i_54_ = ((aByteArray2576[1] & 0xff) + ((aByteArray2576[0] & 0xff) << 8));
 						i_55_ = ((aByteArray2576[3] & 0xff) + ((aByteArray2576[2] & 0xff) << 8));
 						i_56_ = (((aByteArray2576[5] & 0xff) << 8) + ((aByteArray2576[4] & 0xff) << 16) + (aByteArray2576[6] & 0xff));

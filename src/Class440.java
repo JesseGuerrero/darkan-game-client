@@ -98,7 +98,7 @@ public class Class440 {
 		((Class440) this).aClass442_5346.method7385((short) 18495);
 	}
 
-	public void method7350(byte[] is, int i, int i_4_, int i_5_) throws IOException {
+	public void method7350(byte[] is, int i, int i_4_) throws IOException {
 		try {
 			if (i_4_ + i > is.length)
 				throw new ArrayIndexOutOfBoundsException(i_4_ + i - is.length);
@@ -124,7 +124,7 @@ public class Class440 {
 				((Class440) this).aLong5351 = ((Class440) this).aLong5353 * 2552102053604559611L;
 				int i_9_;
 				for (/**/; i_4_ > 0; i_4_ -= i_9_) {
-					i_9_ = ((Class440) this).aClass442_5346.method7389(is, i, i_4_, (byte) -118);
+					i_9_ = ((Class440) this).aClass442_5346.method7389(is, i, i_4_);
 					if (i_9_ == -1)
 						break;
 					((Class440) this).aLong5351 += (long) i_9_ * 7563976524047531231L;
@@ -180,7 +180,7 @@ public class Class440 {
 	}
 
 	public void method7351(byte[] is, int i) throws IOException {
-		method7350(is, 0, is.length, 79386718);
+		method7350(is, 0, is.length);
 	}
 
 	public void method7352(byte[] is, int i, int i_15_, int i_16_) throws IOException {
@@ -271,7 +271,7 @@ public class Class440 {
 	}
 
 	public void method7354(byte[] is) throws IOException {
-		method7350(is, 0, is.length, 736039187);
+		method7350(is, 0, is.length);
 	}
 
 	public void method7355() throws IOException {
@@ -358,11 +358,11 @@ public class Class440 {
 	}
 
 	public void method7359(byte[] is) throws IOException {
-		method7350(is, 0, is.length, 2057345598);
+		method7350(is, 0, is.length);
 	}
 
 	public void method7360(byte[] is) throws IOException {
-		method7350(is, 0, is.length, -677851398);
+		method7350(is, 0, is.length);
 	}
 
 	public void method7361(byte[] is, int i, int i_27_) throws IOException {
@@ -391,7 +391,7 @@ public class Class440 {
 				((Class440) this).aLong5351 = ((Class440) this).aLong5353 * 2552102053604559611L;
 				int i_31_;
 				for (/**/; i_27_ > 0; i_27_ -= i_31_) {
-					i_31_ = ((Class440) this).aClass442_5346.method7389(is, i, i_27_, (byte) -126);
+					i_31_ = ((Class440) this).aClass442_5346.method7389(is, i, i_27_);
 					if (i_31_ == -1)
 						break;
 					((Class440) this).aLong5351 += (long) i_31_ * 7563976524047531231L;
@@ -472,7 +472,7 @@ public class Class440 {
 				((Class440) this).aLong5351 = ((Class440) this).aLong5353 * 2552102053604559611L;
 				int i_41_;
 				for (/**/; i_37_ > 0; i_37_ -= i_41_) {
-					i_41_ = ((Class440) this).aClass442_5346.method7389(is, i, i_37_, (byte) -13);
+					i_41_ = ((Class440) this).aClass442_5346.method7389(is, i, i_37_);
 					if (i_41_ == -1)
 						break;
 					((Class440) this).aLong5351 += (long) i_41_ * 7563976524047531231L;
@@ -539,7 +539,7 @@ public class Class440 {
 			int i_48_ = (((Class440) this).aByteArray5350.length - 823847309 * ((Class440) this).anInt5349);
 			if (i_48_ > 200000000)
 				i_48_ = 200000000;
-			i_47_ = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_48_, (byte) -42));
+			i_47_ = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_48_));
 			if (-1 == i_47_)
 				break;
 			((Class440) this).aLong5351 += (long) i_47_ * 7563976524047531231L;
@@ -558,7 +558,7 @@ public class Class440 {
 			int i_49_ = (((Class440) this).aByteArray5350.length - 823847309 * ((Class440) this).anInt5349);
 			if (i_49_ > 200000000)
 				i_49_ = 200000000;
-			i = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_49_, (byte) -74));
+			i = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_49_));
 			if (-1 == i)
 				break;
 			((Class440) this).aLong5351 += (long) i * 7563976524047531231L;
@@ -577,7 +577,7 @@ public class Class440 {
 			int i_50_ = (((Class440) this).aByteArray5350.length - 823847309 * ((Class440) this).anInt5349);
 			if (i_50_ > 200000000)
 				i_50_ = 200000000;
-			i = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_50_, (byte) -116));
+			i = (((Class440) this).aClass442_5346.method7389(((Class440) this).aByteArray5350, 823847309 * ((Class440) this).anInt5349, i_50_));
 			if (-1 == i)
 				break;
 			((Class440) this).aLong5351 += (long) i * 7563976524047531231L;
@@ -668,7 +668,7 @@ public class Class440 {
 				((Class440) this).aLong5351 = ((Class440) this).aLong5353 * 2552102053604559611L;
 				int i_59_;
 				for (/**/; i_55_ > 0; i_55_ -= i_59_) {
-					i_59_ = ((Class440) this).aClass442_5346.method7389(is, i, i_55_, (byte) -55);
+					i_59_ = ((Class440) this).aClass442_5346.method7389(is, i, i_55_);
 					if (i_59_ == -1)
 						break;
 					((Class440) this).aLong5351 += (long) i_59_ * 7563976524047531231L;
