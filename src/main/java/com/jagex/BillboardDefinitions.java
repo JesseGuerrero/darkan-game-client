@@ -93,7 +93,7 @@ public class BillboardDefinitions {
         }
     }
 
-    void decode(ByteBuf rsbytebuffer_1) {
+    void decode(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_4 = rsbytebuffer_1.readUnsignedByte();
             if (i_4 == 0) {
@@ -103,15 +103,15 @@ public class BillboardDefinitions {
         }
     }
 
-    void method6164(ByteBuf rsbytebuffer_1, int i_2) {
+    void method6164(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
-            anInt4055 = rsbytebuffer_1.readUnsignedShort();
+            anInt4055 = rsbytebuffer_1.readJagexNode();
             if (anInt4055 == 65535) {
                 anInt4055 = -1;
             }
         } else if (i_2 == 2) {
-            anInt4054 = rsbytebuffer_1.readUnsignedShort() + 1;
-            anInt4050 = rsbytebuffer_1.readUnsignedShort() + 1;
+            anInt4054 = rsbytebuffer_1.readJagexNode() + 1;
+            anInt4050 = rsbytebuffer_1.readJagexNode() + 1;
         } else if (i_2 == 3) {
             rsbytebuffer_1.readByte();
         } else if (i_2 == 4) {

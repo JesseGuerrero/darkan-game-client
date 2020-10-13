@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public class Class247 {
 
     static ImageLoader TEXTURE_LOADER;
@@ -80,6 +82,7 @@ public class Class247 {
                     for (class282_sub50_sub7_6 = (CacheableNode_Sub7) Class20.aClass482_171.head(); class282_sub50_sub7_6 != null; class282_sub50_sub7_6 = (CacheableNode_Sub7) Class20.aClass482_171.next()) {
                         if (class282_sub50_sub7_6.clickType == 58 || class282_sub50_sub7_6.clickType == 1007 || class282_sub50_sub7_6.clickType == 25 || class282_sub50_sub7_6.clickType == 57 || class282_sub50_sub7_6.clickType == 30) {
                             for (IComponentDefinitions icomponentdefinitions_7 = IComponentDefinitions.getDefs(class282_sub50_sub7_6.anInt9582); icomponentdefinitions_7 != null; icomponentdefinitions_7 = IComponentDefinitions.getParentLayer(Interface.INTERFACES[icomponentdefinitions_7.idHash >> 16], icomponentdefinitions_7)) {
+                                new Getlineonce(true);
                                 if (icomponentdefinitions_7.idHash == icomponentdefinitions_5.idHash) {
                                     return true;
                                 }

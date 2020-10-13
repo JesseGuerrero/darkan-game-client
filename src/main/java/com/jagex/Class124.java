@@ -38,7 +38,7 @@ public class Class124 {
 
         anInt1564 = i_10;
         if (i_10 > 0) {
-            ByteBuf rsbytebuffer_19 = new ByteBuf(i_10 * 2);
+            JagexNode rsbytebuffer_19 = new JagexNode(i_10 * 2);
             int i_16;
             short[] shorts_17;
             int i_18;

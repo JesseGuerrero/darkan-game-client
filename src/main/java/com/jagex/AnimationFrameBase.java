@@ -13,7 +13,7 @@ public class AnimationFrameBase extends Node {
 
     AnimationFrameBase(int id, byte[] bytes_2) {
         this.id = id;
-        ByteBuf rsbytebuffer_3 = new ByteBuf(bytes_2);
+        JagexNode rsbytebuffer_3 = new JagexNode(bytes_2);
         count = rsbytebuffer_3.readUnsignedByte();
         transformationTypes = new int[count];
         labels = new int[count][];
@@ -33,7 +33,7 @@ public class AnimationFrameBase extends Node {
         }
 
         for (i_4 = 0; i_4 < count; i_4++) {
-            anIntArray7561[i_4] = rsbytebuffer_3.readUnsignedShort();
+            anIntArray7561[i_4] = rsbytebuffer_3.readJagexNode();
         }
 
         for (i_4 = 0; i_4 < count; i_4++) {

@@ -348,16 +348,16 @@ public class RSMesh {
     }
 
     void decodeNewFormat(byte[] data) {
-        ByteBuf first = new ByteBuf(data);
-        ByteBuf second = new ByteBuf(data);
-        ByteBuf third = new ByteBuf(data);
-        ByteBuf fourth = new ByteBuf(data);
-        ByteBuf fifth = new ByteBuf(data);
-        ByteBuf sixth = new ByteBuf(data);
-        ByteBuf seventh = new ByteBuf(data);
+        JagexNode first = new JagexNode(data);
+        JagexNode second = new JagexNode(data);
+        JagexNode third = new JagexNode(data);
+        JagexNode fourth = new JagexNode(data);
+        JagexNode fifth = new JagexNode(data);
+        JagexNode sixth = new JagexNode(data);
+        JagexNode seventh = new JagexNode(data);
         first.index = data.length - 23;
-        vertexCount = first.readUnsignedShort();
-        faceCount = first.readUnsignedShort();
+        vertexCount = first.readJagexNode();
+        faceCount = first.readJagexNode();
         texturedFaceCount = first.readUnsignedByte();
         int i_9 = first.readUnsignedByte();
         boolean hasFaceRenderTypes = (i_9 & 0x1) == 1;
@@ -375,11 +375,11 @@ public class RSMesh {
         int hasFaceSkins = first.readUnsignedByte();
         int hasFaceTextures = first.readUnsignedByte();
         int hasVertexSkins = first.readUnsignedByte();
-        int modelVerticesX = first.readUnsignedShort();
-        int modelVerticesY = first.readUnsignedShort();
-        int modelVerticesZ = first.readUnsignedShort();
-        int faceIndices = first.readUnsignedShort();
-        int textureIndices = first.readUnsignedShort();
+        int modelVerticesX = first.readJagexNode();
+        int modelVerticesY = first.readJagexNode();
+        int modelVerticesZ = first.readJagexNode();
+        int faceIndices = first.readJagexNode();
+        int textureIndices = first.readJagexNode();
         int numVertexSkins = 0;
         int i_25 = 0;
         int i_26 = 0;
@@ -571,7 +571,7 @@ public class RSMesh {
         seventh.index = i_37;
 
         for (int i_53 = 0; i_53 < faceCount; i_53++) {
-            faceColor[i_53] = (short) first.readUnsignedShort();
+            faceColor[i_53] = (short) first.readJagexNode();
             if (hasFaceRenderTypes) {
                 faceType[i_53] = second.readByte();
             }
@@ -589,7 +589,7 @@ public class RSMesh {
             }
 
             if (hasFaceTextures == 1) {
-                faceTextures[i_53] = (short) (sixth.readUnsignedShort() - 1);
+                faceTextures[i_53] = (short) (sixth.readJagexNode() - 1);
             }
 
             if (texturePos != null) {
@@ -619,8 +619,8 @@ public class RSMesh {
                 particleConfig = new ParticleEmitterConfig[emitterCount];
 
                 for (int i = 0; i < emitterCount; i++) {
-                    int particleId = first.readUnsignedShort();
-                    int faceIdx = first.readUnsignedShort();
+                    int particleId = first.readJagexNode();
+                    int faceIdx = first.readJagexNode();
                     byte b_60;
                     if (modelPriority == 255) {
                         b_60 = facePriorities[faceIdx];
@@ -637,8 +637,8 @@ public class RSMesh {
                 surfaceSkins = new SurfaceSkin[surfaceSkinCount];
 
                 for (int i = 0; i < surfaceSkinCount; i++) {
-                    int x = first.readUnsignedShort();
-                    int y = first.readUnsignedShort();
+                    int x = first.readJagexNode();
+                    int y = first.readJagexNode();
                     surfaceSkins[i] = new SurfaceSkin(x, y);
                 }
             }
@@ -650,8 +650,8 @@ public class RSMesh {
                 isolatedVertexNormals = new VertexNormal[i_53];
 
                 for (int i = 0; i < i_53; i++) {
-                    int vertextOffsetX = first.readUnsignedShort();
-                    int vertextOffsetY = first.readUnsignedShort();
+                    int vertextOffsetX = first.readJagexNode();
+                    int vertextOffsetY = first.readJagexNode();
                     int vertetxOffsetZ = first.readUnsignedByte();
                     byte b_58 = first.readByte();
                     isolatedVertexNormals[i] = new VertexNormal(vertextOffsetX, vertextOffsetY, vertetxOffsetZ, b_58);
@@ -661,7 +661,7 @@ public class RSMesh {
 
     }
 
-    void calculateMaxDepth(ByteBuf rsbytebuffer_1, ByteBuf rsbytebuffer_2) {
+    void calculateMaxDepth(JagexNode rsbytebuffer_1, JagexNode rsbytebuffer_2) {
         short s_3 = 0;
         short s_4 = 0;
         short s_5 = 0;
@@ -732,28 +732,28 @@ public class RSMesh {
         ++maxDepth;
     }
 
-    void decodeTexturedTriangles(ByteBuf rsbytebuffer_1, ByteBuf rsbytebuffer_2, ByteBuf rsbytebuffer_3, ByteBuf rsbytebuffer_4, ByteBuf rsbytebuffer_5, ByteBuf rsbytebuffer_6) {
+    void decodeTexturedTriangles(JagexNode rsbytebuffer_1, JagexNode rsbytebuffer_2, JagexNode rsbytebuffer_3, JagexNode rsbytebuffer_4, JagexNode rsbytebuffer_5, JagexNode rsbytebuffer_6) {
         for (int i_7 = 0; i_7 < texturedFaceCount; i_7++) {
             int i_8 = textureRenderTypes[i_7] & 0xff;
             if (i_8 == 0) {
-                texTriX[i_7] = (short) rsbytebuffer_1.readUnsignedShort();
-                texTriY[i_7] = (short) rsbytebuffer_1.readUnsignedShort();
-                texTriZ[i_7] = (short) rsbytebuffer_1.readUnsignedShort();
+                texTriX[i_7] = (short) rsbytebuffer_1.readJagexNode();
+                texTriY[i_7] = (short) rsbytebuffer_1.readJagexNode();
+                texTriZ[i_7] = (short) rsbytebuffer_1.readJagexNode();
             }
 
             if (i_8 == 1) {
-                texTriX[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriY[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriZ[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
+                texTriX[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriY[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriZ[i_7] = (short) rsbytebuffer_2.readJagexNode();
                 if (version < 15) {
-                    particleDirectionX[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionX[i_7] = rsbytebuffer_3.readJagexNode();
                     if (version < 14) {
-                        particleDirectionY[i_7] = rsbytebuffer_3.readUnsignedShort();
+                        particleDirectionY[i_7] = rsbytebuffer_3.readJagexNode();
                     } else {
                         particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     }
 
-                    particleDirectionZ[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionZ[i_7] = rsbytebuffer_3.readJagexNode();
                 } else {
                     particleDirectionX[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
@@ -766,18 +766,18 @@ public class RSMesh {
             }
 
             if (i_8 == 2) {
-                texTriX[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriY[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriZ[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
+                texTriX[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriY[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriZ[i_7] = (short) rsbytebuffer_2.readJagexNode();
                 if (version < 15) {
-                    particleDirectionX[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionX[i_7] = rsbytebuffer_3.readJagexNode();
                     if (version < 14) {
-                        particleDirectionY[i_7] = rsbytebuffer_3.readUnsignedShort();
+                        particleDirectionY[i_7] = rsbytebuffer_3.readJagexNode();
                     } else {
                         particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     }
 
-                    particleDirectionZ[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionZ[i_7] = rsbytebuffer_3.readJagexNode();
                 } else {
                     particleDirectionX[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
@@ -792,18 +792,18 @@ public class RSMesh {
             }
 
             if (i_8 == 3) {
-                texTriX[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriY[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
-                texTriZ[i_7] = (short) rsbytebuffer_2.readUnsignedShort();
+                texTriX[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriY[i_7] = (short) rsbytebuffer_2.readJagexNode();
+                texTriZ[i_7] = (short) rsbytebuffer_2.readJagexNode();
                 if (version < 15) {
-                    particleDirectionX[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionX[i_7] = rsbytebuffer_3.readJagexNode();
                     if (version < 14) {
-                        particleDirectionY[i_7] = rsbytebuffer_3.readUnsignedShort();
+                        particleDirectionY[i_7] = rsbytebuffer_3.readJagexNode();
                     } else {
                         particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     }
 
-                    particleDirectionZ[i_7] = rsbytebuffer_3.readUnsignedShort();
+                    particleDirectionZ[i_7] = rsbytebuffer_3.readJagexNode();
                 } else {
                     particleDirectionX[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
                     particleDirectionY[i_7] = rsbytebuffer_3.read24BitUnsignedInteger();
@@ -1022,24 +1022,24 @@ public class RSMesh {
     void decodeOldFormat(byte[] bytes_1) {
         boolean bool_2 = false;
         boolean bool_3 = false;
-        ByteBuf rsbytebuffer_4 = new ByteBuf(bytes_1);
-        ByteBuf rsbytebuffer_5 = new ByteBuf(bytes_1);
-        ByteBuf rsbytebuffer_6 = new ByteBuf(bytes_1);
-        ByteBuf rsbytebuffer_7 = new ByteBuf(bytes_1);
-        ByteBuf rsbytebuffer_8 = new ByteBuf(bytes_1);
+        JagexNode rsbytebuffer_4 = new JagexNode(bytes_1);
+        JagexNode rsbytebuffer_5 = new JagexNode(bytes_1);
+        JagexNode rsbytebuffer_6 = new JagexNode(bytes_1);
+        JagexNode rsbytebuffer_7 = new JagexNode(bytes_1);
+        JagexNode rsbytebuffer_8 = new JagexNode(bytes_1);
         rsbytebuffer_4.index = bytes_1.length - 18;
-        vertexCount = rsbytebuffer_4.readUnsignedShort();
-        faceCount = rsbytebuffer_4.readUnsignedShort();
+        vertexCount = rsbytebuffer_4.readJagexNode();
+        faceCount = rsbytebuffer_4.readJagexNode();
         texturedFaceCount = rsbytebuffer_4.readUnsignedByte();
         int i_9 = rsbytebuffer_4.readUnsignedByte();
         int i_10 = rsbytebuffer_4.readUnsignedByte();
         int i_11 = rsbytebuffer_4.readUnsignedByte();
         int i_12 = rsbytebuffer_4.readUnsignedByte();
         int i_13 = rsbytebuffer_4.readUnsignedByte();
-        int i_14 = rsbytebuffer_4.readUnsignedShort();
-        int i_15 = rsbytebuffer_4.readUnsignedShort();
-        int i_16 = rsbytebuffer_4.readUnsignedShort();
-        int i_17 = rsbytebuffer_4.readUnsignedShort();
+        int i_14 = rsbytebuffer_4.readJagexNode();
+        int i_15 = rsbytebuffer_4.readJagexNode();
+        int i_16 = rsbytebuffer_4.readJagexNode();
+        int i_17 = rsbytebuffer_4.readJagexNode();
         byte b_18 = 0;
         int i_42 = b_18 + vertexCount;
         int i_20 = i_42;
@@ -1165,7 +1165,7 @@ public class RSMesh {
         rsbytebuffer_8.index = i_22;
 
         for (i_35 = 0; i_35 < faceCount; i_35++) {
-            faceColor[i_35] = (short) rsbytebuffer_4.readUnsignedShort();
+            faceColor[i_35] = (short) rsbytebuffer_4.readJagexNode();
             if (i_9 == 1) {
                 i_36 = rsbytebuffer_5.readUnsignedByte();
                 if ((i_36 & 0x1) == 1) {
@@ -1277,9 +1277,9 @@ public class RSMesh {
 
         for (i_39 = 0; i_39 < texturedFaceCount; i_39++) {
             textureRenderTypes[i_39] = 0;
-            texTriX[i_39] = (short) rsbytebuffer_4.readUnsignedShort();
-            texTriY[i_39] = (short) rsbytebuffer_4.readUnsignedShort();
-            texTriZ[i_39] = (short) rsbytebuffer_4.readUnsignedShort();
+            texTriX[i_39] = (short) rsbytebuffer_4.readJagexNode();
+            texTriY[i_39] = (short) rsbytebuffer_4.readJagexNode();
+            texTriZ[i_39] = (short) rsbytebuffer_4.readJagexNode();
         }
 
         if (texturePos != null) {

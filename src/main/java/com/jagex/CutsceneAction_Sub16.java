@@ -6,9 +6,9 @@ public class CutsceneAction_Sub16 extends CutsceneAction {
 
     int anInt9381;
 
-    CutsceneAction_Sub16(ByteBuf rsbytebuffer_1, boolean bool_2) {
+    CutsceneAction_Sub16(JagexNode rsbytebuffer_1, boolean bool_2) {
         super(rsbytebuffer_1);
-        int i_3 = rsbytebuffer_1.readUnsignedShort();
+        int i_3 = rsbytebuffer_1.readJagexNode();
         if (bool_2) {
             aLong9382 = 0x100000000L | i_3;
         } else {

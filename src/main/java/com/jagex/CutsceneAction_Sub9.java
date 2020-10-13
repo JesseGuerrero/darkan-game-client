@@ -12,9 +12,9 @@ public class CutsceneAction_Sub9 extends CutsceneAction {
 
     SongReference aClass116_9281;
 
-    CutsceneAction_Sub9(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub9(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9280 = rsbytebuffer_1.readUnsignedShort();
+        anInt9280 = rsbytebuffer_1.readJagexNode();
         anInt9279 = rsbytebuffer_1.readUnsignedByte();
     }
 

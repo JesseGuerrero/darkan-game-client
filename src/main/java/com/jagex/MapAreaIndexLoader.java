@@ -87,7 +87,7 @@ public class MapAreaIndexLoader {
             worldmapareadefs_3.areaID = areaID;
             worldmapareadefs_3.aClass218_2716 = this;
             if (bytes_10 != null) {
-                worldmapareadefs_3.method3716(new ByteBuf(bytes_10));
+                worldmapareadefs_3.method3716(new JagexNode(bytes_10));
             }
 
             worldmapareadefs_3.method3718();

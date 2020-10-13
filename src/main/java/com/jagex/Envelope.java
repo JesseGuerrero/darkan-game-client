@@ -20,7 +20,7 @@ public class Envelope {
         phasePeak[1] = 65535;
     }
 
-    void decode(ByteBuf buffer) {
+    void decode(JagexNode buffer) {
         form = buffer.readUnsignedByte();
         start = buffer.readInt();
         end = buffer.readInt();
@@ -35,14 +35,14 @@ public class Envelope {
         ticks = 0;
     }
 
-    void decodeShape(ByteBuf buffer) {
+    void decodeShape(JagexNode buffer) {
         numPhases = buffer.readUnsignedByte();
         phaseDuration = new int[numPhases];
         phasePeak = new int[numPhases];
 
         for (int i = 0; i < numPhases; i++) {
-            phaseDuration[i] = buffer.readUnsignedShort();
-            phasePeak[i] = buffer.readUnsignedShort();
+            phaseDuration[i] = buffer.readJagexNode();
+            phasePeak[i] = buffer.readJagexNode();
         }
 
     }

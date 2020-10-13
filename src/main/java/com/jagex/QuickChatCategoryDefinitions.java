@@ -8,7 +8,7 @@ public class QuickChatCategoryDefinitions extends CacheableNode {
     public int[] messages;
     public char[] messageHotkeys;
 
-    void method15209(ByteBuf rsbytebuffer_1) {
+    void method15209(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -19,7 +19,7 @@ public class QuickChatCategoryDefinitions extends CacheableNode {
         }
     }
 
-    void method15210(ByteBuf buffer, int opcode) {
+    void method15210(JagexNode buffer, int opcode) {
         if (opcode == 1) {
             name = buffer.readString();
         } else if (opcode == 2) {
@@ -28,7 +28,7 @@ public class QuickChatCategoryDefinitions extends CacheableNode {
             subCategoryHotkeys = new char[count];
 
             for (int i_5 = 0; i_5 < count; i_5++) {
-                subCategories[i_5] = buffer.readUnsignedShort();
+                subCategories[i_5] = buffer.readJagexNode();
                 byte b_6 = buffer.readByte();
                 subCategoryHotkeys[i_5] = b_6 == 0 ? 0 : Utils.cp1252ToChar(b_6);
             }
@@ -38,7 +38,7 @@ public class QuickChatCategoryDefinitions extends CacheableNode {
             messageHotkeys = new char[i_4];
 
             for (int i_5 = 0; i_5 < i_4; i_5++) {
-                messages[i_5] = buffer.readUnsignedShort();
+                messages[i_5] = buffer.readJagexNode();
                 byte b_6 = buffer.readByte();
                 messageHotkeys[i_5] = b_6 == 0 ? 0 : Utils.cp1252ToChar(b_6);
             }

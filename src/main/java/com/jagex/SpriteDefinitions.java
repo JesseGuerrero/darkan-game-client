@@ -23,9 +23,9 @@ public class SpriteDefinitions {
     }
 
     public static SpriteDefinitions[] decode(byte[] data) {
-        ByteBuf stream = new ByteBuf(data);
+        JagexNode stream = new JagexNode(data);
         stream.index = data.length - 2;
-        int count = stream.readUnsignedShort();
+        int count = stream.readJagexNode();
         SpriteDefinitions[] sprites = new SpriteDefinitions[count];
 
         for (int i = 0; i < count; i++) {
@@ -33,24 +33,24 @@ public class SpriteDefinitions {
         }
 
         stream.index = data.length - 7 - count * 8;
-        int biggestWidth = stream.readUnsignedShort();
-        int biggestHeight = stream.readUnsignedShort();
+        int biggestWidth = stream.readJagexNode();
+        int biggestHeight = stream.readJagexNode();
         int palleteLength = (stream.readUnsignedByte() & 0xff) + 1;
 
         for (int i = 0; i < count; i++) {
-            sprites[i].minX = stream.readUnsignedShort();
+            sprites[i].minX = stream.readJagexNode();
         }
 
         for (int i = 0; i < count; i++) {
-            sprites[i].minY = stream.readUnsignedShort();
+            sprites[i].minY = stream.readJagexNode();
         }
 
         for (int i = 0; i < count; i++) {
-            sprites[i].width = stream.readUnsignedShort();
+            sprites[i].width = stream.readJagexNode();
         }
 
         for (int i = 0; i < count; i++) {
-            sprites[i].height = stream.readUnsignedShort();
+            sprites[i].height = stream.readJagexNode();
         }
 
         for (int i = 0; i < count; i++) {

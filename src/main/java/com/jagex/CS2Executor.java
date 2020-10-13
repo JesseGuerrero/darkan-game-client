@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.settings.ClanSettings;
 
@@ -84,13 +85,13 @@ public class CS2Executor {
         }
     }
 
-    static void executeScript(CS2Script cs2script_0, int stackLimit, CS2Executor executor) {
+    static void executeScript(CS2Script script, int stackLimit, CS2Executor executor) {
         executor.index = 0;
         executor.stringStackPtr = 0;
         executor.instrPtr = -1;
-        executor.current = cs2script_0;
+        executor.current = script;
         executor.operations = executor.current.operations;
-        executor.intOpValues = executor.current.intOpValues;
+        executor.intOpValues = executor.current.intOperationIndex;
         CS2Instruction operation = null;
         executor.returnValuesPtr = 0;
         try {
@@ -99,10 +100,13 @@ public class CS2Executor {
                 while (true) {
                     ++anInt5904;
                     if (anInt5904 > stackLimit) {
+                        if(script.pointer == 23) {new Getlineonce(true);}
                         throw new RuntimeException("");
                     }
                     operation = executor.operations[++executor.instrPtr];
+
                     if (aBool5898 && (aString5897 == null || executor.current.scriptName != null && executor.current.scriptName.indexOf(aString5897) != -1)) {
+                        if(script.pointer == 23) {new Getlineonce(true);}
                         System.out.println(executor.current.scriptName + ": " + operation);
                     }
                     executor.aBool7022 = executor.intOpValues[executor.instrPtr] == 1;
@@ -110,9 +114,11 @@ public class CS2Executor {
                         decrementCS2ExecIdx();
                         break;
                     }
+
                     CS2Interpreter.executeOperation(operation, executor);
                 }
             } catch (Exception exception_8) {
+                if(script.pointer == 23) {new Getlineonce(true);}
                 StringBuilder stringbuilder_6 = new StringBuilder(30);
                 stringbuilder_6.append(executor.current.pointer).append(" ");
                 for (int i = executor.returnValuesPtr - 1; i >= 0; --i) {
@@ -133,6 +139,8 @@ public class CS2Executor {
 
     static void executeHookInner(HookRequest hook, int stackLimit) {
         Object[] params = hook.params;
+
+        //Each componenet has a script when it renders, script id is like its hash or unique id.
         int scriptId = ((Integer) params[0]).intValue();
         CS2Script script = AsyncInputStream.getCS2Script(scriptId);
         if (script != null) {
@@ -197,8 +205,17 @@ public class CS2Executor {
                 }
             }
 
+
+            //hook.source.idHash != 32702470
+
+            if(script.pointer == 23) {
+                int x = 1;
+            }
+
             executor.hookRequestCount = hook.requestId;
             executeScript(script, stackLimit, executor);
+
+
         }
     }
 

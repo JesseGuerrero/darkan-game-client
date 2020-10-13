@@ -28,7 +28,7 @@ public class ProjectileCutsceneAction extends CutsceneAction {
 
     int anInt9399;
 
-    ProjectileCutsceneAction(ByteBuf rsbytebuffer_1, int i_2, int i_3) {
+    ProjectileCutsceneAction(JagexNode rsbytebuffer_1, int i_2, int i_3) {
         super(rsbytebuffer_1);
         int i_4;
         if (i_2 == 0) {
@@ -39,7 +39,7 @@ public class ProjectileCutsceneAction extends CutsceneAction {
         } else {
             anInt9403 = -1;
             anInt9404 = -1;
-            anInt9402 = rsbytebuffer_1.readUnsignedShort();
+            anInt9402 = rsbytebuffer_1.readJagexNode();
         }
         if (i_3 == 0) {
             i_4 = rsbytebuffer_1.readInt();
@@ -49,18 +49,18 @@ public class ProjectileCutsceneAction extends CutsceneAction {
         } else {
             anInt9407 = -1;
             anInt9408 = -1;
-            anInt9400 = rsbytebuffer_1.readUnsignedShort();
+            anInt9400 = rsbytebuffer_1.readJagexNode();
         }
         if (i_2 == 0 && i_3 == 0) {
             anInt9401 = rsbytebuffer_1.readUnsignedByte();
         } else {
             anInt9401 = -1;
         }
-        anInt9410 = rsbytebuffer_1.readUnsignedShort();
+        anInt9410 = rsbytebuffer_1.readJagexNode();
         anInt9405 = rsbytebuffer_1.readUnsignedByte();
         anInt9413 = rsbytebuffer_1.readUnsignedByte();
         anInt9409 = rsbytebuffer_1.read24BitUnsignedInteger();
-        anInt9412 = rsbytebuffer_1.readUnsignedShort();
+        anInt9412 = rsbytebuffer_1.readJagexNode();
         anInt9399 = rsbytebuffer_1.readUnsignedByte();
     }
 

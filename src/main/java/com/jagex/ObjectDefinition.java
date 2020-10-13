@@ -132,7 +132,7 @@ public class ObjectDefinition {
         }
     }
 
-    void method7964(ByteBuf rsbytebuffer_1) {
+    void method7964(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -142,7 +142,7 @@ public class ObjectDefinition {
         }
     }
 
-    void method7965(ByteBuf buffer, int opcode) {
+    void method7965(JagexNode buffer, int opcode) {
         int i_4;
         int i_5;
         int i_6;
@@ -198,16 +198,16 @@ public class ObjectDefinition {
             originalColors = new short[i_4];
             modifiedColors = new short[i_4];
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                originalColors[i_5] = (short) buffer.readUnsignedShort();
-                modifiedColors[i_5] = (short) buffer.readUnsignedShort();
+                originalColors[i_5] = (short) buffer.readJagexNode();
+                modifiedColors[i_5] = (short) buffer.readJagexNode();
             }
         } else if (opcode == 41) {
             i_4 = buffer.readUnsignedByte();
             originalTextures = new short[i_4];
             modifiedTextures = new short[i_4];
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                originalTextures[i_5] = (short) buffer.readUnsignedShort();
-                modifiedTextures[i_5] = (short) buffer.readUnsignedShort();
+                originalTextures[i_5] = (short) buffer.readJagexNode();
+                modifiedTextures[i_5] = (short) buffer.readJagexNode();
             }
         } else if (opcode == 42) {
             i_4 = buffer.readUnsignedByte();
@@ -220,11 +220,11 @@ public class ObjectDefinition {
         } else if (opcode == 64) {
             castsShadow = false;
         } else if (opcode == 65) {
-            scaleX = buffer.readUnsignedShort();
+            scaleX = buffer.readJagexNode();
         } else if (opcode == 66) {
-            scaleY = buffer.readUnsignedShort();
+            scaleY = buffer.readJagexNode();
         } else if (opcode == 67) {
-            scaleZ = buffer.readUnsignedShort();
+            scaleZ = buffer.readJagexNode();
         } else if (opcode == 69) {
             buffer.readUnsignedByte();
         } else if (opcode == 70) {
@@ -241,16 +241,16 @@ public class ObjectDefinition {
             supportsItems = buffer.readUnsignedByte();
         } else if (opcode != 77 && opcode != 92) {
             if (opcode == 78) {
-                ambientSoundId = buffer.readUnsignedShort();
+                ambientSoundId = buffer.readJagexNode();
                 ambientSoundHearDistance = buffer.readUnsignedByte();
             } else if (opcode == 79) {
-                anInt5667 = buffer.readUnsignedShort();
-                anInt5698 = buffer.readUnsignedShort();
+                anInt5667 = buffer.readJagexNode();
+                anInt5698 = buffer.readJagexNode();
                 ambientSoundHearDistance = buffer.readUnsignedByte();
                 i_4 = buffer.readUnsignedByte();
                 audioTracks = new int[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    audioTracks[i_5] = buffer.readUnsignedShort();
+                    audioTracks[i_5] = buffer.readJagexNode();
                 }
             } else if (opcode == 81) {
                 groundContoured = 2;
@@ -265,7 +265,7 @@ public class ObjectDefinition {
                 members = true;
             } else if (opcode == 93) {
                 groundContoured = 3;
-                anInt5654 = buffer.readUnsignedShort();
+                anInt5654 = buffer.readJagexNode();
             } else if (opcode == 94) {
                 groundContoured = 4;
             } else if (opcode == 95) {
@@ -277,14 +277,14 @@ public class ObjectDefinition {
                 hasAnimation = true;
             } else if (opcode == 99) {
                 anInt5705 = buffer.readUnsignedByte();
-                anInt5665 = buffer.readUnsignedShort();
+                anInt5665 = buffer.readJagexNode();
             } else if (opcode == 100) {
                 anInt5670 = buffer.readUnsignedByte();
-                anInt5666 = buffer.readUnsignedShort();
+                anInt5666 = buffer.readJagexNode();
             } else if (opcode == 101) {
                 mapSpriteRotation = buffer.readUnsignedByte();
             } else if (opcode == 102) {
-                mapSpriteId = buffer.readUnsignedShort();
+                mapSpriteId = buffer.readJagexNode();
             } else if (opcode == 103) {
                 occludes = 0;
             } else if (opcode == 104) {
@@ -304,7 +304,7 @@ public class ObjectDefinition {
                     animProbs[i_6] = animProbs[i_6] * 65535 / i_5;
                 }
             } else if (opcode == 107) {
-                mapIcon = buffer.readUnsignedShort();
+                mapIcon = buffer.readJagexNode();
             } else if (opcode >= 150 && opcode < 155) {
                 options[opcode - 150] = buffer.readString();
                 if (!loader.showOptions) {
@@ -314,7 +314,7 @@ public class ObjectDefinition {
                 i_4 = buffer.readUnsignedByte();
                 anIntArray5707 = new int[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    anIntArray5707[i_5] = buffer.readUnsignedShort();
+                    anIntArray5707[i_5] = buffer.readJagexNode();
                 }
             } else if (opcode == 162) {
                 groundContoured = 3;
@@ -331,7 +331,7 @@ public class ObjectDefinition {
             } else if (opcode == 166) {
                 anInt5710 = buffer.readShort();
             } else if (opcode == 167) {
-                anInt5704 = buffer.readUnsignedShort();
+                anInt5704 = buffer.readJagexNode();
             } else if (opcode == 168) {
                 aBool5696 = true;
             } else if (opcode == 169) {
@@ -341,8 +341,8 @@ public class ObjectDefinition {
             } else if (opcode == 171) {
                 anInt5658 = buffer.readSmart();
             } else if (opcode == 173) {
-                anInt5708 = buffer.readUnsignedShort();
-                anInt5709 = buffer.readUnsignedShort();
+                anInt5708 = buffer.readJagexNode();
+                anInt5709 = buffer.readJagexNode();
             } else if (opcode == 177) {
                 aBool5699 = true;
             } else if (opcode == 178) {
@@ -368,11 +368,11 @@ public class ObjectDefinition {
                 }
             }
         } else {
-            varBit = buffer.readUnsignedShort();
+            varBit = buffer.readJagexNode();
             if (varBit == 65535) {
                 varBit = -1;
             }
-            var = buffer.readUnsignedShort();
+            var = buffer.readJagexNode();
             if (var == 65535) {
                 var = -1;
             }

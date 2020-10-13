@@ -42,11 +42,11 @@ public abstract class Class52 implements Interface2 {
     }
 
     static WorldMapDef method1087(Index mapAreas, int archiveId, int fileId) {
-        ByteBuf buffer = new ByteBuf(mapAreas.getFile(archiveId, fileId));
+        JagexNode buffer = new JagexNode(mapAreas.getFile(archiveId, fileId));
         WorldMapDef def = new WorldMapDef(fileId, buffer.readString(), buffer.readString(), buffer.readInt(), buffer.readInt(), buffer.readUnsignedByte() == 1, buffer.readUnsignedByte(), buffer.readUnsignedByte());
         int size = buffer.readUnsignedByte();
         for (int i = 0; i < size; i++) {
-            def.areaRects.append(new WorldMapRect(buffer.readUnsignedByte(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort(), buffer.readUnsignedShort()));
+            def.areaRects.append(new WorldMapRect(buffer.readUnsignedByte(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode(), buffer.readJagexNode()));
         }
         def.init();
         return def;

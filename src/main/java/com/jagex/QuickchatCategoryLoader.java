@@ -79,7 +79,7 @@ public class QuickchatCategoryLoader {
             }
             class282_sub50_sub14_3 = new QuickChatCategoryDefinitions();
             if (bytes_4 != null) {
-                class282_sub50_sub14_3.method15209(new ByteBuf(bytes_4));
+                class282_sub50_sub14_3.method15209(new JagexNode(bytes_4));
             }
             if (id >= 32768) {
                 class282_sub50_sub14_3.method15213();

@@ -30,7 +30,7 @@ public class Node_Sub17_Sub10 extends Node_Sub17 {
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
+    void method12249(JagexNode rsbytebuffer_1) {
         if (rsbytebuffer_1.readUnsignedByte() != 255) {
             rsbytebuffer_1.index = (rsbytebuffer_1.index * -1115476867 - -1115476867) * -1990677291;
             aLong10047 = rsbytebuffer_1.readLong() * 4560744686503677239L * 5650566354848839815L;
@@ -40,7 +40,7 @@ public class Node_Sub17_Sub10 extends Node_Sub17 {
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
+    void method12257(JagexNode rsbytebuffer_1) {
         if (rsbytebuffer_1.readUnsignedByte() != 255) {
             rsbytebuffer_1.index = (rsbytebuffer_1.index * -1115476867 - -1115476867) * -1990677291;
             aLong10047 = rsbytebuffer_1.readLong() * 4560744686503677239L * 5650566354848839815L;
@@ -50,7 +50,7 @@ public class Node_Sub17_Sub10 extends Node_Sub17 {
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
+    void method12253(JagexNode rsbytebuffer_1) {
         if (rsbytebuffer_1.readUnsignedByte() != 255) {
             rsbytebuffer_1.index = (rsbytebuffer_1.index * -1115476867 - -1115476867) * -1990677291;
             aLong10047 = rsbytebuffer_1.readLong() * 4560744686503677239L * 5650566354848839815L;
@@ -75,7 +75,7 @@ public class Node_Sub17_Sub10 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
+    void method12250(JagexNode rsbytebuffer_1) {
         if (rsbytebuffer_1.readUnsignedByte() != 255) {
             --rsbytebuffer_1.index;
             aLong10047 = rsbytebuffer_1.readLong();

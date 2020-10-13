@@ -20,7 +20,7 @@ public class ClanChannel extends Node {
     boolean namesAsLong;
     public long nextUpdateNumber;
 
-    public ClanChannel(ByteBuf buffer) {
+    public ClanChannel(JagexNode buffer) {
         decode(buffer);
     }
 
@@ -106,7 +106,7 @@ public class ClanChannel extends Node {
         return -1;
     }
 
-    void decode(ByteBuf buffer) {
+    void decode(JagexNode buffer) {
         int nameTypeFlag = buffer.readUnsignedByte();
         if ((nameTypeFlag & 0x1) != 0) {
             namesAsLong = true;
@@ -120,7 +120,7 @@ public class ClanChannel extends Node {
         buffer.readUnsignedByte();
         minRankToKick = buffer.readByte();
         guestsTalk = buffer.readByte();
-        numPlayers = buffer.readUnsignedShort();
+        numPlayers = buffer.readJagexNode();
         if (numPlayers > 0) {
             players = new ClanChannelMember[numPlayers];
             for (int i_4 = 0; i_4 < numPlayers; i_4++) {
@@ -132,7 +132,7 @@ public class ClanChannel extends Node {
                     player.name = buffer.readString();
                 }
                 player.rank = buffer.readByte();
-                player.world = buffer.readUnsignedShort();
+                player.world = buffer.readJagexNode();
                 players[i_4] = player;
             }
         }

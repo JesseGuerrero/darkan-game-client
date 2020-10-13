@@ -304,7 +304,7 @@ public class MapAreaDefinitions {
         }
     }
 
-    void method3716(ByteBuf rsbytebuffer_1) {
+    void method3716(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -314,7 +314,7 @@ public class MapAreaDefinitions {
         }
     }
 
-    void method3717(ByteBuf rsbytebuffer_1, int i_2) {
+    void method3717(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
             anInt2719 = rsbytebuffer_1.readBigSmart();
         } else if (i_2 == 2) {
@@ -340,11 +340,11 @@ public class MapAreaDefinitions {
             } else if (i_2 == 8) {
                 aBool2730 = rsbytebuffer_1.readUnsignedByte() == 1;
             } else if (i_2 == 9) {
-                varbit = rsbytebuffer_1.readUnsignedShort();
+                varbit = rsbytebuffer_1.readJagexNode();
                 if (varbit == 65535) {
                     varbit = -1;
                 }
-                var = rsbytebuffer_1.readUnsignedShort();
+                var = rsbytebuffer_1.readJagexNode();
                 if (var == 65535) {
                     var = -1;
                 }
@@ -378,13 +378,13 @@ public class MapAreaDefinitions {
                 } else if (i_2 == 18) {
                     anInt2733 = rsbytebuffer_1.readBigSmart();
                 } else if (i_2 == 19) {
-                    anInt2718 = rsbytebuffer_1.readUnsignedShort();
+                    anInt2718 = rsbytebuffer_1.readJagexNode();
                 } else if (i_2 == 20) {
-                    varbitSecondary = rsbytebuffer_1.readUnsignedShort();
+                    varbitSecondary = rsbytebuffer_1.readJagexNode();
                     if (varbitSecondary == 65535) {
                         varbitSecondary = -1;
                     }
-                    varSecondary = rsbytebuffer_1.readUnsignedShort();
+                    varSecondary = rsbytebuffer_1.readJagexNode();
                     if (varSecondary == 65535) {
                         varSecondary = -1;
                     }

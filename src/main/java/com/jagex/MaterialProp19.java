@@ -60,10 +60,10 @@ public class MaterialProp19 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         switch (i_1) {
             case 0:
-                anInt9836 = rsbytebuffer_2.readUnsignedShort() << 4;
+                anInt9836 = rsbytebuffer_2.readJagexNode() << 4;
                 break;
             case 1:
                 noPalette = rsbytebuffer_2.readUnsignedByte() == 1;

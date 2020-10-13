@@ -1,7 +1,5 @@
 package com.jagex;
 
-import java.util.Iterator;
-
 public class ChatLine {
 
     public static String aString1093;
@@ -59,8 +57,8 @@ public class ChatLine {
         return string_0.length() + 1;
     }
 
-    static ByteBuf getLoginMod() {
-        ByteBuf rsbytebuffer_0 = Class94.method1587();
+    static JagexNode getLoginMod() {
+        JagexNode rsbytebuffer_0 = Class94.method1587();
         rsbytebuffer_0.writeLong(0L);
         rsbytebuffer_0.writeString(Class9.aString102);
         rsbytebuffer_0.writeLong(Class9.aLong86);

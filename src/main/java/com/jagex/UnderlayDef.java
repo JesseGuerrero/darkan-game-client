@@ -83,17 +83,17 @@ public class UnderlayDef {
         r = (int) (d_13 * a);
     }
 
-    void decodeOpcode(ByteBuf packet, int opcode) {
+    void decodeOpcode(JagexNode packet, int opcode) {
         if (opcode == 1) {
             rgb = packet.read24BitUnsignedInteger();
             method8048(rgb);
         } else if (opcode == 2) {
-            texture = packet.readUnsignedShort();
+            texture = packet.readJagexNode();
             if (texture == 65535) {
                 texture = -1;
             }
         } else if (opcode == 3) {
-            scale = packet.readUnsignedShort() << 2;
+            scale = packet.readJagexNode() << 2;
         } else if (opcode == 4) {
             blockShadow = false;
         } else if (opcode == 5) {
@@ -102,7 +102,7 @@ public class UnderlayDef {
 
     }
 
-    void decode(ByteBuf packet) {
+    void decode(JagexNode packet) {
         while (true) {
             int i_3 = packet.readUnsignedByte();
             if (i_3 == 0) {

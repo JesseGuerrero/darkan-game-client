@@ -12,7 +12,7 @@ public class FontMetrics {
     byte[][] kerning;
 
     FontMetrics(byte[] bytes_1) {
-        ByteBuf stream = new ByteBuf(bytes_1);
+        JagexNode stream = new JagexNode(bytes_1);
         int check = stream.readUnsignedByte();
         if (check != 0) {
             throw new RuntimeException("");

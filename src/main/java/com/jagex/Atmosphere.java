@@ -26,7 +26,7 @@ public class Atmosphere {
 
     Class247 environmentInfo;
 
-    public Atmosphere(ByteBuf rsbytebuffer_1, Class239 class239_2) {
+    public Atmosphere(JagexNode rsbytebuffer_1, Class239 class239_2) {
         method11468(rsbytebuffer_1, class239_2);
     }
 
@@ -104,7 +104,7 @@ public class Atmosphere {
         return environmentInfo;
     }
 
-    public void method11468(ByteBuf rsbytebuffer_1, Class239 class239_2) {
+    public void method11468(JagexNode rsbytebuffer_1, Class239 class239_2) {
         int i_4 = rsbytebuffer_1.readUnsignedByte();
         if (Class393.preferences.lightDetail.method12786() == 1 && Renderers.CURRENT_RENDERER.method8463() > 0) {
             if ((i_4 & 0x1) != 0) {
@@ -113,17 +113,17 @@ public class Atmosphere {
                 anInt7083 = Class239.anInt2935;
             }
             if ((i_4 & 0x2) != 0) {
-                aFloat7081 = rsbytebuffer_1.readUnsignedShort() / 256.0F;
+                aFloat7081 = rsbytebuffer_1.readJagexNode() / 256.0F;
             } else {
                 aFloat7081 = 1.1523438F;
             }
             if ((i_4 & 0x4) != 0) {
-                aFloat7082 = rsbytebuffer_1.readUnsignedShort() / 256.0F;
+                aFloat7082 = rsbytebuffer_1.readJagexNode() / 256.0F;
             } else {
                 aFloat7082 = 0.69921875F;
             }
             if ((i_4 & 0x8) != 0) {
-                aFloat7090 = rsbytebuffer_1.readUnsignedShort() / 256.0F;
+                aFloat7090 = rsbytebuffer_1.readJagexNode() / 256.0F;
             } else {
                 aFloat7090 = 1.2F;
             }
@@ -132,13 +132,13 @@ public class Atmosphere {
                 rsbytebuffer_1.readInt();
             }
             if ((i_4 & 0x2) != 0) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             }
             if ((i_4 & 0x4) != 0) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             }
             if ((i_4 & 0x8) != 0) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             }
             anInt7083 = Class239.anInt2935;
             aFloat7090 = 1.2F;
@@ -156,35 +156,35 @@ public class Atmosphere {
             anInt7085 = Class239.anInt2932;
         }
         if ((i_4 & 0x40) != 0) {
-            anInt7086 = rsbytebuffer_1.readUnsignedShort();
+            anInt7086 = rsbytebuffer_1.readJagexNode();
         } else {
             anInt7086 = 0;
         }
         if ((i_4 & 0x80) != 0) {
-            int i_5 = rsbytebuffer_1.readUnsignedShort();
-            int i_6 = rsbytebuffer_1.readUnsignedShort();
-            int i_7 = rsbytebuffer_1.readUnsignedShort();
-            int i_8 = rsbytebuffer_1.readUnsignedShort();
-            int i_9 = rsbytebuffer_1.readUnsignedShort();
-            int i_10 = rsbytebuffer_1.readUnsignedShort();
+            int i_5 = rsbytebuffer_1.readJagexNode();
+            int i_6 = rsbytebuffer_1.readJagexNode();
+            int i_7 = rsbytebuffer_1.readJagexNode();
+            int i_8 = rsbytebuffer_1.readJagexNode();
+            int i_9 = rsbytebuffer_1.readJagexNode();
+            int i_10 = rsbytebuffer_1.readJagexNode();
             aClass152_7087 = class239_2.method4064(i_5, i_6, i_7, i_8, i_9, i_10);
         } else {
             aClass152_7087 = Class81.aClass152_802;
         }
     }
 
-    public void method11471(ByteBuf rsbytebuffer_1) {
+    public void method11471(JagexNode rsbytebuffer_1) {
         aFloat7088 = (rsbytebuffer_1.readUnsignedByte() * 8) / 255.0F;
         aFloat7089 = (rsbytebuffer_1.readUnsignedByte() * 8) / 255.0F;
         aFloat7080 = (rsbytebuffer_1.readUnsignedByte() * 8) / 255.0F;
     }
 
-    public void decodeSkybox(ByteBuf buffer, Class239 class239_2) {
-        int skyboxId = buffer.readUnsignedShort();
+    public void decodeSkybox(JagexNode buffer, Class239 class239_2) {
+        int skyboxId = buffer.readJagexNode();
         int xOffset = buffer.readShort();
         int yOffset = buffer.readShort();
         int planeOffset = buffer.readShort();
-        int i_8 = buffer.readUnsignedShort();
+        int i_8 = buffer.readJagexNode();
         Class388.anInt4723 = i_8;
         environmentInfo = class239_2.getSkybox(skyboxId, xOffset, yOffset, planeOffset);
         ChatLine.appendGameMessage("Decoding Skybox: "+skyboxId+" X: "+xOffset+" Y: "+yOffset+" Plane: "+planeOffset);

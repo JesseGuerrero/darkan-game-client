@@ -20,28 +20,28 @@ public class MaterialProp37 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         switch (i_1) {
             case 0:
-                anInt9830 = rsbytebuffer_2.readUnsignedShort();
+                anInt9830 = rsbytebuffer_2.readJagexNode();
                 break;
             case 1:
-                anInt9829 = rsbytebuffer_2.readUnsignedShort();
+                anInt9829 = rsbytebuffer_2.readJagexNode();
                 break;
             case 2:
-                anInt9833 = rsbytebuffer_2.readUnsignedShort();
+                anInt9833 = rsbytebuffer_2.readJagexNode();
                 break;
             case 3:
-                anInt9831 = rsbytebuffer_2.readUnsignedShort();
+                anInt9831 = rsbytebuffer_2.readJagexNode();
                 break;
             case 4:
-                anInt9832 = rsbytebuffer_2.readUnsignedShort();
+                anInt9832 = rsbytebuffer_2.readJagexNode();
                 break;
             case 5:
-                anInt9828 = rsbytebuffer_2.readUnsignedShort();
+                anInt9828 = rsbytebuffer_2.readJagexNode();
                 break;
             case 6:
-                anInt9834 = rsbytebuffer_2.readUnsignedShort();
+                anInt9834 = rsbytebuffer_2.readJagexNode();
         }
 
     }

@@ -155,7 +155,7 @@ public class Class329_Sub1 extends Class329 {
         }
     }
 
-    public void decodeDynamicMap(AbstractRenderer renderer, ByteBuf buffer, int plane, int x, int y, int i_6, int i_7, int i_8, int i_9, int skyboxId) {
+    public void decodeDynamicMap(AbstractRenderer renderer, JagexNode buffer, int plane, int x, int y, int i_6, int i_7, int i_8, int i_9, int skyboxId) {
         if (!overlayHidden) {
             boolean bool_11 = false;
             Atmosphere atmosphere = null;
@@ -185,7 +185,7 @@ public class Class329_Sub1 extends Class329 {
                                 for (i_27 = 0; i_27 < i_16; i_27++) {
                                     Class287 class287_25 = new Class287(renderer, sceneObjectManager.anInt2592, buffer);
                                     if (class287_25.anInt3430 == 31) {
-                                        LightIntensityDefinitions class416_19 = IndexLoaders.LIGHT_INTENSITY_LOADER.method7304(buffer.readUnsignedShort());
+                                        LightIntensityDefinitions class416_19 = IndexLoaders.LIGHT_INTENSITY_LOADER.method7304(buffer.readJagexNode());
                                         class287_25.method5061(class416_19.anInt4986, class416_19.anInt4989, class416_19.anInt4988, class416_19.anInt4987);
                                     }
                                     if (renderer.method8463() > 0) {
@@ -309,7 +309,7 @@ public class Class329_Sub1 extends Class329 {
     }
 
     public void method12461(AbstractRenderer graphicalrenderer_1, byte[] bytes_2, int i_3, int i_4, ClipFlagMap[] arr_5) {
-        ByteBuf rsbytebuffer_7 = new ByteBuf(bytes_2);
+        JagexNode rsbytebuffer_7 = new JagexNode(bytes_2);
         int i_8 = -1;
         while (true) {
             int i_9 = rsbytebuffer_7.readSum();
@@ -350,7 +350,7 @@ public class Class329_Sub1 extends Class329 {
     }
 
     public void method12462(AbstractRenderer graphicalrenderer_1, byte[] bytes_2, int i_3, int i_4, int i_5, int i_6, int i_7, int i_8, int i_9, ClipFlagMap[] arr_10) {
-        ByteBuf rsbytebuffer_12 = new ByteBuf(bytes_2);
+        JagexNode rsbytebuffer_12 = new JagexNode(bytes_2);
         int i_13 = -1;
         while (true) {
             int i_14 = rsbytebuffer_12.readSum();
@@ -762,7 +762,7 @@ public class Class329_Sub1 extends Class329 {
         return sceneobject_6;
     }
 
-    public void method12471(AbstractRenderer graphicalrenderer_1, ByteBuf rsbytebuffer_2, int i_3, int i_4) {
+    public void method12471(AbstractRenderer graphicalrenderer_1, JagexNode rsbytebuffer_2, int i_3, int i_4) {
         if (!overlayHidden) {
             boolean bool_6 = false;
             Atmosphere class535_7 = null;
@@ -790,7 +790,7 @@ public class Class329_Sub1 extends Class329 {
                                 for (i_19 = 0; i_19 < i_9; i_19++) {
                                     Class287 class287_17 = new Class287(graphicalrenderer_1, sceneObjectManager.anInt2592, rsbytebuffer_2);
                                     if (class287_17.anInt3430 == 31) {
-                                        LightIntensityDefinitions class416_18 = IndexLoaders.LIGHT_INTENSITY_LOADER.method7304(rsbytebuffer_2.readUnsignedShort());
+                                        LightIntensityDefinitions class416_18 = IndexLoaders.LIGHT_INTENSITY_LOADER.method7304(rsbytebuffer_2.readJagexNode());
                                         class287_17.method5061(class416_18.anInt4986, class416_18.anInt4989, class416_18.anInt4988, class416_18.anInt4987);
                                     }
                                     if (graphicalrenderer_1.method8463() > 0) {

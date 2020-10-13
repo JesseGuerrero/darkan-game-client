@@ -6,9 +6,9 @@ public class Class335 {
 
     Class256 aClass256_3915;
 
-    ByteBuf.Bit buffer;
+    JagexNode.Bit buffer;
 
-    public Class335(Class256 class256_1, ByteBuf.Bit rsbitsbuffer_2) {
+    public Class335(Class256 class256_1, JagexNode.Bit rsbitsbuffer_2) {
         aClass256_3915 = class256_1;
         buffer = rsbitsbuffer_2;
     }

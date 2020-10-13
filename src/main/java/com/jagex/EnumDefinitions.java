@@ -22,7 +22,7 @@ public class EnumDefinitions {
         return size;
     }
 
-    void method7224(ByteBuf stream, int opcode) {
+    void method7224(JagexNode stream, int opcode) {
         if (opcode == 1) {
             keyType = Utils.cp1252ToChar(stream.readByte());
         } else if (opcode == 2) {
@@ -36,12 +36,12 @@ public class EnumDefinitions {
             int i_5;
             if (opcode != 5 && opcode != 6) {
                 if (opcode == 7 || opcode == 8) {
-                    i_4 = stream.readUnsignedShort();
-                    size = stream.readUnsignedShort();
+                    i_4 = stream.readJagexNode();
+                    size = stream.readJagexNode();
                     values = new Object[i_4];
 
                     for (i_5 = 0; i_5 < size; i_5++) {
-                        int i_7 = stream.readUnsignedShort();
+                        int i_7 = stream.readJagexNode();
                         if (opcode == 7) {
                             values[i_7] = stream.readString();
                         } else {
@@ -50,7 +50,7 @@ public class EnumDefinitions {
                     }
                 }
             } else {
-                size = stream.readUnsignedShort();
+                size = stream.readJagexNode();
                 aMap5144 = new HashMap(size);
 
                 for (i_4 = 0; i_4 < size; i_4++) {
@@ -78,7 +78,7 @@ public class EnumDefinitions {
         return object_3 == null ? defaultStringValue : (String) object_3;
     }
 
-    void method7227(ByteBuf rsbytebuffer_1) {
+    void method7227(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

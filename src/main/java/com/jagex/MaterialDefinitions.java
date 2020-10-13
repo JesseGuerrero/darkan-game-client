@@ -14,7 +14,7 @@ public class MaterialDefinitions extends CacheableNode {
     MaterialProperty translucentProperty;
     MaterialProperty combinedProperty;
 
-    MaterialDefinitions(ByteBuf buffer) {
+    MaterialDefinitions(JagexNode buffer) {
 //    	final long header = buffer.readLong();
 //		if (header == 0x89504E470D0A1A0AL) {
 //			texture.setRawImageData(buffer.getBytes());

@@ -12,7 +12,7 @@ public class CutsceneArea extends Node {
     public int anInt7483;
     public int anInt7486;
 
-    CutsceneArea(ByteBuf buffer) {
+    CutsceneArea(JagexNode buffer) {
         int position = buffer.readInt();
         plane = position >>> 28;
         regionX = position >>> 14 & 0x3fff;

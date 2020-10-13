@@ -10,14 +10,14 @@ public class Class89 {
     }
 
     static void method1496(byte[] bytes_0) {
-        ByteBuf rsbytebuffer_2 = new ByteBuf(bytes_0);
+        JagexNode rsbytebuffer_2 = new JagexNode(bytes_0);
         while (true) {
             int i_3 = rsbytebuffer_2.readUnsignedByte();
             if (i_3 == 0) {
                 return;
             }
             if (i_3 == 1) {
-                int i_4 = rsbytebuffer_2.readUnsignedShort();
+                int i_4 = rsbytebuffer_2.readJagexNode();
                 if (Class260.anInt3228 == -1) {
                     Class260.anInt3228 = i_4;
                 }

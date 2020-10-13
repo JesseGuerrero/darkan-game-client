@@ -6,9 +6,9 @@ public class Class175 {
         throw new Error();
     }
 
-    public static QuickChatMessage decodeQuickchatMessage(ByteBuf buffer) {
+    public static QuickChatMessage decodeQuickchatMessage(JagexNode buffer) {
         QuickChatMessage message = new QuickChatMessage();
-        message.qcMessageId = buffer.readUnsignedShort();
+        message.qcMessageId = buffer.readJagexNode();
         message.qcMessageDefs = IndexLoaders.QUICK_CHAT_MESSAGE_LOADER.getMessageDefinitions(message.qcMessageId);
         return message;
     }

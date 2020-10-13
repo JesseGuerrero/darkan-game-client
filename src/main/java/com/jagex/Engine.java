@@ -237,8 +237,8 @@ public abstract class Engine implements Interface24, Runnable, FocusListener, Wi
 		if (Canvas_Sub1.aFile9453.exists()) {
 			try {
 				Class442 class442_9 = new Class442(Canvas_Sub1.aFile9453, 10000L);
-				ByteBuf rsbytebuffer_11;
-				for (rsbytebuffer_11 = new ByteBuf((int) class442_9.method7388()); rsbytebuffer_11.index < rsbytebuffer_11.buffer.length; rsbytebuffer_11.index += i_10) {
+				JagexNode rsbytebuffer_11;
+				for (rsbytebuffer_11 = new JagexNode((int) class442_9.method7388()); rsbytebuffer_11.index < rsbytebuffer_11.buffer.length; rsbytebuffer_11.index += i_10) {
 					i_10 = class442_9.method7389(rsbytebuffer_11.buffer, rsbytebuffer_11.index, rsbytebuffer_11.buffer.length - rsbytebuffer_11.index);
 					if (i_10 == -1) {
 						throw new IOException();
@@ -342,7 +342,7 @@ public abstract class Engine implements Interface24, Runnable, FocusListener, Wi
 	void method4659(File file_1, File file_2) {
 		try {
 			Class442 class442_4 = new Class442(Canvas_Sub1.aFile9453, 10000L);
-			ByteBuf rsbytebuffer_5 = new ByteBuf(500);
+			JagexNode rsbytebuffer_5 = new JagexNode(500);
 			rsbytebuffer_5.writeByte(3);
 			rsbytebuffer_5.writeByte(file_2 != null ? 1 : 0);
 			rsbytebuffer_5.method13071(file_1.getPath());

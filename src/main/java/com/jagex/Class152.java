@@ -18,7 +18,7 @@ public abstract class Class152 {
                     throw new IOException();
                 }
             }
-            MonoStereoPreference.method12696(new ByteBuf(bytes_2));
+            MonoStereoPreference.method12696(new JagexNode(bytes_2));
         } catch (Exception ignored) {
         }
         try {

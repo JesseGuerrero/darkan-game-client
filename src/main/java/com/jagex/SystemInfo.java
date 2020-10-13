@@ -157,7 +157,7 @@ public class SystemInfo extends Node {
                 }
                 Class430 class430_15 = hashmap_6.get(Integer.valueOf(0));
                 if (class430_15 != null) {
-                    ByteBuf rsbytebuffer_16 = new ByteBuf(13);
+                    JagexNode rsbytebuffer_16 = new JagexNode(13);
                     rsbytebuffer_16.method13232(class430_15.anInt5137);
                     rsbytebuffer_16.method13232(class430_15.anInt5136);
                     rsbytebuffer_16.method13232(class430_15.anInt5138);
@@ -176,7 +176,7 @@ public class SystemInfo extends Node {
                 if (class430_17 != null) {
                     rawCPUInformationData[2] = class430_17.anInt5136;
                 }
-                ByteBuf rsbytebuffer_18 = new ByteBuf(49);
+                JagexNode rsbytebuffer_18 = new JagexNode(49);
                 for (i_11 = -2147483646; i_11 <= -2147483644; i_11++) {
                     Class430 class430_19 = hashmap_6.get(Integer.valueOf(i_11));
                     if (class430_19 != null) {
@@ -471,7 +471,7 @@ public class SystemInfo extends Node {
         }
     }
 
-    public void writeMachineInformation(ByteBuf rsbytebuffer_1) {
+    public void writeMachineInformation(JagexNode rsbytebuffer_1) {
         rsbytebuffer_1.writeByte(6);
         rsbytebuffer_1.writeByte(operatingSystem);
         rsbytebuffer_1.writeByte(x64os ? 1 : 0);

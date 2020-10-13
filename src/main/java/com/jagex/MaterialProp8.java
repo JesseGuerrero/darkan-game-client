@@ -177,14 +177,14 @@ public class MaterialProp8 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
             anInt9799 = rsbytebuffer_2.readUnsignedByte();
             anIntArrayArray9800 = new int[rsbytebuffer_2.readUnsignedByte()][2];
 
             for (int i_4 = 0; i_4 < anIntArrayArray9800.length; i_4++) {
-                anIntArrayArray9800[i_4][0] = rsbytebuffer_2.readUnsignedShort();
-                anIntArrayArray9800[i_4][1] = rsbytebuffer_2.readUnsignedShort();
+                anIntArrayArray9800[i_4][0] = rsbytebuffer_2.readJagexNode();
+                anIntArrayArray9800[i_4][1] = rsbytebuffer_2.readJagexNode();
             }
         }
 

@@ -14,7 +14,7 @@ public class GameTipsLoader {
 
     public GameTipsLoader(Index index_3) {
         tipsIndex = index_3;
-        ByteBuf buffer = new ByteBuf(tipsIndex.getFile(0, 0));
+        JagexNode buffer = new JagexNode(tipsIndex.getFile(0, 0));
         int i_5 = buffer.buffer != null && buffer.buffer.length >= 1 ? buffer.readUnsignedByte() : -1;
         if (i_5 < 4) {
             aClass402Array4818 = new Class402[0];
@@ -45,7 +45,7 @@ public class GameTipsLoader {
                 if (i_5 > 2) {
                     anInt4820 = buffer.readShort();
                     i_11 = buffer.read24BitUnsignedInteger();
-                    i_12 = buffer.readUnsignedShort();
+                    i_12 = buffer.readJagexNode();
                 } else {
                     anInt4820 = -1;
                     i_11 = 0;
@@ -58,7 +58,7 @@ public class GameTipsLoader {
                 for (i_13 = 0; i_13 < i_9; i_13++) {
                     int i_14 = buffer.readUnsignedByte();
                     boolean bool_15 = buffer.readUnsignedByte() == 1;
-                    int i_16 = buffer.readUnsignedShort();
+                    int i_16 = buffer.readJagexNode();
                     Class399[] arr_17;
                     int i_18;
                     int i_19;
@@ -69,18 +69,18 @@ public class GameTipsLoader {
                         arr_17[0] = new Class399(anInt4820, i_11, i_12);
 
                         for (i_18 = 0; i_18 < i_16; i_18++) {
-                            i_19 = buffer.readUnsignedShort();
+                            i_19 = buffer.readJagexNode();
                             i_20 = buffer.read24BitUnsignedInteger();
-                            i_21 = buffer.readUnsignedShort();
+                            i_21 = buffer.readJagexNode();
                             arr_17[i_18 + 1] = new Class399(i_19, i_20, i_21);
                         }
                     } else {
                         arr_17 = new Class399[i_16];
 
                         for (i_18 = 0; i_18 < i_16; i_18++) {
-                            i_19 = buffer.readUnsignedShort();
+                            i_19 = buffer.readJagexNode();
                             i_20 = buffer.read24BitUnsignedInteger();
-                            i_21 = buffer.readUnsignedShort();
+                            i_21 = buffer.readJagexNode();
                             arr_17[i_18] = new Class399(i_19, i_20, i_21);
                         }
 
@@ -156,7 +156,7 @@ public class GameTipsLoader {
     public Class393 method6785(int i_1) {
         byte[] bytes_3 = tipsIndex.getFile(i_1, 0);
         Class393 class393_4 = new Class393();
-        class393_4.method6743(new ByteBuf(bytes_3));
+        class393_4.method6743(new JagexNode(bytes_3));
         return class393_4;
     }
 

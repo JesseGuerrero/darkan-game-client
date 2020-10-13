@@ -20,7 +20,7 @@ public class FixedTileStrategy extends RouteStrategy {
                 }
             }
 
-            class282_sub54_2 = new GamePreferences(new ByteBuf(bytes_3), client.CURRENT_GAME);
+            class282_sub54_2 = new GamePreferences(new JagexNode(bytes_3), client.CURRENT_GAME);
         } catch (Exception ignored) {
         }
 
@@ -46,7 +46,7 @@ public class FixedTileStrategy extends RouteStrategy {
                     return null;
                 } else {
                     try {
-                        cs2script_5 = AbstractRenderer.method8699(bytes_6);
+                        cs2script_5 = AbstractRenderer.unpackScript(bytes_6);
                     } catch (Exception exception_8) {
                         throw new RuntimeException(exception_8.getMessage() + " " + i_4);
                     }
@@ -67,7 +67,7 @@ public class FixedTileStrategy extends RouteStrategy {
                             return null;
                         } else {
                             try {
-                                cs2script_5 = AbstractRenderer.method8699(bytes_6);
+                                cs2script_5 = AbstractRenderer.unpackScript(bytes_6);
                             } catch (Exception exception_9) {
                                 throw new RuntimeException(exception_9.getMessage() + " " + i_4);
                             }
@@ -88,7 +88,7 @@ public class FixedTileStrategy extends RouteStrategy {
                                     return null;
                                 } else {
                                     try {
-                                        cs2script_5 = AbstractRenderer.method8699(bytes_6);
+                                        cs2script_5 = AbstractRenderer.unpackScript(bytes_6);
                                     } catch (Exception exception_10) {
                                         throw new RuntimeException(exception_10.getMessage() + " " + i_4);
                                     }

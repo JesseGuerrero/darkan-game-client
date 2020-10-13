@@ -8,7 +8,7 @@ public abstract class ClanSetting extends Node {
         Class442 class442_1 = null;
         try {
             class442_1 = ParticleArchive1Def.method6137("2", client.CURRENT_GAME.name, true);
-            ByteBuf rsbytebuffer_2 = new ByteBuf(client.anInt7399 * 6 + 3);
+            JagexNode rsbytebuffer_2 = new JagexNode(client.anInt7399 * 6 + 3);
             rsbytebuffer_2.writeByte(1);
             rsbytebuffer_2.writeShort(client.anInt7399);
             for (int varcId = 0; varcId < Class320.VARC_INT.length; varcId++) {
@@ -30,7 +30,7 @@ public abstract class ClanSetting extends Node {
         client.NEEDS_VARC_SAVE = false;
     }
 
-    public abstract void readSettings(ByteBuf buffer);
+    public abstract void readSettings(JagexNode buffer);
 
     public abstract void apply(ClanChannel channel);
 

@@ -14,7 +14,7 @@ public class CutsceneObject {
 
     int anInt967;
 
-    CutsceneObject(ByteBuf rsbytebuffer_1) {
+    CutsceneObject(JagexNode rsbytebuffer_1) {
         objectId = rsbytebuffer_1.readBigSmart();
         type = (ObjectType) Class386.identify(ObjectType.values(), rsbytebuffer_1.readUnsignedByte());
     }

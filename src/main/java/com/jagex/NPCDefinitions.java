@@ -89,7 +89,7 @@ public class NPCDefinitions {
         Renderers.CURRENT_RENDERER.ba(2, 0);
     }
 
-    void method6874(ByteBuf rsbytebuffer_1) {
+    void method6874(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -530,7 +530,7 @@ public class NPCDefinitions {
         }
     }
 
-    void decode(ByteBuf stream, int opcode) {
+    void decode(JagexNode stream, int opcode) {
         if (opcode == 1) {
             int i_4 = stream.readUnsignedByte();
             modelIds = new int[i_4];
@@ -548,16 +548,16 @@ public class NPCDefinitions {
             originalColors = new short[i_4];
             modifiedColors = new short[i_4];
             for (int i_5 = 0; i_5 < i_4; i_5++) {
-                originalColors[i_5] = (short) stream.readUnsignedShort();
-                modifiedColors[i_5] = (short) stream.readUnsignedShort();
+                originalColors[i_5] = (short) stream.readJagexNode();
+                modifiedColors[i_5] = (short) stream.readJagexNode();
             }
         } else if (opcode == 41) {
             int i_4 = stream.readUnsignedByte();
             originalTextures = new short[i_4];
             modifiedTextures = new short[i_4];
             for (int i_5 = 0; i_5 < i_4; i_5++) {
-                originalTextures[i_5] = (short) stream.readUnsignedShort();
-                modifiedTextures[i_5] = (short) stream.readUnsignedShort();
+                originalTextures[i_5] = (short) stream.readJagexNode();
+                modifiedTextures[i_5] = (short) stream.readJagexNode();
             }
         } else if (opcode == 42) {
             int i_4 = stream.readUnsignedByte();
@@ -574,11 +574,11 @@ public class NPCDefinitions {
         } else if (opcode == 93) {
             isVisibleOnMap = false;
         } else if (opcode == 95) {
-            combatLevel = stream.readUnsignedShort();
+            combatLevel = stream.readJagexNode();
         } else if (opcode == 97) {
-            anInt4880 = stream.readUnsignedShort();
+            anInt4880 = stream.readJagexNode();
         } else if (opcode == 98) {
-            anInt4881 = stream.readUnsignedShort();
+            anInt4881 = stream.readJagexNode();
         } else if (opcode == 99) {
             aBool4904 = true;
         } else if (opcode == 100) {
@@ -586,21 +586,21 @@ public class NPCDefinitions {
         } else if (opcode == 101) {
             anInt4888 = stream.readByte();
         } else if (opcode == 102) {
-            headIcons = stream.readUnsignedShort();
+            headIcons = stream.readJagexNode();
         } else if (opcode == 103) {
-            contrast = stream.readUnsignedShort();
+            contrast = stream.readJagexNode();
         } else if (opcode == 106 || opcode == 118) {
-            varpBit = stream.readUnsignedShort();
+            varpBit = stream.readJagexNode();
             if (varpBit == 65535) {
                 varpBit = -1;
             }
-            varp = stream.readUnsignedShort();
+            varp = stream.readJagexNode();
             if (varp == 65535) {
                 varp = -1;
             }
             int i_4 = -1;
             if (opcode == 118) {
-                i_4 = stream.readUnsignedShort();
+                i_4 = stream.readJagexNode();
                 if (i_4 == 65535) {
                     i_4 = -1;
                 }
@@ -608,7 +608,7 @@ public class NPCDefinitions {
             int i_5 = stream.readUnsignedByte();
             transformTo = new int[i_5 + 2];
             for (int i_6 = 0; i_6 <= i_5; i_6++) {
-                transformTo[i_6] = stream.readUnsignedShort();
+                transformTo[i_6] = stream.readJagexNode();
                 if (transformTo[i_6] == 65535) {
                     transformTo[i_6] = -1;
                 }
@@ -621,8 +621,8 @@ public class NPCDefinitions {
         } else if (opcode == 111) {
             aBool4912 = false;
         } else if (opcode == 113) {
-            aShort4874 = (short) stream.readUnsignedShort();
-            aShort4897 = (short) stream.readUnsignedShort();
+            aShort4874 = (short) stream.readJagexNode();
+            aShort4897 = (short) stream.readJagexNode();
         } else if (opcode == 114) {
             aByte4883 = stream.readByte();
             aByte4899 = stream.readByte();
@@ -639,39 +639,39 @@ public class NPCDefinitions {
                 ints_7[2] = stream.readByte();
             }
         } else if (opcode == 123) {
-            anInt4902 = stream.readUnsignedShort();
+            anInt4902 = stream.readJagexNode();
         } else if (opcode == 125) {
             respawnDirection = (NPCDirection) Class386.identify(Class46.getDirections(), stream.readByte());
         } else if (opcode == 127) {
-            renderEmote = stream.readUnsignedShort();
+            renderEmote = stream.readJagexNode();
         } else if (opcode == 128) {
             Class386.identify(MoveSpeed.values(), stream.readUnsignedByte());
         } else if (opcode == 134) {
-            walkingAnimation = stream.readUnsignedShort();
+            walkingAnimation = stream.readJagexNode();
             if (walkingAnimation == 65535) {
                 walkingAnimation = -1;
             }
-            rotate180Animation = stream.readUnsignedShort();
+            rotate180Animation = stream.readJagexNode();
             if (rotate180Animation == 65535) {
                 rotate180Animation = -1;
             }
-            rotate90RightAnimation = stream.readUnsignedShort();
+            rotate90RightAnimation = stream.readJagexNode();
             if (rotate90RightAnimation == 65535) {
                 rotate90RightAnimation = -1;
             }
-            rotate90LeftAnimation = stream.readUnsignedShort();
+            rotate90LeftAnimation = stream.readJagexNode();
             if (rotate90LeftAnimation == 65535) {
                 rotate90LeftAnimation = -1;
             }
             specialByte = stream.readUnsignedByte();
         } else if (opcode == 135) {
             anInt4875 = stream.readUnsignedByte();
-            anInt4873 = stream.readUnsignedShort();
+            anInt4873 = stream.readJagexNode();
         } else if (opcode == 136) {
             anInt4854 = stream.readUnsignedByte();
-            anInt4861 = stream.readUnsignedShort();
+            anInt4861 = stream.readJagexNode();
         } else if (opcode == 137) {
-            anInt4877 = stream.readUnsignedShort();
+            anInt4877 = stream.readJagexNode();
         } else if (opcode == 138) {
             anInt4918 = stream.readBigSmart();
         } else if (opcode == 140) {
@@ -679,7 +679,7 @@ public class NPCDefinitions {
         } else if (opcode == 141) {
             aBool4884 = true;
         } else if (opcode == 142) {
-            anInt4914 = stream.readUnsignedShort();
+            anInt4914 = stream.readJagexNode();
         } else if (opcode == 143) {
             aBool4890 = true;
         } else if (opcode >= 150 && opcode < 155) {
@@ -700,15 +700,15 @@ public class NPCDefinitions {
             int i_4 = stream.readUnsignedByte();
             quests = new int[i_4];
             for (int i_5 = 0; i_5 < i_4; i_5++) {
-                quests[i_5] = stream.readUnsignedShort();
+                quests[i_5] = stream.readJagexNode();
             }
         } else if (opcode == 162) {
             aBool4872 = true;
         } else if (opcode == 163) {
             anInt4917 = stream.readUnsignedByte();
         } else if (opcode == 164) {
-            anInt4911 = stream.readUnsignedShort();
-            anInt4919 = stream.readUnsignedShort();
+            anInt4911 = stream.readJagexNode();
+            anInt4919 = stream.readJagexNode();
         } else if (opcode == 165) {
             anInt4913 = stream.readUnsignedByte();
         } else if (opcode == 168) {

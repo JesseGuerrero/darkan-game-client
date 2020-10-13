@@ -52,7 +52,7 @@ public class ModelAnimIndex {
     int totalChance;
     Matrix44Var[] matrices;
 
-    void method3808(ByteBuf rsbytebuffer_1, int i_2) {
+    void method3808(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
             standAnimation = rsbytebuffer_1.readBigSmart();
             walkAnimation = rsbytebuffer_1.readBigSmart();
@@ -99,17 +99,17 @@ public class ModelAnimIndex {
             } else if (i_2 == 29) {
                 anInt2820 = rsbytebuffer_1.readUnsignedByte();
             } else if (i_2 == 30) {
-                anInt2804 = rsbytebuffer_1.readUnsignedShort();
+                anInt2804 = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 31) {
                 anInt2825 = rsbytebuffer_1.readUnsignedByte();
             } else if (i_2 == 32) {
-                anInt2823 = rsbytebuffer_1.readUnsignedShort();
+                anInt2823 = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 33) {
                 anInt2824 = rsbytebuffer_1.readShort();
             } else if (i_2 == 34) {
                 anInt2816 = rsbytebuffer_1.readUnsignedByte();
             } else if (i_2 == 35) {
-                anInt2815 = rsbytebuffer_1.readUnsignedShort();
+                anInt2815 = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 36) {
                 anInt2827 = rsbytebuffer_1.readShort();
             } else if (i_2 == 37) {
@@ -125,11 +125,11 @@ public class ModelAnimIndex {
             } else if (i_2 == 42) {
                 walkDir1 = rsbytebuffer_1.readBigSmart();
             } else if (i_2 == 43) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 44) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 45) {
-                anInt2798 = rsbytebuffer_1.readUnsignedShort();
+                anInt2798 = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 46) {
                 teleTurn1 = rsbytebuffer_1.readBigSmart();
             } else if (i_2 == 47) {
@@ -162,7 +162,7 @@ public class ModelAnimIndex {
                     anIntArray2818 = new int[aClass211_2788.aClass526_2672.hidden.length];
                 }
                 i_4 = rsbytebuffer_1.readUnsignedByte();
-                anIntArray2818[i_4] = rsbytebuffer_1.readUnsignedShort();
+                anIntArray2818[i_4] = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 56) {
                 if (anIntArrayArray2791 == null) {
                     anIntArrayArray2791 = new int[aClass211_2788.aClass526_2672.hidden.length][];
@@ -249,7 +249,7 @@ public class ModelAnimIndex {
         }
     }
 
-    void method3821(ByteBuf rsbytebuffer_1) {
+    void method3821(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

@@ -10,9 +10,9 @@ public class ObjectAnimationCutsceneAction extends CutsceneAction {
 
     int anInt8517;
 
-    ObjectAnimationCutsceneAction(ByteBuf rsbytebuffer_1) {
+    ObjectAnimationCutsceneAction(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt8516 = rsbytebuffer_1.readUnsignedShort();
+        anInt8516 = rsbytebuffer_1.readJagexNode();
         anInt8517 = rsbytebuffer_1.readBigSmart();
     }
 

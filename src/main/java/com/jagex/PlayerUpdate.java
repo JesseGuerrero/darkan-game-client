@@ -2,7 +2,7 @@ package com.jagex;
 
 public class PlayerUpdate {
 
-    static void decode(ByteBuf.Bit buffer, int size) {
+    static void decode(JagexNode.Bit buffer, int size) {
         Class197.anInt2434 = 0;
         decodeUpdate(buffer);
         decodeMasks(buffer);
@@ -11,7 +11,7 @@ public class PlayerUpdate {
         }
     }
 
-    static void decodeUpdate(ByteBuf.Bit bitPacket) {
+    static void decodeUpdate(JagexNode.Bit bitPacket) {
         int i_2 = 0;
         bitPacket.initBitAccess();
         int i_3;
@@ -121,7 +121,7 @@ public class PlayerUpdate {
         }
     }
 
-    static void decodeMasks(ByteBuf.Bit buffer) {
+    static void decodeMasks(JagexNode.Bit buffer) {
         for (int i_2 = 0; i_2 < Class197.anInt2434; i_2++) {
             int i_3 = Class197.anIntArray2435[i_2];
             PlayerEntity player_4 = client.players[i_3];
@@ -136,7 +136,7 @@ public class PlayerUpdate {
         }
     }
 
-    static void decodeMasksBody(ByteBuf.Bit stream, int i_1, PlayerEntity player, int flags) {
+    static void decodeMasksBody(JagexNode.Bit stream, int i_1, PlayerEntity player, int flags) {
         byte tempMoveType = MoveSpeed.STATIONARY.id;
 
         if ((flags & 0x20000) != 0) {
@@ -145,7 +145,7 @@ public class PlayerUpdate {
             player.blueAdd = stream.read128Byte();
             player.scalar = (byte) stream.readUnsigned128Byte();
             player.anInt10347 = client.CYCLES_20MS + stream.readUnsignedShort128();
-            player.anInt10348 = client.CYCLES_20MS + stream.readUnsignedShort();
+            player.anInt10348 = client.CYCLES_20MS + stream.readJagexNode();
         }
 
         if ((flags & 0x400000) != 0) {
@@ -159,7 +159,7 @@ public class PlayerUpdate {
         }
 
         if ((flags & 0x200) != 0) {
-            int i_6 = stream.readUnsignedShort();
+            int i_6 = stream.readJagexNode();
             int i_7 = stream.readIntV2();
             if (i_6 == 65535) {
                 i_6 = -1;
@@ -213,7 +213,7 @@ public class PlayerUpdate {
                     ints_14[i_9] = i_10;
                 }
 
-                ints_15[i_9] = stream.readUnsignedShort();
+                ints_15[i_9] = stream.readJagexNode();
             }
 
             player.method15797(ints_14, ints_15);
@@ -307,7 +307,7 @@ public class PlayerUpdate {
         if ((flags & 0x1) != 0) {
             int i_6 = stream.readUnsignedByteC();
             byte[] bytes_21 = new byte[i_6];
-            ByteBuf rsbytebuffer_22 = new ByteBuf(bytes_21);
+            JagexNode rsbytebuffer_22 = new JagexNode(bytes_21);
             stream.readBytes(bytes_21, 0, i_6);
             Class197.aNode_Sub35Array2428[i_1] = rsbytebuffer_22;
             player.decodeAppearance(rsbytebuffer_22);

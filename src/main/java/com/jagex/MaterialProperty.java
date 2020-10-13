@@ -37,7 +37,7 @@ public abstract class MaterialProperty extends Node<MaterialProperty> {
     void method12321() {
     }
 
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
     }
 
     int getSpriteId() {
@@ -68,7 +68,7 @@ public abstract class MaterialProperty extends Node<MaterialProperty> {
         }
     }
 
-	static MaterialProperty decode(ByteBuf buffer) {
+	static MaterialProperty decode(JagexNode buffer) {
 	    buffer.readUnsignedByte();
 	    int opIndex = buffer.readUnsignedByte();
 	    MaterialProperty operation = getById(opIndex);

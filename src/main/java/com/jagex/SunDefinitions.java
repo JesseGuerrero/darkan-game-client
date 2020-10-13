@@ -158,9 +158,9 @@ public class SunDefinitions {
         class282_sub50_sub12_3.string = string_1;
     }
 
-    void method843(ByteBuf stream, int opcode) {
+    void method843(JagexNode stream, int opcode) {
         if (opcode == 1) {
-            anInt396 = stream.readUnsignedShort();
+            anInt396 = stream.readJagexNode();
         } else if (opcode == 2) {
             aBool400 = true;
         } else if (opcode == 3) {
@@ -180,7 +180,7 @@ public class SunDefinitions {
         }
     }
 
-    void method850(ByteBuf rsbytebuffer_1) {
+    void method850(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

@@ -38,7 +38,7 @@ public class Node_Sub17_Sub5 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
+    void method12250(JagexNode rsbytebuffer_1) {
         anInt9941 = rsbytebuffer_1.readInt();
         aString9942 = rsbytebuffer_1.readString();
     }
@@ -49,13 +49,13 @@ public class Node_Sub17_Sub5 extends Node_Sub17 {
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
+    void method12257(JagexNode rsbytebuffer_1) {
         anInt9941 = rsbytebuffer_1.readInt() * 2094172715 * -1507859325;
         aString9942 = rsbytebuffer_1.readString();
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
+    void method12253(JagexNode rsbytebuffer_1) {
         anInt9941 = rsbytebuffer_1.readInt() * 2094172715 * -1507859325;
         aString9942 = rsbytebuffer_1.readString();
     }
@@ -71,7 +71,7 @@ public class Node_Sub17_Sub5 extends Node_Sub17 {
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
+    void method12249(JagexNode rsbytebuffer_1) {
         anInt9941 = rsbytebuffer_1.readInt() * 2094172715 * -1507859325;
         aString9942 = rsbytebuffer_1.readString();
     }

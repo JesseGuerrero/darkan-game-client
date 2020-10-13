@@ -34,9 +34,9 @@ public class MaterialPropSprite extends MaterialProperty {
     }
 
     @Override
-    void decode(int opcode, ByteBuf buffer) {
+    void decode(int opcode, JagexNode buffer) {
         if (opcode == 0) {
-            spriteId = buffer.readUnsignedShort();
+            spriteId = buffer.readJagexNode();
         }
 
     }

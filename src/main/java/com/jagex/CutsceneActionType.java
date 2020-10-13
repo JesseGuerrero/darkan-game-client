@@ -42,7 +42,7 @@ public class CutsceneActionType {
         anInt4957 = i_2;
     }
 
-    static void decodeWorldList(ByteBuf buffer) {
+    static void decodeWorldList(JagexNode buffer) {
         int size = buffer.readSmart();
         Class354.WORLDS = new World[size];
         for (int i = 0; i < size; i++) {
@@ -72,7 +72,7 @@ public class CutsceneActionType {
         class282_sub50_sub12_2.method14965();
     }
 
-    public static Class350 method6915(ByteBuf rsbytebuffer_0) {
+    public static Class350 method6915(JagexNode rsbytebuffer_0) {
         Class350 class350_2 = Class383.method6512(rsbytebuffer_0);
         int i_3 = rsbytebuffer_0.readInt();
         int i_4 = rsbytebuffer_0.readInt();

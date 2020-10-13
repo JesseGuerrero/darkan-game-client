@@ -10,7 +10,7 @@ public class Class348 {
 
     NodeCollection aClass482_4062 = new NodeCollection();
 
-    public Class348(ByteBuf rsbytebuffer_1) {
+    public Class348(JagexNode rsbytebuffer_1) {
         method6171(rsbytebuffer_1);
     }
 
@@ -61,7 +61,7 @@ public class Class348 {
     }
 
     //details
-    void method6171(ByteBuf rsbytebuffer_1) {
+    void method6171(JagexNode rsbytebuffer_1) {
         aLong4073 = rsbytebuffer_1.readLong();
         anInt4060 = rsbytebuffer_1.readInt();
         for (int i_3 = rsbytebuffer_1.readUnsignedByte(); i_3 != 0; i_3 = rsbytebuffer_1.readUnsignedByte()) {

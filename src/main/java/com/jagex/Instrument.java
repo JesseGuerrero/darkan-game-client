@@ -248,7 +248,7 @@ public class Instrument {
         return amplitude == 1 ? ((table & 0x7fff) < 16384 ? phase : -phase) : (amplitude == 2 ? sine[table & 0x7fff] * phase >> 14 : (amplitude == 3 ? (phase * (table & 0x7fff) >> 14) - phase : (amplitude == 4 ? phase * noise[table / 2607 & 0x7fff] : 0)));
     }
 
-    void decodeInstruments(ByteBuf buffer) {
+    void decodeInstruments(JagexNode buffer) {
         pitch = new Envelope();
         pitch.decode(buffer);
         volume = new Envelope();
@@ -293,8 +293,8 @@ public class Instrument {
 
         delayTime = buffer.readSmart();
         delayDecay = buffer.readSmart();
-        duration = buffer.readUnsignedShort();
-        offset = buffer.readUnsignedShort();
+        duration = buffer.readJagexNode();
+        offset = buffer.readJagexNode();
         filter = new Filter();
         filterEnvelope = new Envelope();
         filter.decode(buffer, filterEnvelope);

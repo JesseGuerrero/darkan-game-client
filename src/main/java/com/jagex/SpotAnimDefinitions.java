@@ -34,7 +34,7 @@ public class SpotAnimDefinitions {
         }
     }
 
-    void method11226(ByteBuf rsbytebuffer_1) {
+    void method11226(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -44,17 +44,17 @@ public class SpotAnimDefinitions {
         }
     }
 
-    void method11227(ByteBuf rsbytebuffer_1, int i_2) {
+    void method11227(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
             defaultModel = rsbytebuffer_1.readBigSmart();
         } else if (i_2 == 2) {
             animationId = rsbytebuffer_1.readBigSmart();
         } else if (i_2 == 4) {
-            anInt6976 = rsbytebuffer_1.readUnsignedShort();
+            anInt6976 = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 5) {
-            anInt6971 = rsbytebuffer_1.readUnsignedShort();
+            anInt6971 = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 6) {
-            anInt6978 = rsbytebuffer_1.readUnsignedShort();
+            anInt6978 = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 7) {
             anInt6979 = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 8) {
@@ -75,7 +75,7 @@ public class SpotAnimDefinitions {
             anInt6980 = rsbytebuffer_1.readUnsignedByte() * 256;
         } else if (i_2 == 15) {
             aByte6982 = 3;
-            anInt6980 = rsbytebuffer_1.readUnsignedShort();
+            anInt6980 = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 16) {
             aByte6982 = 3;
             anInt6980 = rsbytebuffer_1.readInt();
@@ -87,16 +87,16 @@ public class SpotAnimDefinitions {
                 aShortArray6972 = new short[i_4];
                 aShortArray6983 = new short[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    aShortArray6972[i_5] = (short) rsbytebuffer_1.readUnsignedShort();
-                    aShortArray6983[i_5] = (short) rsbytebuffer_1.readUnsignedShort();
+                    aShortArray6972[i_5] = (short) rsbytebuffer_1.readJagexNode();
+                    aShortArray6983[i_5] = (short) rsbytebuffer_1.readJagexNode();
                 }
             } else if (i_2 == 41) {
                 i_4 = rsbytebuffer_1.readUnsignedByte();
                 aShortArray6974 = new short[i_4];
                 aShortArray6975 = new short[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    aShortArray6974[i_5] = (short) rsbytebuffer_1.readUnsignedShort();
-                    aShortArray6975[i_5] = (short) rsbytebuffer_1.readUnsignedShort();
+                    aShortArray6974[i_5] = (short) rsbytebuffer_1.readJagexNode();
+                    aShortArray6975[i_5] = (short) rsbytebuffer_1.readJagexNode();
                 }
             }
         }

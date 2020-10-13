@@ -14,14 +14,14 @@ public class CutsceneAction_Sub11 extends CutsceneAction {
 
     int anInt9304;
 
-    CutsceneAction_Sub11(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub11(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9299 = rsbytebuffer_1.readUnsignedShort();
-        anInt9300 = rsbytebuffer_1.readUnsignedShort();
-        anInt9301 = rsbytebuffer_1.readUnsignedShort();
-        anInt9302 = rsbytebuffer_1.readUnsignedShort();
-        anInt9303 = rsbytebuffer_1.readUnsignedShort();
-        anInt9304 = rsbytebuffer_1.readUnsignedShort();
+        anInt9299 = rsbytebuffer_1.readJagexNode();
+        anInt9300 = rsbytebuffer_1.readJagexNode();
+        anInt9301 = rsbytebuffer_1.readJagexNode();
+        anInt9302 = rsbytebuffer_1.readJagexNode();
+        anInt9303 = rsbytebuffer_1.readJagexNode();
+        anInt9304 = rsbytebuffer_1.readJagexNode();
     }
 
     public void method1601() {

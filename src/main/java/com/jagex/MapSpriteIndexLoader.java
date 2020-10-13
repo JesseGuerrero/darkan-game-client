@@ -83,7 +83,7 @@ public class MapSpriteIndexLoader {
             class418_3 = new MapSpriteDefinitions();
             class418_3.aClass427_4998 = this;
             if (bytes_10 != null) {
-                class418_3.method7008(new ByteBuf(bytes_10));
+                class418_3.method7008(new JagexNode(bytes_10));
             }
             LRUCache softcache_9 = aClass229_5117;
             synchronized (aClass229_5117) {

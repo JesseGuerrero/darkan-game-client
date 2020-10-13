@@ -12,27 +12,27 @@ public class ApplyHitmarkCutsceneAction extends CutsceneAction {
 
     int anInt9372;
 
-    ApplyHitmarkCutsceneAction(ByteBuf rsbytebuffer_1) {
+    ApplyHitmarkCutsceneAction(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9369 = rsbytebuffer_1.readUnsignedShort();
+        anInt9369 = rsbytebuffer_1.readJagexNode();
         int i_2 = rsbytebuffer_1.readUnsignedByte();
         if ((i_2 & 0x1) != 0) {
-            anInt9370 = rsbytebuffer_1.readUnsignedShort();
-            anInt9371 = rsbytebuffer_1.readUnsignedShort();
+            anInt9370 = rsbytebuffer_1.readJagexNode();
+            anInt9371 = rsbytebuffer_1.readJagexNode();
         } else {
             anInt9370 = -1;
             anInt9371 = -1;
         }
         if ((i_2 & 0x2) != 0) {
-            anInt9373 = rsbytebuffer_1.readUnsignedShort();
-            anInt9372 = rsbytebuffer_1.readUnsignedShort();
+            anInt9373 = rsbytebuffer_1.readJagexNode();
+            anInt9372 = rsbytebuffer_1.readJagexNode();
         } else {
             anInt9373 = -1;
             anInt9372 = -1;
         }
         if ((i_2 & 0x4) != 0) {
-            int i_3 = rsbytebuffer_1.readUnsignedShort();
-            int i_4 = rsbytebuffer_1.readUnsignedShort();
+            int i_3 = rsbytebuffer_1.readJagexNode();
+            int i_4 = rsbytebuffer_1.readJagexNode();
             int i_5 = i_3 * 255 / i_4;
             if (i_3 > 0 && i_5 < 1) {
                 boolean bool_6 = true;

@@ -13,7 +13,7 @@ public class CutsceneDefinitions {
             if (data == null) {
                 return false;
             }
-            ByteBuf buffer = new ByteBuf(data);
+            JagexNode buffer = new JagexNode(data);
             readValueLoop(buffer);
             int numAreas = buffer.readUnsignedByte();
             for (int i = 0; i < numAreas; i++) {
@@ -80,7 +80,7 @@ public class CutsceneDefinitions {
         return true;
     }
 
-    static CutsceneAction decodeMiscActions(ByteBuf buffer) {
+    static CutsceneAction decodeMiscActions(JagexNode buffer) {
         int i_2 = buffer.readUnsignedByte();
         CutsceneActionType type = QuickChatMessage.method6156(i_2);
         CutsceneAction action = null;
@@ -176,13 +176,13 @@ public class CutsceneDefinitions {
         return action;
     }
 
-    static void readValueLoop(ByteBuf rsbytebuffer_0) {
+    static void readValueLoop(JagexNode rsbytebuffer_0) {
         while (true) {
             int i_2 = rsbytebuffer_0.readUnsignedByte();
             switch (i_2) {
                 case 0:
-                    Class86.anInt825 = rsbytebuffer_0.readUnsignedShort();
-                    Class86.anInt824 = rsbytebuffer_0.readUnsignedShort();
+                    Class86.anInt825 = rsbytebuffer_0.readJagexNode();
+                    Class86.anInt824 = rsbytebuffer_0.readJagexNode();
                     break;
                 case 255:
                     return;

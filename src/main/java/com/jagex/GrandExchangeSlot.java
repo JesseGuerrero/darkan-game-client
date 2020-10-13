@@ -12,9 +12,9 @@ public class GrandExchangeSlot {
     public GrandExchangeSlot() {
     }
 
-    public GrandExchangeSlot(ByteBuf buffer) {
+    public GrandExchangeSlot(JagexNode buffer) {
         progress = buffer.readByte();
-        itemId = buffer.readUnsignedShort();
+        itemId = buffer.readJagexNode();
         price = buffer.readInt();
         amount = buffer.readInt();
         currentAmount = buffer.readInt();

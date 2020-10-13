@@ -17,11 +17,11 @@ public class SkyboxDefinitions {
         TCPPacket tcpmessage_1 = Class158_Sub2.method14356();
         tcpmessage_1.packet = null;
         tcpmessage_1.anInt7678 = 0;
-        tcpmessage_1.buffer = new ByteBuf.Bit(5000);
+        tcpmessage_1.buffer = new JagexNode.Bit(5000);
         return tcpmessage_1;
     }
 
-    void method3549(ByteBuf rsbytebuffer_1) {
+    void method3549(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -31,13 +31,13 @@ public class SkyboxDefinitions {
         }
     }
 
-    void method3552(ByteBuf buffer, int opcode) {
+    void method3552(JagexNode buffer, int opcode) {
         if (opcode == 1) {
-            anInt2653 = buffer.readUnsignedShort();
+            anInt2653 = buffer.readJagexNode();
         } else if (opcode == 2) {
             anIntArray2655 = new int[buffer.readUnsignedByte()];
             for (int i_4 = 0; i_4 < anIntArray2655.length; i_4++) {
-                anIntArray2655[i_4] = buffer.readUnsignedShort();
+                anIntArray2655[i_4] = buffer.readJagexNode();
             }
         } else if (opcode == 3) {
             anInt2654 = buffer.readUnsignedByte();

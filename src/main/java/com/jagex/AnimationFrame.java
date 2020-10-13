@@ -24,8 +24,8 @@ public class AnimationFrame {
         frameBaseList = frameList;
 
         try {
-            ByteBuf attribBuffer = new ByteBuf(data);
-            ByteBuf transformationBuffer = new ByteBuf(data);
+            JagexNode attribBuffer = new JagexNode(data);
+            JagexNode transformationBuffer = new JagexNode(data);
             attribBuffer.readUnsignedByte();
             attribBuffer.index += 2;
             int count = attribBuffer.readUnsignedByte();

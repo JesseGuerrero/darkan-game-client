@@ -105,7 +105,7 @@ public class MapRegion {
         class282_sub50_sub12_3.string = string_1;
     }
 
-    public static Class350 method4564(ByteBuf rsbytebuffer_0) {
+    public static Class350 method4564(JagexNode rsbytebuffer_0) {
         Class350 class350_2 = Class383.method6512(rsbytebuffer_0);
         int i_3 = rsbytebuffer_0.readInt();
         int i_4 = rsbytebuffer_0.readInt();
@@ -268,7 +268,7 @@ public class MapRegion {
         return anIntArrayArray3186;
     }
 
-    void loadMapSceneDynamic(ByteBuf.Bit buffer) {
+    void loadMapSceneDynamic(JagexNode.Bit buffer) {
         int forceRefresh = buffer.readUnsignedByteC();
         boolean bool_4 = (forceRefresh & 0x1) != 0;
         int type = buffer.readUnsigned128Byte();
@@ -283,8 +283,8 @@ public class MapRegion {
         }
         int mapSize = buffer.readUnsignedByte128();
         int regionY = buffer.readUnsignedShort128();
-        int regionX = buffer.readUnsignedShort();
-        skyboxId = buffer.readUnsignedShort();
+        int regionX = buffer.readJagexNode();
+        skyboxId = buffer.readJagexNode();
         if (!aBool3171) {
             method4457();
         }
@@ -400,10 +400,10 @@ public class MapRegion {
         return sizeY;
     }
 
-    void loadMapSceneNormal(ByteBuf.Bit rsbitsbuffer_1) {
+    void loadMapSceneNormal(JagexNode.Bit rsbitsbuffer_1) {
         int i_2 = rsbitsbuffer_1.readUnsignedByte();
-        int i_3 = rsbitsbuffer_1.readUnsignedShort();
-        int i_4 = rsbitsbuffer_1.readUnsignedShort();
+        int i_3 = rsbitsbuffer_1.readJagexNode();
+        int i_4 = rsbitsbuffer_1.readJagexNode();
         boolean bool_5 = rsbitsbuffer_1.readUnsignedByte() == 1;
         if (!aBool3171) {
             method4457();
@@ -1049,7 +1049,7 @@ public class MapRegion {
         for (i_5 = 0; i_5 < i_4; i_5++) {
             byte[] bytes_6 = bytes_2[i_5];
             if (bytes_6 != null) {
-                ByteBuf rsbytebuffer_7 = new ByteBuf(bytes_6);
+                JagexNode rsbytebuffer_7 = new JagexNode(bytes_6);
                 int i_8 = regionIds[i_5] >> 8;
                 int i_9 = regionIds[i_5] & 0xff;
                 int i_10 = i_8 * 64 - coordGrid.x;
@@ -1091,7 +1091,7 @@ public class MapRegion {
                             int i_12 = (realX / 8 << 8) + realY / 8;
                             for (int i_13 = 0; i_13 < regionIds.length; i_13++) {
                                 if (i_12 == regionIds[i_13] && bytes_2[i_13] != null) {
-                                    ByteBuf rsbytebuffer_14 = new ByteBuf(bytes_2[i_13]);
+                                    JagexNode rsbytebuffer_14 = new JagexNode(bytes_2[i_13]);
                                     class329_sub1_1.method5841(rsbytebuffer_14, i_4, x * 8, y * 8, plane, realX, realY, rotation, clipMaps);
                                     class329_sub1_1.decodeDynamicMap(Renderers.CURRENT_RENDERER, rsbytebuffer_14, i_4, x * 8, y * 8, plane, realX, realY, rotation, skyboxId);
                                     break;
@@ -1150,17 +1150,17 @@ public class MapRegion {
                     client.anIntArray7228[client.anInt7234] = regionIds[i_3];
                     i_4 = ++client.anInt7234 - 1;
                 }
-                ByteBuf rsbytebuffer_18 = new ByteBuf(npcSpawnBuffer[i_3]);
+                JagexNode rsbytebuffer_18 = new JagexNode(npcSpawnBuffer[i_3]);
                 int i_6 = 0;
                 while (rsbytebuffer_18.index < npcSpawnBuffer[i_3].length && i_6 < 511 && client.NPC_UPDATE_INDEX < 1023) {
                     int i_7 = i_4 | i_6++ << 6;
-                    int i_8 = rsbytebuffer_18.readUnsignedShort();
+                    int i_8 = rsbytebuffer_18.readJagexNode();
                     int i_9 = i_8 >> 14;
                     int i_10 = i_8 >> 7 & 0x3f;
                     int i_11 = i_8 & 0x3f;
                     int i_12 = (regionIds[i_3] >> 8) * 64 - coordGrid.x + i_10;
                     int i_13 = (regionIds[i_3] & 0xff) * 64 - coordGrid.y + i_11;
-                    NPCDefinitions npcdefinitions_14 = IndexLoaders.NPC_INDEX_LOADER.getNPCType(rsbytebuffer_18.readUnsignedShort());
+                    NPCDefinitions npcdefinitions_14 = IndexLoaders.NPC_INDEX_LOADER.getNPCType(rsbytebuffer_18.readJagexNode());
                     ObjectNode class282_sub47_15 = (ObjectNode) client.NPC_MAP.get(i_7);
                     if (class282_sub47_15 == null && (npcdefinitions_14.walkMask & 0x1) > 0 && i_12 >= 0 && i_12 + npcdefinitions_14.size < sizeX && i_13 >= 0 && i_13 + npcdefinitions_14.size < sizeY) {
                         NPCEntity npc_16 = new NPCEntity(sceneObjectManager);

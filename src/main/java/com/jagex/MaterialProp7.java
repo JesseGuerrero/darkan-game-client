@@ -285,7 +285,7 @@ public class MaterialProp7 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         switch (i_1) {
             case 0:
                 anInt9895 = rsbytebuffer_2.readUnsignedByte();

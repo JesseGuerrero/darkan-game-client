@@ -30,7 +30,7 @@ public class QuestDefinitions {
         return locShape >= ObjectType.STRAIGHT_SLOPE_ROOF.id && locShape <= ObjectType.STRAIGHT_FLAT_ROOF.id;
     }
 
-    static void writeCRCs(ByteBuf.Bit rsbitsbuffer_0) {
+    static void writeCRCs(JagexNode.Bit rsbitsbuffer_0) {
         rsbitsbuffer_0.writeInt(IndexLoaders.ANIMATION_FRAME_SET_INDEX.getCrc());
         rsbitsbuffer_0.writeInt(IndexLoaders.ANIMATION_FRAME_BASE_INDEX.getCrc());
         rsbitsbuffer_0.writeInt(IndexLoaders.CONFIG_INDEX.getCrc());
@@ -114,7 +114,7 @@ public class QuestDefinitions {
         }
     }
 
-    void method4094(ByteBuf rsbytebuffer_1, int i_2) {
+    void method4094(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
             name = rsbytebuffer_1.readGJString();
         } else if (i_2 == 2) {
@@ -126,7 +126,7 @@ public class QuestDefinitions {
                 i_4 = rsbytebuffer_1.readUnsignedByte();
                 varValues = new int[i_4][3];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    varValues[i_5][0] = rsbytebuffer_1.readUnsignedShort();
+                    varValues[i_5][0] = rsbytebuffer_1.readJagexNode();
                     varValues[i_5][1] = rsbytebuffer_1.readInt();
                     varValues[i_5][2] = rsbytebuffer_1.readInt();
                 }
@@ -134,12 +134,12 @@ public class QuestDefinitions {
                 i_4 = rsbytebuffer_1.readUnsignedByte();
                 varbitValues = new int[i_4][3];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    varbitValues[i_5][0] = rsbytebuffer_1.readUnsignedShort();
+                    varbitValues[i_5][0] = rsbytebuffer_1.readJagexNode();
                     varbitValues[i_5][1] = rsbytebuffer_1.readInt();
                     varbitValues[i_5][2] = rsbytebuffer_1.readInt();
                 }
             } else if (i_2 == 5) {
-                rsbytebuffer_1.readUnsignedShort();
+                rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 6) {
                 type = rsbytebuffer_1.readUnsignedByte();
             } else if (i_2 == 7) {
@@ -160,7 +160,7 @@ public class QuestDefinitions {
                 i_4 = rsbytebuffer_1.readUnsignedByte();
                 questPrerequisiteIds = new int[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    questPrerequisiteIds[i_5] = rsbytebuffer_1.readUnsignedShort();
+                    questPrerequisiteIds[i_5] = rsbytebuffer_1.readJagexNode();
                 }
             } else if (i_2 == 14) {
                 i_4 = rsbytebuffer_1.readUnsignedByte();
@@ -170,7 +170,7 @@ public class QuestDefinitions {
                     levelRequirements[i_5][1] = rsbytebuffer_1.readUnsignedByte();
                 }
             } else if (i_2 == 15) {
-                questpointRequirement = rsbytebuffer_1.readUnsignedShort();
+                questpointRequirement = rsbytebuffer_1.readJagexNode();
             } else if (i_2 == 17) {
                 graphicId = rsbytebuffer_1.readBigSmart();
             } else if (i_2 == 18) {
@@ -301,7 +301,7 @@ public class QuestDefinitions {
         return (levelRequirements != null && i_2 >= 0 && i_2 < levelRequirements.length) && ints_1[levelRequirements[i_2][0]] >= levelRequirements[i_2][1];
     }
 
-    void method4119(ByteBuf rsbytebuffer_1) {
+    void method4119(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

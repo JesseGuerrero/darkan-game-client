@@ -10,10 +10,10 @@ public class CutsceneAction_Sub22 extends CutsceneAction {
 
     int anInt9441;
 
-    CutsceneAction_Sub22(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub22(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9442 = rsbytebuffer_1.readUnsignedShort();
-        anInt9439 = rsbytebuffer_1.readUnsignedShort();
+        anInt9442 = rsbytebuffer_1.readJagexNode();
+        anInt9439 = rsbytebuffer_1.readJagexNode();
         anInt9441 = rsbytebuffer_1.readUnsignedByte();
     }
 

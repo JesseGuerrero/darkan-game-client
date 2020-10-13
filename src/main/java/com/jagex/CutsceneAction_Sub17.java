@@ -12,13 +12,13 @@ public class CutsceneAction_Sub17 extends CutsceneAction {
 
     int anInt9389;
 
-    CutsceneAction_Sub17(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub17(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9385 = rsbytebuffer_1.readUnsignedShort();
-        anInt9386 = rsbytebuffer_1.readUnsignedShort();
+        anInt9385 = rsbytebuffer_1.readJagexNode();
+        anInt9386 = rsbytebuffer_1.readJagexNode();
         aString9387 = rsbytebuffer_1.readString();
         anInt9388 = rsbytebuffer_1.readInt();
-        anInt9389 = rsbytebuffer_1.readUnsignedShort();
+        anInt9389 = rsbytebuffer_1.readJagexNode();
     }
 
     public static void method14656(int i_0) {

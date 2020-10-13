@@ -77,13 +77,13 @@ public class Node_Sub17_Sub3 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
+    void method12250(JagexNode rsbytebuffer_1) {
         aString9935 = rsbytebuffer_1.readString();
         rsbytebuffer_1.readInt();
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
+    void method12257(JagexNode rsbytebuffer_1) {
         aString9935 = rsbytebuffer_1.readString();
         rsbytebuffer_1.readInt();
     }
@@ -94,7 +94,7 @@ public class Node_Sub17_Sub3 extends Node_Sub17 {
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
+    void method12253(JagexNode rsbytebuffer_1) {
         aString9935 = rsbytebuffer_1.readString();
         rsbytebuffer_1.readInt();
     }
@@ -115,7 +115,7 @@ public class Node_Sub17_Sub3 extends Node_Sub17 {
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
+    void method12249(JagexNode rsbytebuffer_1) {
         aString9935 = rsbytebuffer_1.readString();
         rsbytebuffer_1.readInt();
     }

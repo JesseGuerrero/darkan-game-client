@@ -14,8 +14,8 @@ public class IterableNodeMap<T> implements Iterable<T> {
     public IterableNodeMap(int size) {
         this.size = size;
         nodes = new Node[size];
-        for (int i_2 = 0; i_2 < size; i_2++) {
-            Node<T> node_3 = nodes[i_2] = new Node<T>();
+        for (int i = 0; i < size; i++) {
+            Node<T> node_3 = nodes[i] = new Node<T>();
             node_3.next = node_3;
             node_3.previous = node_3;
         }

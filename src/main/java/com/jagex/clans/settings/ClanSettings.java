@@ -30,7 +30,7 @@ public class ClanSettings {
     public boolean useHashes;
     public boolean useNames;
 
-    public ClanSettings(ByteBuf rsbytebuffer_1) {
+    public ClanSettings(JagexNode rsbytebuffer_1) {
         decode(rsbytebuffer_1);
     }
 
@@ -412,7 +412,7 @@ public class ClanSettings {
         }
     }
 
-    public void decode(ByteBuf buffer) {
+    public void decode(JagexNode buffer) {
         int version = buffer.readUnsignedByte();
         if (version >= 1 && version <= 5) {
             int attr = buffer.readUnsignedByte();
@@ -435,7 +435,7 @@ public class ClanSettings {
             if (version <= 3 && anInt623 != 0) {
                 anInt623 += 16912800;
             }
-            memberCount = buffer.readUnsignedShort();
+            memberCount = buffer.readJagexNode();
             banCount = buffer.readUnsignedByte();
             clanName = buffer.readString();
             if (version >= 4) {
@@ -475,7 +475,7 @@ public class ClanSettings {
                         anIntArray633[i_5] = buffer.readInt();
                     }
                     if (version >= 5) {
-                        anIntArray634[i_5] = buffer.readUnsignedShort();
+                        anIntArray634[i_5] = buffer.readJagexNode();
                     } else {
                         anIntArray634[i_5] = 0;
                     }
@@ -499,7 +499,7 @@ public class ClanSettings {
                 }
             }
             if (version >= 3) {
-                i_5 = buffer.readUnsignedShort();
+                i_5 = buffer.readJagexNode();
                 if (i_5 > 0) {
                     variables = new IterableNodeMap<>(i_5 < 16 ? Utils.nextPowerOfTwo(i_5) : 16);
                     while (i_5-- > 0) {

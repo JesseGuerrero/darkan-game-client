@@ -68,7 +68,7 @@ public class IdentikitDefinition implements Definition {
         return rsmesh_8;
     }
 
-    void method897(ByteBuf buffer, int opcode) {
+    void method897(JagexNode buffer, int opcode) {
         if (opcode == 1) {
             buffer.readUnsignedByte();
         } else if (opcode == 2) {
@@ -82,16 +82,16 @@ public class IdentikitDefinition implements Definition {
             originalColours = new short[count];
             replacementColours = new short[count];
             for (int i_5 = 0; i_5 < count; i_5++) {
-                originalColours[i_5] = (short) buffer.readUnsignedShort();
-                replacementColours[i_5] = (short) buffer.readUnsignedShort();
+                originalColours[i_5] = (short) buffer.readJagexNode();
+                replacementColours[i_5] = (short) buffer.readJagexNode();
             }
         } else if (opcode == 41) {
             int count = buffer.readUnsignedByte();
             originalTextures = new short[count];
             replacementTextures = new short[count];
             for (int i_5 = 0; i_5 < count; i_5++) {
-                originalTextures[i_5] = (short) buffer.readUnsignedShort();
-                replacementTextures[i_5] = (short) buffer.readUnsignedShort();
+                originalTextures[i_5] = (short) buffer.readJagexNode();
+                replacementTextures[i_5] = (short) buffer.readJagexNode();
             }
         } else if (opcode >= 60 && opcode < 70) {
             headModels[opcode - 60] = buffer.readBigSmart();
@@ -171,7 +171,7 @@ public class IdentikitDefinition implements Definition {
         }
     }
 
-    void method909(ByteBuf rsbytebuffer_1) {
+    void method909(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

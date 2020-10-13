@@ -12,8 +12,8 @@ public class RemoveMemberSetting extends ClanSetting {
     }
 
     @Override
-    public void readSettings(ByteBuf buffer) {
-        index = buffer.readUnsignedShort();
+    public void readSettings(JagexNode buffer) {
+        index = buffer.readJagexNode();
         buffer.readUnsignedByte();
         if (buffer.readUnsignedByte() != 255) {
             --buffer.index;

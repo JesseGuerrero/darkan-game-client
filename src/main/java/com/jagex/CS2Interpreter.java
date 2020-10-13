@@ -4940,7 +4940,7 @@ public class CS2Interpreter {
     }
 
     static void pushLong(CS2Executor executor) {
-        executor.longStack[++executor.longStackPtr - 1] = executor.current.longOpValues[executor.instrPtr];
+        executor.longStack[++executor.longStackPtr - 1] = executor.current.longOperationIndex[executor.instrPtr];
     }
 
     static void method5915(CS2Executor executor) {
@@ -6717,7 +6717,7 @@ public class CS2Interpreter {
             CS2ReturnValue class509_2 = executor.returnValues[--executor.returnValuesPtr];
             executor.current = class509_2.aCacheableNode_Sub5_5869;
             executor.operations = executor.current.operations;
-            executor.intOpValues = executor.current.intOpValues;
+            executor.intOpValues = executor.current.intOperationIndex;
             executor.instrPtr = class509_2.anInt5866;
             executor.intLocals = class509_2.anIntArray5867;
             executor.objectLocals = class509_2.anObjectArray5865;
@@ -6786,7 +6786,7 @@ public class CS2Interpreter {
                 executor.returnValues[++executor.returnValuesPtr - 1] = class509_8;
                 executor.current = cs2script_3;
                 executor.operations = executor.current.operations;
-                executor.intOpValues = executor.current.intOpValues;
+                executor.intOpValues = executor.current.intOperationIndex;
                 executor.instrPtr = -1;
                 executor.intLocals = ints_4;
                 executor.objectLocals = arr_5;
@@ -8933,7 +8933,7 @@ public class CS2Interpreter {
     }
 
     static void pushString(CS2Executor executor) {
-        executor.stringStack[++executor.stringStackPtr - 1] = executor.current.stringOpValues[executor.instrPtr];
+        executor.stringStack[++executor.stringStackPtr - 1] = executor.current.stringOperationIndex[executor.instrPtr];
     }
 
     static void method1801(CS2Executor executor) {
@@ -9656,7 +9656,7 @@ public class CS2Interpreter {
             packet.buffer.writeShort(0);
             int startIndex = packet.buffer.index;
             packet.buffer.writeString(targetName);
-            ByteBuf.writeHuffmanString(packet.buffer, message);
+            JagexNode.writeHuffmanString(packet.buffer, message);
             packet.buffer.method13281(packet.buffer.index - startIndex);
             context.queuePacket(packet);
         }
@@ -10112,7 +10112,7 @@ public class CS2Interpreter {
             int i_8 = packet.buffer.index;
             packet.buffer.writeByte(b_4);
             packet.buffer.writeByte(b_5);
-            ByteBuf.writeHuffmanString(packet.buffer, string_2);
+            JagexNode.writeHuffmanString(packet.buffer, string_2);
             packet.buffer.writeIndex(packet.buffer.index - i_8);
             context.queuePacket(packet);
         }

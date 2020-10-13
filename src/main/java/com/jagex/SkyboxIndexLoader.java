@@ -48,7 +48,7 @@ public class SkyboxIndexLoader {
                     if (bytes_8 != null) {
                         IComponentDefinitions component = interfaceObj.components[i] = new IComponentDefinitions();
                         component.idHash = i + (interfaceId << 16);
-                        component.readValues(new ByteBuf(bytes_8));
+                        component.readValues(new JagexNode(bytes_8));
 
 
                         /*
@@ -58,15 +58,15 @@ public class SkyboxIndexLoader {
                         * 906 Lobby interface
                         * */
 
-                        if(interfaceId == 499 && component.type == ComponentType.CONTAINER) {
-                            System.out.println(i + " : " + component.slotChildren);
+                        if(interfaceId == 667 && component.type == ComponentType.CONTAINER && component.onLoadScript != null) {
+//                            System.out.println(i + " : ;;;" + component.onLoadScript[0]);
                             if(i == 6) {
 //                                component.hidden = true;
                             }
                         }
 
                         if(interfaceId == 667) {
-                            if(component.type == ComponentType.FIGURE) {
+                            if(component.type == ComponentType.CONTAINER) {
 
 
 //                                System.out.println(i);
@@ -88,6 +88,7 @@ public class SkyboxIndexLoader {
                             component.basePositionY = 0;
                             component.baseHeight = 0;
                             component.hidden = false;
+                            Loader.inGame = true;
                         }
 
                         //if we are in the login screen
@@ -128,7 +129,7 @@ public class SkyboxIndexLoader {
 
                 }
             }
-            if(interfaceId == 499) {
+            if(interfaceId == 667) {
                 interfaceObj = interfaceObj;
 
             }
@@ -173,7 +174,7 @@ public class SkyboxIndexLoader {
             }
             class207_3 = new SkyboxDefinitions();
             if (bytes_10 != null) {
-                class207_3.method3549(new ByteBuf(bytes_10));
+                class207_3.method3549(new JagexNode(bytes_10));
             }
             LRUCache softcache_9 = aClass229_3437;
             synchronized (aClass229_3437) {

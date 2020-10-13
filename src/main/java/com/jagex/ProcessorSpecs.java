@@ -27,7 +27,7 @@ public class ProcessorSpecs {
     }
 
     static int[] method7725(TCPPacket tcpmessage_0) {
-        ByteBuf rsbytebuffer_2 = new ByteBuf(518);
+        JagexNode rsbytebuffer_2 = new JagexNode(518);
         int[] ints_3 = new int[4];
         int i_4;
         for (i_4 = 0; i_4 < 4; i_4++) {

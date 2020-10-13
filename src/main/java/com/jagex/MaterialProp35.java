@@ -43,9 +43,9 @@ public class MaterialProp35 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
-            anInt9886 = rsbytebuffer_2.readUnsignedShort();
+            anInt9886 = rsbytebuffer_2.readJagexNode();
         }
 
     }

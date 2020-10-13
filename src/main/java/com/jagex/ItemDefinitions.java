@@ -231,7 +231,7 @@ public class ItemDefinitions implements Definition {
     void postDecode() {
     }
 
-    void decode(ByteBuf rsbytebuffer_1) {
+    void decode(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -306,24 +306,24 @@ public class ItemDefinitions implements Definition {
         stackable = 1;
     }
 
-    void decode(ByteBuf stream, int opcode) {
+    void decode(JagexNode stream, int opcode) {
         if (opcode == 1) {
             modelId = stream.readBigSmart();
         } else if (opcode == 2) {
             name = stream.readString();
         } else if (opcode == 4) {
-            modelZoom = stream.readUnsignedShort();
+            modelZoom = stream.readJagexNode();
         } else if (opcode == 5) {
-            modelRotationX = stream.readUnsignedShort();
+            modelRotationX = stream.readJagexNode();
         } else if (opcode == 6) {
-            modelRotationY = stream.readUnsignedShort();
+            modelRotationY = stream.readJagexNode();
         } else if (opcode == 7) {
-            modelOffsetX = stream.readUnsignedShort();
+            modelOffsetX = stream.readJagexNode();
             if (modelOffsetX > 32767) {
                 modelOffsetX -= 65536;
             }
         } else if (opcode == 8) {
-            modelOffsetY = stream.readUnsignedShort();
+            modelOffsetY = stream.readJagexNode();
             if (modelOffsetY > 32767) {
                 modelOffsetY -= 65536;
             }
@@ -338,7 +338,7 @@ public class ItemDefinitions implements Definition {
         } else if (opcode == 16) {
             membersOnly = true;
         } else if (opcode == 18) {
-            multiStackSize = stream.readUnsignedShort();
+            multiStackSize = stream.readJagexNode();
         } else if (opcode == 23) {
             maleEquip1 = stream.readBigSmart();
         } else if (opcode == 24) {
@@ -361,16 +361,16 @@ public class ItemDefinitions implements Definition {
                 originalModelColors = new short[i_4];
                 modifiedModelColors = new short[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    originalModelColors[i_5] = (short) stream.readUnsignedShort();
-                    modifiedModelColors[i_5] = (short) stream.readUnsignedShort();
+                    originalModelColors[i_5] = (short) stream.readJagexNode();
+                    modifiedModelColors[i_5] = (short) stream.readJagexNode();
                 }
             } else if (opcode == 41) {
                 i_4 = stream.readUnsignedByte();
                 originalTextureIds = new short[i_4];
                 modifiedTextureIds = new short[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    originalTextureIds[i_5] = (short) stream.readUnsignedShort();
-                    modifiedTextureIds[i_5] = (short) stream.readUnsignedShort();
+                    originalTextureIds[i_5] = (short) stream.readJagexNode();
+                    modifiedTextureIds[i_5] = (short) stream.readJagexNode();
                 }
             } else if (opcode == 42) {
                 i_4 = stream.readUnsignedByte();
@@ -396,26 +396,26 @@ public class ItemDefinitions implements Definition {
             } else if (opcode == 93) {
                 femaleHead2 = stream.readBigSmart();
             } else if (opcode == 95) {
-                modelRotationZ = stream.readUnsignedShort();
+                modelRotationZ = stream.readJagexNode();
             } else if (opcode == 96) {
                 unknownInt6 = stream.readUnsignedByte();
             } else if (opcode == 97) {
-                certId = stream.readUnsignedShort();
+                certId = stream.readJagexNode();
             } else if (opcode == 98) {
-                certTemplateId = stream.readUnsignedShort();
+                certTemplateId = stream.readJagexNode();
             } else if (opcode >= 100 && opcode < 110) {
                 if (stackIds == null) {
                     stackIds = new int[10];
                     stackAmounts = new int[10];
                 }
-                stackIds[opcode - 100] = stream.readUnsignedShort();
-                stackAmounts[opcode - 100] = stream.readUnsignedShort();
+                stackIds[opcode - 100] = stream.readJagexNode();
+                stackAmounts[opcode - 100] = stream.readJagexNode();
             } else if (opcode == 110) {
-                resizeX = stream.readUnsignedShort();
+                resizeX = stream.readJagexNode();
             } else if (opcode == 111) {
-                resizeY = stream.readUnsignedShort();
+                resizeY = stream.readJagexNode();
             } else if (opcode == 112) {
-                resizeZ = stream.readUnsignedShort();
+                resizeZ = stream.readJagexNode();
             } else if (opcode == 113) {
                 ambient = stream.readByte();
             } else if (opcode == 114) {
@@ -423,9 +423,9 @@ public class ItemDefinitions implements Definition {
             } else if (opcode == 115) {
                 teamId = stream.readUnsignedByte();
             } else if (opcode == 121) {
-                lendId = stream.readUnsignedShort();
+                lendId = stream.readJagexNode();
             } else if (opcode == 122) {
-                lendTemplateId = stream.readUnsignedShort();
+                lendTemplateId = stream.readJagexNode();
             } else if (opcode == 125) {
                 maleWearXOffset = stream.readByte() << 2;
                 maleWearYOffset = stream.readByte() << 2;
@@ -436,28 +436,28 @@ public class ItemDefinitions implements Definition {
                 femaleWearZOffset = stream.readByte() << 2;
             } else if (opcode == 127) {
                 unknownInt18 = stream.readUnsignedByte();
-                unknownInt19 = stream.readUnsignedShort();
+                unknownInt19 = stream.readJagexNode();
             } else if (opcode == 128) {
                 unknownInt20 = stream.readUnsignedByte();
-                unknownInt21 = stream.readUnsignedShort();
+                unknownInt21 = stream.readJagexNode();
             } else if (opcode == 129) {
                 customCursorOp1 = stream.readUnsignedByte();
-                customCursorId1 = stream.readUnsignedShort();
+                customCursorId1 = stream.readJagexNode();
             } else if (opcode == 130) {
                 customCursorOp2 = stream.readUnsignedByte();
-                customCursorId2 = stream.readUnsignedShort();
+                customCursorId2 = stream.readJagexNode();
             } else if (opcode == 132) {
                 i_4 = stream.readUnsignedByte();
                 quests = new int[i_4];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
-                    quests[i_5] = stream.readUnsignedShort();
+                    quests[i_5] = stream.readJagexNode();
                 }
             } else if (opcode == 134) {
                 pickSizeShift = stream.readUnsignedByte();
             } else if (opcode == 139) {
-                bindId = stream.readUnsignedShort();
+                bindId = stream.readJagexNode();
             } else if (opcode == 140) {
-                bindTemplateId = stream.readUnsignedShort();
+                bindTemplateId = stream.readJagexNode();
             } else if (opcode == 249) {
                 i_4 = stream.readUnsignedByte();
                 if (cs2Map == null) {

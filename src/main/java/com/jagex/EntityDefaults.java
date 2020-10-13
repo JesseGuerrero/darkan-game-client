@@ -22,10 +22,10 @@ public class EntityDefaults {
     public short[][][] replacementColours;
 
     public EntityDefaults(Index index_1) {
-        decode(new ByteBuf(index_1.getFile(DefaultsFile.ENTITY.fileId)));
+        decode(new JagexNode(index_1.getFile(DefaultsFile.ENTITY.fileId)));
     }
 
-    void decode(ByteBuf buffer) {
+    void decode(JagexNode buffer) {
         boolean loadedOffsets = false;
         while (true) {
             int opcode = buffer.readUnsignedByte();
@@ -71,15 +71,15 @@ public class EntityDefaults {
                 replacementColours = new short[10][4][];
                 for (int i_5 = 0; i_5 < 10; i_5++) {
                     for (int i_6 = 0; i_6 < 4; i_6++) {
-                        int i_7 = buffer.readUnsignedShort();
+                        int i_7 = buffer.readJagexNode();
                         if (i_7 == 65535) {
                             i_7 = -1;
                         }
                         originalColours[i_5][i_6] = (short) i_7;
-                        int i_8 = buffer.readUnsignedShort();
+                        int i_8 = buffer.readJagexNode();
                         replacementColours[i_5][i_6] = new short[i_8];
                         for (int i_9 = 0; i_9 < i_8; i_9++) {
-                            int i_10 = buffer.readUnsignedShort();
+                            int i_10 = buffer.readJagexNode();
                             if (i_10 == 65535) {
                                 i_10 = -1;
                             }
@@ -96,8 +96,8 @@ public class EntityDefaults {
             } else if (opcode == 11) {
                 playerMessageDuration = buffer.readUnsignedByte();
             } else if (opcode == 12) {
-                anInt7045 = buffer.readUnsignedShort();
-                anInt7046 = buffer.readUnsignedShort();
+                anInt7045 = buffer.readJagexNode();
+                anInt7046 = buffer.readJagexNode();
             } else if (opcode == 13) {
                 anInt7032 = buffer.readUnsignedByte();
             } else if (opcode == 14) {

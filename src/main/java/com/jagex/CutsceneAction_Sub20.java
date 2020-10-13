@@ -2,13 +2,13 @@ package com.jagex;
 
 public class CutsceneAction_Sub20 extends CutsceneAction {
 
-    static ByteBuf WORLD_LIST_BUFFER;
+    static JagexNode WORLD_LIST_BUFFER;
 
     int anInt9414;
 
-    CutsceneAction_Sub20(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub20(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9414 = rsbytebuffer_1.readUnsignedShort();
+        anInt9414 = rsbytebuffer_1.readJagexNode();
     }
 
     public static Class466 method14668() {

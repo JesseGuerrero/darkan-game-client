@@ -190,9 +190,9 @@ public class HitbarDefinitions {
         }
     }
 
-    void method3206(ByteBuf stream, int opcode) {
+    void method3206(JagexNode stream, int opcode) {
         if (opcode == 1) {
-            stream.readUnsignedShort();
+            stream.readJagexNode();
         } else if (opcode == 2) {
             anInt2446 = stream.readUnsignedByte();
         } else if (opcode == 3) {
@@ -200,7 +200,7 @@ public class HitbarDefinitions {
         } else if (opcode == 4) {
             anInt2439 = 0;
         } else if (opcode == 5) {
-            anInt2443 = stream.readUnsignedShort();
+            anInt2443 = stream.readJagexNode();
         } else if (opcode == 6) {
             stream.readUnsignedByte();
         } else if (opcode == 7) {
@@ -212,7 +212,7 @@ public class HitbarDefinitions {
         } else if (opcode == 10) {
             anInt2447 = stream.readBigSmart();
         } else if (opcode == 11) {
-            anInt2439 = stream.readUnsignedShort();
+            anInt2439 = stream.readJagexNode();
         }
     }
 
@@ -242,7 +242,7 @@ public class HitbarDefinitions {
         }
     }
 
-    void method3210(ByteBuf rsbytebuffer_1) {
+    void method3210(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

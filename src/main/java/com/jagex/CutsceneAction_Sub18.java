@@ -12,9 +12,9 @@ public class CutsceneAction_Sub18 extends CutsceneAction {
 
     int anInt9398;
 
-    CutsceneAction_Sub18(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub18(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9395 = rsbytebuffer_1.readUnsignedShort();
+        anInt9395 = rsbytebuffer_1.readJagexNode();
         anIntArray9397 = new int[MoveSpeed.values().length];
         anInt9396 = rsbytebuffer_1.readBigSmart();
         Arrays.fill(anIntArray9397, 0, anIntArray9397.length, anInt9396);

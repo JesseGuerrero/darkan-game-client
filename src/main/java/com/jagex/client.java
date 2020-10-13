@@ -2310,7 +2310,7 @@ public class client extends Engine {
 				if (updateStage == 1) {
 					Class47_Sub1.updateConnection = SunDefinitions.createAsyncConnection(MaterialProp8.clientSocket, 125000);
 					int length = 13 + aString7164.length();
-					ByteBuf stream = new ByteBuf(length + 4);
+					JagexNode stream = new JagexNode(length + 4);
 					stream.writeByte(LoginProt.INIT_JS5REMOTE_CONNECTION.id);
 					stream.writeByte(length);
 					stream.writeInt(Loader.CLIENT_BUILD);
@@ -2347,7 +2347,7 @@ public class client extends Engine {
 					Class446[] arr_10 = Class446.method7436();
 					reponse = arr_10.length * 4;
 					if (Class47_Sub1.updateConnection.available(reponse)) {
-						ByteBuf rsbytebuffer_4 = new ByteBuf(reponse);
+						JagexNode rsbytebuffer_4 = new JagexNode(reponse);
 						Class47_Sub1.updateConnection.read(rsbytebuffer_4.buffer, 0, rsbytebuffer_4.buffer.length);
 
 						for (int i_5 = 0; i_5 < arr_10.length; i_5++) {

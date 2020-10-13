@@ -10,7 +10,7 @@ public class Class506 {
         throw new Error();
     }
 
-    public static MeshModifier decodeItemEffects(ItemDefinitions defs, ByteBuf stream) {
+    public static MeshModifier decodeItemEffects(ItemDefinitions defs, JagexNode stream) {
         MeshModifier meshModifier = new MeshModifier(defs);
         int flags = stream.readUnsignedByte();
         boolean bodyModels = (flags & 0x1) != 0;
@@ -38,11 +38,11 @@ public class Class506 {
             }
         }
         if (colors) {
-            int slotHash = stream.readUnsignedShort();
+            int slotHash = stream.readJagexNode();
             int[] slots = {slotHash & 0xf, slotHash >> 4 & 0xf, slotHash >> 8 & 0xf, slotHash >> 12 & 0xf};
             for (int i = 0; i < 4; i++) {
                 if (slots[i] != 15) {
-                    meshModifier.modifiedColors[slots[i]] = (short) stream.readUnsignedShort();
+                    meshModifier.modifiedColors[slots[i]] = (short) stream.readJagexNode();
                 }
             }
         }
@@ -51,7 +51,7 @@ public class Class506 {
             int[] slots = {slotHash & 0xf, slotHash >> 4 & 0xf};
             for (int i = 0; i < 2; i++) {
                 if (slots[i] != 15) {
-                    meshModifier.modifiedTextures[slots[i]] = (short) stream.readUnsignedShort();
+                    meshModifier.modifiedTextures[slots[i]] = (short) stream.readJagexNode();
                 }
             }
         }

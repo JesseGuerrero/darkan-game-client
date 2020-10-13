@@ -813,7 +813,7 @@ public class PlayerEntity extends PathingEntity {
         return null;
     }
 
-    public void decodeAppearance(ByteBuf buffer) {
+    public void decodeAppearance(JagexNode buffer) {
         buffer.index = 0;
         int flags = buffer.readUnsignedByte();
         male = (byte) (flags & 0x1);
@@ -889,7 +889,7 @@ public class PlayerEntity extends PathingEntity {
         }
 
         if (i_10 == -1) {
-            i = buffer.readUnsignedShort();
+            i = buffer.readJagexNode();
             i_15 = 0;
 
             for (i_16 = 0; i_16 < LinkedNodeList.EQUIPMENT_DEFAULTS.hidden.length; i_16++) {
@@ -914,7 +914,7 @@ public class PlayerEntity extends PathingEntity {
             ints_21[i_15] = i_16;
         }
 
-        renderEmote = buffer.readUnsignedShort();
+        renderEmote = buffer.readJagexNode();
         username = buffer.readString();
         displayName = username;
         if (this == VertexNormal.MY_PLAYER) {
@@ -923,7 +923,7 @@ public class PlayerEntity extends PathingEntity {
 
         combatLevel = buffer.readUnsignedByte();
         if (showElo) {
-            elo = buffer.readUnsignedShort();
+            elo = buffer.readJagexNode();
             if (elo == 65535) {
                 elo = -1;
             }
@@ -947,10 +947,10 @@ public class PlayerEntity extends PathingEntity {
             i_18 = rotate90RightAnimation;
             int i_19 = rotate90LeftAnimation;
             int i_20 = specialByte;
-            walkingAnimation = buffer.readUnsignedShort();
-            rotate180Animation = buffer.readUnsignedShort();
-            rotate90RightAnimation = buffer.readUnsignedShort();
-            rotate90LeftAnimation = buffer.readUnsignedShort();
+            walkingAnimation = buffer.readJagexNode();
+            rotate180Animation = buffer.readJagexNode();
+            rotate90RightAnimation = buffer.readJagexNode();
+            rotate90LeftAnimation = buffer.readJagexNode();
             specialByte = buffer.readUnsignedByte();
             if (transformedBefore != isTransformedNPC || i_15 != isNpc || i_16 != walkingAnimation || itemId != rotate180Animation || i_18 != rotate90RightAnimation || i_19 != rotate90LeftAnimation || i_20 != specialByte) {
                 Static.method6379(this);

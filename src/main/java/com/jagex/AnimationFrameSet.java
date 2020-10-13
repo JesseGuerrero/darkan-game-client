@@ -57,9 +57,9 @@ public class AnimationFrameSet extends CacheableNode {
 
             for (int i_11 = 0; i_11 < frameData.length; i_11++) {
                 byte[] bytes_12 = frameData[i_11];
-                ByteBuf buffer = new ByteBuf(bytes_12);
+                JagexNode buffer = new JagexNode(bytes_12);
                 buffer.index = 1;
-                int frameId = buffer.readUnsignedShort();
+                int frameId = buffer.readJagexNode();
                 synchronized (ANIMATION_FRAME_INDEX) {
                     loaded &= ANIMATION_FRAME_INDEX.loadFile(frameId);
                 }
@@ -78,9 +78,9 @@ public class AnimationFrameSet extends CacheableNode {
 
                 for (int i = 0; i < fileIds.length; i++) {
                     byte[] frameData = this.frameData[i];
-                    ByteBuf frameBuffer = new ByteBuf(frameData);
+                    JagexNode frameBuffer = new JagexNode(frameData);
                     frameBuffer.index = 1;
-                    int frameId = frameBuffer.readUnsignedShort();
+                    int frameId = frameBuffer.readJagexNode();
                     AnimationFrameBase frameBase = null;
 
                     for (AnimationFrameBase iter = (AnimationFrameBase) frameBaseList.getBack(); iter != null; iter = (AnimationFrameBase) frameBaseList.getPrevious()) {

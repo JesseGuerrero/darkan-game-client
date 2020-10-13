@@ -14,7 +14,7 @@ public class RenderFlagMap {
 
     public static int decodeLandscapeData(LocationIndexLoader objectindexloader_0, byte[] bytes_1, int i_2, int i_3, int i_4, int i_5) {
         int i_7 = 0;
-        ByteBuf rsbytebuffer_8 = new ByteBuf(bytes_1);
+        JagexNode rsbytebuffer_8 = new JagexNode(bytes_1);
         int i_9 = -1;
         label56:
         while (true) {

@@ -10,7 +10,7 @@ public class EquipmentDefaults {
 
     public EquipmentDefaults(Index index_1) {
         byte[] bytes_2 = index_1.getFile(DefaultsFile.EQUIPMENT.fileId);
-        decode(new ByteBuf(bytes_2));
+        decode(new JagexNode(bytes_2));
         if (hidden == null) {
             throw new RuntimeException("");
         }
@@ -43,7 +43,7 @@ public class EquipmentDefaults {
         client.aBool7185 = true;
     }
 
-    void decode(ByteBuf buffer) {
+    void decode(JagexNode buffer) {
         while (true) {
             int opcode = buffer.readUnsignedByte();
             if (opcode == 0) {

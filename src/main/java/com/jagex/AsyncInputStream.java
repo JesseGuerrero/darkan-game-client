@@ -67,20 +67,24 @@ public class AsyncInputStream implements Runnable {
         return null;
     }
 
-    static CS2Script getCS2Script(int i_0) {
-        CS2Script cs2script_1 = (CS2Script) Class506.CS2_CACHE.get(i_0);
-        if (cs2script_1 != null) {
-            return cs2script_1;
+    static CS2Script getCS2Script(int scriptId) {
+        CS2Script script = (CS2Script) Class506.CS2_CACHE.get(scriptId);
+        if (script != null) {
+            return script;
         } else {
-            byte[] bytes_2 = IndexLoaders.CS2_SCRIPTS_INDEX.getFile(i_0, 0);
-            if (bytes_2 != null && bytes_2.length > 1) {
+            byte[] scriptInfo = IndexLoaders.CS2_SCRIPTS_INDEX.getFile(scriptId, 0);//script 4256 only has 2 operations.. return & return
+            if (scriptInfo != null && scriptInfo.length > 1) {
                 try {
-                    cs2script_1 = AbstractRenderer.method8699(bytes_2);
+                    script = AbstractRenderer.unpackScript(scriptInfo);
+                    if(scriptId == 787) {
+                        scriptId = scriptId;
+                    }
+
                 } catch (Exception exception_4) {
-                    throw new RuntimeException(exception_4.getMessage() + " " + i_0);
+                    throw new RuntimeException(exception_4.getMessage() + " " + scriptId);
                 }
-                Class506.CS2_CACHE.put(cs2script_1, i_0);
-                return cs2script_1;
+                Class506.CS2_CACHE.put(script, scriptId);
+                return script;
             } else {
                 return null;
             }

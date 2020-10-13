@@ -142,8 +142,8 @@ public class Index {
         aClass327_3690.method5805(i_1);
     }
 
-    public byte[] getFile(int i_1, int i_2) {
-        return getFile(i_1, i_2, null);
+    public byte[] getFile(int scriptId, int i_2) {
+        return getFile(scriptId, i_2, null);
     }
 
     public boolean validFile(String string_1) {
@@ -385,7 +385,7 @@ public class Index {
                     bytes_22 = QuickChatMessage.method6154(archives[i_1], false);
                 } else {
                     bytes_22 = QuickChatMessage.method6154(archives[i_1], true);
-                    ByteBuf rsbytebuffer_23 = new ByteBuf(bytes_22);
+                    JagexNode rsbytebuffer_23 = new JagexNode(bytes_22);
                     rsbytebuffer_23.method13249(ints_3, rsbytebuffer_23.buffer.length);
                 }
                 byte[] bytes_27 = Node_Sub17_Sub6.method15438(bytes_22);
@@ -395,7 +395,7 @@ public class Index {
                 int i_11;
                 if (i_5 > 1) {
                     int i_12;
-                    ByteBuf rsbytebuffer_13;
+                    JagexNode rsbytebuffer_13;
                     int i_15;
                     int i_16;
                     int i_17;
@@ -406,7 +406,7 @@ public class Index {
                         --i_11;
                         i_12 = bytes_27[i_11] & 0xff;
                         i_11 -= i_12 * i_5 * 4;
-                        rsbytebuffer_13 = new ByteBuf(bytes_27);
+                        rsbytebuffer_13 = new JagexNode(bytes_27);
                         int[] ints_14 = new int[i_5];
                         rsbytebuffer_13.index = i_11;
                         for (i_15 = 0; i_15 < i_12; i_15++) {
@@ -449,7 +449,7 @@ public class Index {
                         --i_11;
                         i_12 = bytes_27[i_11] & 0xff;
                         i_11 -= i_12 * i_5 * 4;
-                        rsbytebuffer_13 = new ByteBuf(bytes_27);
+                        rsbytebuffer_13 = new JagexNode(bytes_27);
                         int i_25 = 0;
                         i_15 = 0;
                         rsbytebuffer_13.index = i_11;
@@ -511,38 +511,38 @@ public class Index {
         }
     }
 
-    public synchronized byte[] getFile(int i_1, int i_2, int[] ints_3) {
-        if (!fileExists(i_1, i_2)) {
+    public synchronized byte[] getFile(int scriptId, int i_2, int[] ints_3) {
+        if (!fileExists(scriptId, i_2)) {
             return null;
         } else {
             byte[] bytes_4 = null;
-            if (archiveFiles[i_1] == null || archiveFiles[i_1][i_2] == null) {
-                boolean bool_5 = method5638(i_1, i_2, ints_3);
+            if (archiveFiles[scriptId] == null || archiveFiles[scriptId][i_2] == null) {
+                boolean bool_5 = method5638(scriptId, i_2, ints_3);
                 if (!bool_5) {
-                    requestArchive(i_1);
-                    bool_5 = method5638(i_1, i_2, ints_3);
+                    requestArchive(scriptId);
+                    bool_5 = method5638(scriptId, i_2, ints_3);
                     if (!bool_5) {
                         return null;
                     }
                 }
             }
-            if (archiveFiles[i_1] == null) {
+            if (archiveFiles[scriptId] == null) {
                 throw new RuntimeException("");
             } else {
-                if (archiveFiles[i_1][i_2] != null) {
-                    bytes_4 = QuickChatMessage.method6154(archiveFiles[i_1][i_2], false);
+                if (archiveFiles[scriptId][i_2] != null) {
+                    bytes_4 = QuickChatMessage.method6154(archiveFiles[scriptId][i_2], false);
                     if (bytes_4 == null) {
                         throw new RuntimeException("");
                     }
                 }
                 if (bytes_4 != null) {
                     if (loadType == 1) {
-                        archiveFiles[i_1][i_2] = null;
-                        if (referenceTable.fileCounts[i_1] == 1) {
-                            archiveFiles[i_1] = null;
+                        archiveFiles[scriptId][i_2] = null;
+                        if (referenceTable.fileCounts[scriptId] == 1) {
+                            archiveFiles[scriptId] = null;
                         }
                     } else if (loadType == 2) {
-                        archiveFiles[i_1] = null;
+                        archiveFiles[scriptId] = null;
                     }
                 }
                 return bytes_4;

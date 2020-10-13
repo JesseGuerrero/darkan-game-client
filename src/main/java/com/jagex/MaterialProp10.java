@@ -311,14 +311,14 @@ public class MaterialProp10 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
             int i_4 = rsbytebuffer_2.readUnsignedByte();
             if (i_4 == 0) {
                 anIntArrayArray9822 = new int[rsbytebuffer_2.readUnsignedByte()][4];
 
                 for (int i_5 = 0; i_5 < anIntArrayArray9822.length; i_5++) {
-                    anIntArrayArray9822[i_5][0] = rsbytebuffer_2.readUnsignedShort();
+                    anIntArrayArray9822[i_5][0] = rsbytebuffer_2.readJagexNode();
                     anIntArrayArray9822[i_5][1] = rsbytebuffer_2.readUnsignedByte() << 4;
                     anIntArrayArray9822[i_5][2] = rsbytebuffer_2.readUnsignedByte() << 4;
                     anIntArrayArray9822[i_5][3] = rsbytebuffer_2.readUnsignedByte() << 4;

@@ -10,7 +10,7 @@ public class Class80 {
     int[] anIntArray787;
     int[] anIntArray788;
     int[] anIntArray796;
-    ByteBuf aNode_Sub35_792 = new ByteBuf(null);
+    JagexNode aNode_Sub35_792 = new JagexNode(null);
 
     Class80(byte[] bytes_1) {
         method1394(bytes_1);
@@ -42,8 +42,8 @@ public class Class80 {
     void method1394(byte[] bytes_1) {
         aNode_Sub35_792.buffer = bytes_1;
         aNode_Sub35_792.index = 10;
-        int i_2 = aNode_Sub35_792.readUnsignedShort();
-        anInt785 = aNode_Sub35_792.readUnsignedShort();
+        int i_2 = aNode_Sub35_792.readJagexNode();
+        anInt785 = aNode_Sub35_792.readJagexNode();
         anInt790 = 500000;
         anIntArray793 = new int[i_2];
 

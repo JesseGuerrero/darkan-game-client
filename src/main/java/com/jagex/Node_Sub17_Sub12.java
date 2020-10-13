@@ -16,16 +16,16 @@ public class Node_Sub17_Sub12 extends Node_Sub17 {
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
-        anInt10054 = rsbytebuffer_1.readUnsignedShort() * -684450971 * 600350317;
+    void method12257(JagexNode rsbytebuffer_1) {
+        anInt10054 = rsbytebuffer_1.readJagexNode() * -684450971 * 600350317;
         anInt10053 = rsbytebuffer_1.readInt() * -965297091 * 1911208725;
         anInt10052 = rsbytebuffer_1.readUnsignedByte() * -1722326801 * -1741697521;
         anInt10055 = rsbytebuffer_1.readUnsignedByte() * 305911851 * -52550013;
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
-        anInt10054 = rsbytebuffer_1.readUnsignedShort();
+    void method12250(JagexNode rsbytebuffer_1) {
+        anInt10054 = rsbytebuffer_1.readJagexNode();
         anInt10053 = rsbytebuffer_1.readInt();
         anInt10052 = rsbytebuffer_1.readUnsignedByte();
         anInt10055 = rsbytebuffer_1.readUnsignedByte();
@@ -37,8 +37,8 @@ public class Node_Sub17_Sub12 extends Node_Sub17 {
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
-        anInt10054 = rsbytebuffer_1.readUnsignedShort() * -684450971 * 600350317;
+    void method12249(JagexNode rsbytebuffer_1) {
+        anInt10054 = rsbytebuffer_1.readJagexNode() * -684450971 * 600350317;
         anInt10053 = rsbytebuffer_1.readInt() * -965297091 * 1911208725;
         anInt10052 = rsbytebuffer_1.readUnsignedByte() * -1722326801 * -1741697521;
         anInt10055 = rsbytebuffer_1.readUnsignedByte() * 305911851 * -52550013;
@@ -50,8 +50,8 @@ public class Node_Sub17_Sub12 extends Node_Sub17 {
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
-        anInt10054 = rsbytebuffer_1.readUnsignedShort() * -684450971 * 600350317;
+    void method12253(JagexNode rsbytebuffer_1) {
+        anInt10054 = rsbytebuffer_1.readJagexNode() * -684450971 * 600350317;
         anInt10053 = rsbytebuffer_1.readInt() * -965297091 * 1911208725;
         anInt10052 = rsbytebuffer_1.readUnsignedByte() * -1722326801 * -1741697521;
         anInt10055 = rsbytebuffer_1.readUnsignedByte() * 305911851 * -52550013;

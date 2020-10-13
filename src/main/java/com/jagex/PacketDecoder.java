@@ -10,7 +10,7 @@ public class PacketDecoder {
 
     static boolean decode(BufferedConnectionContext context) throws IOException {
         Connection connection = context.getConnection();
-        ByteBuf.Bit buffer = context.recievedBuffer;
+        JagexNode.Bit buffer = context.recievedBuffer;
         if (connection == null)
             return false;
         if (context.currentPacket == null) {
@@ -56,7 +56,7 @@ public class PacketDecoder {
             }
             connection.read(buffer.buffer, 0, 2);
             buffer.index = 0;
-            context.currentPacketSize = buffer.readUnsignedShort();
+            context.currentPacketSize = buffer.readJagexNode();
             context.read += 2;
             context.idleReadPulses = 0;
         }
@@ -85,11 +85,11 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.UPDATE_INV_FULL) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             int flags = buffer.readUnsignedByte();
             boolean isNegativeKey = (flags & 0x1) == 1;
             Static.resetContainer(key, isNegativeKey);
-            int size = buffer.readUnsignedShort();
+            int size = buffer.readJagexNode();
             for (int slot = 0; slot < size; slot++) {
                 int amount = buffer.readUnsigned128Byte();
                 if (amount == 255) {
@@ -109,7 +109,7 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.SET_CURSOR) {
             Class85.aString817 = context.currentPacketSize > 2 ? buffer.readString() : LocalizedText.WALK_HERE.translate(Class223.CURRENT_LANGUAGE);
-            client.anInt7311 = context.currentPacketSize > 0 ? buffer.readUnsignedShort() : -1;
+            client.anInt7311 = context.currentPacketSize > 0 ? buffer.readJagexNode() : -1;
             if (client.anInt7311 == 65535) {
                 client.anInt7311 = -1;
             }
@@ -217,7 +217,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.IF_SETSCROLLPOS) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             int flags = buffer.readInt();
             Class470.method7825();
             PulseEvent.method2966(flags, key);
@@ -230,10 +230,10 @@ public class PacketDecoder {
             if (bool_91) {
                 str_92 = buffer.readString();
             }
-            long long_28 = buffer.readUnsignedShort();
+            long long_28 = buffer.readJagexNode();
             long long_30 = buffer.read24BitUnsignedInteger();
             int i_11 = buffer.readUnsignedByte();
-            int i_12 = buffer.readUnsignedShort();
+            int i_12 = buffer.readJagexNode();
             long long_13 = long_30 + (long_28 << 32);
             boolean bool_73 = false;
             int i_81 = 0;
@@ -272,14 +272,14 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VORBIS_SOUND) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             if (key == 65535) {
                 key = -1;
             }
             int flags = buffer.readUnsignedByte();
-            int i_6 = buffer.readUnsignedShort();
+            int i_6 = buffer.readJagexNode();
             int i_7 = buffer.readUnsignedByte();
-            int i_8 = buffer.readUnsignedShort();
+            int i_8 = buffer.readJagexNode();
             Class435.playSoundVorbis(key, flags, i_6, i_7, false, i_8);
             context.currentPacket = null;
             return true;
@@ -505,7 +505,7 @@ public class PacketDecoder {
             byte[] bytes = new byte[context.currentPacketSize - 1];
             boolean bool_66 = buffer.readUnsignedByte() == 1;
             buffer.readBytes(bytes, context.currentPacketSize - 1);
-            ByteBuf rsbytebuffer_127 = new ByteBuf(bytes);
+            JagexNode rsbytebuffer_127 = new JagexNode(bytes);
             String url = rsbytebuffer_127.readString();
             if (bool_66) {
                 String string_137 = rsbytebuffer_127.readString();
@@ -522,7 +522,7 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.CAM_SHAKE) {
             int key = buffer.readUnsigned128Byte();
-            int flags = buffer.readUnsignedShort();
+            int flags = buffer.readJagexNode();
             int i_6 = buffer.readUnsignedByteC();
             int i_7 = buffer.readUnsignedByteC();
             int i_8 = buffer.readUnsigned128Byte();
@@ -572,7 +572,7 @@ public class PacketDecoder {
                 str_92 = buffer.readString();
             }
             int i_7 = buffer.readUnsignedByte();
-            int i_8 = buffer.readUnsignedShort();
+            int i_8 = buffer.readJagexNode();
             boolean bool_69 = false;
             if (i_7 <= 1 && Class280.isIgnored(str_92)) {
                 bool_69 = true;
@@ -615,7 +615,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.DYNAMIC_MAP_REGION) {
-            ByteBuf.Bit rsbitsbuffer_65 = new ByteBuf.Bit(context.currentPacketSize);
+            JagexNode.Bit rsbitsbuffer_65 = new JagexNode.Bit(context.currentPacketSize);
             System.arraycopy(context.recievedBuffer.buffer, context.recievedBuffer.index, rsbitsbuffer_65.buffer, 0, context.currentPacketSize);
             FontMetrics.method6989();
             if (Class393.preferences.aPreference_Sub3_8199.method12632() == 1) {
@@ -640,7 +640,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.MESSAGE_PUBLIC) {
-            int playerIndex = buffer.readUnsignedShort();
+            int playerIndex = buffer.readJagexNode();
             PlayerEntity player;
             if (playerIndex == client.myPlayerIndex) {
                 player = VertexNormal.MY_PLAYER;
@@ -648,7 +648,7 @@ public class PacketDecoder {
                 player = client.players[playerIndex];
             }
             if (player != null) {
-                int chatEffects = buffer.readUnsignedShort();
+                int chatEffects = buffer.readJagexNode();
                 int icon = buffer.readUnsignedByte();
                 boolean is0x8000 = (chatEffects & 0x8000) != 0;
                 if (player.displayName != null && player.model != null) {
@@ -691,7 +691,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.QUICK_HOP_WORLDS) {
-            int port = buffer.readUnsignedShort();
+            int port = buffer.readJagexNode();
             String host = buffer.readString();
             boolean reconnecting = buffer.readUnsignedByte() == 1;
             ConnectionInfo.aClass450_5429 = ConnectionInfo.GAME_CONNECTION_INFO;
@@ -757,7 +757,7 @@ public class PacketDecoder {
                             fcPlayers[i_9].username = fcPlayers[i_9].displayName;
                         }
                         fcPlayers[i_9].textName = Class383.method6515(fcPlayers[i_9].username);
-                        fcPlayers[i_9].worldId = buffer.readUnsignedShort();
+                        fcPlayers[i_9].worldId = buffer.readJagexNode();
                         fcPlayers[i_9].rank = buffer.readByte();
                         fcPlayers[i_9].worldName = buffer.readString();
                         if (fcPlayers[i_9].username.equals(VertexNormal.MY_PLAYER.displayName)) {
@@ -792,7 +792,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.SET_CLAN_STRING) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             String string_88 = buffer.readString();
             if (Class46.CLAN_VARS == null) {
                 Class46.CLAN_VARS = new Object[IndexLoaders.CLAN_VAR_LOADER.size];
@@ -890,10 +890,10 @@ public class PacketDecoder {
         } else if (context.currentPacket == ServerProt.MESSAGE_QUICKCHAT_CLANCHANNEL) {
             boolean bool_91 = buffer.readUnsignedByte() == 1;
             String string_88 = buffer.readString();
-            long long_49 = buffer.readUnsignedShort();
+            long long_49 = buffer.readJagexNode();
             long long_51 = buffer.read24BitUnsignedInteger();
             int i_10 = buffer.readUnsignedByte();
-            int i_11 = buffer.readUnsignedShort();
+            int i_11 = buffer.readJagexNode();
             long long_53 = long_51 + (long_49 << 32);
             boolean bool_14 = false;
             ClanChannel class282_sub4_102 = bool_91 ? Class113.CLAN_CHANNEL : AsyncConnection.LISTENED_CLAN_CHANNEL;
@@ -931,7 +931,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VARCLAN_SET_LONG) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             long long_47 = buffer.readLong();
             if (Class46.CLAN_VARS == null) {
                 Class46.CLAN_VARS = new Object[IndexLoaders.CLAN_VAR_LOADER.size];
@@ -948,10 +948,10 @@ public class PacketDecoder {
                 str_92 = buffer.readString();
             }
             long long_28 = buffer.readLong();
-            long long_30 = buffer.readUnsignedShort();
+            long long_30 = buffer.readJagexNode();
             long long_55 = buffer.read24BitUnsignedInteger();
             int i_35 = buffer.readUnsignedByte();
-            int i_77 = buffer.readUnsignedShort();
+            int i_77 = buffer.readJagexNode();
             long long_57 = (long_30 << 32) + long_55;
             boolean bool_115 = false;
             int i_82 = 0;
@@ -984,13 +984,13 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.MESSAGE_QUICKCHAT_PRIVATE) {
             String string_63 = buffer.readString();
-            int flags = buffer.readUnsignedShort();
+            int flags = buffer.readJagexNode();
             String str_92 = IndexLoaders.QUICK_CHAT_MESSAGE_LOADER.getMessageDefinitions(flags).fillDynamicValues(buffer);
             ChatLine.appendChatMessage(19, 0, string_63, string_63, string_63, str_92, null, flags);
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VARCLAN_SET_INT) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             int flags = buffer.readInt();
             if (Class46.CLAN_VARS == null) {
                 Class46.CLAN_VARS = new Object[IndexLoaders.CLAN_VAR_LOADER.size];
@@ -1005,7 +1005,7 @@ public class PacketDecoder {
                 toSlot = -1;
             }
             int interfaceHash = buffer.readIntV2();
-            int fromSlot = buffer.readUnsignedShort();
+            int fromSlot = buffer.readJagexNode();
             if (fromSlot == 65535) {
                 fromSlot = -1;
             }
@@ -1032,7 +1032,7 @@ public class PacketDecoder {
         } else if (context.currentPacket == ServerProt.IF_RESETTARGETPARAM) {
             int interfaceHash = buffer.readIntV1();
             int interfaceId = buffer.readUnsignedShortLE128();
-            int toSlot = buffer.readUnsignedShort();
+            int toSlot = buffer.readJagexNode();
             if (toSlot == 65535) {
                 toSlot = -1;
             }
@@ -1091,7 +1091,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VARCLAN_SET_BYTE) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             byte b_84 = buffer.readByte();
             if (Class46.CLAN_VARS == null) {
                 Class46.CLAN_VARS = new Object[IndexLoaders.CLAN_VAR_LOADER.size];
@@ -1114,9 +1114,9 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.UPDATE_REBOOT_TIMER) {
             if (GameState.inLobby(client.GAME_STATE)) {
-                client.REBOOT_TIMER = (int) (buffer.readUnsignedShort() * 2.5F);
+                client.REBOOT_TIMER = (int) (buffer.readJagexNode() * 2.5F);
             } else {
-                client.REBOOT_TIMER = buffer.readUnsignedShort() * 30;
+                client.REBOOT_TIMER = buffer.readJagexNode() * 30;
             }
             client.anInt7397 = client.anInt7347;
             context.currentPacket = null;
@@ -1173,14 +1173,14 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.SOUND_SYNTH) {
-            int soundId = buffer.readUnsignedShort();
+            int soundId = buffer.readJagexNode();
             if (soundId == 65535) {
                 soundId = -1;
             }
             int flags = buffer.readUnsignedByte();
-            int i_6 = buffer.readUnsignedShort();
+            int i_6 = buffer.readJagexNode();
             int delay = buffer.readUnsignedByte();
-            int i_8 = buffer.readUnsignedShort();
+            int i_8 = buffer.readJagexNode();
             VarNPCMap.playSoundSynth(soundId, flags, i_6, delay, i_8);
             context.currentPacket = null;
             return true;
@@ -1233,14 +1233,14 @@ public class PacketDecoder {
                             arrow.targetType = 2;
                             arrow.plane = buffer.readUnsignedByte();
                             CoordGrid grid = IndexLoaders.MAP_REGION_DECODER.getBase();
-                            arrow.x += buffer.readUnsignedShort() - grid.x << 9;
-                            arrow.y += buffer.readUnsignedShort() - grid.y << 9;
+                            arrow.x += buffer.readJagexNode() - grid.x << 9;
+                            arrow.y += buffer.readJagexNode() - grid.y << 9;
                             arrow.height = buffer.readUnsignedByte() << 2;
-                            arrow.distance = buffer.readUnsignedShort();
+                            arrow.distance = buffer.readJagexNode();
                         }
                     } else {
-                        arrow.targetIndex = buffer.readUnsignedShort();
-                        arrow.idk = buffer.readUnsignedShort();
+                        arrow.targetIndex = buffer.readJagexNode();
+                        arrow.idk = buffer.readJagexNode();
                         buffer.index += 4;
                     }
                     arrow.modelId = buffer.readInt();
@@ -1256,7 +1256,7 @@ public class PacketDecoder {
             int lockOn = buffer.readShort();
             int flags = buffer.readUnsignedByte128();
             int y = buffer.readUnsignedShort128();
-            int slope = buffer.readUnsignedShort();
+            int slope = buffer.readJagexNode();
             int startTime = buffer.readUnsignedShortLE128();
             int spotAnimId = buffer.readUnsignedShortLE128();
             int angle = buffer.readUnsignedByte128();
@@ -1330,18 +1330,18 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.aClass375_4457) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             Class470.method7825();
             Class123.method2152(key);
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.UPDATE_INV_PARTIAL) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             int flags = buffer.readUnsignedByte();
             int i_7, i_8, i_9;
             for (boolean isNegativeKey = (flags & 0x1) == 1; buffer.index < context.currentPacketSize; Node_Sub21.setItemInContainer(key, i_7, i_8 - 1, i_9, isNegativeKey)) {
                 i_7 = buffer.readSmart();
-                i_8 = buffer.readUnsignedShort();
+                i_8 = buffer.readJagexNode();
                 i_9 = 0;
                 if (i_8 != 0) {
                     i_9 = buffer.readUnsignedByte();
@@ -1389,7 +1389,7 @@ public class PacketDecoder {
             } else {
                 username = displayName;
             }
-            int worldId = buffer.readUnsignedShort();
+            int worldId = buffer.readJagexNode();
             byte rank = buffer.readByte();
             boolean bool_69 = false;
             if (rank == -128) {
@@ -1477,7 +1477,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.REGION) {
-            ByteBuf.Bit rsbitsbuffer_65 = new ByteBuf.Bit(context.currentPacketSize);
+            JagexNode.Bit rsbitsbuffer_65 = new JagexNode.Bit(context.currentPacketSize);
             System.arraycopy(context.recievedBuffer.buffer, context.recievedBuffer.index, rsbitsbuffer_65.buffer, 0, context.currentPacketSize);
             FontMetrics.method6989();
             if (Class393.preferences.aPreference_Sub3_8199.method12632() == 1) {
@@ -1582,7 +1582,7 @@ public class PacketDecoder {
             int key = buffer.readIntLE();
             int flags = buffer.readUnsignedByte();
             int i_6 = buffer.readIntV1();
-            int i_7 = buffer.readUnsignedShort();
+            int i_7 = buffer.readJagexNode();
             int i_8 = buffer.readInt();
             int i_9 = buffer.readIntV1();
             int i_10 = buffer.readIntV1();
@@ -1665,7 +1665,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.IF_SETITEM) {
-            int itemId = buffer.readUnsignedShort();
+            int itemId = buffer.readJagexNode();
             if (itemId == 65535) {
                 itemId = -1;
             }
@@ -1706,7 +1706,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.APPLY_DEBUG) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             Whirlpool.applyDebugOpcode(key);
             context.currentPacket = null;
             return true;
@@ -1748,7 +1748,7 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VARBIT_SMALL) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             int flags = buffer.readUnsignedByte128();
             Class158_Sub1.PLAYER_VAR_PROVIDER.method268(key, flags);
             context.currentPacket = null;
@@ -1760,7 +1760,7 @@ public class PacketDecoder {
             if (bool_91) {
                 str_92 = buffer.readString();
             }
-            long long_28 = buffer.readUnsignedShort();
+            long long_28 = buffer.readJagexNode();
             long long_30 = buffer.read24BitUnsignedInteger();
             int i_11 = buffer.readUnsignedByte();
             long long_53 = (long_28 << 32) + long_30;
@@ -1821,9 +1821,9 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.DEBUG_SERVER_TRIGGERS) {
-            int key = buffer.readUnsignedShort();
-            int flags = buffer.readUnsignedShort();
-            int i_6 = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
+            int flags = buffer.readJagexNode();
+            int i_6 = buffer.readJagexNode();
             Class470.method7825();
             int i_8;
             if (Interface.INTERFACES[key] != null) {
@@ -1857,7 +1857,7 @@ public class PacketDecoder {
         } else if (context.currentPacket == ServerProt.MESSAGE_CLANCHANNEL) {
             boolean bool_91 = buffer.readUnsignedByte() == 1;
             String string_88 = buffer.readString();
-            long long_49 = buffer.readUnsignedShort();
+            long long_49 = buffer.readJagexNode();
             long long_51 = buffer.read24BitUnsignedInteger();
             int i_10 = buffer.readUnsignedByte();
             long long_55 = long_51 + (long_49 << 32);
@@ -1931,7 +1931,7 @@ public class PacketDecoder {
                 boolean warnMessage = buffer.readUnsignedByte() == 1;
                 String displayName = buffer.readString();
                 String username = buffer.readString();
-                int world = buffer.readUnsignedShort();
+                int world = buffer.readJagexNode();
                 int fcFrank = buffer.readUnsignedByte();
                 boolean bool_69 = buffer.readUnsignedByte() == 1;
                 String worldName = "";
@@ -2063,14 +2063,14 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.CUTSCENE) {
-            int key = buffer.readUnsignedShort();
+            int key = buffer.readJagexNode();
             client.anInt7357 = -1;
             client.CURRENT_CUTSCENE = key;
             client.anInt7341 = 3;
             IndexLoaders.CUTSCENE_INDEX.loadFile(client.CURRENT_CUTSCENE);
             Class316.method5594();
             HitsplatDefinitions.method3851();
-            int flags = buffer.readUnsignedShort();
+            int flags = buffer.readJagexNode();
             NativeLibraryLoader.CUTSCENE_MAP_XTEAS = new int[flags][4];
             for (int i_6 = 0; i_6 < flags; i_6++) {
                 for (int i_7 = 0; i_7 < 4; i_7++) {
@@ -2078,7 +2078,7 @@ public class PacketDecoder {
                 }
             }
             int i_6 = buffer.readUnsignedByte();
-            Class276.aNode_Sub35_3346 = new ByteBuf(i_6);
+            Class276.aNode_Sub35_3346 = new JagexNode(i_6);
             Class276.aNode_Sub35_3346.writeBytes(buffer.buffer, buffer.index, i_6);
             buffer.index += i_6;
             context.currentPacket = null;
@@ -2154,7 +2154,7 @@ public class PacketDecoder {
                 str_92 = buffer.readString();
             }
             long long_28 = buffer.readLong();
-            long long_30 = buffer.readUnsignedShort();
+            long long_30 = buffer.readJagexNode();
             long long_55 = buffer.read24BitUnsignedInteger();
             int i_35 = buffer.readUnsignedByte();
             long long_60 = (long_30 << 32) + long_55;
@@ -2212,12 +2212,12 @@ public class PacketDecoder {
             context.currentPacket = null;
             return true;
         } else if (context.currentPacket == ServerProt.VORBIS_SPEECH_SOUND) {
-            int id = buffer.readUnsignedShort();
+            int id = buffer.readJagexNode();
             if (id == 65535) {
                 id = -1;
             }
             int soundType = buffer.readUnsignedByte();
-            int delay = buffer.readUnsignedShort();
+            int delay = buffer.readJagexNode();
             int i_7 = buffer.readUnsignedByte();
             Class435.playSoundVorbis(id, soundType, delay, i_7, true, 256);
             context.currentPacket = null;
@@ -2236,7 +2236,7 @@ public class PacketDecoder {
             return true;
         } else if (context.currentPacket == ServerProt.IF_SETRETEX) {
             int key = buffer.readShortLE();
-            int flags = buffer.readUnsignedShort();
+            int flags = buffer.readJagexNode();
             int i_6 = buffer.readUnsigned128Byte();
             int i_7 = buffer.readIntLE();
             Class470.method7825();
@@ -2318,7 +2318,7 @@ public class PacketDecoder {
     }
 
     static void decodeTilestreamPacket(UpdateZonePacket packet) {
-        ByteBuf.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
+        JagexNode.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
         if (packet == UpdateZonePacket.GROUND_ITEM_COUNT) {
             int loc = buffer.readUnsignedByte();
             CoordGrid mapBase = IndexLoaders.MAP_REGION_DECODER.getBase();
@@ -2326,9 +2326,9 @@ public class PacketDecoder {
             int y = baseY + mapBase.y;
             int baseX = (loc >> 4 & 0x7) + Static.UPDATE_ZONE_X;
             int x = baseX + mapBase.x;
-            int itemId = buffer.readUnsignedShort();
-            int oldAmount = buffer.readUnsignedShort();
-            int amount = buffer.readUnsignedShort();
+            int itemId = buffer.readJagexNode();
+            int oldAmount = buffer.readJagexNode();
+            int amount = buffer.readJagexNode();
             if (client.aClass465_7414 != null) {
                 Node_Sub29 class282_sub29_12 = (Node_Sub29) client.aClass465_7414.get(Class272.UPDATE_ZONE_PLANE << 28 | y << 14 | x);
                 if (class282_sub29_12 != null) {
@@ -2354,12 +2354,12 @@ public class PacketDecoder {
             int i_3 = buffer.readUnsignedByte();
             int x = (i_3 >> 4 & 0x7) + Static.UPDATE_ZONE_X;
             int y = (i_3 & 0x7) + Class158_Sub1_Sub2.UPDATE_ZONE_Y;
-            int spotAnimId = buffer.readUnsignedShort();
+            int spotAnimId = buffer.readJagexNode();
             if (spotAnimId == 65535) {
                 spotAnimId = -1;
             }
-            int height = buffer.readUnsignedShort();
-            int speed = buffer.readUnsignedShort();
+            int height = buffer.readJagexNode();
+            int speed = buffer.readJagexNode();
             int rotation = buffer.readUnsignedByte();
             if (IndexLoaders.MAP_REGION_DECODER.method4419() != Class256.aClass256_3153 && x >= 0 && y >= 0 && x < IndexLoaders.MAP_REGION_DECODER.getSizeX() && y < IndexLoaders.MAP_REGION_DECODER.getSizeY()) {
                 if (spotAnimId == -1) {
@@ -2387,13 +2387,13 @@ public class PacketDecoder {
             int xOff = localX + buffer.readByte();
             int yOff = localY + buffer.readByte();
             int lockOn = buffer.readShort();
-            int spotAnimId = buffer.readUnsignedShort();
+            int spotAnimId = buffer.readJagexNode();
             int startHeight = buffer.readUnsignedByte() * 4;
             int endHeight = buffer.readUnsignedByte() * 4;
-            int startTime = buffer.readUnsignedShort();
-            int endTime = buffer.readUnsignedShort();
+            int startTime = buffer.readJagexNode();
+            int endTime = buffer.readJagexNode();
             int angle = buffer.readUnsignedByte();
-            int slope = buffer.readUnsignedShort();
+            int slope = buffer.readJagexNode();
             if (angle == 255) {
                 angle = -1;
             }
@@ -2413,7 +2413,7 @@ public class PacketDecoder {
             int i_3 = buffer.readUnsignedByte();
             int i_21 = (i_3 >> 4 & 0x7) + Static.UPDATE_ZONE_X;
             int i_5 = (i_3 & 0x7) + Class158_Sub1_Sub2.UPDATE_ZONE_Y;
-            int i_6 = buffer.readUnsignedShort();
+            int i_6 = buffer.readJagexNode();
             if (i_6 == 65535) {
                 i_6 = -1;
             }
@@ -2422,7 +2422,7 @@ public class PacketDecoder {
             int i_9 = i_7 & 0x7;
             int i_10 = buffer.readUnsignedByte();
             int i_11 = buffer.readUnsignedByte();
-            int i_23 = buffer.readUnsignedShort();
+            int i_23 = buffer.readJagexNode();
             if (IndexLoaders.MAP_REGION_DECODER.method4419() != Class256.aClass256_3153 && i_21 >= 0 && i_5 >= 0 && i_21 < IndexLoaders.MAP_REGION_DECODER.getSizeX() && i_5 < IndexLoaders.MAP_REGION_DECODER.getSizeY()) {
                 int i_24 = i_8 + 1;
                 if (VertexNormal.MY_PLAYER.regionBaseX[0] >= i_21 - i_24 && VertexNormal.MY_PLAYER.regionBaseX[0] <= i_21 + i_24 && VertexNormal.MY_PLAYER.regionBaseY[0] >= i_5 - i_24 && VertexNormal.MY_PLAYER.regionBaseY[0] <= i_24 + i_5) {
@@ -2509,14 +2509,14 @@ public class PacketDecoder {
                 if ((i_8 & 0x4) == 4) {
                     shorts_29 = new short[i_24];
                     for (int i_30 = 0; i_30 < i_24; i_30++) {
-                        shorts_29[i_30] = (short) buffer.readUnsignedShort();
+                        shorts_29[i_30] = (short) buffer.readJagexNode();
                     }
                 }
                 short[] shorts_37 = null;
                 if ((i_8 & 0x8) == 8) {
                     shorts_37 = new short[i_14];
                     for (int i_18 = 0; i_18 < i_14; i_18++) {
-                        shorts_37[i_18] = (short) buffer.readUnsignedShort();
+                        shorts_37[i_18] = (short) buffer.readJagexNode();
                     }
                 }
                 VarnBitDefinitions.method8217(Class272.UPDATE_ZONE_PLANE, i_10, i_11, i_7, i_3, i_6, new Class476(Node_Sub31.aLong7777, ints_28, shorts_29, shorts_37));
@@ -2527,7 +2527,7 @@ public class PacketDecoder {
             int i_3 = buffer.readUnsignedByte();
             int i_21 = (i_3 >> 4 & 0x7) + Static.UPDATE_ZONE_X;
             int i_5 = (i_3 & 0x7) + Class158_Sub1_Sub2.UPDATE_ZONE_Y;
-            int i_6 = buffer.readUnsignedShort();
+            int i_6 = buffer.readJagexNode();
             int i_7 = buffer.readUnsignedByte();
             int i_8 = buffer.read24BitUnsignedInteger();
             String string_27 = buffer.readString();
@@ -2538,7 +2538,7 @@ public class PacketDecoder {
             int flags = buffer.readUnsignedByte();
             int localX = (flags >> 4 & 0x7) + Static.UPDATE_ZONE_X;
             int localY = (flags & 0x7) + Class158_Sub1_Sub2.UPDATE_ZONE_Y;
-            int soundId = buffer.readUnsignedShort();
+            int soundId = buffer.readJagexNode();
             if (soundId == 65535) {
                 soundId = -1;
             }
@@ -2547,7 +2547,7 @@ public class PacketDecoder {
             int i_9 = i_7 & 0x7;
             int i_10 = buffer.readUnsignedByte();
             int i_11 = buffer.readUnsignedByte();
-            int i_23 = buffer.readUnsignedShort();
+            int i_23 = buffer.readJagexNode();
             boolean soundType = buffer.readUnsignedByte() == 1;
             if (IndexLoaders.MAP_REGION_DECODER.method4419() != Class256.aClass256_3153 && localX >= 0 && localY >= 0 && localX < IndexLoaders.MAP_REGION_DECODER.getSizeX() && localY < IndexLoaders.MAP_REGION_DECODER.getSizeY()) {
                 int i_14 = i_8 + 1;
@@ -2568,7 +2568,7 @@ public class PacketDecoder {
                 Class9.animateObject(Class272.UPDATE_ZONE_PLANE, x, y, slot, type, rotation, animationId);
             }
         } else if (packet == UpdateZonePacket.GROUND_ITEM_REVEAL) {
-            int playerId = buffer.readUnsignedShort();
+            int playerId = buffer.readJagexNode();
             int i_21 = buffer.readUnsignedByte();
             CoordGrid coordgrid_25 = IndexLoaders.MAP_REGION_DECODER.getBase();
             int i_6 = (i_21 & 0x7) + Class158_Sub1_Sub2.UPDATE_ZONE_Y;
@@ -2614,7 +2614,7 @@ public class PacketDecoder {
             int yOff = localY + buffer.readByte();
             int source = buffer.readShort();
             int lockOn = buffer.readShort();
-            int spotAnimId = buffer.readUnsignedShort();
+            int spotAnimId = buffer.readJagexNode();
             int startHeight = buffer.readUnsignedByte();
             if (adjustToBASAnimFrameHeight) {
                 startHeight = (byte) startHeight;
@@ -2622,10 +2622,10 @@ public class PacketDecoder {
                 startHeight *= 4;
             }
             int endHeight = buffer.readUnsignedByte() * 4;
-            int startTime = buffer.readUnsignedShort();
-            int endTime = buffer.readUnsignedShort();
+            int startTime = buffer.readJagexNode();
+            int endTime = buffer.readJagexNode();
             int angle = buffer.readUnsignedByte();
-            int slope = buffer.readUnsignedShort();
+            int slope = buffer.readJagexNode();
             if (angle == 255) {
                 angle = -1;
             }

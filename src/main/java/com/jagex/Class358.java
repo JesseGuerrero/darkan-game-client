@@ -48,7 +48,7 @@ public class Class358 {
     }
 
     static void method6235(byte[] bytes_0) {
-        ByteBuf rsbytebuffer_2 = new ByteBuf(bytes_0);
+        JagexNode rsbytebuffer_2 = new JagexNode(bytes_0);
         while (true) {
             int i_3 = rsbytebuffer_2.readUnsignedByte();
             if (i_3 == 0) {
@@ -56,12 +56,12 @@ public class Class358 {
             }
             if (i_3 == 1) {
                 int[] ints_4 = ScriptRunner.anIntArray2668 = new int[6];
-                ints_4[0] = rsbytebuffer_2.readUnsignedShort();
-                ints_4[1] = rsbytebuffer_2.readUnsignedShort();
-                ints_4[2] = rsbytebuffer_2.readUnsignedShort();
-                ints_4[3] = rsbytebuffer_2.readUnsignedShort();
-                ints_4[4] = rsbytebuffer_2.readUnsignedShort();
-                ints_4[5] = rsbytebuffer_2.readUnsignedShort();
+                ints_4[0] = rsbytebuffer_2.readJagexNode();
+                ints_4[1] = rsbytebuffer_2.readJagexNode();
+                ints_4[2] = rsbytebuffer_2.readJagexNode();
+                ints_4[3] = rsbytebuffer_2.readJagexNode();
+                ints_4[4] = rsbytebuffer_2.readJagexNode();
+                ints_4[5] = rsbytebuffer_2.readJagexNode();
             }
         }
     }

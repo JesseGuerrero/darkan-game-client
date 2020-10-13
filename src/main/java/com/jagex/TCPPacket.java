@@ -5,7 +5,7 @@ public class TCPPacket extends Node {
     static TCPPacket[] OUTGOING_PACKETS = new TCPPacket[300];
     static int index;
     public int anInt7680;
-    public ByteBuf.Bit buffer;
+    public JagexNode.Bit buffer;
     int anInt7678;
     ClientProt packet;
 
@@ -38,15 +38,15 @@ public class TCPPacket extends Node {
         packet.packet = outgoing;
         packet.anInt7678 = outgoing.size;
         if (packet.anInt7678 == -1) {
-            packet.buffer = new ByteBuf.Bit(260);
+            packet.buffer = new JagexNode.Bit(260);
         } else if (packet.anInt7678 == -2) {
-            packet.buffer = new ByteBuf.Bit(10000);
+            packet.buffer = new JagexNode.Bit(10000);
         } else if (packet.anInt7678 <= 18) {
-            packet.buffer = new ByteBuf.Bit(20);
+            packet.buffer = new JagexNode.Bit(20);
         } else if (packet.anInt7678 <= 98) {
-            packet.buffer = new ByteBuf.Bit(100);
+            packet.buffer = new JagexNode.Bit(100);
         } else {
-            packet.buffer = new ByteBuf.Bit(260);
+            packet.buffer = new JagexNode.Bit(260);
         }
         packet.buffer.setIsaacCipher(cipher);
         packet.buffer.writeIsaacByte(packet.packet.id);

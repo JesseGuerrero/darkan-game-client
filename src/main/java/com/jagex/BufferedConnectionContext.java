@@ -16,8 +16,8 @@ public class BufferedConnectionContext {
     int readDataSize;
     Connection connection;
     NodeCollection queuedPackets = new NodeCollection();
-    ByteBuf writeBuffer = new ByteBuf(1600);
-    ByteBuf.Bit recievedBuffer = new ByteBuf.Bit(15000);
+    JagexNode writeBuffer = new JagexNode(1600);
+    JagexNode.Bit recievedBuffer = new JagexNode.Bit(15000);
     ServerProt currentPacket;
     int currentPacketSize;
     boolean aBool2288 = true;

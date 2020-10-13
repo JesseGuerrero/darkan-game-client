@@ -36,10 +36,10 @@ public class EditMemberSetting extends ClanSetting {
     }
 
     @Override
-    public void readSettings(ByteBuf buffer) {
-        index = buffer.readUnsignedShort();
+    public void readSettings(JagexNode buffer) {
+        index = buffer.readJagexNode();
         rank = buffer.readByte();
-        worldId = buffer.readUnsignedShort();
+        worldId = buffer.readJagexNode();
         buffer.readLong();
         username = buffer.readString(); //displayName?
     }

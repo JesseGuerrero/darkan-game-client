@@ -29,8 +29,11 @@ public class Class223 {
         }
     }
 
-    public CacheableNode get(long long_1) {
-        CacheableNode cacheablenode_3 = (CacheableNode) aClass465_2771.get(long_1);
+    public CacheableNode get(long itemCacheID) {
+        if(itemCacheID == 787) {
+            itemCacheID = itemCacheID;
+        }
+        CacheableNode cacheablenode_3 = (CacheableNode) aClass465_2771.get(itemCacheID);
         if (cacheablenode_3 != null) {
             aClass477_2767.method7936(cacheablenode_3);
         }

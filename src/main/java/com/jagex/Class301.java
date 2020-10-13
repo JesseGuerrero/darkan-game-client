@@ -27,9 +27,9 @@ public class Class301 implements Interface41 {
             int fileIndex = 0;
             while (true) {
                 while (id < elements.size) {
-                    ByteBuf buffer = new ByteBuf(index_0.getFile(archiveId, fileIds[fileIndex++]));
+                    JagexNode buffer = new JagexNode(index_0.getFile(archiveId, fileIds[fileIndex++]));
                     int regionHash = buffer.readInt();
-                    int areaId = buffer.readUnsignedShort();
+                    int areaId = buffer.readJagexNode();
                     int isMembers = buffer.readUnsignedByte();
                     if (!members && isMembers == 1) {
                         --elements.size;

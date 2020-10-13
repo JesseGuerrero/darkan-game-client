@@ -7,15 +7,15 @@ public class CutsceneEntityMovement {
     int[] movementTypes;
     int[] movementCoordinates;
 
-    CutsceneEntityMovement(ByteBuf rsbytebuffer_1) {
+    CutsceneEntityMovement(JagexNode rsbytebuffer_1) {
         int i_2 = rsbytebuffer_1.readSmart();
         movementTypes = new int[i_2];
         movementCoordinates = new int[i_2];
         for (int i_3 = 0; i_3 < i_2; i_3++) {
             int i_4 = rsbytebuffer_1.readUnsignedByte();
             movementTypes[i_3] = i_4;
-            int i_5 = rsbytebuffer_1.readUnsignedShort();
-            int i_6 = rsbytebuffer_1.readUnsignedShort();
+            int i_5 = rsbytebuffer_1.readJagexNode();
+            int i_6 = rsbytebuffer_1.readJagexNode();
             movementCoordinates[i_3] = i_6 + (i_5 << 16);
         }
     }

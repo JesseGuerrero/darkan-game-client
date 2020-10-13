@@ -67,7 +67,7 @@ public class MaterialProp29 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
             aClass149Array9862 = new Class149[rsbytebuffer_2.readUnsignedByte()];
             for (int i_4 = 0; i_4 < aClass149Array9862.length; i_4++) {

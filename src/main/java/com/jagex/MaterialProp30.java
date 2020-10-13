@@ -154,13 +154,13 @@ public class MaterialProp30 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         switch (i_1) {
             case 0:
-                anInt9759 = rsbytebuffer_2.readUnsignedShort();
+                anInt9759 = rsbytebuffer_2.readJagexNode();
                 break;
             case 1:
-                anInt9760 = rsbytebuffer_2.readUnsignedShort();
+                anInt9760 = rsbytebuffer_2.readJagexNode();
                 break;
             case 2:
                 noPalette = rsbytebuffer_2.readUnsignedByte() == 1;

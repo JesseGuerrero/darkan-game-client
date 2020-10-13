@@ -25,7 +25,7 @@ public enum ServerEnvironment implements Identifiable {
         return class496_0 == WTRC || class496_0 == WTQA || class496_0 == WTWIP || class496_0 == WTI || class496_0 == INTBETA;
     }
 
-    static void updateRandomDatUID192(ByteBuf data, int i_1) {
+    static void updateRandomDatUID192(JagexNode data, int i_1) {
         if (Engine.PLAYER_UID192 != null) {
             try {
                 Engine.PLAYER_UID192.method7347(0L);

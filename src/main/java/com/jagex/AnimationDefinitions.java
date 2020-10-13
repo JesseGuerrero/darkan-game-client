@@ -40,7 +40,7 @@ public class AnimationDefinitions {
         }
     }
 
-    void method11130(ByteBuf rsbytebuffer_1) {
+    void method11130(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -50,24 +50,24 @@ public class AnimationDefinitions {
         }
     }
 
-    void method11131(ByteBuf rsbytebuffer_1, int i_2) {
+    void method11131(JagexNode rsbytebuffer_1, int i_2) {
         int i_4;
         int i_5;
         if (i_2 == 1) {
-            i_4 = rsbytebuffer_1.readUnsignedShort();
+            i_4 = rsbytebuffer_1.readJagexNode();
             frameDurations = new int[i_4];
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                frameDurations[i_5] = rsbytebuffer_1.readUnsignedShort();
+                frameDurations[i_5] = rsbytebuffer_1.readJagexNode();
             }
             frames = new int[i_4];
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                frames[i_5] = rsbytebuffer_1.readUnsignedShort();
+                frames[i_5] = rsbytebuffer_1.readJagexNode();
             }
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                frames[i_5] += rsbytebuffer_1.readUnsignedShort() << 16;
+                frames[i_5] += rsbytebuffer_1.readJagexNode() << 16;
             }
         } else if (i_2 == 2) {
-            loopDelay = rsbytebuffer_1.readUnsignedShort();
+            loopDelay = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 3) {
             aBoolArray5915 = new boolean[256];
             i_4 = rsbytebuffer_1.readUnsignedByte();
@@ -77,9 +77,9 @@ public class AnimationDefinitions {
         } else if (i_2 == 5) {
             priority = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 6) {
-            leftHandItem = rsbytebuffer_1.readUnsignedShort();
+            leftHandItem = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 7) {
-            rightHandItem = rsbytebuffer_1.readUnsignedShort();
+            rightHandItem = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 8) {
             maxLoops = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 9) {
@@ -92,15 +92,15 @@ public class AnimationDefinitions {
             i_4 = rsbytebuffer_1.readUnsignedByte();
             anIntArray5911 = new int[i_4];
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                anIntArray5911[i_5] = rsbytebuffer_1.readUnsignedShort();
+                anIntArray5911[i_5] = rsbytebuffer_1.readJagexNode();
             }
             for (i_5 = 0; i_5 < i_4; i_5++) {
-                anIntArray5911[i_5] += rsbytebuffer_1.readUnsignedShort() << 16;
+                anIntArray5911[i_5] += rsbytebuffer_1.readJagexNode() << 16;
             }
         } else {
             int i_7;
             if (i_2 == 13) {
-                i_4 = rsbytebuffer_1.readUnsignedShort();
+                i_4 = rsbytebuffer_1.readJagexNode();
                 anIntArrayArray5913 = new int[i_4][];
                 for (i_5 = 0; i_5 < i_4; i_5++) {
                     int children = rsbytebuffer_1.readUnsignedByte();
@@ -108,7 +108,7 @@ public class AnimationDefinitions {
                         anIntArrayArray5913[i_5] = new int[children];
                         anIntArrayArray5913[i_5][0] = rsbytebuffer_1.read24BitUnsignedInteger();
                         for (i_7 = 1; i_7 < children; i_7++) {
-                            anIntArrayArray5913[i_5][i_7] = rsbytebuffer_1.readUnsignedShort();
+                            anIntArrayArray5913[i_5][i_7] = rsbytebuffer_1.readJagexNode();
                         }
                     }
                 }
@@ -137,8 +137,8 @@ public class AnimationDefinitions {
                         }
                     }
                     i_4 = rsbytebuffer_1.readUnsignedByte();
-                    anIntArray5927[i_4] = rsbytebuffer_1.readUnsignedShort();
-                    anIntArray5919[i_4] = rsbytebuffer_1.readUnsignedShort();
+                    anIntArray5927[i_4] = rsbytebuffer_1.readJagexNode();
+                    anIntArray5919[i_4] = rsbytebuffer_1.readJagexNode();
                 } else if (i_2 == 249) {
                     i_4 = rsbytebuffer_1.readUnsignedByte();
                     if (aClass465_5910 == null) {

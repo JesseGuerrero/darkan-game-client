@@ -6,9 +6,9 @@ public class PlaySoundJingleCutsceneAction extends CutsceneAction {
     int anInt9437;
     int anInt9436;
 
-    PlaySoundJingleCutsceneAction(ByteBuf rsbytebuffer_1) {
+    PlaySoundJingleCutsceneAction(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9437 = rsbytebuffer_1.readUnsignedShort();
+        anInt9437 = rsbytebuffer_1.readJagexNode();
         anInt9436 = rsbytebuffer_1.readUnsignedByte();
     }
 

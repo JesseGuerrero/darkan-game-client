@@ -9,9 +9,9 @@ public class CutsceneAction_Sub6 extends CutsceneAction {
     int anInt9171;
     int anInt9172;
 
-    CutsceneAction_Sub6(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub6(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9170 = rsbytebuffer_1.readUnsignedShort();
+        anInt9170 = rsbytebuffer_1.readJagexNode();
         int i_2 = rsbytebuffer_1.readInt();
         anInt9169 = i_2 >>> 16;
         anInt9168 = i_2 & 0xffff;

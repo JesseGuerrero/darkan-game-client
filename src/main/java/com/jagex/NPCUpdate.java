@@ -63,7 +63,7 @@ public class NPCUpdate {
     }
 
     static void decodeAddRemove() {
-        ByteBuf.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
+        JagexNode.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
         buffer.initBitAccess();
         int size = buffer.readBits(8);
         int i;
@@ -127,7 +127,7 @@ public class NPCUpdate {
     }
 
     static void decodeUpdate(boolean largeView) {
-        ByteBuf.Bit rsbitsbuffer_2 = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
+        JagexNode.Bit rsbitsbuffer_2 = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
         while (rsbitsbuffer_2.readableBits(client.GAME_CONNECTION_CONTEXT.currentPacketSize) >= 15) {
             int i_3 = rsbitsbuffer_2.readBits(15);
             if (i_3 == 32767) {
@@ -196,7 +196,7 @@ public class NPCUpdate {
     }
 
     static void decodeMasks() {
-        ByteBuf.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
+        JagexNode.Bit buffer = client.GAME_CONNECTION_CONTEXT.recievedBuffer;
         for (int i_1 = 0; i_1 < client.npcListSize; i_1++) {
             int i_2 = client.NPC_INDICES[i_1];
             NPCEntity npc = (NPCEntity) ((ObjectNode) client.NPC_MAP.get(i_2)).anObject8068;
@@ -243,14 +243,14 @@ public class NPCUpdate {
                     if ((i_8 & 0x4) == 4) {
                         shorts_19 = new short[i_6];
                         for (int i_11 = 0; i_11 < i_6; i_11++) {
-                            shorts_19[i_11] = (short) buffer.readUnsignedShort();
+                            shorts_19[i_11] = (short) buffer.readJagexNode();
                         }
                     }
                     short[] shorts_20 = null;
                     if ((i_8 & 0x8) == 8) {
                         shorts_20 = new short[i_7];
                         for (int i_12 = 0; i_12 < i_7; i_12++) {
-                            shorts_20[i_12] = (short) buffer.readUnsignedShort();
+                            shorts_20[i_12] = (short) buffer.readJagexNode();
                         }
                     }
                     long long_21 = i_2 | (long) (++npc.meshModifierCount - 1) << 32;
@@ -273,7 +273,7 @@ public class NPCUpdate {
                 npc.anInt10367 = 0;
             }
             if ((i_4 & 0x1000) != 0) {
-                npc.anInt10575 = buffer.readUnsignedShort();
+                npc.anInt10575 = buffer.readJagexNode();
                 if (npc.anInt10575 == 65535) {
                     npc.anInt10575 = -1;
                 }
@@ -432,7 +432,7 @@ public class NPCUpdate {
                     if ((i_8 & 0x4) == 4) {
                         shorts_19 = new short[i_6];
                         for (int i_11 = 0; i_11 < i_6; i_11++) {
-                            shorts_19[i_11] = (short) buffer.readUnsignedShort();
+                            shorts_19[i_11] = (short) buffer.readJagexNode();
                         }
                     }
                     short[] shorts_20 = null;
@@ -456,7 +456,7 @@ public class NPCUpdate {
                 npc.varns.method2607();
                 int i_14 = buffer.buffer[++buffer.index - 1] & 0xff;
                 for (int i_6 = 0; i_6 < i_14; i_6++) {
-                    int i_7 = buffer.readUnsignedShort();
+                    int i_7 = buffer.readJagexNode();
                     int i_8 = buffer.readIntV1();
                     npc.varns.setVarn(i_7, i_8);
                 }
@@ -471,7 +471,7 @@ public class NPCUpdate {
                 npc.blueAdd = buffer.readByte();
                 npc.scalar = (byte) buffer.readUnsigned128Byte();
                 npc.anInt10347 = client.CYCLES_20MS + buffer.readShortLE();
-                npc.anInt10348 = client.CYCLES_20MS + buffer.readUnsignedShort();
+                npc.anInt10348 = client.CYCLES_20MS + buffer.readJagexNode();
             }
             if ((i_4 & 0x800000) != 0) {
                 npc.modifiedName = buffer.readString();
@@ -489,7 +489,7 @@ public class NPCUpdate {
                 for (int i_8 = 0; i_8 < i_14; i_8++) {
                     int i_9 = buffer.readUnsignedShortLE128();
                     if ((i_9 & 0xc000) == 49152) {
-                        int i_10 = buffer.readUnsignedShort();
+                        int i_10 = buffer.readJagexNode();
                         ints_15[i_8] = i_9 << 16 | i_10;
                     } else {
                         ints_15[i_8] = i_9;
@@ -499,7 +499,7 @@ public class NPCUpdate {
                 npc.method15797(ints_15, ints_16);
             }
             if ((i_4 & 0x20) != 0) {
-                int i_14 = buffer.readUnsignedShort();
+                int i_14 = buffer.readJagexNode();
                 int i_6 = buffer.readIntV2();
                 if (i_14 == 65535) {
                     i_14 = -1;

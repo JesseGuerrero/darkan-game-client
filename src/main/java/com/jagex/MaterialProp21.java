@@ -78,7 +78,7 @@ public class MaterialProp21 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
             noPalette = rsbytebuffer_2.readUnsignedByte() == 1;
         }

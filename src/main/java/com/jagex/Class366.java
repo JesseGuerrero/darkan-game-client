@@ -45,14 +45,14 @@ public class Class366 implements Interface3 {
         return long_2;
     }
 
-    public static Class365 method6303(ByteBuf rsbytebuffer_0) {
+    public static Class365 method6303(JagexNode rsbytebuffer_0) {
         int i_2 = rsbytebuffer_0.readUnsignedByte();
         Class356 class356_3 = Class356.values()[rsbytebuffer_0.readUnsignedByte()];
         Class353 class353_4 = Class353.values()[rsbytebuffer_0.readUnsignedByte()];
         int i_5 = rsbytebuffer_0.readShort();
         int i_6 = rsbytebuffer_0.readShort();
-        int i_7 = rsbytebuffer_0.readUnsignedShort();
-        int i_8 = rsbytebuffer_0.readUnsignedShort();
+        int i_7 = rsbytebuffer_0.readJagexNode();
+        int i_8 = rsbytebuffer_0.readJagexNode();
         int i_9 = rsbytebuffer_0.readInt();
         int i_10 = rsbytebuffer_0.readInt();
         int i_11 = rsbytebuffer_0.readInt();

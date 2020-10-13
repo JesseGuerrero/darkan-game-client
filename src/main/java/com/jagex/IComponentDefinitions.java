@@ -256,7 +256,7 @@ public class IComponentDefinitions {
         }
     }
 
-    void readValues(ByteBuf rsbytebuffer_1) {
+    void readValues(JagexNode rsbytebuffer_1) {
         int i_3 = rsbytebuffer_1.readUnsignedByte();
         if (i_3 == 255) {
             i_3 = -1;
@@ -267,16 +267,16 @@ public class IComponentDefinitions {
             name = rsbytebuffer_1.readString();
         }
         type = ComponentType.forId(typeId);
-        contentType = rsbytebuffer_1.readUnsignedShort();
+        contentType = rsbytebuffer_1.readJagexNode();
         basePositionX = rsbytebuffer_1.readShort();
         basePositionY = rsbytebuffer_1.readShort();
-        baseWidth = rsbytebuffer_1.readUnsignedShort();
-        baseHeight = rsbytebuffer_1.readUnsignedShort();
+        baseWidth = rsbytebuffer_1.readJagexNode();
+        baseHeight = rsbytebuffer_1.readJagexNode();
         aspectWidthType = rsbytebuffer_1.readByte();
         aspectHeightType = rsbytebuffer_1.readByte();
         aspectXType = rsbytebuffer_1.readByte();
         aspectYType = rsbytebuffer_1.readByte();
-        parent = rsbytebuffer_1.readUnsignedShort();
+        parent = rsbytebuffer_1.readJagexNode();
         if (parent == 65535) {
             parent = -1;
         } else {
@@ -288,8 +288,8 @@ public class IComponentDefinitions {
             noClickThrough = (i_4 & 0x2) != 0;
         }
         if (type == ComponentType.CONTAINER) {
-            scrollWidth = rsbytebuffer_1.readUnsignedShort();
-            scrollHeight = rsbytebuffer_1.readUnsignedShort();
+            scrollWidth = rsbytebuffer_1.readJagexNode();
+            scrollHeight = rsbytebuffer_1.readJagexNode();
             if (i_3 < 0) {
                 noClickThrough = rsbytebuffer_1.readUnsignedByte() == 1;
             }
@@ -303,7 +303,7 @@ public class IComponentDefinitions {
 //                hidden=true;
 //            }
 
-            angle2d = rsbytebuffer_1.readUnsignedShort();
+            angle2d = rsbytebuffer_1.readJagexNode();
             int flag2 = rsbytebuffer_1.readUnsignedByte();
             tiling = (flag2 & 0x1) != 0;
             alpha = (flag2 & 0x2) != 0;
@@ -328,25 +328,25 @@ public class IComponentDefinitions {
             if (bool_6) {
                 originX = rsbytebuffer_1.readShort();
                 originY = rsbytebuffer_1.readShort();
-                spritePitch = rsbytebuffer_1.readUnsignedShort();
-                spriteRoll = rsbytebuffer_1.readUnsignedShort();
-                spriteYaw = rsbytebuffer_1.readUnsignedShort();
-                spriteScale = rsbytebuffer_1.readUnsignedShort();
+                spritePitch = rsbytebuffer_1.readJagexNode();
+                spriteRoll = rsbytebuffer_1.readJagexNode();
+                spriteYaw = rsbytebuffer_1.readJagexNode();
+                spriteScale = rsbytebuffer_1.readJagexNode();
             } else if (hasOrigin) {
                 originX = rsbytebuffer_1.readShort();
                 originY = rsbytebuffer_1.readShort();
                 originZ = rsbytebuffer_1.readShort();
-                spritePitch = rsbytebuffer_1.readUnsignedShort();
-                spriteRoll = rsbytebuffer_1.readUnsignedShort();
-                spriteYaw = rsbytebuffer_1.readUnsignedShort();
+                spritePitch = rsbytebuffer_1.readJagexNode();
+                spriteRoll = rsbytebuffer_1.readJagexNode();
+                spriteYaw = rsbytebuffer_1.readJagexNode();
                 spriteScale = rsbytebuffer_1.readShort();
             }
             animation = rsbytebuffer_1.readBigSmart();
             if (aspectWidthType != 0) {
-                aspectWidth = rsbytebuffer_1.readUnsignedShort();
+                aspectWidth = rsbytebuffer_1.readJagexNode();
             }
             if (aspectHeightType != 0) {
-                aspectHeight = rsbytebuffer_1.readUnsignedShort();
+                aspectHeight = rsbytebuffer_1.readJagexNode();
             }
         }
         if (type == ComponentType.TEXT) {
@@ -422,11 +422,11 @@ public class IComponentDefinitions {
             for (i_11 = 0; i_11 < opCursors.length; i_11++) {
                 opCursors[i_11] = -1;
             }
-            opCursors[i_10] = rsbytebuffer_1.readUnsignedShort();
+            opCursors[i_10] = rsbytebuffer_1.readJagexNode();
         }
         if (i_18 > 1) {
             i_10 = rsbytebuffer_1.readUnsignedByte();
-            opCursors[i_10] = rsbytebuffer_1.readUnsignedShort();
+            opCursors[i_10] = rsbytebuffer_1.readJagexNode();
         }
         opName = rsbytebuffer_1.readString();
         if (opName.isEmpty()) {
@@ -438,21 +438,21 @@ public class IComponentDefinitions {
         useOptionString = rsbytebuffer_1.readString();
         i_10 = -1;
         if (IFTargetParams.getUseOptionFlags(optionMask) != 0) {
-            i_10 = rsbytebuffer_1.readUnsignedShort();
+            i_10 = rsbytebuffer_1.readJagexNode();
             if (i_10 == 65535) {
                 i_10 = -1;
             }
-            targetOverCursor = rsbytebuffer_1.readUnsignedShort();
+            targetOverCursor = rsbytebuffer_1.readJagexNode();
             if (targetOverCursor == 65535) {
                 targetOverCursor = -1;
             }
-            targetLeaveCursor = rsbytebuffer_1.readUnsignedShort();
+            targetLeaveCursor = rsbytebuffer_1.readJagexNode();
             if (targetLeaveCursor == 65535) {
                 targetLeaveCursor = -1;
             }
         }
         if (i_3 >= 0) {
-            mouseOverCursor = rsbytebuffer_1.readUnsignedShort();
+            mouseOverCursor = rsbytebuffer_1.readJagexNode();
             if (mouseOverCursor == 65535) {
                 mouseOverCursor = -1;
             }
@@ -505,7 +505,7 @@ public class IComponentDefinitions {
         anIntArray1406 = decodeScript3(rsbytebuffer_1);
     }
 
-    int[] decodeScript3(ByteBuf rsbytebuffer_1) {
+    int[] decodeScript3(JagexNode rsbytebuffer_1) {
         int i_3 = rsbytebuffer_1.readUnsignedByte();
         if (i_3 == 0) {
             return null;
@@ -570,7 +570,7 @@ public class IComponentDefinitions {
         return fontmetrics_4;
     }
 
-    Object[] decodeScript(ByteBuf rsbytebuffer_1) {
+    Object[] decodeScript(JagexNode rsbytebuffer_1) {
         int i_3 = rsbytebuffer_1.readUnsignedByte();
         if (i_3 == 0) {
             return null;
@@ -676,7 +676,7 @@ public class IComponentDefinitions {
                 i_2 |= animation_9.method7640();
             }
             long long_13 = -1L;
-            long[] longs_26 = ByteBuf.aLongArray7979;
+            long[] longs_26 = JagexNode.aLongArray7979;
             int i_16;
             if (colorsToReplace != null) {
                 for (i_16 = 0; i_16 < colorsToReplace.length; i_16++) {

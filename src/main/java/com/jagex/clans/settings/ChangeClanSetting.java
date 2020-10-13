@@ -15,11 +15,11 @@ public class ChangeClanSetting {
 
     NodeCollection settings = new NodeCollection();
 
-    public ChangeClanSetting(ByteBuf buffer) {
+    public ChangeClanSetting(JagexNode buffer) {
         decodeSettings(buffer);
     }
 
-    void decodeSettings(ByteBuf buffer) {
+    void decodeSettings(JagexNode buffer) {
         pointer = buffer.readLong();
         updateNumber = buffer.readLong();
         for (int i = buffer.readUnsignedByte(); i != 0; i = buffer.readUnsignedByte()) {

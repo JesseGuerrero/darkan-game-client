@@ -56,7 +56,7 @@ public class UnderlayIndexLoader {
             }
             underlaydef_3 = new UnderlayDef();
             if (bytes_10 != null) {
-                underlaydef_3.decode(new ByteBuf(bytes_10));
+                underlaydef_3.decode(new JagexNode(bytes_10));
             }
             LRUCache softcache_9 = cache;
             synchronized (cache) {

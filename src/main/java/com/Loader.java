@@ -55,6 +55,7 @@ public class Loader extends Applet implements AppletStub {
     public static JFrame clientFrame;
     public static JPanel client_panel;
     public static boolean firstLobby = true;
+    public static boolean inGame = false;
 
     public static void main(String[] arg0) {
         if(arg0.length > 0) {

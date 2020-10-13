@@ -8,10 +8,10 @@ public class Class359 {
         throw new Error();
     }
 
-    static void decodePlayerCounts(ByteBuf rsbytebuffer_0) {
+    static void decodePlayerCounts(JagexNode rsbytebuffer_0) {
         for (int i_2 = 0; i_2 < Class4.WORLD_LIST_SIZE; i_2++) {
             int worldId = rsbytebuffer_0.readSmart();
-            int playerCount = rsbytebuffer_0.readUnsignedShort();
+            int playerCount = rsbytebuffer_0.readJagexNode();
             if (playerCount == 65535) {
                 playerCount = -1;
             }

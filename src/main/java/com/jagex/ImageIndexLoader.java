@@ -15,8 +15,8 @@ public class ImageIndexLoader implements ImageLoader {
     public ImageIndexLoader(Index textureDefIndex, Index textureIndex, Index spriteIndex) {
         this.textureIndex = textureIndex;
         this.spriteIndex = spriteIndex;
-        ByteBuf stream = new ByteBuf(textureDefIndex.getFile(0, 0));
-        textureDefSize = stream.readUnsignedShort();
+        JagexNode stream = new JagexNode(textureDefIndex.getFile(0, 0));
+        textureDefSize = stream.readJagexNode();
         textures = new TextureDetails[textureDefSize];
         int i_5;
         for (i_5 = 0; i_5 < textureDefSize; i_5++) {
@@ -61,7 +61,7 @@ public class ImageIndexLoader implements ImageLoader {
         }
         for (i_5 = 0; i_5 < textureDefSize; i_5++) {
             if (textures[i_5] != null) {
-                textures[i_5].color = (short) stream.readUnsignedShort();
+                textures[i_5].color = (short) stream.readJagexNode();
             }
         }
         for (i_5 = 0; i_5 < textureDefSize; i_5++) {
@@ -145,7 +145,7 @@ public class ImageIndexLoader implements ImageLoader {
             if (bytes_4 == null) {
                 return null;
             } else {
-                MaterialDefinitions texturedefinition_5 = new MaterialDefinitions(new ByteBuf(bytes_4));
+                MaterialDefinitions texturedefinition_5 = new MaterialDefinitions(new JagexNode(bytes_4));
                 aClass223_3754.put(texturedefinition_5, textureId);
                 return texturedefinition_5;
             }

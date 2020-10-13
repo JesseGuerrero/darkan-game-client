@@ -58,21 +58,13 @@ public class RenderAnimIndexLoader {
     }
 
     public ModelAnimIndex getAnimIndex(int animIndexID) {
-
         LRUCache softcache_4 = renderAnimCache;
         ModelAnimIndex remoteAnimIndex;
-
-//        System.out.println(i_1);
 
         //Get index of animations
         synchronized (renderAnimCache) {
             remoteAnimIndex = (ModelAnimIndex) renderAnimCache.get(animIndexID);
         }
-
-        if(animIndexID == 4) {
-//            System.out.println("");
-        }
-
 
         if (remoteAnimIndex != null) {
             remoteAnimIndex.renderAnimId = animIndexID;
@@ -87,15 +79,11 @@ public class RenderAnimIndexLoader {
             remoteAnimIndex.renderAnimId = animIndexID;
             remoteAnimIndex.aClass211_2788 = this;
             if (bytes_10 != null) {
-                remoteAnimIndex.method3821(new ByteBuf(bytes_10));
+                remoteAnimIndex.method3821(new JagexNode(bytes_10));
             }
             LRUCache softcache_9 = renderAnimCache;
             synchronized (renderAnimCache) {
                 renderAnimCache.put(remoteAnimIndex, animIndexID);
-
-//                if(animIndexID == 4) {
-//                    remoteAnimIndex.standAnimation = 820;
-//                }
                 return remoteAnimIndex;
             }
         }

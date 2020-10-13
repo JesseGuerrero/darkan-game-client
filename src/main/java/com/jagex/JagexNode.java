@@ -4,7 +4,10 @@ import com.Loader;
 
 import java.math.BigInteger;
 
-public class ByteBuf extends Node {
+public class JagexNode extends Node {
+    /*
+    * Takes file information and encodes it into a larger, more memory efficient data structure
+    * */
 
     public static long[] aLongArray7979;
     static int[] anIntArray7986 = new int[256];
@@ -39,17 +42,19 @@ public class ByteBuf extends Node {
     public byte[] buffer;
     public int index;
 
-    public ByteBuf(byte[] bytes_1) {
+    public JagexNode(byte[] bytes_1) {
         buffer = bytes_1;
         index = 0;
     }
 
-    public ByteBuf(int i_1) {
+
+
+    public JagexNode(int i_1) {
         buffer = CircularBuffer.createBuffer(i_1);
         index = 0;
     }
 
-    public static int writeHuffmanString(ByteBuf buffer, String message) {
+    public static int writeHuffmanString(JagexNode buffer, String message) {
         int i_3 = buffer.index;
         byte[] bytes_4 = LinkedNodeList.method7885(message);
         buffer.method13076(bytes_4.length);
@@ -193,7 +198,7 @@ public class ByteBuf extends Node {
         return buffer[++index - 1] & 0xff;
     }
 
-    public int readUnsignedShort() {
+    public int readJagexNode() {
         index += 2;
         return (buffer[index - 1] & 0xff) + ((buffer[index - 2] & 0xff) << 8);
     }
@@ -477,7 +482,7 @@ public class ByteBuf extends Node {
 
     public int readUnsignedSmart() {
         int i_2 = buffer[index] & 0xff;
-        return i_2 < 128 ? readUnsignedByte() - 64 : readUnsignedShort() - 49152;
+        return i_2 < 128 ? readUnsignedByte() - 64 : readJagexNode() - 49152;
     }
 
     public int readSum() {
@@ -491,21 +496,21 @@ public class ByteBuf extends Node {
     }
 
     public int readUnsignedBigSmart() {
-        return buffer[index] < 0 ? readInt() & 0x7fffffff : readUnsignedShort();
+        return buffer[index] < 0 ? readInt() & 0x7fffffff : readJagexNode();
     }
 
     public int readBigSmart() {
         if (buffer[index] < 0) {
             return readInt() & 0x7fffffff;
         } else {
-            int i_1 = readUnsignedShort();
+            int i_1 = readJagexNode();
             return i_1 == 32767 ? -1 : i_1;
         }
     }
 
     public int readSmart() {
         int i_2 = buffer[index] & 0xff;
-        return i_2 < 128 ? readUnsignedByte() : readUnsignedShort() - 32768;
+        return i_2 < 128 ? readUnsignedByte() : readJagexNode() - 32768;
     }
 
     public long read5ByteInteger() {
@@ -606,7 +611,7 @@ public class ByteBuf extends Node {
         buffer[index - i_1 - 1] = (byte) i_1;
     }
 
-    public static class Bit extends ByteBuf {
+    public static class Bit extends JagexNode {
         static int[] anIntArray9610 = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1};
         Isaac isaac;
         int anInt9608;

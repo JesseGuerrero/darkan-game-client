@@ -139,12 +139,12 @@ public class ParticleProducerDefinition {
         client.aClass457_7335.offer(class275_sub6_8);
     }
 
-    void readValues(ByteBuf buffer, int opcode) {
+    void readValues(JagexNode buffer, int opcode) {
         if (opcode == 1) {
-            minimumAngleH = (short) buffer.readUnsignedShort();
-            maximumAngleH = (short) buffer.readUnsignedShort();
-            minimumAngleV = (short) buffer.readUnsignedShort();
-            maximumAngleV = (short) buffer.readUnsignedShort();
+            minimumAngleH = (short) buffer.readJagexNode();
+            maximumAngleH = (short) buffer.readJagexNode();
+            minimumAngleV = (short) buffer.readJagexNode();
+            maximumAngleV = (short) buffer.readJagexNode();
             byte scale = 3;
             minimumAngleH <<= scale;
             maximumAngleH <<= scale;
@@ -159,16 +159,16 @@ public class ParticleProducerDefinition {
             anInt542 = buffer.readUnsignedByte();
             anInt569 = buffer.readByte();
         } else if (opcode == 5) {
-            minimumSize = maximumSize = buffer.readUnsignedShort() << 12 << 2;
+            minimumSize = maximumSize = buffer.readJagexNode() << 12 << 2;
         } else if (opcode == 6) {
             minimumStartColor = buffer.readInt();
             maximumStartColor = buffer.readInt();
         } else if (opcode == 7) {
-            minimumLifetime = buffer.readUnsignedShort();
-            maximumLifetime = buffer.readUnsignedShort();
+            minimumLifetime = buffer.readJagexNode();
+            maximumLifetime = buffer.readJagexNode();
         } else if (opcode == 8) {
-            minimumParticleRate = buffer.readUnsignedShort();
-            maximumParticleRate = buffer.readUnsignedShort();
+            minimumParticleRate = buffer.readJagexNode();
+            maximumParticleRate = buffer.readJagexNode();
         } else {
             int i_5;
             int count;
@@ -176,29 +176,29 @@ public class ParticleProducerDefinition {
                 count = buffer.readUnsignedByte();
                 anIntArray559 = new int[count];
                 for (i_5 = 0; i_5 < count; i_5++) {
-                    anIntArray559[i_5] = buffer.readUnsignedShort();
+                    anIntArray559[i_5] = buffer.readJagexNode();
                 }
             } else if (opcode == 10) {
                 count = buffer.readUnsignedByte();
                 anIntArray561 = new int[count];
                 for (i_5 = 0; i_5 < count; i_5++) {
-                    anIntArray561[i_5] = buffer.readUnsignedShort();
+                    anIntArray561[i_5] = buffer.readJagexNode();
                 }
             } else if (opcode == 12) {
                 anInt591 = buffer.readByte();
             } else if (opcode == 13) {
                 anInt600 = buffer.readByte();
             } else if (opcode == 14) {
-                anInt557 = buffer.readUnsignedShort();
+                anInt557 = buffer.readJagexNode();
             } else if (opcode == 15) {
-                textureId = buffer.readUnsignedShort();
+                textureId = buffer.readJagexNode();
             } else if (opcode == 16) {
                 activeFirst = buffer.readUnsignedByte() == 1;
-                anInt537 = buffer.readUnsignedShort();
-                lifetime = buffer.readUnsignedShort();
+                anInt537 = buffer.readJagexNode();
+                lifetime = buffer.readJagexNode();
                 periodic = buffer.readUnsignedByte() == 1;
             } else if (opcode == 17) {
-                anInt573 = buffer.readUnsignedShort();
+                anInt573 = buffer.readJagexNode();
             } else if (opcode == 18) {
                 fadeColor = buffer.readInt();
             } else if (opcode == 19) {
@@ -217,12 +217,12 @@ public class ParticleProducerDefinition {
                 count = buffer.readUnsignedByte();
                 anIntArray582 = new int[count];
                 for (i_5 = 0; i_5 < count; i_5++) {
-                    anIntArray582[i_5] = buffer.readUnsignedShort();
+                    anIntArray582[i_5] = buffer.readJagexNode();
                 }
             } else if (opcode == 26) {
                 aBool572 = false;
             } else if (opcode == 27) {
-                endSize = buffer.readUnsignedShort() << 12 << 2;
+                endSize = buffer.readJagexNode() << 12 << 2;
             } else if (opcode == 28) {
                 sizeChange = buffer.readUnsignedByte();
             } else if (opcode == 29) {
@@ -230,8 +230,8 @@ public class ParticleProducerDefinition {
             } else if (opcode == 30) {
                 aBool574 = true;
             } else if (opcode == 31) {
-                minimumSize = buffer.readUnsignedShort() << 12 << 2;
-                maximumSize = buffer.readUnsignedShort() << 12 << 2;
+                minimumSize = buffer.readJagexNode() << 12 << 2;
+                maximumSize = buffer.readJagexNode() << 12 << 2;
             } else if (opcode == 32) {
                 aBool534 = false;
             } else if (opcode == 33) {
@@ -292,7 +292,7 @@ public class ParticleProducerDefinition {
         }
     }
 
-    void decode(ByteBuf rsbytebuffer_1) {
+    void decode(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

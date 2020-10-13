@@ -13,13 +13,13 @@ public class Node_Sub17_Sub8 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
-        anInt10021 = rsbytebuffer_1.readUnsignedShort();
+    void method12250(JagexNode rsbytebuffer_1) {
+        anInt10021 = rsbytebuffer_1.readJagexNode();
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
-        anInt10021 = rsbytebuffer_1.readUnsignedShort() * 86059087 * 1415900847;
+    void method12249(JagexNode rsbytebuffer_1) {
+        anInt10021 = rsbytebuffer_1.readJagexNode() * 86059087 * 1415900847;
     }
 
     @Override
@@ -28,13 +28,13 @@ public class Node_Sub17_Sub8 extends Node_Sub17 {
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
-        anInt10021 = rsbytebuffer_1.readUnsignedShort() * 86059087 * 1415900847;
+    void method12257(JagexNode rsbytebuffer_1) {
+        anInt10021 = rsbytebuffer_1.readJagexNode() * 86059087 * 1415900847;
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
-        anInt10021 = rsbytebuffer_1.readUnsignedShort() * 86059087 * 1415900847;
+    void method12253(JagexNode rsbytebuffer_1) {
+        anInt10021 = rsbytebuffer_1.readJagexNode() * 86059087 * 1415900847;
     }
 
     @Override

@@ -635,7 +635,7 @@ public class Class291 {
 
     }
 
-    static void method5162(ByteBuf rsbytebuffer_1, int i_2, int i_3, int i_4, int i_5, int[] ints_6, int[] ints_7) {
+    static void method5162(JagexNode rsbytebuffer_1, int i_2, int i_3, int i_4, int i_5, int[] ints_6, int[] ints_7) {
         int i_8 = rsbytebuffer_1.readUnsignedByte();
         if ((i_8 & 0x1) == 0) {
             boolean bool_9 = (i_8 & 0x2) == 0;
@@ -834,7 +834,7 @@ public class Class291 {
     }
 
     static void decodeArea(int i_1, int i_2) {
-        ByteBuf buffer = new ByteBuf(MAP_AREA_INDEX.getFileByName(aCacheableNode_Sub6_3491.staticElementsName, "area"));
+        JagexNode buffer = new JagexNode(MAP_AREA_INDEX.getFileByName(aCacheableNode_Sub6_3491.staticElementsName, "area"));
         int length = buffer.readUnsignedByte();
         int[] ints_5 = new int[length];
 

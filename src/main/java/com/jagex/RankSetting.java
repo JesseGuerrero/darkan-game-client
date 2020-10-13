@@ -44,7 +44,7 @@ public class RankSetting extends ClanSetting {
             byte[] bytes_3 = CoordGrid.PARTICLE_INDEX.getFile(0, i_0);
             defs = new ParticleProducerDefinition();
             if (bytes_3 != null) {
-                defs.decode(new ByteBuf(bytes_3));
+                defs.decode(new JagexNode(bytes_3));
             }
 
             defs.init();
@@ -64,7 +64,7 @@ public class RankSetting extends ClanSetting {
     }
 
     @Override
-    public void readSettings(ByteBuf buffer) {
+    public void readSettings(JagexNode buffer) {
         clanName = buffer.readNullString();
         if (clanName != null) {
             buffer.readUnsignedByte();

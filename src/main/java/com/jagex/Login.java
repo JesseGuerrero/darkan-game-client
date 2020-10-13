@@ -75,7 +75,7 @@ public class Login {
                         if (Class9.lobbyStage == 273) {
                             tcpmessage_2.buffer.writeByte(client.GAME_STATE == 10 ? 1 : 0);
                         }
-                        ByteBuf rsbytebuffer_4 = Class94.method1587();
+                        JagexNode rsbytebuffer_4 = Class94.method1587();
                         rsbytebuffer_4.writeByte(Class9.anInt76);
                         rsbytebuffer_4.writeShort((int) (Math.random() * 9.9999999E7D));
                         rsbytebuffer_4.writeByte(Class223.CURRENT_LANGUAGE.getValue());
@@ -122,7 +122,7 @@ public class Login {
                     }
                     Class9.CURRENT_CONNECTION_CONTEXT.getConnection().read(Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.buffer, 0, 2);
                     Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index = 0;
-                    Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.readUnsignedShort();
+                    Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.readJagexNode();
                     Class9.loginStage = 57;
                 }
                 if (Class9.loginStage == 57) {
@@ -161,14 +161,14 @@ public class Login {
                     Class9.aLong86 = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.readLong();
                     Class9.loginStage = 80;
                 }
-                ByteBuf.Bit rsbitsbuffer_22;
+                JagexNode.Bit rsbitsbuffer_22;
                 if (Class9.loginStage == 80) {
                     Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index = 0;
                     Class9.CURRENT_CONNECTION_CONTEXT.clearAllQueuedPackets();
                     tcpmessage_2 = SkyboxDefinitions.method3558();
                     rsbitsbuffer_22 = tcpmessage_2.buffer;
                     int i_6;
-                    ByteBuf rsbytebuffer_7;
+                    JagexNode rsbytebuffer_7;
                     LoginProt outgoingloginpacket_20;
                     if (Class9.lobbyStage == 273) {
                         if (Class9.socialNetworkLogin) {
@@ -206,7 +206,7 @@ public class Login {
                         rsbitsbuffer_22.writeByte(rsbytebuffer_7.index);
                         rsbitsbuffer_22.writeBytes(rsbytebuffer_7.buffer, 0, rsbytebuffer_7.index);
                         client.aBool7175 = true;
-                        ByteBuf rsbytebuffer_8 = new ByteBuf(Class11.SYSTEM_INFO.method13454());
+                        JagexNode rsbytebuffer_8 = new JagexNode(Class11.SYSTEM_INFO.method13454());
                         Class11.SYSTEM_INFO.writeMachineInformation(rsbytebuffer_8);
                         rsbitsbuffer_22.writeBytes(rsbytebuffer_8.buffer, 0, rsbytebuffer_8.buffer.length);
                         rsbitsbuffer_22.writeInt(client.anInt7221);
@@ -381,7 +381,7 @@ public class Login {
                         Class9.loginStage = 140;
                     }
                 } else {
-                    ByteBuf.Bit buffer;
+                    JagexNode.Bit buffer;
                     if (Class9.loginStage == 140) {
                         buffer = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer;
                         if (Class9.lobbyStage == 273) {
@@ -396,7 +396,7 @@ public class Login {
                             client.VERIFIED_EMAIL_ADDRESS = buffer.readUnsignedByte() == 1;
                             client.aBool7322 = buffer.readUnsignedByte() == 1;
                             client.IS_QUICKCHAT_ONLY = buffer.readUnsignedByte() == 1;
-                            client.myPlayerIndex = buffer.readUnsignedShort();
+                            client.myPlayerIndex = buffer.readJagexNode();
                             client.IS_MEMBER = buffer.readUnsignedByte() == 1;
                             Class504.PLAYER_DOB = buffer.read24BitInteger();
                             client.membersWorld = buffer.readUnsignedByte() == 1;
@@ -426,22 +426,22 @@ public class Login {
                             Class354.JCOINS = buffer.readInt();
                             Class469.LOYALTY_ENABLED = buffer.readUnsignedByte() == 1;
                             KeyHoldInputSubscriber.LOYALTY_BALANCE = buffer.readInt();
-                            Class115.RECOVERYQUESTIONSSETDATE = buffer.readUnsignedShort();
-                            NPCMeshModifier.MESSAGES = buffer.readUnsignedShort();
-                            Preference_Sub28.LASTLOGINLDAY = buffer.readUnsignedShort();
+                            Class115.RECOVERYQUESTIONSSETDATE = buffer.readJagexNode();
+                            NPCMeshModifier.MESSAGES = buffer.readJagexNode();
+                            Preference_Sub28.LASTLOGINLDAY = buffer.readJagexNode();
                             Class125.LAST_IP_ADDRESS = buffer.readInt();
                             Class119.HOSTNAME_IDENTIFIER = new HostNameIdentifier(Class125.LAST_IP_ADDRESS);
                             (new Thread(Class119.HOSTNAME_IDENTIFIER)).start();
                             InputSubscriberType.EMAIL_STATUS = buffer.readUnsignedByte();
-                            SendFinishedCutsceneAction.anInt8307 = buffer.readUnsignedShort();
-                            UID192.anInt5357 = buffer.readUnsignedShort();
+                            SendFinishedCutsceneAction.anInt8307 = buffer.readJagexNode();
+                            UID192.anInt5357 = buffer.readJagexNode();
                             Class464.aBool5556 = buffer.readUnsignedByte() == 1;
                             VertexNormal.MY_PLAYER.displayName = VertexNormal.MY_PLAYER.username = RuntimeException_Sub3.MY_PLAYER_USERNAME = buffer.readGJString();
                             RenderFlagMap.anInt3644 = buffer.readUnsignedByte();
                             Class121.anInt1526 = buffer.readInt();
                             client.aBool7323 = buffer.readUnsignedByte() == 1;
                             ConnectionInfo.NEWS_CONNECTION_INFO = new ConnectionInfo();
-                            ConnectionInfo.NEWS_CONNECTION_INFO.worldId = buffer.readUnsignedShort();
+                            ConnectionInfo.NEWS_CONNECTION_INFO.worldId = buffer.readJagexNode();
                             if (ConnectionInfo.NEWS_CONNECTION_INFO.worldId == 65535) {
                                 ConnectionInfo.NEWS_CONNECTION_INFO.worldId = -1;
                             }
@@ -502,7 +502,7 @@ public class Login {
                         }
                         i_3 = buffer.readEncryptedSmart();
                         Class9.CURRENT_CONNECTION_CONTEXT.currentPacket = ServerProt.forId(i_3);
-                        Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize = buffer.readUnsignedShort();
+                        Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize = buffer.readJagexNode();
                         Class9.loginStage = 156;
                     }
                     if (Class9.loginStage == 156) {
@@ -515,7 +515,7 @@ public class Login {
                             Class190.method3152();
                             Class197.method3203(Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer);
                             i_3 = i_10 - Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index;
-                            ByteBuf.Bit rsbitsbuffer_21 = new ByteBuf.Bit(i_3);
+                            JagexNode.Bit rsbitsbuffer_21 = new JagexNode.Bit(i_3);
                             System.arraycopy(Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.buffer, Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index, rsbitsbuffer_21.buffer, 0, i_3);
                             Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index += i_3;
                             if (Class9.CURRENT_CONNECTION_CONTEXT.currentPacket == ServerProt.DYNAMIC_MAP_REGION) {
@@ -535,7 +535,7 @@ public class Login {
                             }
                             Class9.CURRENT_CONNECTION_CONTEXT.getConnection().read(Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.buffer, 0, 2);
                             Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.index = 0;
-                            Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.readUnsignedShort();
+                            Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize = Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.readJagexNode();
                         }
                         if (Class9.CURRENT_CONNECTION_CONTEXT.getConnection().available(Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize)) {
                             Class9.CURRENT_CONNECTION_CONTEXT.getConnection().read(Class9.CURRENT_CONNECTION_CONTEXT.recievedBuffer.buffer, 0, Class9.CURRENT_CONNECTION_CONTEXT.currentPacketSize);

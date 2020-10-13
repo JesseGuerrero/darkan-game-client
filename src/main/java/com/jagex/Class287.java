@@ -14,7 +14,7 @@ public class Class287 {
     int anInt3409;
     int anInt3432;
 
-    public Class287(AbstractRenderer graphicalrenderer_1, int i_2, ByteBuf rsbytebuffer_3) {
+    public Class287(AbstractRenderer graphicalrenderer_1, int i_2, JagexNode rsbytebuffer_3) {
         if (Preference_Sub20.anIntArray7920 == null) {
             FontRenderer_Sub1.method13783();
         }
@@ -22,15 +22,15 @@ public class Class287 {
         aBool3426 = (anInt3419 & 0x8) != 0;
         aBool3427 = (anInt3419 & 0x10) != 0;
         anInt3419 &= 0x7;
-        int i_5 = rsbytebuffer_3.readUnsignedShort() << 2;
-        int i_6 = rsbytebuffer_3.readUnsignedShort() << 2;
-        int i_7 = rsbytebuffer_3.readUnsignedShort() << 2;
+        int i_5 = rsbytebuffer_3.readJagexNode() << 2;
+        int i_6 = rsbytebuffer_3.readJagexNode() << 2;
+        int i_7 = rsbytebuffer_3.readJagexNode() << 2;
         int i_8 = rsbytebuffer_3.readUnsignedByte();
         int i_9 = i_8 * 2 + 1;
         aShortArray3429 = new short[i_9];
         int i_10;
         for (i_10 = 0; i_10 < aShortArray3429.length; i_10++) {
-            short s_11 = (short) rsbytebuffer_3.readUnsignedShort();
+            short s_11 = (short) rsbytebuffer_3.readJagexNode();
             int i_12 = s_11 >>> 8;
             int i_13 = s_11 & 0xff;
             if (i_12 >= i_9) {
@@ -42,7 +42,7 @@ public class Class287 {
             aShortArray3429[i_10] = (short) (i_12 << 8 | i_13);
         }
         i_8 = (i_8 << i_2) + (1 << i_2 >> 1);
-        i_10 = Class540.anIntArray7136 != null ? Class540.anIntArray7136[rsbytebuffer_3.readUnsignedShort()] : Class335.anIntArray3916[Class372.method6362(rsbytebuffer_3.readUnsignedShort()) & 0xffff];
+        i_10 = Class540.anIntArray7136 != null ? Class540.anIntArray7136[rsbytebuffer_3.readJagexNode()] : Class335.anIntArray3916[Class372.method6362(rsbytebuffer_3.readJagexNode()) & 0xffff];
         int i_14 = rsbytebuffer_3.readUnsignedByte();
         anInt3430 = i_14 & 0x1f;
         anInt3433 = (i_14 & 0xe0) << 3;

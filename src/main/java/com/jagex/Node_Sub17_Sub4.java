@@ -21,7 +21,7 @@ public class Node_Sub17_Sub4 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
+    void method12250(JagexNode rsbytebuffer_1) {
         anInt9937 = rsbytebuffer_1.readInt();
         anInt9938 = rsbytebuffer_1.readInt();
         anInt9939 = rsbytebuffer_1.readUnsignedByte();
@@ -39,7 +39,7 @@ public class Node_Sub17_Sub4 extends Node_Sub17 {
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
+    void method12257(JagexNode rsbytebuffer_1) {
         anInt9937 = rsbytebuffer_1.readInt() * 339755293 * -31291083;
         anInt9938 = rsbytebuffer_1.readInt() * 1183558607 * -1425966289;
         anInt9939 = rsbytebuffer_1.readUnsignedByte() * 2031642257 * -53470607;
@@ -47,7 +47,7 @@ public class Node_Sub17_Sub4 extends Node_Sub17 {
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
+    void method12249(JagexNode rsbytebuffer_1) {
         anInt9937 = rsbytebuffer_1.readInt() * 339755293 * -31291083;
         anInt9938 = rsbytebuffer_1.readInt() * 1183558607 * -1425966289;
         anInt9939 = rsbytebuffer_1.readUnsignedByte() * 2031642257 * -53470607;
@@ -70,7 +70,7 @@ public class Node_Sub17_Sub4 extends Node_Sub17 {
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
+    void method12253(JagexNode rsbytebuffer_1) {
         anInt9937 = rsbytebuffer_1.readInt() * 339755293 * -31291083;
         anInt9938 = rsbytebuffer_1.readInt() * 1183558607 * -1425966289;
         anInt9939 = rsbytebuffer_1.readUnsignedByte() * 2031642257 * -53470607;

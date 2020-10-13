@@ -7,8 +7,8 @@ public class VorbisFileReference extends Class278 {
     int[] values;
     int anInt8115;
     byte[][] aByteArrayArray8111 = new byte[10][];
-    ByteBuf aNode_Sub35_8112 = new ByteBuf(null);
-    ByteBuf byteBuffer = new ByteBuf(null);
+    JagexNode aNode_Sub35_8112 = new JagexNode(null);
+    JagexNode byteBuffer = new JagexNode(null);
     Index index;
     int fileId;
 
@@ -56,7 +56,7 @@ public class VorbisFileReference extends Class278 {
             int len = data.length >> 1;
             values = new int[len];
             for (int i_5 = 0; i_5 < len; i_5++) {
-                values[i_5] = byteBuffer.readUnsignedShort();
+                values[i_5] = byteBuffer.readJagexNode();
             }
         }
         if (anInt8115 >= values.length) {

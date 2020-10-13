@@ -12,7 +12,7 @@ public class JS5Manager {
 
     JS5GrabWorker[] grabWorkers;
 
-    ByteBuf buffer;
+    JagexNode buffer;
 
     JS5StandardRequester standardRequester;
 
@@ -267,7 +267,7 @@ public class JS5Manager {
             if (tableRequest.waiting) {
                 return false;
             } else {
-                ByteBuf stream = new ByteBuf(tableRequest.getData());
+                JagexNode stream = new JagexNode(tableRequest.getData());
                 stream.index = 5;
                 int indiceLength = stream.readUnsignedByte();
                 stream.index += indiceLength * 72;

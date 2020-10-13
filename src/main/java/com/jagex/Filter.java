@@ -28,27 +28,27 @@ public class Filter {
         return normalize(_f);
     }
 
-    void decode(ByteBuf buffer, Envelope envelope) {
+    void decode(JagexNode buffer, Envelope envelope) {
         int count = buffer.readUnsignedByte();
         numPairs[0] = count >> 4;
         numPairs[1] = count & 0xf;
         if (count != 0) {
-            unity[0] = buffer.readUnsignedShort();
-            unity[1] = buffer.readUnsignedShort();
+            unity[0] = buffer.readJagexNode();
+            unity[1] = buffer.readJagexNode();
             int migrated = buffer.readUnsignedByte();
 
             for (int dir = 0; dir < 2; dir++) {
                 for (int term = 0; term < numPairs[dir]; term++) {
-                    pairPhase[dir][0][term] = buffer.readUnsignedShort();
-                    pairMagnitude[dir][0][term] = buffer.readUnsignedShort();
+                    pairPhase[dir][0][term] = buffer.readJagexNode();
+                    pairMagnitude[dir][0][term] = buffer.readJagexNode();
                 }
             }
 
             for (int dir = 0; dir < 2; dir++) {
                 for (int phase = 0; phase < numPairs[dir]; phase++) {
                     if ((migrated & 1 << dir * 4 << phase) != 0) {
-                        pairPhase[dir][1][phase] = buffer.readUnsignedShort();
-                        pairMagnitude[dir][1][phase] = buffer.readUnsignedShort();
+                        pairPhase[dir][1][phase] = buffer.readJagexNode();
+                        pairMagnitude[dir][1][phase] = buffer.readJagexNode();
                     } else {
                         pairPhase[dir][1][phase] = pairPhase[dir][0][phase];
                         pairMagnitude[dir][1][phase] = pairMagnitude[dir][0][phase];

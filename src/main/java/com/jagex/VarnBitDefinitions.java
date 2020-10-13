@@ -30,7 +30,7 @@ public class VarnBitDefinitions {
         class282_sub31_8.aBool7774 = false;
     }
 
-    void method8213(ByteBuf rsbytebuffer_1) {
+    void method8213(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -40,9 +40,9 @@ public class VarnBitDefinitions {
         }
     }
 
-    void method8214(ByteBuf rsbytebuffer_1, int i_2) {
+    void method8214(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
-            anInt5764 = rsbytebuffer_1.readUnsignedShort();
+            anInt5764 = rsbytebuffer_1.readJagexNode();
             anInt5763 = rsbytebuffer_1.readUnsignedByte();
             anInt5762 = rsbytebuffer_1.readUnsignedByte();
         }

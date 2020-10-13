@@ -55,7 +55,7 @@ public class MaterialProp9 extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         switch (i_1) {
             case 0:
                 aBool9878 = rsbytebuffer_2.readUnsignedByte() == 1;

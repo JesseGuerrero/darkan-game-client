@@ -77,9 +77,9 @@ public class MaterialPropTexture extends MaterialProperty {
     }
 
     @Override
-    void decode(int i_1, ByteBuf rsbytebuffer_2) {
+    void decode(int i_1, JagexNode rsbytebuffer_2) {
         if (i_1 == 0) {
-            textureId = rsbytebuffer_2.readUnsignedShort();
+            textureId = rsbytebuffer_2.readJagexNode();
         }
 
     }

@@ -20,23 +20,23 @@ public class Node_Sub17_Sub2 extends Node_Sub17 {
     }
 
     @Override
-    void method12250(ByteBuf rsbytebuffer_1) {
-        anInt9932 = rsbytebuffer_1.readUnsignedShort();
+    void method12250(JagexNode rsbytebuffer_1) {
+        anInt9932 = rsbytebuffer_1.readJagexNode();
     }
 
     @Override
-    void method12257(ByteBuf rsbytebuffer_1) {
-        anInt9932 = rsbytebuffer_1.readUnsignedShort() * 390605889 * -518396991;
+    void method12257(JagexNode rsbytebuffer_1) {
+        anInt9932 = rsbytebuffer_1.readJagexNode() * 390605889 * -518396991;
     }
 
     @Override
-    void method12249(ByteBuf rsbytebuffer_1) {
-        anInt9932 = rsbytebuffer_1.readUnsignedShort() * 390605889 * -518396991;
+    void method12249(JagexNode rsbytebuffer_1) {
+        anInt9932 = rsbytebuffer_1.readJagexNode() * 390605889 * -518396991;
     }
 
     @Override
-    void method12253(ByteBuf rsbytebuffer_1) {
-        anInt9932 = rsbytebuffer_1.readUnsignedShort() * 390605889 * -518396991;
+    void method12253(JagexNode rsbytebuffer_1) {
+        anInt9932 = rsbytebuffer_1.readJagexNode() * 390605889 * -518396991;
     }
 
     @Override

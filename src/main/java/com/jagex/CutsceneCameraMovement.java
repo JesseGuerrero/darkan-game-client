@@ -16,7 +16,7 @@ public class CutsceneCameraMovement {
 
     int[] anIntArray765;
 
-    CutsceneCameraMovement(ByteBuf rsbytebuffer_1) {
+    CutsceneCameraMovement(JagexNode rsbytebuffer_1) {
         int i_2 = rsbytebuffer_1.readSmart();
         anIntArray763 = new int[i_2];
         anIntArray760 = new int[i_2];
@@ -26,11 +26,11 @@ public class CutsceneCameraMovement {
         anIntArray764 = new int[i_2];
         anIntArray765 = new int[i_2];
         for (int i_3 = 0; i_3 < i_2; i_3++) {
-            anIntArray763[i_3] = rsbytebuffer_1.readUnsignedShort() - 5120;
-            anIntArray762[i_3] = rsbytebuffer_1.readUnsignedShort() - 5120;
+            anIntArray763[i_3] = rsbytebuffer_1.readJagexNode() - 5120;
+            anIntArray762[i_3] = rsbytebuffer_1.readJagexNode() - 5120;
             anIntArray760[i_3] = rsbytebuffer_1.readShort();
-            anIntArray761[i_3] = rsbytebuffer_1.readUnsignedShort() - 5120;
-            anIntArray765[i_3] = rsbytebuffer_1.readUnsignedShort() - 5120;
+            anIntArray761[i_3] = rsbytebuffer_1.readJagexNode() - 5120;
+            anIntArray765[i_3] = rsbytebuffer_1.readJagexNode() - 5120;
             anIntArray764[i_3] = rsbytebuffer_1.readShort();
             anIntArray759[i_3] = rsbytebuffer_1.readShort();
         }

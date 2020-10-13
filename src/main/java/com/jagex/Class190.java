@@ -13,7 +13,7 @@ public class Class190 {
 
         try {
             class442_1 = ParticleArchive1Def.method6137("", client.CURRENT_GAME.name, true);
-            ByteBuf rsbytebuffer_2 = Class393.preferences.encode();
+            JagexNode rsbytebuffer_2 = Class393.preferences.encode();
             class442_1.method7386(rsbytebuffer_2.buffer, 0, rsbytebuffer_2.index);
         } catch (Exception ignored) {
         }

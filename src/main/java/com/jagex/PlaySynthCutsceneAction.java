@@ -14,9 +14,9 @@ public class PlaySynthCutsceneAction extends CutsceneAction {
 
     int anInt9366;
 
-    PlaySynthCutsceneAction(ByteBuf rsbytebuffer_1) {
+    PlaySynthCutsceneAction(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9363 = rsbytebuffer_1.readUnsignedShort();
+        anInt9363 = rsbytebuffer_1.readJagexNode();
         anInt9365 = rsbytebuffer_1.readUnsignedByte();
         anInt9364 = rsbytebuffer_1.readUnsignedByte();
         anInt9366 = rsbytebuffer_1.readUnsignedByte();

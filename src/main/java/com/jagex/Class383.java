@@ -35,13 +35,13 @@ public class Class383 implements Interface41 {
         }
     }
 
-    static Class350 method6512(ByteBuf rsbytebuffer_0) {
+    static Class350 method6512(JagexNode rsbytebuffer_0) {
         Class356 class356_2 = Class356.values()[rsbytebuffer_0.readUnsignedByte()];
         Class353 class353_3 = Class353.values()[rsbytebuffer_0.readUnsignedByte()];
         int i_4 = rsbytebuffer_0.readShort();
         int i_5 = rsbytebuffer_0.readShort();
-        int i_6 = rsbytebuffer_0.readUnsignedShort();
-        int i_7 = rsbytebuffer_0.readUnsignedShort();
+        int i_6 = rsbytebuffer_0.readJagexNode();
+        int i_7 = rsbytebuffer_0.readJagexNode();
         int i_8 = rsbytebuffer_0.readShort();
         int i_9 = rsbytebuffer_0.readBigSmart();
         int i_10 = rsbytebuffer_0.readInt();

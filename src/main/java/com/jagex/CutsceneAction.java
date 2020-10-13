@@ -6,8 +6,8 @@ public abstract class CutsceneAction {
 
     public int anInt992;
 
-    CutsceneAction(ByteBuf rsbytebuffer_1) {
-        anInt992 = rsbytebuffer_1.readUnsignedShort();
+    CutsceneAction(JagexNode rsbytebuffer_1) {
+        anInt992 = rsbytebuffer_1.readJagexNode();
     }
 
     public static Interface method1605(int i_0) {

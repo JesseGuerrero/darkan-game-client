@@ -255,7 +255,7 @@ public class MIDIInstrument extends Node {
     }
 
     void method12265(byte[] bytes_1) throws IOException {
-        ByteBuf rsbytebuffer_2 = new ByteBuf(bytes_1);
+        JagexNode rsbytebuffer_2 = new JagexNode(bytes_1);
         anInt7605 = rsbytebuffer_2.readInt();
         anInt7620 = rsbytebuffer_2.readInt();
         anInt7616 = rsbytebuffer_2.readInt();

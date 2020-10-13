@@ -81,8 +81,8 @@ public abstract class AbstractRenderer {
         return CutsceneAction_Sub23.aCacheableNode_Sub7_9445;
     }
 
-    static CS2Script method8699(byte[] bytes_0) {
-        return new CS2Script(new ByteBuf(bytes_0));
+    static CS2Script unpackScript(byte[] scriptInfo) {
+        return new CS2Script(new JagexNode(scriptInfo));
     }
 
     public abstract RendererInfo method8392();

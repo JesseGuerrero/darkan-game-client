@@ -59,7 +59,7 @@ public class HitsplatDefinitions {
         }
     }
 
-    void method3833(ByteBuf stream, int opcode) {
+    void method3833(JagexNode stream, int opcode) {
         if (opcode == 1) {
             anInt2849 = stream.readBigSmart();
         } else if (opcode == 2) {
@@ -78,7 +78,7 @@ public class HitsplatDefinitions {
         } else if (opcode == 8) {
             aString2840 = stream.readGJString();
         } else if (opcode == 9) {
-            anInt2841 = stream.readUnsignedShort();
+            anInt2841 = stream.readJagexNode();
         } else if (opcode == 10) {
             anInt2833 = stream.readShort();
         } else if (opcode == 11) {
@@ -88,7 +88,7 @@ public class HitsplatDefinitions {
         } else if (opcode == 13) {
             anInt2832 = stream.readShort();
         } else if (opcode == 14) {
-            anInt2847 = stream.readUnsignedShort();
+            anInt2847 = stream.readJagexNode();
         }
     }
 
@@ -120,7 +120,7 @@ public class HitsplatDefinitions {
         }
     }
 
-    void method3837(ByteBuf rsbytebuffer_1) {
+    void method3837(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {

@@ -62,7 +62,7 @@ public class ReferenceTable {
     }
 
     void decodeHeader(byte[] bytes_1) {
-        ByteBuf stream = new ByteBuf(Node_Sub17_Sub6.method15438(bytes_1));
+        JagexNode stream = new JagexNode(Node_Sub17_Sub6.method15438(bytes_1));
         int protocol = stream.readUnsignedByte();
         if (protocol >= 5 && protocol <= 7) {
             if (protocol >= 6) {
@@ -76,7 +76,7 @@ public class ReferenceTable {
             if (protocol >= 7) {
                 numValidArchives = stream.readUnsignedBigSmart();
             } else {
-                numValidArchives = stream.readUnsignedShort();
+                numValidArchives = stream.readJagexNode();
             }
             int i_7 = 0;
             int i_8 = -1;
@@ -91,7 +91,7 @@ public class ReferenceTable {
                 }
             } else {
                 for (i_9 = 0; i_9 < numValidArchives; i_9++) {
-                    validArchiveIds[i_9] = i_7 += stream.readUnsignedShort();
+                    validArchiveIds[i_9] = i_7 += stream.readJagexNode();
                     if (validArchiveIds[i_9] > i_8) {
                         i_8 = validArchiveIds[i_9];
                     }
@@ -157,7 +157,7 @@ public class ReferenceTable {
                 }
             } else {
                 for (i_9 = 0; i_9 < numValidArchives; i_9++) {
-                    validFileIdSizes[validArchiveIds[i_9]] = stream.readUnsignedShort();
+                    validFileIdSizes[validArchiveIds[i_9]] = stream.readJagexNode();
                 }
                 for (i_9 = 0; i_9 < numValidArchives; i_9++) {
                     i_10 = validArchiveIds[i_9];
@@ -166,7 +166,7 @@ public class ReferenceTable {
                     i_12 = -1;
                     validFileIds[i_10] = new int[i_11];
                     for (i_13 = 0; i_13 < i_11; i_13++) {
-                        i_14 = validFileIds[i_10][i_13] = i_7 += stream.readUnsignedShort();
+                        i_14 = validFileIds[i_10][i_13] = i_7 += stream.readJagexNode();
                         if (i_14 > i_12) {
                             i_12 = i_14;
                         }

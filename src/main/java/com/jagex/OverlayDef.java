@@ -23,7 +23,7 @@ public class OverlayDef {
         anInt7052 = anInt7052 << 8 | anInt7053;
     }
 
-    void method11357(ByteBuf rsbytebuffer_1) {
+    void method11357(JagexNode rsbytebuffer_1) {
         while (true) {
             int i_3 = rsbytebuffer_1.readUnsignedByte();
             if (i_3 == 0) {
@@ -33,13 +33,13 @@ public class OverlayDef {
         }
     }
 
-    void method11364(ByteBuf rsbytebuffer_1, int i_2) {
+    void method11364(JagexNode rsbytebuffer_1, int i_2) {
         if (i_2 == 1) {
             primaryRGB = IdentikitDefinition.method912(rsbytebuffer_1.read24BitUnsignedInteger());
         } else if (i_2 == 2) {
             texture = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 3) {
-            texture = rsbytebuffer_1.readUnsignedShort();
+            texture = rsbytebuffer_1.readJagexNode();
             if (texture == 65535) {
                 texture = -1;
             }
@@ -50,7 +50,7 @@ public class OverlayDef {
         } else if (i_2 == 8) {
             aClass536_7062.anInt7093 = anInt7053;
         } else if (i_2 == 9) {
-            anInt7057 = rsbytebuffer_1.readUnsignedShort() << 2;
+            anInt7057 = rsbytebuffer_1.readJagexNode() << 2;
         } else if (i_2 == 10) {
             aBool7059 = false;
         } else if (i_2 == 11) {
@@ -64,11 +64,11 @@ public class OverlayDef {
         } else if (i_2 == 16) {
             waterIntensity = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 20) {
-            anInt7065 = rsbytebuffer_1.readUnsignedShort();
+            anInt7065 = rsbytebuffer_1.readJagexNode();
         } else if (i_2 == 21) {
             anInt7055 = rsbytebuffer_1.readUnsignedByte();
         } else if (i_2 == 22) {
-            anInt7067 = rsbytebuffer_1.readUnsignedShort();
+            anInt7067 = rsbytebuffer_1.readJagexNode();
         }
     }
 }

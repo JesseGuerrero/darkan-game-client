@@ -11,7 +11,7 @@ public class CutsceneEntity {
     int[] animations;
     int index;
 
-    CutsceneEntity(ByteBuf buffer, int index) {
+    CutsceneEntity(JagexNode buffer, int index) {
         this.index = index;
         int type = buffer.readUnsignedByte();
         switch (type) {

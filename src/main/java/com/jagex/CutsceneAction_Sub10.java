@@ -8,10 +8,10 @@ public abstract class CutsceneAction_Sub10 extends CutsceneAction {
 
     int anInt9295;
 
-    CutsceneAction_Sub10(ByteBuf rsbytebuffer_1) {
+    CutsceneAction_Sub10(JagexNode rsbytebuffer_1) {
         super(rsbytebuffer_1);
-        anInt9296 = rsbytebuffer_1.readUnsignedShort();
-        anInt9297 = rsbytebuffer_1.readUnsignedShort();
+        anInt9296 = rsbytebuffer_1.readJagexNode();
+        anInt9297 = rsbytebuffer_1.readJagexNode();
         anInt9295 = rsbytebuffer_1.readUnsignedByte();
     }
 

@@ -1,6 +1,6 @@
 package com.jagex.clans.settings.impl;
 
-import com.jagex.ByteBuf;
+import com.jagex.JagexNode;
 import com.jagex.ClanSetting;
 import com.jagex.clans.ClanChannel;
 import com.jagex.clans.ClanChannelMember;
@@ -25,13 +25,13 @@ public class AddMemberSetting extends ClanSetting {
     }
 
     @Override
-    public void readSettings(ByteBuf buffer) {
+    public void readSettings(JagexNode buffer) {
         if (buffer.readUnsignedByte() != 255) {
             --buffer.index;
             buffer.readLong();
         }
         username = buffer.readNullString();
-        worldId = buffer.readUnsignedShort();
+        worldId = buffer.readJagexNode();
         rank = buffer.readByte();
         buffer.readLong();
     }
