@@ -29,11 +29,11 @@ public class BloomPreference extends Preference {
 
     public void method12703() {
         if (manager.currentToolkit.method12777() && !Class60.method1166(manager.currentToolkit.getValue())) {
-            screenType = 0;
+            preferenceValue = 0;
         }
 
-        if (screenType < 0 || screenType > 1) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 1) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -45,11 +45,11 @@ public class BloomPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12706() {
-        return screenType;
+        return preferenceValue;
     }
 
     public int method7784() {
@@ -57,7 +57,7 @@ public class BloomPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {

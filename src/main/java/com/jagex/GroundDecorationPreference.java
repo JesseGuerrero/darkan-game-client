@@ -11,15 +11,15 @@ public class GroundDecorationPreference extends Preference {
     }
 
     public int method12897() {
-        return screenType;
+        return preferenceValue;
     }
 
     public void method12898() {
         if (manager.getGame() != Game.darkan) {
-            screenType = 1;
+            preferenceValue = 1;
         }
-        if (screenType != 0 && screenType != 1) {
-            screenType = getDefaultValue();
+        if (preferenceValue != 0 && preferenceValue != 1) {
+            preferenceValue = getDefaultValue();
         }
     }
 
@@ -38,7 +38,7 @@ public class GroundDecorationPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method7784() {
@@ -46,7 +46,7 @@ public class GroundDecorationPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7787() {

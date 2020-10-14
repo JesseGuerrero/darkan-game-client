@@ -100,13 +100,11 @@ public class CS2Executor {
                 while (true) {
                     ++anInt5904;
                     if (anInt5904 > stackLimit) {
-                        if(script.pointer == 23) {new Getlineonce(true);}
                         throw new RuntimeException("");
                     }
                     operation = executor.operations[++executor.instrPtr];
 
                     if (aBool5898 && (aString5897 == null || executor.current.scriptName != null && executor.current.scriptName.indexOf(aString5897) != -1)) {
-                        if(script.pointer == 23) {new Getlineonce(true);}
                         System.out.println(executor.current.scriptName + ": " + operation);
                     }
                     executor.aBool7022 = executor.intOpValues[executor.instrPtr] == 1;
@@ -118,7 +116,6 @@ public class CS2Executor {
                     CS2Interpreter.executeOperation(operation, executor);
                 }
             } catch (Exception exception_8) {
-                if(script.pointer == 23) {new Getlineonce(true);}
                 StringBuilder stringbuilder_6 = new StringBuilder(30);
                 stringbuilder_6.append(executor.current.pointer).append(" ");
                 for (int i = executor.returnValuesPtr - 1; i >= 0; --i) {

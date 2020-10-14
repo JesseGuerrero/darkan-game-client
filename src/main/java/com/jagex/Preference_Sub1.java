@@ -72,7 +72,7 @@ public class Preference_Sub1 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     @Override
@@ -97,7 +97,7 @@ public class Preference_Sub1 extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {
@@ -109,21 +109,21 @@ public class Preference_Sub1 extends Preference {
     }
 
     public int method12615() {
-        return screenType;
+        return preferenceValue;
     }
 
     public void method12616() {
         int i_2 = manager.getProcessorSpecs().getMaxMemory();
         if (i_2 < 245) {
-            screenType = MapSize.SIZE_104.index;
+            preferenceValue = MapSize.SIZE_104.index;
         }
 
-        if (screenType == MapSize.SIZE_168.index && i_2 < 500) {
-            screenType = MapSize.SIZE_136.index;
+        if (preferenceValue == MapSize.SIZE_168.index && i_2 < 500) {
+            preferenceValue = MapSize.SIZE_136.index;
         }
 
-        if (screenType < MapSize.SIZE_104.index || screenType > MapSize.SIZE_72.index) {
-            screenType = getDefaultValue();
+        if (preferenceValue < MapSize.SIZE_104.index || preferenceValue > MapSize.SIZE_72.index) {
+            preferenceValue = getDefaultValue();
         }
 
     }

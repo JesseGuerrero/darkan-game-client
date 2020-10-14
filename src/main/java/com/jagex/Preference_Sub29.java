@@ -12,7 +12,7 @@ public class Preference_Sub29 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method7784(int i_1) {
@@ -20,8 +20,8 @@ public class Preference_Sub29 extends Preference {
     }
 
     public void method13048() {
-        if (screenType < 0 || screenType > 2) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 2) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -41,11 +41,11 @@ public class Preference_Sub29 extends Preference {
     }
 
     public int method13050() {
-        return screenType;
+        return preferenceValue;
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7787() {

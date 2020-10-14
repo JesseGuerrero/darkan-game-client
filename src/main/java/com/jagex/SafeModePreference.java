@@ -15,12 +15,12 @@ public class SafeModePreference extends Preference {
     }
 
     public int getValue() {
-        return screenType;
+        return preferenceValue;
     }
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     @Override
@@ -29,8 +29,8 @@ public class SafeModePreference extends Preference {
     }
 
     public void method12928() {
-        if (screenType != 1 && screenType != 0) {
-            screenType = getDefaultValue();
+        if (preferenceValue != 1 && preferenceValue != 0) {
+            preferenceValue = getDefaultValue();
         }
     }
 
@@ -39,7 +39,7 @@ public class SafeModePreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {

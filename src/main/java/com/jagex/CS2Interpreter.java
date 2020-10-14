@@ -3049,7 +3049,7 @@ public class CS2Interpreter {
     }
 
     static void ifSetFront(boolean bool, CS2Executor executor) {
-        new Getlineonce(false);
+
         int i_3 = executor.properties[--executor.index];
         IComponentDefinitions icomponentdefinitions_4 = IComponentDefinitions.getDefs(i_3);
         Interface interface_5 = Interface.INTERFACES[i_3 >> 16];
@@ -3423,7 +3423,7 @@ public class CS2Interpreter {
         Class42.playSoundSong(executor.properties[--executor.index], 255, 50);
     }
 
-    static void method3556(CS2Executor executor) {new Getlineonce(false);
+    static void method3556(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         WorldMapDef class282_sub50_sub6_3 = Class125.method2173();
         if (class282_sub50_sub6_3 != null) {
@@ -3724,7 +3724,7 @@ public class CS2Interpreter {
         Class190.savePreferences();
     }
 
-    static void method7643(CS2Executor executor) { new Getlineonce(false);
+    static void method7643(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         IComponentDefinitions defs = IComponentDefinitions.getDefs(i_2);
         int i_4 = -1;
@@ -3753,14 +3753,14 @@ public class CS2Interpreter {
     }
 
     static void setCCText(CS2Executor executor) {
-        new Getlineonce(false);
+
         CS2Interface CS2interface = executor.aBool7022 ? executor.hookedInterface2 : executor.hookedInterface1;
         IComponentDefinitions component = CS2interface.defs;
         Interface currentInterface = CS2interface.inter;
         setCompText(component, currentInterface, executor);
     }
 
-    static void method13494(CS2Executor executor) {new Getlineonce(false);
+    static void method13494(CS2Executor executor) {
         String string_2 = (String) executor.stringStack[--executor.stringStackPtr];
         if (RenderFlagMap.aString3643 != null && RenderFlagMap.aString3643.equalsIgnoreCase(string_2)) {
             executor.properties[++executor.index - 1] = 1;
@@ -4632,11 +4632,6 @@ public class CS2Interpreter {
         int screenType = Class158.windowedMode();
         int chosenScreenType = executor.properties[--executor.index];
 
-        System.out.println(chosenScreenType + " " + chosenScreenType);
-
-        System.out.println("gfx ran");
-
-        System.out.println(chosenScreenType);
         if (chosenScreenType >= 1 && chosenScreenType <= 2 && !Class158.justBecameFullscreen) {
             UID192.method7373(chosenScreenType, -1, -1, false);
 
@@ -4675,7 +4670,7 @@ public class CS2Interpreter {
                 }
             }
 
-            //
+
 
         } else {
             Class158.justBecameFullscreen = false;
@@ -5592,7 +5587,7 @@ public class CS2Interpreter {
         method8390(icomponentdefinitions_3, interface_4, executor);
     }
 
-    static void method6072(CS2Executor executor) {new Getlineonce(false);
+    static void method6072(CS2Executor executor) {
         executor.properties[++executor.index - 1] = Class393.preferences.bloom.method12707() && Renderers.CURRENT_RENDERER.method8403() ? 1 : 0;
     }
 
@@ -5935,7 +5930,7 @@ public class CS2Interpreter {
         executor.properties[++executor.index - 1] = ((PlayerEntity) executor.currentEntity).aClass155_10561.method2626(i_2);
     }
 
-    static void method8343(CS2Executor executor) {new Getlineonce(false);
+    static void method8343(CS2Executor executor) {
         executor.properties[++executor.index - 1] = Class393.preferences.antiAliasingDefault.method12646() && Renderers.CURRENT_RENDERER.method8405() ? 1 : 0;
     }
 
@@ -6509,7 +6504,7 @@ public class CS2Interpreter {
         }
     }
 
-    static void method3768(CS2Executor executor) {new Getlineonce(false);
+    static void method3768(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         FontRenderer_Sub2.method14263(i_2 >> 14 & 0x3fff, i_2 & 0x3fff);
     }
@@ -6701,7 +6696,7 @@ public class CS2Interpreter {
     }
 
     static void animateComp(CS2Executor executor) {
-        new Getlineonce(false);
+
         int i_2 = executor.properties[--executor.index];
         IComponentDefinitions icomponentdefinitions_3 = IComponentDefinitions.getDefs(i_2);
         Interface interface_4 = Interface.INTERFACES[i_2 >> 16];
@@ -7096,7 +7091,7 @@ public class CS2Interpreter {
         client.aBool7175 = false;
     }
 
-    static void method4413(CS2Executor executor) { new Getlineonce(false);
+    static void method4413(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         if (!Renderers.CURRENT_RENDERER.method8403()) {
             executor.properties[++executor.index - 1] = 3;
@@ -7138,7 +7133,7 @@ public class CS2Interpreter {
         }
     }
 
-    static void method7676(CS2Executor executor) {new Getlineonce(false);
+    static void method7676(CS2Executor executor) {
         CS2Interface underlaydefinition_2 = executor.aBool7022 ? executor.hookedInterface2 : executor.hookedInterface1;
         IComponentDefinitions icomponentdefinitions_3 = underlaydefinition_2.defs;
         int i_4 = -1;
@@ -7849,7 +7844,7 @@ public class CS2Interpreter {
         executor.properties[++executor.index - 1] = enumdefinitions_3.getSize();
     }
 
-    static void method12596(CS2Executor executor) {new Getlineonce(false);
+    static void method12596(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         executor.properties[++executor.index - 1] = Class393.preferences.maxScreenSize.checkValid(i_2);
     }
@@ -8039,7 +8034,7 @@ public class CS2Interpreter {
         executor.properties[executor.index - 1] = IndexLoaders.QUEST_LOADER.getQuest(executor.properties[executor.index - 1]).type;
     }
 
-    static void method7218(CS2Executor executor) {new Getlineonce(false);
+    static void method7218(CS2Executor executor) {
         int i_2 = executor.properties[--executor.index];
         if (!Renderers.CURRENT_RENDERER.method8405()) {
             executor.properties[++executor.index - 1] = 3;

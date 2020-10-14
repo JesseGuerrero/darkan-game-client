@@ -11,8 +11,8 @@ public class SoundLevelPreference extends Preference {
     }
 
     public void method12712() {
-        if (screenType < 0 && screenType > 127) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 && preferenceValue > 127) {
+            preferenceValue = getDefaultValue();
         }
     }
 
@@ -23,11 +23,11 @@ public class SoundLevelPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12714() {
-        return screenType;
+        return preferenceValue;
     }
 
     int method7786() {
@@ -48,6 +48,6 @@ public class SoundLevelPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 }

@@ -34,8 +34,8 @@ public class BrightnessPreference extends Preference {
     }
 
     public void method12861() {
-        if (screenType < 0 || screenType > 4) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 4) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -50,11 +50,11 @@ public class BrightnessPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     public int method12865() {
-        return screenType;
+        return preferenceValue;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class BrightnessPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     int method7786() {

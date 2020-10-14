@@ -13,21 +13,21 @@ public class Preference_Sub3 extends Preference {
     public void method12631() {
         int i_2 = manager.toolKit.getValue();
         if (i_2 != 3 && i_2 != 5) {
-            screenType = 0;
+            preferenceValue = 0;
         }
 
         if (manager.getProcessorSpecs().getProcessorCount() < 2) {
-            screenType = 0;
+            preferenceValue = 0;
         }
 
-        if (screenType != 0 && screenType != 1) {
-            screenType = getDefaultValue();
+        if (preferenceValue != 0 && preferenceValue != 1) {
+            preferenceValue = getDefaultValue();
         }
 
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     @Override
@@ -50,11 +50,11 @@ public class Preference_Sub3 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12632() {
-        return screenType;
+        return preferenceValue;
     }
 
     int method7784(int i_1) {

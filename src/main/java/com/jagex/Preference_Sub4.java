@@ -17,11 +17,11 @@ public class Preference_Sub4 extends Preference {
 
     public void method12639() {
         if (manager.currentToolkit.method12777() && !Class60.method1166(manager.currentToolkit.getValue())) {
-            screenType = 0;
+            preferenceValue = 0;
         }
 
-        if (screenType < 0 || screenType > 2) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 2) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -37,15 +37,15 @@ public class Preference_Sub4 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12641() {
-        return screenType;
+        return preferenceValue;
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {

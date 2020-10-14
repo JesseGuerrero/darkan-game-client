@@ -38,7 +38,7 @@ public class Preference_Sub11 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     int method7784() {
@@ -59,11 +59,11 @@ public class Preference_Sub11 extends Preference {
     }
 
     public int method12699() {
-        return screenType;
+        return preferenceValue;
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {

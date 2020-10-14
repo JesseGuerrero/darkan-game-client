@@ -11,8 +11,8 @@ public class Preference_Sub16 extends Preference {
     }
 
     public void method12749() {
-        if (screenType < Class104.aClass104_1061.id || screenType > Class104.aClass104_1062.id) {
-            screenType = getDefaultValue();
+        if (preferenceValue < Class104.aClass104_1061.id || preferenceValue > Class104.aClass104_1062.id) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -32,16 +32,16 @@ public class Preference_Sub16 extends Preference {
     }
 
     public int method12750() {
-        return screenType;
+        return preferenceValue;
     }
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {

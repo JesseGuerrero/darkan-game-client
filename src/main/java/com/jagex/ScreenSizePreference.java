@@ -13,14 +13,14 @@ public class ScreenSizePreference extends Preference {
     }
 
     public void method12684() {
-        if (screenType < 1 || screenType > 3) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 1 || preferenceValue > 3) {
+            preferenceValue = getDefaultValue();
         }
     }
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     int method7784() {
@@ -28,7 +28,7 @@ public class ScreenSizePreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = -754033619 * i_1 * -859024475;
+        preferenceValue = -754033619 * i_1 * -859024475;
     }
 
     int method7786() {
@@ -40,7 +40,7 @@ public class ScreenSizePreference extends Preference {
     }
 
     public int getScreenType() {
-        return screenType;
+        return preferenceValue;
     }
 
     @Override

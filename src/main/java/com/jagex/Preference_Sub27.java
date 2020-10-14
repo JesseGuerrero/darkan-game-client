@@ -15,12 +15,12 @@ public class Preference_Sub27 extends Preference {
     }
 
     public void method12950() {
-        if (manager.toolkitDefault.method13050() == 2 && screenType == 2) {
-            screenType = 1;
+        if (manager.toolkitDefault.method13050() == 2 && preferenceValue == 2) {
+            preferenceValue = 1;
         }
 
-        if (screenType < 0 || screenType > 2) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 2) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -36,15 +36,15 @@ public class Preference_Sub27 extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12952() {
-        return screenType;
+        return preferenceValue;
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {

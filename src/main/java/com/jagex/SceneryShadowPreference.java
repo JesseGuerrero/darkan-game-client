@@ -32,11 +32,11 @@ public class SceneryShadowPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     public int method12624() {
-        return screenType;
+        return preferenceValue;
     }
 
     public int method7784() {
@@ -44,7 +44,7 @@ public class SceneryShadowPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7787() {
@@ -58,10 +58,10 @@ public class SceneryShadowPreference extends Preference {
 
     public void method12627() {
         if (manager.textures.method12873() == 0) {
-            screenType = 0;
+            preferenceValue = 0;
         }
-        if (screenType < 0 || screenType > 2) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 2) {
+            preferenceValue = getDefaultValue();
         }
     }
 }

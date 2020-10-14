@@ -14,8 +14,8 @@ public class GraphicsToolkitPreference extends Preference {
     }
 
     public void method12773() {
-        if (screenType < 0 || screenType > 5) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 5) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -33,7 +33,7 @@ public class GraphicsToolkitPreference extends Preference {
     @Override
     void setValue(int i_1) {
         aBool7914 = false;
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class GraphicsToolkitPreference extends Preference {
     }
 
     public int getValue() {
-        return screenType;
+        return preferenceValue;
     }
 
     boolean method12777() {
@@ -56,7 +56,7 @@ public class GraphicsToolkitPreference extends Preference {
 
     void method7780(int i_1) {
         aBool7914 = false;
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7787() {

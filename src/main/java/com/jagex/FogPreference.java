@@ -21,16 +21,16 @@ public class FogPreference extends Preference {
     }
 
     public void method13415() {
-        if (screenType != 0 && manager.groundBlending.method12762() != 1) {
-            screenType = 0;
+        if (preferenceValue != 0 && manager.groundBlending.method12762() != 1) {
+            preferenceValue = 0;
         }
 
-        if (screenType != 0 && manager.toolkitDefault.method13050() == 2) {
-            screenType = 0;
+        if (preferenceValue != 0 && manager.toolkitDefault.method13050() == 2) {
+            preferenceValue = 0;
         }
 
-        if (screenType < 0 || screenType > 1) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 1) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -46,7 +46,7 @@ public class FogPreference extends Preference {
     }
 
     public int method13417() {
-        return screenType;
+        return preferenceValue;
     }
 
     public int method7784(int i_1) {
@@ -54,7 +54,7 @@ public class FogPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7786() {
@@ -71,7 +71,7 @@ public class FogPreference extends Preference {
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
 }

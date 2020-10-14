@@ -25,12 +25,12 @@ public class IdleAnimationsPreference extends Preference {
     }
 
     public int getValue() {
-        return screenType;
+        return preferenceValue;
     }
 
     @Override
     void setValue(int i_1) {
-        screenType = i_1;
+        preferenceValue = i_1;
     }
 
     int method7784() {
@@ -43,11 +43,11 @@ public class IdleAnimationsPreference extends Preference {
 
     public void method12741() {
         if (manager.getGame() == Game.stellarDawn) {
-            screenType = 2;
+            preferenceValue = 2;
         }
 
-        if (screenType < 0 || screenType > 2) {
-            screenType = getDefaultValue();
+        if (preferenceValue < 0 || preferenceValue > 2) {
+            preferenceValue = getDefaultValue();
         }
 
     }
@@ -58,7 +58,7 @@ public class IdleAnimationsPreference extends Preference {
     }
 
     void method7780(int i_1) {
-        screenType = i_1 * -754033619 * -859024475;
+        preferenceValue = i_1 * -754033619 * -859024475;
     }
 
     int method7787() {
