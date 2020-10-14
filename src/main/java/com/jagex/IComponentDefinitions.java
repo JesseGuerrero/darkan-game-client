@@ -1301,12 +1301,12 @@ public class IComponentDefinitions {
 	                                        i_30 += component.spriteScale;
 	                                        if (component.usesOrthogonal) {
 	                                            if (component.hasOrigin) {
-	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), component.spriteScale);
+	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT * -969250379), component.spriteScale);
 	                                            } else {
-	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT), (component.spriteScale << 2));
+	                                                matrix44_38.method6532(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT * -969250379), (component.spriteScale << 2));
 	                                            }
 	                                        } else {
-	                                            matrix44_38.method6531(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT));
+	                                            matrix44_38.method6531(i_39, i_27, i_24, i_25, i_29, i_30, ChangeClanSetting.BASE_WINDOW_WIDTH, (client.BASE_WINDOW_HEIGHT * -969250379));
 	                                        }
 	                                        Renderers.CURRENT_RENDERER.method8424(matrix44_38);
 	                                        Renderers.CURRENT_RENDERER.ba(2, 0);
