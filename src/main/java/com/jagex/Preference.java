@@ -47,11 +47,11 @@ public abstract class Preference {
 
     abstract int getDefaultValue();
 
-    void setPref(int screenType) {
+    void setPref(int preferenceValue) {
 //        if (checkValid(screenType) != 3) {
 //            setValue(screenType);
 //        }
-        setValue(screenType);
+        setValue(preferenceValue);
 
     }
 

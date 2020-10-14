@@ -15,13 +15,16 @@ import java.util.Properties;
 
 
 /*
+TODO: Focus on removing Facebook icon & walmart icon, walmart becomes website, facebook -> discord
 TODO: Fullscreen, fix render types
 TODO: ESC -> open lobby interface. Look into interface numbers and search for key codes.
 TODO: Scroll without CTRL, filter by interface
-TODO: Fix Sandwhich lady interface, equipment interface, skills tab
 TODO: Add resources build automation
 TODO: Add exe build automation
 TODO: Add cooking interfaces with "Space" to cook all
+TODO: Add toolkits to fullscreen
+TODO: Remove facebook icon
+TODO: Fullscreen can focus out?: maybe
  */
 
 

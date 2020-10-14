@@ -20,6 +20,68 @@ public class SkyboxIndexLoader {
         Class407.aCalendar4846.setTime(new Date(long_0));
     }
 
+    private static IComponentDefinitions changeLogin(IComponentDefinitions component, Interface interfaceObj, int interfaceId, int i) {
+
+        if (interfaceId == 596) {
+            //Move everything up a bit
+            if(component.type == ComponentType.CONTAINER) {
+                component.basePositionY -= 17;
+            } else if(i == 38 || i == 40) {
+                component.basePositionY -= 17;
+            }
+
+            //reduce size of background
+            if (i == 3) {//or i == 1?
+                component.baseHeight -= 65;
+                component.basePositionY += 25;
+            }
+
+            /*
+             * Move all these down some
+             * 35 is login title 38 is login text 39 is login box 40 is pass text 41 is password box 44 is login button
+             * */
+            if (i == 35 || (i >= 38 && i <= 41) || i == 44) {
+                component.basePositionY += 65;
+            }
+
+
+            //Remove excess children of a conatiner with filler components
+            if(component.parent == 39059460) {
+                if(component.type != ComponentType.CONTAINER && component.type != ComponentType.TEXT) {
+                    if(i >= 36) {
+                        component.hidden = true;
+                    }
+                }
+            }
+
+            //remove Facebook icons and a background sprite
+            if (component.spriteId == 6041 || i == 1) {
+                component.hidden = true;
+            }
+
+            //Move this up a bit
+            if (component.text.equalsIgnoreCase("<u=C8C8C8>Create Account Now")) { //TODO: Change the link?
+                component.basePositionY -= 13;
+
+
+            }
+
+            if (component.type == ComponentType.CONTAINER) {
+//                                System.out.println(i);
+            }
+
+
+            //Remove texts
+            if (component.text.equalsIgnoreCase("(Opens a popup window)") ||
+                    component.text.equalsIgnoreCase("Or log in with:") ||
+                    component.text.equalsIgnoreCase("<u=C8C8C8>Recover Your Password")) {
+                interfaceObj.components[i] = null;
+            }
+
+        }
+        return component;
+    }
+
     public static Interface getInterface(int interfaceId, int[] xteas, Interface currentInter, boolean unreactive) {
         Interface interfaceObj = currentInter;
         if (!Class388.INTERFACE_INDEX.loadArchive(interfaceId)) {
@@ -42,7 +104,7 @@ public class SkyboxIndexLoader {
             }
 
             boolean becameLogin = false;
-            for (int i = 0; i < componentSize; i++) {
+            for (int i = 0; i < componentSize; i++) { //TODO: Make this place more neat with functions, also change create account, test it first.
                 if (interfaceObj.components[i] == null) {
                     byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, xteas);
                     if (bytes_8 != null) {
@@ -50,41 +112,30 @@ public class SkyboxIndexLoader {
                         component.idHash = i + (interfaceId << 16);
                         component.readValues(new JagexNode(bytes_8));
 
+                        //If we are at login, these are all the additions to the login interface
+                        if(interfaceId == 596) {
+                            component = changeLogin(component, interfaceObj, interfaceId, i);
+                        }
+                        if(interfaceId == 906) {
+                            //Change lobby
+                        }
 
                         /*
-                        * 746 Resizable interface
-                        * 744 Login interface
-                        * 548 Fixed interface
-                        * 906 Lobby interface
-                        * */
+                         * 746 Resizable interface
+                         * 744 Login interface
+                         * 548 Fixed interface
+                         * 906 Lobby interface
+                         * */
 
-                        if(interfaceId == 667 && component.type == ComponentType.CONTAINER && component.onLoadScript != null) {
-//                            System.out.println(i + " : ;;;" + component.onLoadScript[0]);
-                            if(i == 6) {
-//                                component.hidden = true;
-                            }
-                        }
-
-                        if(interfaceId == 667) {
-                            if(component.type == ComponentType.CONTAINER) {
-
-
-//                                System.out.println(i);
-//                                component.transparency = 1;
-                            }
-
-                        }
-
-//                        System.out.println(interfaceId);
                         //Game Window inteface, fixed
-                        if((component.idHash == 48889904 && interfaceId == 548)) {
-                            component.baseHeight=0;
+                        if ((component.idHash == 48889904 && interfaceId == 548)) {
+                            component.baseHeight = 0;
                             component.hidden = true;
 
                         }
 
                         //Game Window Interface, not fixed
-                        if(component.idHash == 48889904 && interfaceId !=548) {
+                        if (component.idHash == 48889904 && interfaceId != 548) {
                             component.basePositionY = 0;
                             component.baseHeight = 0;
                             component.hidden = false;
@@ -92,13 +143,13 @@ public class SkyboxIndexLoader {
                         }
 
                         //if we are in the login screen
-                        if(interfaceId == 744) {
+                        if (interfaceId == 744) {
                             becameLogin = true;
                             Loader.client_panel.setPreferredSize(new Dimension(765, 553));
                         }
 
                         //Lobby/Fixed Window interface Hashes. Lobby and fixed share the same hashes
-                        if(component.idHash == 59375616 || component.idHash == 35913932 || component.idHash == 59768835 || component.idHash == 38600709) {
+                        if (component.idHash == 59375616 || component.idHash == 35913932 || component.idHash == 59768835 || component.idHash == 38600709) {
                             component.basePositionY = 0;
 
                             //if you enter the lobby you must resize
@@ -107,7 +158,7 @@ public class SkyboxIndexLoader {
                             Dimension frameSize = Loader.clientFrame.getSize();
 
                             //592 is default frame height, if we are at default and we are at first login and we are in lobby
-                            if(Loader.firstLobby == true && frameSize.height == 592) {
+                            if (Loader.firstLobby == true && frameSize.height == 592) {
                                 Loader.firstLobby = false;
                                 Loader.clientFrame.setSize(frameSize.width, 503);
                                 Loader.clientFrame.pack();
@@ -116,25 +167,22 @@ public class SkyboxIndexLoader {
                         }
 
                         //Banner at top hashes
-                        if(component.idHash == 59375617 || component.idHash == 48890095 || component.idHash == 35913730) {
+                        if (component.idHash == 59375617 || component.idHash == 48890095 || component.idHash == 35913730) {
                             component.baseHeight = 0;
                         }
 
                         //Always make sure lobby is tight, 50 is what is left over
-                        if(interfaceId == 906 && component.baseHeight == 50) {
-                                component.baseHeight = 0;
+                        if (interfaceId == 906 && component.baseHeight == 50) {
+                            component.baseHeight = 0;
                         }
 
                     }
-
                 }
-            }
-            if(interfaceId == 667) {
-                interfaceObj = interfaceObj;
 
             }
-            return interfaceObj;
         }
+
+        return interfaceObj;
     }
 
     public void method5068() {
@@ -197,3 +245,10 @@ public class SkyboxIndexLoader {
         return new Class247(class207_8.anInt2653, arr_7, class207_8.anInt2654, i_2, i_3, i_4, class207_8.aClass204_2656, class207_8.anInt2657);
     }
 }
+
+
+//                        if (component.idHash == 39059515 || i == 59) {
+////                                System.out.println(component.type);
+////                                component.basePositionY -= 40;
+////                                component.hidden = true;
+//                        }
