@@ -4,6 +4,7 @@ import com.Loader;
 
 import java.awt.*;
 import java.util.Date;
+import java.util.Iterator;
 
 public class SkyboxIndexLoader {
 
@@ -23,17 +24,11 @@ public class SkyboxIndexLoader {
     private static IComponentDefinitions changeLogin(IComponentDefinitions component, Interface interfaceObj, int interfaceId, int i) {
 
         if (interfaceId == 596) {
-            //Move everything up a bit
-            if(component.type == ComponentType.CONTAINER) {
-                component.basePositionY -= 17;
-            } else if(i == 38 || i == 40) {
-                component.basePositionY -= 17;
-            }
-
             //reduce size of background
-            if (i == 3) {//or i == 1?
-                component.baseHeight -= 65;
-                component.basePositionY += 25;
+            if (i == 3) {
+                component.baseHeight -= 75;
+                component.basePositionY -= 10;
+
             }
 
             /*
@@ -41,9 +36,8 @@ public class SkyboxIndexLoader {
              * 35 is login title 38 is login text 39 is login box 40 is pass text 41 is password box 44 is login button
              * */
             if (i == 35 || (i >= 38 && i <= 41) || i == 44) {
-                component.basePositionY += 65;
+                component.basePositionY += 40;
             }
-
 
             //Remove excess children of a conatiner with filler components
             if(component.parent == 39059460) {
@@ -59,25 +53,22 @@ public class SkyboxIndexLoader {
                 component.hidden = true;
             }
 
-            //Move this up a bit
-            if (component.text.equalsIgnoreCase("<u=C8C8C8>Create Account Now")) { //TODO: Change the link?
-                component.basePositionY -= 13;
-
-
+            //Move Create new account container down
+            if(component.idHash == 39059501) {
+                component.basePositionY +=45;
             }
 
-            if (component.type == ComponentType.CONTAINER) {
-//                                System.out.println(i);
+            //Change the text
+            if (component.text.equalsIgnoreCase("<u=C8C8C8>Recover Your Password")) { //TODO: Change the link?
+                component.text = "Create new account";
             }
 
-
-            //Remove texts
+            //Remove excess texts
             if (component.text.equalsIgnoreCase("(Opens a popup window)") ||
-                    component.text.equalsIgnoreCase("Or log in with:") ||
-                    component.text.equalsIgnoreCase("<u=C8C8C8>Recover Your Password")) {
-                interfaceObj.components[i] = null;
+                    component.text.equalsIgnoreCase("<u=C8C8C8>Create Account Now") ||
+                    component.text.equalsIgnoreCase("Or log in with:")){
+                component.hidden = true;
             }
-
         }
         return component;
     }
@@ -104,7 +95,7 @@ public class SkyboxIndexLoader {
             }
 
             boolean becameLogin = false;
-            for (int i = 0; i < componentSize; i++) { //TODO: Make this place more neat with functions, also change create account, test it first.
+            for (int i = 0; i < componentSize; i++) { //TODO: Make this place more neat with functions, also change create account, test it first. Also default to animated
                 if (interfaceObj.components[i] == null) {
                     byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, xteas);
                     if (bytes_8 != null) {
@@ -112,10 +103,16 @@ public class SkyboxIndexLoader {
                         component.idHash = i + (interfaceId << 16);
                         component.readValues(new JagexNode(bytes_8));
 
+//                        System.out.println(interfaceId);
+
                         //If we are at login, these are all the additions to the login interface
                         if(interfaceId == 596) {
                             component = changeLogin(component, interfaceObj, interfaceId, i);
                         }
+                        if(interfaceId == 673) {//Create account
+                            System.out.println(i + component.text);
+                        }
+
                         if(interfaceId == 906) {
                             //Change lobby
                         }

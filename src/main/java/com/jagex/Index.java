@@ -89,12 +89,12 @@ public class Index {
         return i_6;
     }
 
-    public static IComponentDefinitions getIComponentDefinitions(int interfaceId, int slotId) {
-        IComponentDefinitions ifDef = IComponentDefinitions.getDefs(interfaceId);
+    public static IComponentDefinitions getIComponentDefinitions(int hash, int slotId) {
+        IComponentDefinitions component = IComponentDefinitions.getDefs(hash);
         if (slotId == -1)
-            return ifDef;
-        if (ifDef != null && ifDef.slotChildren != null && slotId < ifDef.slotChildren.length)
-            return ifDef.slotChildren[slotId];
+            return component;
+        if (component != null && component.slotChildren != null && slotId < component.slotChildren.length)
+            return component.slotChildren[slotId];
         return null;
     }
 

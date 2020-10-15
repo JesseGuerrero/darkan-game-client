@@ -894,13 +894,13 @@ public class client extends Engine {
 
 	}
 
-	public static IFTargetParams getIComponentSettings(IComponentDefinitions icomponentdefinitions_0) {
-		IFTargetParams class282_sub10_1 = (IFTargetParams) ICOMPONENT_SETTINGS_SLOTS.get(((long) icomponentdefinitions_0.idHash << 32) + icomponentdefinitions_0.slotId);
-		return class282_sub10_1 != null ? class282_sub10_1 : icomponentdefinitions_0.targetParams;
+	public static IFTargetParams getIComponentSettings(IComponentDefinitions component) {
+		IFTargetParams class282_sub10_1 = (IFTargetParams) ICOMPONENT_SETTINGS_SLOTS.get(((long) component.idHash << 32) + component.slotId);
+		return class282_sub10_1 != null ? class282_sub10_1 : component.targetParams;
 	}
 
-	static IComponentDefinitions method11634(IComponentDefinitions icomponentdefinitions_0) {
-		IFTargetParams class282_sub10_1 = getIComponentSettings(icomponentdefinitions_0);
+	static IComponentDefinitions method11634(IComponentDefinitions component) {
+		IFTargetParams class282_sub10_1 = getIComponentSettings(component);
 		if (class282_sub10_1.bit23Enabled()) {
 			return InputSubscriberType.aClass118_2763;
 		} else {
@@ -909,13 +909,13 @@ public class client extends Engine {
 				return null;
 			} else {
 				for (int i_3 = 0; i_3 < i_2; i_3++) {
-					icomponentdefinitions_0 = IComponentDefinitions.getParentLayer(CutsceneAction.method1605(icomponentdefinitions_0.idHash), icomponentdefinitions_0);
-					if (icomponentdefinitions_0 == null) {
+					component = IComponentDefinitions.getParentLayer(CutsceneAction.method1605(component.idHash), component);
+					if (component == null) {
 						return InputSubscriberType.aClass118_2763;
 					}
 				}
 
-				return icomponentdefinitions_0;
+				return component;
 			}
 		}
 	}

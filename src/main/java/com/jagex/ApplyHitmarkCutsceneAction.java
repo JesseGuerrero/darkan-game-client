@@ -107,9 +107,9 @@ public class ApplyHitmarkCutsceneAction extends CutsceneAction {
         }
     }
 
-    static boolean method14643(IComponentDefinitions icomponentdefinitions_0) {
-        IFTargetParams class282_sub10_2 = client.getIComponentSettings(icomponentdefinitions_0);
-        return class282_sub10_2.depthFlags() > 0 || (class282_sub10_2.bit23Enabled() || icomponentdefinitions_0.aClass118_1379 != null);
+    static boolean method14643(IComponentDefinitions component) {
+        IFTargetParams compSettings = client.getIComponentSettings(component);
+        return compSettings.depthFlags() > 0 || (compSettings.bit23Enabled() || component.aClass118_1379 != null);
     }
 
     @Override
