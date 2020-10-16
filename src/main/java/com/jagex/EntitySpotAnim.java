@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public class EntitySpotAnim {
 
     public int anInt2011;
@@ -16,7 +18,7 @@ public class EntitySpotAnim {
         animation = new Animation_Sub2(animable_1);
     }
 
-    static void method2827() {
+    static void method2827() { new Getlineonce(true);
         IComponentDefinitions.redrawComponent(client.aClass118_7257);
         ++SendFinishedCutsceneAction.anInt8308;
         if (client.aBool7369 && client.aBool7403) {

@@ -2,6 +2,7 @@ package com.jagex;
 
 import java.awt.Component;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotionListener, MouseWheelListener {
 
@@ -26,6 +27,9 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
     Component aComponent7935;
 
     public static boolean shiftDown = false;
+    public static boolean isScrolling = true;
+    public static boolean isScrolling2 = true;
+    public static boolean insideInterface = false;
 
     Class209_Sub1(Component component_1) {
         method12906(component_1);
@@ -48,13 +52,13 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
             i_2 = anInt7944;
         }
         if ((i_2 & 0x1) != 0) {
-            method12909(3, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(3, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         }
         if ((i_2 & 0x4) != 0) {
-            method12909(5, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(5, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         }
         if ((i_2 & 0x2) != 0) {
-            method12909(4, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(4, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         }
         anInt7944 &= ~i_2;
         if (mouseevent_1.isPopupTrigger()) {
@@ -84,7 +88,7 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
         anInt7942 = i_1;
         anInt7943 = i_2;
         if (aBool7946) {
-            method12909(-1, i_1, i_2, 0);
+            recordUsage(-1, i_1, i_2, 0);
         }
     }
 
@@ -166,11 +170,11 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
     public synchronized void mousePressed(MouseEvent mouseevent_1) {
         int i_2 = method12908(mouseevent_1);
         if (i_2 == 1) {
-            method12909(0, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(0, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         } else if (i_2 == 4) {
-            method12909(2, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(2, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         } else if (i_2 == 2) {
-            method12909(1, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
+            recordUsage(1, mouseevent_1.getX(), mouseevent_1.getY(), mouseevent_1.getClickCount());
         }
         anInt7944 |= i_2;
         if (mouseevent_1.isPopupTrigger()) {
@@ -178,9 +182,9 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
         }
     }
 
-    void method12909(int i_1, int i_2, int i_3, int i_4) {
-        MouseRecord_Sub2 class282_sub53_sub2_6 = GraphNode_Sub1_Sub3_Sub1.method16080(i_1, i_2, i_3, Utils.time(), i_4);
-        aClass482_7945.append(class282_sub53_sub2_6);
+    void recordUsage(int movementType, int mouseX, int mouseY, int movementValue) {
+        MouseRecord_Sub2 mouseRecord = GraphNode_Sub1_Sub3_Sub1.method16080(movementType, mouseX, mouseY, Utils.time(), movementValue);
+        aClass482_7945.append(mouseRecord);
     }
 
     @Override
@@ -199,22 +203,38 @@ public class Class209_Sub1 extends Class209 implements MouseListener, MouseMotio
         return (MouseRecord) aClass482_7941.popHead();
     }
 
-    @Override
-    public synchronized void mouseWheelMoved(MouseWheelEvent mousewheelevent_1) {
-        int i_2 = mousewheelevent_1.getX();
-        int i_3 = mousewheelevent_1.getY();
-        int i_4 = mousewheelevent_1.getWheelRotation();
 
-        if (mousewheelevent_1.isControlDown()) {
-            if (mousewheelevent_1.getWheelRotation() == -1 && HitbarDefinitions.CAMERA_ZOOM >= -50) {
-                HitbarDefinitions.CAMERA_ZOOM -= 30;
-            }
-            if (mousewheelevent_1.getWheelRotation() == 1 && HitbarDefinitions.CAMERA_ZOOM < 1700) {
-                HitbarDefinitions.CAMERA_ZOOM += 30;
+
+    @Override
+    public synchronized void mouseWheelMoved(MouseWheelEvent mouseWheel) {
+        int mouseX = mouseWheel.getX();
+        int mouseY = mouseWheel.getY();
+        int mouseWheelRotation = mouseWheel.getWheelRotation();
+
+        int zoomAmount = mouseWheel.isControlDown() ? 30 : 50;
+
+
+        recordUsage(6, mouseX, mouseY, mouseWheelRotation);
+        mouseWheel.consume();
+        int[] interfaceIDs = {762, 780};
+        for(int id = 0; id < interfaceIDs.length; id++) {
+            if(Interface.INTERFACES[interfaceIDs[id]] != null) {
+                insideInterface = true;
+                break;
             }
         }
-        method12909(6, i_2, i_3, i_4);
-        mousewheelevent_1.consume();
+
+
+        if(!isScrolling && !insideInterface && !isScrolling2) {
+            if (mouseWheel.getWheelRotation() == -1 && HitbarDefinitions.CAMERA_ZOOM >= -50) {
+                HitbarDefinitions.CAMERA_ZOOM -= zoomAmount;
+            }
+            if (mouseWheel.getWheelRotation() == 1 && HitbarDefinitions.CAMERA_ZOOM < 1700) {
+                HitbarDefinitions.CAMERA_ZOOM += zoomAmount;
+            }
+        } else {
+            insideInterface = false;
+        }
     }
 
     @Override

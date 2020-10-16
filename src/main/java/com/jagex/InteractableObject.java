@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 import java.util.Arrays;
 
 public class InteractableObject extends GraphNode_Sub1_Sub1 implements WorldObject {

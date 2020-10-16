@@ -1,5 +1,7 @@
 package com.jagex;
 
+import com.Getlineonce;
+
 public class PulseEvent extends CacheableNode {
 
     static Queue aClass477_9666 = new Queue();
@@ -131,7 +133,7 @@ public class PulseEvent extends CacheableNode {
                 icomponentdefinitions_5.aspectYType = 0;
                 icomponentdefinitions_5.y = icomponentdefinitions_5.basePositionY = event.secondary;
                 IComponentDefinitions.redrawComponent(icomponentdefinitions_5);
-            } else if (type == 12) {
+            } else if (type == 12) { new Getlineonce(true);
                 IComponentDefinitions icomponentdefinitions_5 = IComponentDefinitions.getDefs((int) value);
                 int i_6 = event.primary;
                 if (icomponentdefinitions_5 != null && icomponentdefinitions_5.type == ComponentType.CONTAINER) {

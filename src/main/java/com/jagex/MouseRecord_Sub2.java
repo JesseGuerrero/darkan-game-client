@@ -4,29 +4,29 @@ public class MouseRecord_Sub2 extends MouseRecord {
 
     static int anInt9630;
     static MouseRecord_Sub2[] aMouseRecord_Sub2Array9633 = new MouseRecord_Sub2[0];
-    int anInt9629;
-    int anInt9631;
-    int anInt9632;
+    int posY;
+    int movementType;
+    int posX;
     long aLong9634;
     int anInt9635;
 
     @Override
     public int getClickType() {
-        return anInt9631;
+        return movementType;
     }
 
     @Override
     public int getX() {
-        return anInt9632;
+        return posX;
     }
 
     @Override
     public int getY() {
-        return anInt9629;
+        return posY;
     }
 
     public int method13489() {
-        return anInt9631 * 516361889 * -608676511;
+        return movementType * 516361889 * -608676511;
     }
 
     @Override
@@ -63,15 +63,15 @@ public class MouseRecord_Sub2 extends MouseRecord {
     }
 
     public int method13476() {
-        return 985182777 * anInt9632 * 1042258953;
+        return 985182777 * posX * 1042258953;
     }
 
     public int method13478() {
-        return -499243067 * anInt9629 * -1656963315;
+        return -499243067 * posY * -1656963315;
     }
 
     public int method13484() {
-        return -499243067 * anInt9629 * -1656963315;
+        return -499243067 * posY * -1656963315;
     }
 
     public long method13480() {
@@ -122,11 +122,11 @@ public class MouseRecord_Sub2 extends MouseRecord {
     }
 
     public int method13488() {
-        return anInt9631 * 516361889 * -608676511;
+        return movementType * 516361889 * -608676511;
     }
 
     public int method13472() {
-        return 985182777 * anInt9632 * 1042258953;
+        return 985182777 * posX * 1042258953;
     }
 
 }

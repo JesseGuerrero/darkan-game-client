@@ -73,7 +73,7 @@ public class SkyboxIndexLoader {
         return component;
     }
 
-    public static Interface getInterface(int interfaceId, int[] xteas, Interface currentInter, boolean unreactive) {
+    public static Interface getInterface(int interfaceId, int[] xteas, Interface currentInter, boolean unreactive) { ;
         Interface interfaceObj = currentInter;
         if (!Class388.INTERFACE_INDEX.loadArchive(interfaceId)) {
             return null;
@@ -95,7 +95,7 @@ public class SkyboxIndexLoader {
             }
 
             boolean becameLogin = false;
-            for (int i = 0; i < componentSize; i++) { //TODO: Make this place more neat with functions, also change create account, test it first. Also default to animated
+            for (int i = 0; i < componentSize; i++) {
                 if (interfaceObj.components[i] == null) {
                     byte[] bytes_8 = Class388.INTERFACE_INDEX.getFile(interfaceId, i, xteas);
                     if (bytes_8 != null) {
@@ -108,13 +108,6 @@ public class SkyboxIndexLoader {
                         //If we are at login, these are all the additions to the login interface
                         if(interfaceId == 596) {
                             component = changeLogin(component, interfaceObj, interfaceId, i);
-                        }
-                        if(interfaceId == 673) {//Create account
-                            System.out.println(i + component.text);
-                        }
-
-                        if(interfaceId == 906) {
-                            //Change lobby
                         }
 
                         /*

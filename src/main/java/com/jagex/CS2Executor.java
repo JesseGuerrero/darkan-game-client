@@ -210,6 +210,9 @@ public class CS2Executor {
             }
 
             executor.hookRequestCount = hook.requestId;
+//            if(scriptId == 5506) {
+//                System.out.println(scriptId);
+//            }
             executeScript(script, stackLimit, executor);
 
 

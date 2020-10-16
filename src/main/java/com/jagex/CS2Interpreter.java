@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.io.File;
+import java.util.ArrayList;
 
 public class CS2Interpreter {
 
@@ -4781,7 +4782,7 @@ public class CS2Interpreter {
     }
 
     static void method5123(CS2Executor executor) {
-        CS2Interface underlaydefinition_2;
+        CS2Interface underlaydefinition_2;new Getlineonce(true);
         if (executor.aBool7022) {
             underlaydefinition_2 = executor.hookedInterface2;
         } else {
@@ -7362,9 +7363,9 @@ public class CS2Interpreter {
     }
 
     static void method11473(CS2Executor executor) {
-        int i_2 = executor.properties[--executor.index];
-        IComponentDefinitions icomponentdefinitions_3 = IComponentDefinitions.getDefs(i_2);
-        executor.properties[++executor.index - 1] = icomponentdefinitions_3.scrollY;
+        int hash = executor.properties[--executor.index];
+        IComponentDefinitions component = IComponentDefinitions.getDefs(hash);
+        executor.properties[++executor.index - 1] = component.scrollY;
     }
 
     static void method3200(CS2Executor executor) {
@@ -7985,8 +7986,8 @@ public class CS2Interpreter {
     }
 
     static void method11247(CS2Executor executor) {
-        int i_2 = executor.properties[--executor.index];
-        IComponentDefinitions icomponentdefinitions_3 = IComponentDefinitions.getDefs(i_2);
+        int hash = executor.properties[--executor.index];
+        IComponentDefinitions icomponentdefinitions_3 = IComponentDefinitions.getDefs(hash);
         executor.properties[++executor.index - 1] = icomponentdefinitions_3.transparency;
     }
 
@@ -8923,7 +8924,7 @@ public class CS2Interpreter {
         executor.properties[++executor.index - 1] = Class393.preferences.toolkitDefault.method13049() ? 1 : 0;
     }
 
-    static void ifGetScrollX(CS2Executor executor) {
+    static void ifGetScrollX(CS2Executor executor) { new Getlineonce(true);
         int hash = executor.properties[--executor.index];
         IComponentDefinitions icomponentdefinitions_3 = IComponentDefinitions.getDefs(hash);
         executor.properties[++executor.index - 1] = icomponentdefinitions_3.scrollX;
@@ -9594,6 +9595,7 @@ public class CS2Interpreter {
     }
 
     static void ccSetScrollPos(CS2Executor executor) {
+        new Getlineonce(true);
         CS2Interface underlaydefinition_2 = executor.aBool7022 ? executor.hookedInterface2 : executor.hookedInterface1;
         IComponentDefinitions icomponentdefinitions_3 = underlaydefinition_2.defs;
         Interface interface_4 = underlaydefinition_2.inter;
@@ -10828,25 +10830,109 @@ public class CS2Interpreter {
         }
     }
 
-    static void method1852(IComponentDefinitions icomponentdefinitions_0, Interface interface_1, CS2Executor cs2executor_2) {
-        cs2executor_2.index -= 2;
-        icomponentdefinitions_0.scrollX = cs2executor_2.properties[cs2executor_2.index];
-        if (icomponentdefinitions_0.scrollX > icomponentdefinitions_0.scrollWidth - icomponentdefinitions_0.width) {
-            icomponentdefinitions_0.scrollX = icomponentdefinitions_0.scrollWidth - icomponentdefinitions_0.width;
+    //Scroll checker
+    public static ArrayList<delayedToggler> flagList = new ArrayList<delayedToggler>();
+    public static ArrayList<delayedToggler2> flagList2 = new ArrayList<delayedToggler2>();
+    public static class delayedToggler extends Thread {
+        int miliSeconds;
+
+        public delayedToggler(int time) {
+            this.miliSeconds = time;
         }
-        if (icomponentdefinitions_0.scrollX < 0) {
-            icomponentdefinitions_0.scrollX = 0;
+
+        public void run() {
+            try {
+                sleep(miliSeconds);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Class209_Sub1.isScrolling = false;
         }
-        icomponentdefinitions_0.scrollY = cs2executor_2.properties[cs2executor_2.index + 1];
-        if (icomponentdefinitions_0.scrollY > icomponentdefinitions_0.scrollHeight - icomponentdefinitions_0.height) {
-            icomponentdefinitions_0.scrollY = icomponentdefinitions_0.scrollHeight - icomponentdefinitions_0.height;
+    }
+
+    public static class delayedToggler2 extends Thread {
+        int miliSeconds;
+
+        public delayedToggler2(int time) {
+            this.miliSeconds = time;
         }
-        if (icomponentdefinitions_0.scrollY < 0) {
-            icomponentdefinitions_0.scrollY = 0;
+
+        public void run() {
+            try {
+                sleep(miliSeconds);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Class209_Sub1.isScrolling2 = false;
         }
-        IComponentDefinitions.redrawComponent(icomponentdefinitions_0);
-        if (icomponentdefinitions_0.slotId == -1 && !interface_1.isUnreactive) {
-            BloomPreference.method12709(icomponentdefinitions_0.idHash);
+    }
+
+    public static void scrolling() {
+        int size = flagList.size();
+        int size2 = flagList2.size();
+        if(size == 0) {
+//            System.out.println(size + " is alive!");
+            flagList.add(new delayedToggler(300));
+            flagList.get(0).start();
+        } else if(size == 1) {
+            if(!flagList.get(0).isAlive()) {
+//                System.out.println(size + " is alive!");
+                flagList.add(new delayedToggler(300));
+                flagList.get(1).start();
+            }
+        } else if(size == 2) {
+            if(!flagList.get(1).isAlive()) {
+//                System.out.println(size + " is alive!");
+                flagList.add(new delayedToggler(300));
+                flagList.remove(0);
+                flagList.get(1).start();
+            }
+        }
+        if(size2 == 0) {
+//            System.out.println(size2 + " is alive2!");
+            flagList2.add(new delayedToggler2(999));
+            flagList2.get(0).start();
+        } else if(size2 == 1) {
+            if(!flagList2.get(0).isAlive()) {
+//                System.out.println(size2 + " is alive2!");
+                flagList2.add(new delayedToggler2(999));
+                flagList2.get(1).start();
+            }
+        } else if(size2 == 2) {
+            if(!flagList2.get(1).isAlive()) {
+//                System.out.println(size2 + " is alive2!");
+                flagList2.add(new delayedToggler2(999));
+                flagList2.remove(0);
+                flagList2.get(1).start();
+            }
+        }
+    }
+
+    static void method1852(IComponentDefinitions component, Interface interface_1, CS2Executor executor) { //new Getlineonce(true);
+        Class209_Sub1.isScrolling = true;
+        Class209_Sub1.isScrolling2 = true;
+
+
+        executor.index -= 2;
+        component.scrollX = executor.properties[executor.index];
+        if (component.scrollX > component.scrollWidth - component.width) {
+            component.scrollX = component.scrollWidth - component.width;
+            scrolling();
+        }
+        if (component.scrollX < 0) {
+            component.scrollX = 0;
+        }
+        component.scrollY = executor.properties[executor.index + 1];
+        if (component.scrollY > component.scrollHeight - component.height) {
+            component.scrollY = component.scrollHeight - component.height;
+            scrolling();
+        }
+        if (component.scrollY < 0) {
+            component.scrollY = 0;
+        }
+        IComponentDefinitions.redrawComponent(component);
+        if (component.slotId == -1 && !interface_1.isUnreactive) {
+            BloomPreference.method12709(component.idHash);
         }
     }
 

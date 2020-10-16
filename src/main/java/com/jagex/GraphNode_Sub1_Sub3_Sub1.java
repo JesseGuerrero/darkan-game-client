@@ -51,8 +51,8 @@ public class GraphNode_Sub1_Sub3_Sub1 extends SceneObjectNode implements WorldOb
         }
     }
 
-    static MouseRecord_Sub2 method16080(int i_0, int i_1, int i_2, long long_3, int i_5) {
-        MouseRecord_Sub2[] arr_7 = MouseRecord_Sub2.aMouseRecord_Sub2Array9633;
+    static MouseRecord_Sub2 method16080(int movementType, int mouseX, int mouseY, long time, int movementValue) {
+//        MouseRecord_Sub2[] arr_7 = MouseRecord_Sub2.aMouseRecord_Sub2Array9633;
         synchronized (MouseRecord_Sub2.aMouseRecord_Sub2Array9633) {
             MouseRecord_Sub2 class282_sub53_sub2_8;
             if (Class279.anInt3370 == 0) {
@@ -60,11 +60,11 @@ public class GraphNode_Sub1_Sub3_Sub1 extends SceneObjectNode implements WorldOb
             } else {
                 class282_sub53_sub2_8 = MouseRecord_Sub2.aMouseRecord_Sub2Array9633[--Class279.anInt3370];
             }
-            class282_sub53_sub2_8.anInt9631 = i_0;
-            class282_sub53_sub2_8.anInt9632 = i_1;
-            class282_sub53_sub2_8.anInt9629 = i_2;
-            class282_sub53_sub2_8.aLong9634 = long_3;
-            class282_sub53_sub2_8.anInt9635 = i_5;
+            class282_sub53_sub2_8.movementType = movementType;
+            class282_sub53_sub2_8.posX = mouseX;
+            class282_sub53_sub2_8.posY = mouseY;
+            class282_sub53_sub2_8.aLong9634 = time;
+            class282_sub53_sub2_8.anInt9635 = movementValue;
             return class282_sub53_sub2_8;
         }
     }

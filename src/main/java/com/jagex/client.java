@@ -1,5 +1,6 @@
 package com.jagex;
 
+import com.Getlineonce;
 import com.Loader;
 import com.jagex.clans.settings.ChangeClanSetting;
 import jaclib.ping.Ping;
@@ -1228,7 +1229,6 @@ public class client extends Engine {
 											player_55.method15880(leftBound, lowerBound, rightBound, upperBound, x - iCompDef.scrollX, y - iCompDef.scrollY, mouseX, mouseY);
 										}
 									}
-
 									for (i_27 = 0; i_27 < NPC_UPDATE_INDEX; i_27++) {
 										i_52 = NPC_UPDATE_INDICES[i_27];
 										ObjectNode class282_sub47_56 = (ObjectNode) NPC_MAP.get(i_52);
@@ -1689,6 +1689,7 @@ public class client extends Engine {
 						if (iCompDef.type == ComponentType.SPRITE && iCompDef.anInt1404 != -1) {
 							iCompDef.method2027(IndexLoaders.SKYBOX_LOADER, IndexLoaders.SUN_LOADER).method4217(Renderers.CURRENT_RENDERER, iCompDef.height, Class393.preferences.skyBoxes.method12728());
 						}
+
 
 						Class86.method1482(iCompDef);
 						if (iCompDef.type == ComponentType.CONTAINER) {
